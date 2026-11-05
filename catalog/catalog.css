@@ -9,7 +9,7 @@
 /* Editorial refinement to match FUNtasia Audio's existing identity */
 :root{--bg:#101a19;--panel:#172321;--sage:#78958a;--light:#8fae9f;--ivory:#e8e1ce;--muted:#a9b3a9;--line:rgba(232,225,206,.16)}
 header{background:#101a19}.brand{font-weight:500;letter-spacing:.06em}header nav a{border-radius:2px;font-family:Arial,sans-serif;letter-spacing:.06em}main{padding-top:76px}.eyebrow{font-family:Arial,sans-serif;font-weight:500}h1{font-weight:400;letter-spacing:-.025em}
-.card{border-radius:3px;background:var(--panel)}.card h2{font-weight:400}.search{background:#172321;border-color:rgba(143,174,159,.55);border-radius:2px}.mini-btn,.filter-btn{border-radius:2px;font-family:Arial,sans-serif;letter-spacing:.035em}.filter-btn[aria-pressed=true]{background:#8fae9f}.shot{background:#101a19;filter:saturate(.78)}.catalog-site-nav a{font-family:Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.card{border-radius:3px;background:var(--panel)}.card h2{font-weight:400}.search{background:#172321;border-color:rgba(143,174,159,.55);border-radius:2px}.mini-btn,.filter-btn{border-radius:2px;font-family:Arial,sans-serif;letter-spacing:.035em}.filter-btn[aria-pressed=true]{background:#8fae9f}.shot{background:#101a19;aspect-ratio:16/9;object-fit:cover;filter:none}.catalog-site-nav a{font-family:Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 
 /* Product description modal */
 .detail-btn{border-color:#8fae9f;color:#e8e1ce}
@@ -21,3 +21,5 @@ header{background:#101a19}.brand{font-weight:500;letter-spacing:.06em}header nav
 
 /* Shared navigation and mobile product-card layout */
 .catalog-site-nav{gap:6px 17px}.catalog-site-nav a{border-radius:0;border:0;border-bottom:2px solid transparent;padding:7px 0}.catalog-site-nav a:hover,.catalog-site-nav a:focus-visible,.catalog-site-nav a[aria-current="page"]{border-bottom-color:#8fae9f}.catalog-site-nav a[aria-current="page"]{background:transparent;color:#e8e1ce}button:focus-visible{outline:2px solid #8fae9f;outline-offset:3px}@media(max-width:680px){header{padding:12px 0}.bar{gap:9px 12px}.catalog-site-nav{width:100%;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding-bottom:5px}.catalog-site-nav a{flex:0 0 auto;white-space:nowrap}.wrap{width:calc(100% - 32px)}main{padding:44px 0}.card{border-radius:4px}}
+
+.concept-note{margin:10px 0 3px;font:12px/1.8 Arial,sans-serif;color:var(--muted);max-width:780px}

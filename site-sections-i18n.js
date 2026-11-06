@@ -69,7 +69,7 @@
     ["FUNtasia Studioの植物をモチーフにしたモノグラムを、7つの落ち着いたテーマカラーで楽しめる無料壁紙。4K横型・ウルトラワイド・縦型の3サイズ、合計21枚をまとめてダウンロードできます。Windows 11向けの無料マウスカーソル7テーマもご用意しています。","Free wallpapers featuring FUNtasia Studio’s botanical monogram in seven calm colors. Download all 21 images in 4K, ultrawide and portrait formats, plus seven free Windows 11 cursor themes.","Kostenlose Wallpaper mit dem botanischen Monogramm von FUNtasia Studio in sieben dezenten Farben. Lade 21 Bilder in 4K, Ultrawide und Hochformat sowie sieben kostenlose Windows-11-Cursor-Themes herunter.","Des fonds d’écran gratuits avec le monogramme végétal de FUNtasia Studio, déclinés en sept couleurs douces. Téléchargez 21 images en 4K, ultra-large et portrait, ainsi que sept thèmes de curseurs Windows 11.","Бесплатные обои с растительной монограммой FUNtasia Studio в семи спокойных цветах. 21 изображение в 4K, сверхшироком и вертикальном форматах, а также семь тем курсоров для Windows 11."],
     ["7つのカラーテーマ","Seven color themes","Sieben Farbthemen","Sept thèmes de couleur","Семь цветовых тем"],
     ["無料ダウンロード","Free downloads","Kostenlose Downloads","Téléchargements gratuits","Бесплатные загрузки"],
-    ["壁紙21枚をダウンロード（ZIP） ↗","Download 21 wallpapers (ZIP) ↗","21 Wallpaper herunterladen (ZIP) ↗","Télécharger les 21 fonds d’écran (ZIP) ↗","Скачать 21 обои (ZIP) ↗"],
+    ["壁紙21枚をダウンロード（ZIP） ↗","Download 21 wallpapers (ZIP) ↗","21 Wallpaper herunterladen (ZIP) ↗","Télécharger les 21 fonds d’écran (ZIP) ↗","Скачать 21 изображение (ZIP) ↗"],
     ["リリース情報を見る ↗","View release information ↗","Versionsinformationen ansehen ↗","Voir les informations de version ↗","Сведения о выпуске ↗"],
     ["収録サイズ：","Included sizes:","Enthaltene Größen:","Formats inclus :","Размеры:"],
     ["3840 × 2160（4K）、5120 × 2160（ウルトラワイド）、2160 × 3840（縦型）","3840 × 2160 (4K), 5120 × 2160 (ultrawide), 2160 × 3840 (portrait)","3840 × 2160 (4K), 5120 × 2160 (Ultrawide), 2160 × 3840 (Hochformat)","3840 × 2160 (4K), 5120 × 2160 (ultra-large), 2160 × 3840 (portrait)","3840 × 2160 (4K), 5120 × 2160 (сверхширокий), 2160 × 3840 (вертикальный)"],
@@ -101,7 +101,7 @@
       en: ['FUNtasia Goods | 21 Free Wallpapers & 7 Cursor Themes', 'Download 21 FUNtasia Studio wallpapers and seven free Windows 11 cursor themes.'],
       de: ['FUNtasia Goods | 21 kostenlose Wallpaper & 7 Cursor-Themes', 'Lade 21 FUNtasia-Studio-Wallpaper und sieben kostenlose Cursor-Themes für Windows 11 herunter.'],
       fr: ['FUNtasia Goods | 21 fonds d’écran et 7 thèmes de curseurs gratuits', 'Téléchargez 21 fonds d’écran FUNtasia Studio et sept thèmes de curseurs pour Windows 11.'],
-      ru: ['FUNtasia Goods | 21 бесплатные обои и 7 тем курсоров', 'Скачайте 21 обои FUNtasia Studio и семь бесплатных тем курсоров для Windows 11.']
+      ru: ['FUNtasia Goods | 21 бесплатных обоев и 7 тем курсоров', 'Скачайте 21 изображение FUNtasia Studio и семь бесплатных тем курсоров для Windows 11.']
     }
   };
   const common = {
@@ -156,7 +156,7 @@
       fr: `Icône du thème ${icon[1]} de FUNtasia Player`,
       ru: `Иконка темы ${icon[1]} FUNtasia Player`
     }[code];
-    if (value.includes('カーソル')) return {
+    if (value.includes('カーソル') || value.includes('ポインター')) return {
       en: 'FUNtasia Alchemist Cursors pointer designs in seven colors',
       de: 'FUNtasia Alchemist Cursors mit sieben Farbthemen',
       fr: 'Curseurs FUNtasia Alchemist et leurs sept couleurs',

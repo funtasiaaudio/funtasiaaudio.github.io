@@ -263,6 +263,10 @@
       return null;
     }
   }
+  function queryLocale() {
+    const requested = new URLSearchParams(location.search).get('lang');
+    return supported.includes(requested) ? requested : null;
+  }
   function applyLocale(locale, remember = false) {
     if (!supported.includes(locale)) return;
     const strings = locale === 'ja' ? original : copy[locale];
@@ -287,9 +291,14 @@
     if (select) select.value = locale;
     if (remember) {
       try { localStorage.setItem(storageKey, locale); } catch { /* Browsing without local storage is supported. */ }
+      const url = new URL(location.href);
+      if (url.searchParams.has('lang')) {
+        url.searchParams.delete('lang');
+        history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+      }
     }
   }
 
-  applyLocale(savedLocale() || browserLocale());
+  applyLocale(queryLocale() || savedLocale() || browserLocale());
   select?.addEventListener('change', () => applyLocale(select.value, true));
 })();

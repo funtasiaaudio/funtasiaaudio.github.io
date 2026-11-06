@@ -66,10 +66,19 @@ for(const input of priceBar.querySelectorAll('input'))input.addEventListener('ch
  for(const other of priceBar.querySelectorAll('input'))other.checked=other.value===activePrice;
  filter();
 });
-for(const b of document.querySelectorAll('.share-btn'))b.addEventListener('click',async()=>{
- const url=b.dataset.shareUrl;const status=document.querySelector('#copy-status');
- try{await navigator.clipboard.writeText(url);if(status)status.textContent=status.dataset.copied;}
- catch{window.prompt('Copy URL',url);}
+for(const b of document.querySelectorAll('.instagram-share-btn'))b.addEventListener('click',async()=>{
+ const url=b.dataset.shareUrl,title=b.dataset.shareTitle;
+ const message=title+' '+url;
+ // Instagram does not offer a standard web URL intent for feed posts.
+ // Native sharing is offered where available; desktop fallback copies the product link.
+ if(navigator.share){
+  try{await navigator.share({title,text:message,url});return;}
+  catch(error){if(error?.name==='AbortError')return;}
+ }
+ try{
+  await navigator.clipboard.writeText(message);
+  window.alert(({ja:'製品名とURLをコピーしました。Instagramで貼り付けてください。',en:'Product name and URL copied. Paste them into Instagram.',de:'Produktname und URL kopiert. In Instagram einfügen.',fr:'Nom et URL du produit copiés. Collez-les dans Instagram.',ru:'Название и ссылка скопированы. Вставьте их в Instagram.'})[localeFilter]||'Product URL copied.');
+ }catch{window.prompt('Copy product link for Instagram',message);}
 });
 renderGenres();filter();
 

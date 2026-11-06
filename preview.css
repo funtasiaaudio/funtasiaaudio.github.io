@@ -85,3 +85,6 @@
 .language-switcher select:hover{border-color:var(--light)}
 .language-switcher select:focus-visible{outline:2px solid var(--light);outline-offset:3px}
 @media(max-width:680px){.language-switcher{flex:0 0 auto}.language-switcher select{min-height:42px}}
+
+/* Cyrillic typography: avoid Japanese font fallback metrics in Russian. */
+html[lang="ru"] body{font-family:"Times New Roman","Liberation Serif",serif}

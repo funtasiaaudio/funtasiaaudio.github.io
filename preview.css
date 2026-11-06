@@ -77,18 +77,11 @@
 #explore .card-media-launcher{background:linear-gradient(135deg,#1a3128,#101a19)}
 #explore .card-media-launcher img{width:auto;height:100%;max-width:100%;object-fit:contain}
 
-/* Homepage: discoverable links to the five existing Audio / Records locales */
-.language-directory{padding:38px 0 42px;border-top:1px solid var(--line);background:#121e1a;scroll-margin-top:20px}
-.language-intro{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:20px}
-.language-intro h2{margin:8px 0 0;font-size:clamp(1.4rem,2.5vw,1.9rem)}
-.language-intro p{max-width:510px;margin:0;color:var(--muted);font-size:.9rem}
-.language-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.language-option{min-width:0;padding:17px 18px;background:#172721;border:1px solid var(--line)}
-.language-option h3{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0 0 14px;font:500 1rem/1.4 Arial,sans-serif}
-.language-option small{color:var(--light);font:.68rem Arial,sans-serif;letter-spacing:.14em}
-.language-option-links{display:flex;flex-wrap:wrap;gap:10px 16px}
-.language-option-links a{color:var(--light);font:.85rem Arial,sans-serif;text-decoration:underline;text-decoration-color:#8fae9f66;text-underline-offset:4px}
-.language-option-links a:hover{color:var(--ivory)}
-@media(max-width:900px){.language-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:600px){.language-directory{padding:30px 0}.language-intro{display:block}.language-intro p{margin-top:12px}.language-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:380px){.language-grid{grid-template-columns:1fr}}
+/* One language selector for the entire homepage. */
+.nav{align-items:center}
+.language-switcher{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.language-switcher label{color:var(--light);font:500 .72rem/1.4 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.language-switcher select{min-height:36px;padding:6px 9px;background:#172721;color:var(--ivory);border:1px solid #8fae9f88;border-radius:3px;font:500 .82rem/1.4 Arial,sans-serif;cursor:pointer}
+.language-switcher select:hover{border-color:var(--light)}
+.language-switcher select:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+@media(max-width:680px){.language-switcher{flex:0 0 auto}.language-switcher select{min-height:42px}}

@@ -1,4 +1,77 @@
-const search=document.querySelector('#product-search');const cards=[...document.querySelectorAll('[data-product-name]')];const count=document.querySelector('#product-count');const unit=count?.dataset.unit||'';const filters=[...document.querySelectorAll('[data-filter]')];let active='all';function filter(){const q=(search?.value||'').toLocaleLowerCase().trim();let n=0;for(const c of cards){const visible=c.dataset.productName.toLocaleLowerCase().includes(q)&&(active==='all'||c.dataset.category===active);c.hidden=!visible;if(visible)n++;}if(count)count.textContent=n+' '+unit;const empty=document.querySelector('#empty-state');if(empty)empty.hidden=n!==0;}search?.addEventListener('input',filter);for(const b of filters)b.addEventListener('click',()=>{active=b.dataset.filter;for(const x of filters)x.setAttribute('aria-pressed',String(x===b));filter();});for(const b of document.querySelectorAll('.share-btn'))b.addEventListener('click',async()=>{const url=b.dataset.shareUrl;const status=document.querySelector('#copy-status');try{await navigator.clipboard.writeText(url);if(status)status.textContent=status.dataset.copied;}catch{window.prompt('Copy URL',url);}});filter();
+const search=document.querySelector('#product-search');
+const cards=[...document.querySelectorAll('[data-product-name]')];
+const count=document.querySelector('#product-count');
+const unit=count?.dataset.unit||'';
+const filters=[...document.querySelectorAll('[data-filter]')];
+const localeFilter=document.documentElement.lang||'en';
+const labels={
+ja:{genre:'ジャンル',all:'すべて',free:'無料のみ表示',paid:'有償のみ表示',effects:['EQ・フィルター','ダイナミクス','ディストーション','リバーブ・ディレイ','モジュレーション','その他'],instruments:['シンセサイザー','物理モデリング','サンプラー','ドラム音源']},
+en:{genre:'Genre',all:'All',free:'Free only',paid:'Paid only',effects:['EQ & Filters','Dynamics','Distortion','Reverb & Delay','Modulation','Other'],instruments:['Synthesizers','Physical Modeling','Samplers','Drum Instruments']},
+de:{genre:'Genre',all:'Alle',free:'Nur kostenlos',paid:'Nur kostenpflichtig',effects:['EQ & Filter','Dynamik','Verzerrung','Hall & Delay','Modulation','Sonstige'],instruments:['Synthesizer','Physikalische Modellierung','Sampler','Drum-Instrumente']},
+fr:{genre:'Genre',all:'Tout',free:'Gratuits uniquement',paid:'Payants uniquement',effects:['EQ et filtres','Dynamique','Distorsion','Réverbération et délai','Modulation','Autres'],instruments:['Synthétiseurs','Modélisation physique','Sampleurs','Instruments de batterie']},
+ru:{genre:'Жанр',all:'Все',free:'Только бесплатные',paid:'Только платные',effects:['Эквалайзеры и фильтры','Динамика','Дисторшн','Реверберация и задержка','Модуляция','Другое'],instruments:['Синтезаторы','Физическое моделирование','Сэмплеры','Ударные инструменты']}
+};
+const tr=labels[localeFilter]||labels.en;
+const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
+const instrumentGenres=['synth','physical','sampler','drum'];
+const genreByName={
+'FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
+'FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+};
+for(const card of cards){
+ const name=card.dataset.productName;
+ card.dataset.genre=genreByName[name]||'other';
+ // All currently published catalog entries are free; future paid products must be explicitly tagged.
+ if(!card.dataset.pricing)card.dataset.pricing='free';
+}
+const categoryBar=document.querySelector('.filters');
+const genreBar=document.createElement('div');genreBar.className='filters genre-filters';genreBar.setAttribute('role','group');genreBar.setAttribute('aria-label',tr.genre);genreBar.hidden=true;
+const priceBar=document.createElement('div');priceBar.className='price-filters';priceBar.setAttribute('role','group');priceBar.setAttribute('aria-label','Pricing');
+for(const [value,label] of [['free',tr.free],['paid',tr.paid]]){
+ const item=document.createElement('label');item.className='price-option';
+ const input=document.createElement('input');input.type='checkbox';input.value=value;input.dataset.priceFilter=value;
+ item.append(input,document.createTextNode(' '+label));priceBar.append(item);
+}
+categoryBar?.after(genreBar,priceBar);
+let active='all',activeGenre='all',activePrice='all';
+function renderGenres(){
+ genreBar.replaceChildren();
+ const keys=active==='effect'?effectGenres:active==='instrument'?instrumentGenres:[];
+ genreBar.hidden=keys.length===0;
+ if(!keys.length)return;
+ for(const [i,key] of ['all',...keys].entries()){
+  const button=document.createElement('button');button.type='button';button.className='filter-btn';button.dataset.genreFilter=key;
+  button.textContent=i===0?tr.all:(active==='effect'?tr.effects:tr.instruments)[i-1];
+  button.setAttribute('aria-pressed',String(key===activeGenre));
+  button.addEventListener('click',()=>{activeGenre=key;renderGenres();filter();});
+  genreBar.append(button);
+ }
+}
+function filter(){
+ const q=(search?.value||'').toLocaleLowerCase().trim();let n=0;
+ for(const c of cards){
+  const visible=c.dataset.productName.toLocaleLowerCase().includes(q)
+   &&(active==='all'||c.dataset.category===active)
+   &&(activeGenre==='all'||c.dataset.genre===activeGenre)
+   &&(activePrice==='all'||c.dataset.pricing===activePrice);
+  c.hidden=!visible;if(visible)n++;
+ }
+ if(count)count.textContent=n+' '+unit;
+ const empty=document.querySelector('#empty-state');if(empty)empty.hidden=n!==0;
+}
+search?.addEventListener('input',filter);
+for(const b of filters)b.addEventListener('click',()=>{active=b.dataset.filter;activeGenre='all';for(const x of filters)x.setAttribute('aria-pressed',String(x===b));renderGenres();filter();});
+for(const input of priceBar.querySelectorAll('input'))input.addEventListener('change',()=>{
+ activePrice=input.checked?input.value:'all';
+ for(const other of priceBar.querySelectorAll('input'))other.checked=other.value===activePrice;
+ filter();
+});
+for(const b of document.querySelectorAll('.share-btn'))b.addEventListener('click',async()=>{
+ const url=b.dataset.shareUrl;const status=document.querySelector('#copy-status');
+ try{await navigator.clipboard.writeText(url);if(status)status.textContent=status.dataset.copied;}
+ catch{window.prompt('Copy URL',url);}
+});
+renderGenres();filter();
 
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};

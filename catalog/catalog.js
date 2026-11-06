@@ -68,11 +68,11 @@ for(const input of priceBar.querySelectorAll('input'))input.addEventListener('ch
 });
 for(const b of document.querySelectorAll('.instagram-share-btn'))b.addEventListener('click',async()=>{
  const url=b.dataset.shareUrl,title=b.dataset.shareTitle;
- const message=title+' '+url;
+ const message='FUNtasia Audio - '+title+' '+url;
  // Instagram does not offer a standard web URL intent for feed posts.
  // Native sharing is offered where available; desktop fallback copies the product link.
  if(navigator.share){
-  try{await navigator.share({title,text:message,url});return;}
+  try{await navigator.share({title:'FUNtasia Audio - '+title,text:'FUNtasia Audio - '+title,url});return;}
   catch(error){if(error?.name==='AbortError')return;}
  }
  try{

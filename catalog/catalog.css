@@ -51,3 +51,11 @@ main{padding-top:64px}
 .card-actions .social-share-btn,.card-actions .instagram-share-btn{font-size:.73rem;color:#aebfb5}
 @media(max-width:1120px){.wrap{width:94%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
 @media(max-width:640px){.grid{grid-template-columns:1fr;gap:19px}.wrap{width:calc(100% - 32px)}.card h2{padding:16px 18px 6px}.card-actions{padding:14px 18px 20px}.card .shot{aspect-ratio:16/9}}
+
+/* Direct artwork preview and media download, without hijacking the product link. */
+.media-note{margin:4px 0 16px;color:var(--light);font:13px/1.7 Arial,sans-serif}
+.card > .card-image-link{display:block;overflow:hidden;position:relative}
+.card > .card-image-link .shot{transition:filter .2s ease}
+.card > .card-image-link:hover .shot{filter:brightness(1.09)}
+.card > .card-image-link:focus-visible{outline:3px solid var(--light);outline-offset:-4px}
+.card-actions .image-download-btn{background:#203f32;border-color:#88b398}

@@ -24,6 +24,46 @@ for(const card of cards){
  // All currently published catalog entries are free; future paid products must be explicitly tagged.
  if(!card.dataset.pricing)card.dataset.pricing='free';
 }
+
+/* Product artwork is a first-class media asset, separate from release navigation. */
+const artworkLabels={
+ ja:{open:'製品画像を新しいタブで開く',save:'製品画像を保存',note:'製品画像は各カードの「製品画像を保存」からダウンロードできます。'},
+ en:{open:'Open product artwork in a new tab',save:'Save product artwork',note:'Download product artwork using “Save product artwork” on each card.'},
+ de:{open:'Produktbild in neuem Tab öffnen',save:'Produktbild speichern',note:'Produktbilder können über „Produktbild speichern“ auf jeder Karte heruntergeladen werden.'},
+ fr:{open:'Ouvrir le visuel dans un nouvel onglet',save:'Enregistrer l’image',note:'Téléchargez les visuels des produits via « Enregistrer l’image » sur chaque fiche.'},
+ ru:{open:'Открыть изображение в новой вкладке',save:'Сохранить изображение',note:'Изображения продуктов можно скачать кнопкой « Сохранить изображение » на каждой карточке.'}
+};
+const artworkText=artworkLabels[localeFilter]||artworkLabels.en;
+const mediaNote=document.createElement('p');
+mediaNote.className='media-note';
+mediaNote.textContent=artworkText.note;
+document.querySelector('.concept-note')?.after(mediaNote);
+for(const card of cards){
+ const productLink=card.querySelector(':scope > a');
+ const image=productLink?.querySelector('img.shot');
+ const actions=card.querySelector('.card-actions');
+ if(!image||!actions)continue;
+ const source=image.getAttribute('src');
+ if(!source)continue;
+ const imageUrl=new URL(source,document.baseURI).href;
+ const imageLink=document.createElement('a');
+ imageLink.className='card-image-link';
+ imageLink.href=imageUrl;
+ imageLink.target='_blank';
+ imageLink.rel='noopener noreferrer';
+ imageLink.setAttribute('aria-label',card.dataset.productName+' — '+artworkText.open);
+ productLink.before(imageLink);
+ imageLink.append(image);
+ productLink.classList.add('card-title-link');
+ const saveLink=document.createElement('a');
+ saveLink.className='mini-btn image-download-btn';
+ saveLink.href=imageUrl;
+ saveLink.download=imageUrl.split('/').pop().split('?')[0]||'FUNtasia-artwork.webp';
+ saveLink.textContent=artworkText.save;
+ saveLink.setAttribute('aria-label',card.dataset.productName+' — '+artworkText.save);
+ actions.prepend(saveLink);
+}
+
 const categoryBar=document.querySelector('.filters');
 const genreBar=document.createElement('div');genreBar.className='filters genre-filters';genreBar.setAttribute('role','group');genreBar.setAttribute('aria-label',tr.genre);genreBar.hidden=true;
 const priceBar=document.createElement('div');priceBar.className='price-filters';priceBar.setAttribute('role','group');priceBar.setAttribute('aria-label','Pricing');

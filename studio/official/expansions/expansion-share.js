@@ -5,13 +5,11 @@
   const statuses = {
     ja: {
       copied: 'リンクをコピーしました。Instagramで貼り付けて共有できます。',
-      manual: '自動コピーできませんでした。こちらをコピーしてください: ',
-      failed: '共有できませんでした。リンクをコピーしてお使いください。'
+      manual: '自動コピーできませんでした。こちらをコピーしてください: '
     },
     en: {
       copied: 'Link copied. You can paste it into Instagram.',
-      manual: 'Automatic copy failed. Please copy this link: ',
-      failed: 'Sharing was unavailable. Please copy the link instead.'
+      manual: 'Automatic copy failed. Please copy this link: '
     }
   };
   const messages = statuses[document.documentElement.lang] || statuses.en;
@@ -55,10 +53,8 @@
 
     const copyButton = container.querySelector('[data-copy-share]');
     copyButton?.addEventListener('click', async () => {
-      showStatus(container, (await copyLink(url)) ? messages.copied : messages.manual, null);
-      if (!navigator.clipboard && !document.queryCommandSupported?.('copy')) {
-        showStatus(container, messages.manual, url);
-      }
+      const copied = await copyLink(url);
+      showStatus(container, copied ? messages.copied : messages.manual, copied ? null : url);
     });
 
     const instagramButton = container.querySelector('[data-instagram-share]');

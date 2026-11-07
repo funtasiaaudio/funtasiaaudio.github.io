@@ -62,7 +62,13 @@
     supportTitle: '#support h2',
     supportBody: '#support .lead',
     supportButton: '#support .btn',
-    supportNote: '#support .note'
+    supportNote: '#support .note',
+    funSupportTitle: '#fun-support-title',
+    funSupportLead: '#support-funtasia-audio .lead',
+    funSupportAppealTitle: '#support-funtasia-audio .fun-support-appeal h3',
+    funSupportAppealBody: '#support-funtasia-audio .fun-support-appeal > p:first-of-type',
+    funSupportButton: '#support-funtasia-audio .fun-support-appeal .btn',
+    funSupportReassurance: '#support-funtasia-audio .fun-support-reassurance'
   };
   const htmlKeys = new Set(['heroTitle', 'guildBody2']);
   const imageAltSelectors = {
@@ -107,6 +113,12 @@
       guildButton: 'Join the Alchemist Guild ↗',
       aboutEyebrow: 'The creator', aboutBody: 'Piano since age three, composing since sixteen. Hʉeliang creates both music and software, aiming to make creative expression accessible to everyone.', aboutButton: 'Read the profile',
       supportTitle: 'Find what you need, simply.', supportBody: 'Find product information, contact options for FUNtasia Records, and other resources for your next step.', supportButton: 'Support information', supportNote: 'The existing FUNtasia Audio and FUNtasia Records websites also remain available.',
+      funSupportTitle: "Help keep creative tools within everyone's reach.",
+      funSupportLead: "At FUNtasia Audio, we believe free products deserve the same care and quality as paid ones. Developing and maintaining them takes considerable time and resources, and your support helps make that work possible.",
+      funSupportAppealTitle: "Please consider supporting the ongoing development of FUNtasia Audio.",
+      funSupportAppealBody: "Our Amazon Wish List includes equipment needed for development as well as food and everyday essentials. If you share our mission and are in a position to help, your support makes a genuine difference.",
+      funSupportButton: "Support via Amazon Wish List ↗",
+      funSupportReassurance: "Support is entirely optional. The quality and terms of our free plug-ins do not depend on whether you contribute. Please give only if it is comfortable for you.",
       audioAlt: 'FUN Rack audio plug-in interface', recordsAlt: 'FUNtasia Records illustrated header surrounded by flowers', studioAlt: 'FUNtasia Studio DAW workspace with tracks and Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher on Windows in the Original Sage theme', goodsAlt: 'FUNtasia Studio Original Sage wallpaper',
       logoAria: 'FUNtasia home', navAria: 'Main navigation', languageAria: 'Select website language', quickAria: 'Browse by interest'
     },
@@ -143,6 +155,12 @@
       guildButton: 'Dem Alchemist Guild beitreten ↗',
       aboutEyebrow: 'Der Entwickler', aboutBody: 'Seit dem dritten Lebensjahr am Klavier, seit dem sechzehnten am Komponieren. Hʉeliang entwickelt Musik und Software, damit kreative Arbeit für alle zugänglich wird.', aboutButton: 'Profil lesen',
       supportTitle: 'Schnell zur richtigen Information.', supportBody: 'Hier findest du Produktinformationen, Kontaktmöglichkeiten für FUNtasia Records und weitere Hilfen.', supportButton: 'Zum Support', supportNote: 'Die bisherigen Websites von FUNtasia Audio und FUNtasia Records bleiben weiterhin erreichbar.',
+      funSupportTitle: "Damit kreative Werkzeuge für alle zugänglich bleiben.",
+      funSupportLead: "Bei FUNtasia Audio entwickeln wir kostenlose Produkte mit demselben Qualitätsanspruch wie kostenpflichtige. Entwicklung und Pflege erfordern viel Zeit und Ressourcen. Deine Unterstützung hilft uns, diese Arbeit fortzusetzen.",
+      funSupportAppealTitle: "Bitte unterstütze die weitere Entwicklung von FUNtasia Audio.",
+      funSupportAppealBody: "Auf unserer Amazon-Wunschliste stehen Entwicklungsgeräte sowie Lebensmittel und Dinge des täglichen Bedarfs. Wenn du unsere Überzeugung teilst und uns unterstützen kannst, freuen wir uns über deine Hilfe.",
+      funSupportButton: "Über die Amazon-Wunschliste unterstützen ↗",
+      funSupportReassurance: "Jede Unterstützung ist freiwillig. Qualität und Nutzungsbedingungen unserer kostenlosen Plug-ins hängen nicht davon ab, ob du etwas beiträgst. Bitte unterstütze uns nur, wenn es für dich möglich ist.",
       audioAlt: 'Benutzeroberfläche des Audio-Plug-ins FUN Rack', recordsAlt: 'Illustrierter FUNtasia-Records-Header mit Blumen', studioAlt: 'FUNtasia Studio DAW mit Spuren und Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher unter Windows im Theme Original Sage', goodsAlt: 'FUNtasia Studio Wallpaper Original Sage',
       logoAria: 'FUNtasia Startseite', navAria: 'Hauptnavigation', languageAria: 'Sprache der Website wählen', quickAria: 'Nach Interesse stöbern'
     },
@@ -179,6 +197,12 @@
       guildButton: 'Rejoindre l’Alchemist Guild ↗',
       aboutEyebrow: 'Le créateur', aboutBody: 'Pianiste depuis l’âge de trois ans et compositeur depuis seize ans, Hʉeliang crée de la musique et des logiciels pour rendre la création accessible à tous.', aboutButton: 'Lire le profil',
       supportTitle: 'Trouvez facilement les bonnes informations.', supportBody: 'Accédez aux informations produits, aux contacts de FUNtasia Records et aux ressources utiles.', supportButton: 'Voir l’assistance', supportNote: 'Les anciens sites FUNtasia Audio et FUNtasia Records restent également accessibles.',
+      funSupportTitle: "Pour que les outils de création restent accessibles à tous.",
+      funSupportLead: "Chez FUNtasia Audio, nous apportons le même soin et les mêmes exigences de qualité aux produits gratuits et payants. Leur développement et leur entretien demandent beaucoup de temps et de ressources. Votre soutien nous aide à poursuivre ce travail.",
+      funSupportAppealTitle: "Soutenez, si vous le pouvez, le développement de FUNtasia Audio.",
+      funSupportAppealBody: "Notre liste de souhaits Amazon comprend du matériel de développement, mais aussi des produits alimentaires et des articles du quotidien. Si vous partagez notre démarche et pouvez nous aider, votre soutien compte beaucoup.",
+      funSupportButton: "Soutenir via la liste de souhaits Amazon ↗",
+      funSupportReassurance: "Tout soutien est entièrement facultatif. La qualité et les conditions d’utilisation de nos plug-ins gratuits ne dépendent pas d’une contribution. N’apportez votre aide que si vous en avez la possibilité.",
       audioAlt: 'Interface du plug-in audio FUN Rack', recordsAlt: 'Illustration de la bannière FUNtasia Records entourée de fleurs', studioAlt: 'Station FUNtasia Studio avec pistes et Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher sur Windows avec le thème Original Sage', goodsAlt: 'Fond d’écran FUNtasia Studio Original Sage',
       logoAria: 'Accueil FUNtasia', navAria: 'Navigation principale', languageAria: 'Choisir la langue du site', quickAria: 'Explorer par centre d’intérêt'
     },
@@ -215,6 +239,12 @@
       guildButton: 'Присоединиться к Alchemist Guild ↗',
       aboutEyebrow: 'Об авторе', aboutBody: 'Hʉeliang играет на фортепиано с трёх лет и пишет музыку с шестнадцати. Он создаёт музыку и программы, делая творчество доступнее для всех.', aboutButton: 'Читать профиль',
       supportTitle: 'Нужная информация — без лишних поисков.', supportBody: 'Здесь собраны сведения о продуктах, контакты FUNtasia Records и полезные ресурсы.', supportButton: 'Раздел поддержки', supportNote: 'Предыдущие сайты FUNtasia Audio и FUNtasia Records по-прежнему доступны.',
+      funSupportTitle: "Чтобы инструменты для творчества оставались доступны каждому.",
+      funSupportLead: "FUNtasia Audio уделяет бесплатным продуктам столько же внимания и заботы о качестве, сколько и платным. Разработка и поддержка требуют много времени и ресурсов, и ваша помощь позволяет продолжать эту работу.",
+      funSupportAppealTitle: "Пожалуйста, поддержите дальнейшую разработку FUNtasia Audio, если можете.",
+      funSupportAppealBody: "В нашем списке желаний Amazon есть оборудование для разработки, а также продукты питания и повседневные необходимые вещи. Если вы разделяете наши идеи и можете помочь, ваша поддержка будет очень ценной.",
+      funSupportButton: "Поддержать через список желаний Amazon ↗",
+      funSupportReassurance: "Любая помощь полностью добровольна. Качество и условия использования бесплатных плагинов не зависят от пожертвований. Поддерживайте нас только в пределах ваших возможностей.",
       audioAlt: 'Интерфейс аудиоплагина FUN Rack', recordsAlt: 'Иллюстрированная обложка FUNtasia Records с цветами', studioAlt: 'DAW FUNtasia Studio с дорожками и Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher для Windows в теме Original Sage', goodsAlt: 'Обои FUNtasia Studio Original Sage',
       logoAria: 'Главная FUNtasia', navAria: 'Главная навигация', languageAria: 'Выбор языка сайта', quickAria: 'Поиск по интересам'
     }
@@ -244,6 +274,7 @@
 
   const catalogLinks = [...document.querySelectorAll('a[href="catalog/ja/"]')];
   const recordsLinks = [...document.querySelectorAll('a[href="records/"]')];
+  const aboutLinks = [...document.querySelectorAll('a[href="about/"]')];
   const select = document.querySelector('#home-language');
 
   function browserLocale() {
@@ -288,6 +319,7 @@
     document.querySelector('.quick-paths')?.setAttribute('aria-label', strings.quickAria);
     for (const link of catalogLinks) link.href = 'catalog/' + locale + '/';
     for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + locale + '/';
+    for (const link of aboutLinks) link.href = locale === 'ja' ? 'about/' : 'about/' + locale + '/';
     if (select) select.value = locale;
     if (remember) {
       try { localStorage.setItem(storageKey, locale); } catch { /* Browsing without local storage is supported. */ }

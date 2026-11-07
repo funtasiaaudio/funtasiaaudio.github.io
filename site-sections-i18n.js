@@ -191,6 +191,7 @@
   const recordsLinks = [...document.querySelectorAll('a[href="../records/"]')];
   const utilityLinks = [...document.querySelectorAll('a[href="../utilities/"]')];
   const goodsLinks = [...document.querySelectorAll('a[href="../goods/"]')];
+  const aboutLinks = [...document.querySelectorAll('a[href="../about/"]')];
   const nav = document.querySelector('.site-nav');
 
   function preferredLocale() {
@@ -241,6 +242,7 @@
     for (const link of recordsLinks) link.href = code === 'ja' ? '../records/' : `../records/${code}/`;
     for (const link of utilityLinks) link.href = `../utilities/?lang=${code}`;
     for (const link of goodsLinks) link.href = `../goods/?lang=${code}`;
+    for (const link of aboutLinks) link.href = code === 'ja' ? '../about/' : `../about/${code}/`;
     if (remember) {
       try { localStorage.setItem(storageKey, code); } catch { /* Private browsing remains usable. */ }
       const url = new URL(location.href);

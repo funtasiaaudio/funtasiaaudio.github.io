@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://funtasiaaudio.github.io/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/studio/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/utilities/</loc></url>
   <url><loc>https://funtasiaaudio.github.io/about/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/support/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/de/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/de/fun-monofilter.html</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/en/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/en/fun-monofilter.html</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/fr/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/fr/fun-monofilter.html</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/ja/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/ja/fun-monofilter.html</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/ru/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/catalog/ru/fun-monofilter.html</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/goods/</loc></url>
   <url><loc>https://funtasiaaudio.github.io/records/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/records/en/</loc></url>
   <url><loc>https://funtasiaaudio.github.io/records/de/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/records/en/</loc></url>
   <url><loc>https://funtasiaaudio.github.io/records/fr/</loc></url>
   <url><loc>https://funtasiaaudio.github.io/records/ru/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/catalog/ja/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/catalog/en/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/catalog/de/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/catalog/fr/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/catalog/ru/</loc></url>
-  <url><loc>https://funtasiaaudio.github.io/goods/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/studio/official/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/studio/official/expansions/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/studio/official/expansions/ja/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/studio/official/ja/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/studio/official/ru/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/support/</loc></url>
+  <url><loc>https://funtasiaaudio.github.io/utilities/</loc></url>
 </urlset>

@@ -30,3 +30,21 @@ html[lang="ja"] .expansion-hero h1{font-size:clamp(2.6rem,5.6vw,5.2rem)}
 .usage-note p:last-child{margin-bottom:0}
 @media(max-width:920px){.expansion-card{grid-template-columns:1fr}.expansion-art{max-width:510px}.usage-grid{grid-template-columns:1fr}.expansion-hero{padding-bottom:65px}}
 @media(max-width:580px){.expansion-hero h1,html[lang="ja"] .expansion-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}.expansion-card{padding:18px}.expansion-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.usage-note{padding:24px}.pack-actions .button{width:100%}}
+
+
+/* Pack-specific social sharing, accessible on touch screens and keyboards. */
+.expansion-card{scroll-margin-top:88px}
+.pack-share{margin-top:22px;padding-top:18px;border-top:1px solid rgba(171,198,171,.28)}
+.pack-share-label{margin:0 0 10px;color:var(--sage);font-size:.77rem;font-weight:700;letter-spacing:.06em}
+.pack-share-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.pack-share-action{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:9px 16px;border-radius:9px;border:1px solid #65806e;background:#21362a;color:#f0eee6;font:600 .84rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}
+.pack-share-action:hover{background:#2e4937;border-color:#b9d8bc}
+.pack-share-action:focus-visible,.pack-share-copy:focus-visible{outline:2px solid #e8d99f;outline-offset:3px}
+.pack-share-action span[aria-hidden]{font-size:1.27rem;line-height:1}
+.pack-share-instagram span[aria-hidden]{font-size:1.55rem}
+.pack-share-copy{min-height:44px;padding:7px 4px;border:0;border-bottom:1px solid var(--sage);background:transparent;color:var(--sage);font:600 .78rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer}
+.pack-share-help{margin:12px 0 0;color:#b7c7b7;font-size:.74rem;line-height:1.65}
+.pack-share-status:empty{display:none}
+.pack-share-status{margin:10px 0 0;color:#f3e9ca;font-size:.8rem;overflow-wrap:anywhere}
+.pack-share-status a{color:var(--sage);text-decoration:underline}
+@media(max-width:580px){.pack-share-actions{align-items:stretch}.pack-share-action{flex:1 1 43%}.pack-share-copy{flex:1 1 100%;text-align:center}}

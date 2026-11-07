@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Volume Shaper':'dynamics','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -125,6 +125,40 @@ renderGenres();filter();
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};
 const localized=window.FUN_PRODUCT_LOCALIZED||{};
+details['fun-volume-shaper']={
+ lead:'Draw the volume. Shape the groove.',
+ paras:[
+  'FUN Volume Shaper is a free single-band stereo volume-shaping effect for Windows VST3. Draw a smooth gain curve directly in the editor to create rhythmic ducking, gates, fades and custom volume movements.',
+  'Choose DAW sync, MIDI-note or audio triggering. The curve editor supports nodes, curved segments, snap-to-grid, horizontal and vertical flips, copy/paste, undo/redo, Depth and Time Shift. Internal and external sidechain sources are available.',
+  'Save your own curves as user presets and recall them across projects. The v1.0.0 release passed pluginval Strictness Level 10 and 537 of 537 Steinberg VST3 Validator tests; these checks do not guarantee compatibility with every DAW.'
+ ],
+ features:['SINGLE-BAND STEREO','EDITABLE CURVE','SYNC / MIDI / AUDIO TRIGGER','INTERNAL / EXTERNAL SIDECHAIN','USER PRESETS','WINDOWS VST3','FIVE-LANGUAGE PDF MANUALS']
+};
+const volumeShaperTranslations={
+ ja:{paras:[
+  'FUN Volume Shaperは、音量の変化をカーブで直接描けるWindows用の無料VST3エフェクトです。リズミカルなダッキング、ゲート、フェード、自由な音量シェイピングに使えます。',
+  'DAW同期、MIDIノート、音声トリガーに対応。ノード編集、曲率変更、グリッド吸着、上下左右反転、コピー／ペースト、Undo／Redo、DEPTH、TIME SHIFTを搭載し、内部／外部サイドチェインを選べます。',
+  '作成したカーブはユーザープリセットとして保存できます。v1.0.0はpluginval Strictness Level 10およびSteinberg VST3 Validator 537/537件のテストに合格していますが、すべてのDAWでの動作を保証するものではありません。'
+ ]},
+ de:{paras:[
+  'FUN Volume Shaper ist ein kostenloser VST3-Effekt für Windows, mit dem sich die Stereolautstärke über eine frei zeichnbare Kurve formen lässt: für rhythmisches Ducking, Gates, Fades und eigene Lautstärkebewegungen.',
+  'DAW-Synchronisation, MIDI-Noten- und Audio-Trigger werden unterstützt. Der Kurveneditor bietet Knoten, Krümmung, Raster, Spiegelungen, Kopieren/Einfügen, Undo/Redo, DEPTH und TIME SHIFT sowie interne und externe Sidechain-Quellen.',
+  'Eigene Kurven lassen sich als Benutzer-Presets speichern. v1.0.0 bestand pluginval auf Strictness Level 10 und alle 537 Tests des Steinberg VST3 Validators. Dies garantiert jedoch nicht die Kompatibilität mit jeder DAW.'
+ ]},
+ fr:{paras:[
+  'FUN Volume Shaper est un effet VST3 gratuit pour Windows qui permet de dessiner directement une courbe de volume stéréo sur une seule bande, pour créer du ducking rythmique, des gates, des fondus et des mouvements personnalisés.',
+  'Il propose la synchronisation DAW, le déclenchement MIDI ou audio, des nœuds éditables, la courbure des segments, la grille, les inversions, copier/coller, annuler/rétablir, DEPTH, TIME SHIFT et des sources sidechain internes ou externes.',
+  'Enregistrez vos courbes comme préréglages utilisateur. La version 1.0.0 a réussi pluginval au niveau de rigueur 10 et les 537 tests du validateur VST3 de Steinberg. Ces résultats ne garantissent pas la compatibilité avec tous les DAW.'
+ ]},
+ ru:{paras:[
+  'FUN Volume Shaper — бесплатный VST3-эффект для Windows, в котором можно вручную рисовать кривую изменения стереогромкости в одной полосе: для ритмического приглушения, гейтов, фейдов и собственных движений уровня.',
+  'Доступны синхронизация с DAW, запуск по MIDI-ноте или аудиосигналу, редактирование узлов и изгибов, привязка к сетке, отражение кривой, копирование/вставка, отмена/повтор, DEPTH, TIME SHIFT, а также внутренний и внешний сайдчейн.',
+  'Свои кривые можно сохранять в пользовательские пресеты. Версия 1.0.0 прошла pluginval Strictness Level 10 и все 537 тестов Steinberg VST3 Validator, но это не гарантирует совместимость со всеми DAW.'
+ ]}
+};
+for(const [language,translation] of Object.entries(volumeShaperTranslations)){
+ (localized[language]??={})['fun-volume-shaper']=translation;
+}
 const locale=document.documentElement.lang||'en';
 const words={ja:['詳しく見る','製品紹介','元サイトで見る','閉じる','元サイト掲載の英語説明'],en:['Details','Product details','Original page','Close','Original English description'],de:['Details','Produktdetails','Originalseite','Schließen','Englische Originalbeschreibung'],fr:['Détails','Présentation','Page originale','Fermer','Description originale en anglais'],ru:['Подробнее','О продукте','Оригинальная страница','Закрыть','Оригинальное описание на английском']}[locale]||['Details','Product details','Original page','Close','Original English description'];
 const dialog=document.createElement('dialog');dialog.className='product-dialog';dialog.setAttribute('aria-labelledby','product-dialog-title');
@@ -135,7 +169,7 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href;
+ const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href;
  if(!href)continue;
  const key=card.dataset.productKey||href.split('#')[1],item=details[key];
  if(!item)continue;
@@ -149,7 +183,7 @@ for(const card of cards){
   if(translation){const paragraphs=typeof translation==='string'?[translation]:(translation.paras?.length?translation.paras:[translation.summary]);for(const line of paragraphs){const p=document.createElement('p');p.textContent=line;body.append(p);}const disclosure=document.createElement('details');disclosure.className='dialog-english';const summary=document.createElement('summary');summary.textContent=words[4];disclosure.append(summary);for(const line of item.paras){const original=document.createElement('p');original.textContent=line;disclosure.append(original);}body.append(disclosure);}
   else for(const line of item.paras){const p=document.createElement('p');p.textContent=line;body.append(p);}
   if(item.features.length){const list=document.createElement('ul');list.className='dialog-features';for(const feature of item.features){const li=document.createElement('li');li.textContent=feature;list.append(li);}body.append(list);}
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

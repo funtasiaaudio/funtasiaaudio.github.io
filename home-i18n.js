@@ -97,7 +97,7 @@
       exploreLead: 'Make music, build tools, and share your creations. Explore every part of FUNtasia from one place.',
       audioTag: 'Software · Plug-ins', audioBody: 'Discover available effects and instruments, with their features and details.', audioMore: 'View product catalog →',
       recordsTag: 'Music · Artists', recordsBody: 'Explore music, artists, releases, and profiles from FUNtasia Records.', recordsMore: 'Explore Records →',
-      studioTag: 'Digital Audio Workstation', studioBody: 'Visit the dedicated site for FUNtasia Studio’s public beta and free expansion packs.', studioMore: 'Development updates →',
+      studioTag: 'Digital Audio Workstation', studioBody: 'Visit the FUNtasia Studio site for the public beta and free expansion packs.', studioMore: 'Visit Studio site →',
       utilitiesTag: 'Windows Tools', utilitiesBody: 'Discover Windows tools including FUNtasia Quick Launcher, Player, Mixer, and Session Note.', utilitiesMore: 'Explore utilities →',
       goodsTag: 'Goods · Free Wallpapers', goodsBody: 'Download 21 free wallpapers and seven Windows 11 mouse cursor themes.', goodsMore: 'Free wallpapers →',
       guildEyebrow: 'Community · Discord', guildSub: 'The official FUNtasia community, where creativity and ideas meet.',
@@ -133,7 +133,7 @@
       exploreLead: 'Musik machen, Werkzeuge entwickeln und Werke veröffentlichen. Entdecke alle Bereiche von FUNtasia an einem Ort.',
       audioTag: 'Software · Plug-ins', audioBody: 'Entdecke veröffentlichte Effekte und Instrumente mit ihren Funktionen und Details.', audioMore: 'Zum Produktkatalog →',
       recordsTag: 'Musik · Künstler', recordsBody: 'Musik, Künstler, Veröffentlichungen und Profile von FUNtasia Records.', recordsMore: 'Records entdecken →',
-      studioTag: 'Digital Audio Workstation', studioBody: 'Zur Website der öffentlichen Beta von FUNtasia Studio und der kostenlosen Erweiterungspakete.', studioMore: 'Entwicklung ansehen →',
+      studioTag: 'Digital Audio Workstation', studioBody: 'Besuche die FUNtasia-Studio-Website für die öffentliche Beta und kostenlose Erweiterungspakete.', studioMore: 'Zur Studio-Website →',
       utilitiesTag: 'Windows-Werkzeuge', utilitiesBody: 'Windows-Tools wie FUNtasia Quick Launcher, Player, Mixer und Session Note entdecken.', utilitiesMore: 'Werkzeuge entdecken →',
       goodsTag: 'Extras · Kostenlose Wallpaper', goodsBody: '21 kostenlose Wallpaper und sieben Mauszeiger-Themes für Windows 11 herunterladen.', goodsMore: 'Wallpaper ansehen →',
       guildEyebrow: 'Community · Discord', guildSub: 'Die offizielle FUNtasia-Community: ein Treffpunkt für Kreativität und Ideen.',
@@ -169,7 +169,7 @@
       exploreLead: 'Créer de la musique, concevoir des outils et partager des œuvres. Explorez toutes les facettes de FUNtasia au même endroit.',
       audioTag: 'Logiciels · Plug-ins', audioBody: 'Découvrez les effets et instruments disponibles, leurs fonctions et leurs caractéristiques.', audioMore: 'Voir le catalogue →',
       recordsTag: 'Musique · Artistes', recordsBody: 'Découvrez la musique, les artistes, les sorties et les profils de FUNtasia Records.', recordsMore: 'Explorer Records →',
-      studioTag: 'Station audionumérique', studioBody: 'Visitez le site de la bêta publique de FUNtasia Studio et de ses extensions gratuites.', studioMore: 'Suivre le développement →',
+      studioTag: 'Station audionumérique', studioBody: 'Visitez le site FUNtasia Studio pour la bêta publique et les extensions gratuites.', studioMore: 'Voir le site Studio →',
       utilitiesTag: 'Outils Windows', utilitiesBody: 'Découvrez les outils Windows : FUNtasia Quick Launcher, Player, Mixer et Session Note.', utilitiesMore: 'Explorer les outils →',
       goodsTag: 'Bonus · Fonds d’écran gratuits', goodsBody: 'Téléchargez 21 fonds d’écran gratuits et sept thèmes de curseurs pour Windows 11.', goodsMore: 'Voir les fonds d’écran →',
       guildEyebrow: 'Communauté · Discord', guildSub: 'La communauté officielle FUNtasia, où se rencontrent créativité et idées.',
@@ -205,7 +205,7 @@
       exploreLead: 'Создавайте музыку, разрабатывайте инструменты и делитесь своими работами. Узнайте обо всех направлениях FUNtasia.',
       audioTag: 'Программы · Плагины', audioBody: 'Узнайте о доступных эффектах и инструментах и об их возможностях.', audioMore: 'Каталог продуктов →',
       recordsTag: 'Музыка · Артисты', recordsBody: 'Музыка, артисты, релизы и профили FUNtasia Records.', recordsMore: 'Открыть Records →',
-      studioTag: 'Цифровая аудиостанция', studioBody: 'Перейдите на страницу публичной бета-версии FUNtasia Studio и бесплатных дополнений.', studioMore: 'Новости разработки →',
+      studioTag: 'Цифровая аудиостанция', studioBody: 'Откройте сайт FUNtasia Studio, чтобы узнать о публичной бета-версии и бесплатных дополнениях.', studioMore: 'Открыть сайт Studio →',
       utilitiesTag: 'Инструменты Windows', utilitiesBody: 'Программы для Windows: FUNtasia Quick Launcher, Player, Mixer и Session Note.', utilitiesMore: 'Смотреть инструменты →',
       goodsTag: 'Материалы · Бесплатные обои', goodsBody: 'Скачайте 21 бесплатные обои и семь тем курсоров для Windows 11.', goodsMore: 'Смотреть обои →',
       guildEyebrow: 'Сообщество · Discord', guildSub: 'Официальное сообщество FUNtasia — место встречи идей и творчества.',
@@ -219,6 +219,105 @@
       logoAria: 'Главная FUNtasia', navAria: 'Главная навигация', languageAria: 'Выбор языка сайта', quickAria: 'Поиск по интересам'
     }
   };
+
+  // The original Audio support appeal is preserved in full and localized with the home language.
+  const appealKeys = ["eyebrow","title","copy1","copy2","copy3","copy4","copy5","copy6","copy7","copy8","copy9","copy10","ask1","ask2","ask3","button","after1","after2","after3","after4","after5"];
+  const appealCopy = {
+  "en": [
+    "A Note From The Developer",
+    "A chance to create,<br>for everyone.",
+    "I have a developmental disability and related sensory sensitivities.",
+    "As a student, I endured severe bullying while working to afford sound libraries and music equipment. Those experiences still affect me deeply, and I am currently receiving treatment for depression.",
+    "Having faced these difficulties myself, there is something I sincerely hope for.",
+    "A world where <strong>everyone has the chance to live as themselves and explore their potential</strong>, regardless of disability, financial circumstances, upbringing, or the challenges they face.",
+    "To make music. To express something of their own.",
+    "I do not want people to have to give up on that possibility because they cannot afford the tools.",
+    "That belief is why I devote special care and effort to developing free plugins at FUNtasia Audio.",
+    "To me, a free product is not worth less than a paid one. I take the quality and the breadth of our free offerings just as seriously.",
+    "To be honest, the time and costs going into development are currently far out of balance with the revenue it brings in.",
+    "Even so, I do not want to let go of this belief by reducing the number of free products or compromising their quality.",
+    "That is why I am <strong>actively asking for support</strong> from those who believe in FUNtasia Audio and are in a position to help.",
+    "Our Amazon Wish List includes development equipment as well as food and everyday essentials that help sustain this work.",
+    "Your support makes a real difference in keeping development going and bringing creative tools to more people.",
+    "VIEW OUR SUPPORT WISH LIST (AMAZON)",
+    "Of course, if financial or other circumstances make it difficult to contribute, please do not worry about it at all.",
+    "You never need to feel guilty for not providing support.",
+    "Free plugins are here for everyone who needs them, with no hesitation or obligation.",
+    "<strong>If you are enjoying making music and creating things in your own way, then one of my goals has already been fulfilled.</strong>",
+    "And to everyone who supports this work, thank you from the bottom of my heart."
+  ],
+  "de": [
+    "Eine Nachricht des Entwicklers",
+    "Eine Chance, kreativ zu sein.<br>Für alle.",
+    "Ich lebe mit einer Entwicklungsbehinderung und damit verbundenen sensorischen Überempfindlichkeiten.",
+    "Während meiner Schulzeit wurde ich schwer gemobbt, als ich gleichzeitig arbeitete, um mir Soundbibliotheken und Musikausrüstung leisten zu können. Diese Erlebnisse wirken bis heute tief in mir nach, und ich bin derzeit wegen einer Depression in Behandlung.",
+    "Weil ich diese Schwierigkeiten selbst erlebt habe, liegt mir ein Wunsch besonders am Herzen.",
+    "Eine Welt, in der <strong>alle Menschen die Möglichkeit haben, sie selbst zu sein und ihr Potenzial zu entdecken</strong> – unabhängig von Behinderung, finanzieller Lage, ihrem Aufwachsen oder den Herausforderungen, vor denen sie stehen.",
+    "Musik machen. Etwas Eigenes ausdrücken.",
+    "Niemand soll diese Möglichkeit aufgeben müssen, nur weil die nötigen Werkzeuge zu teuer sind.",
+    "Deshalb widme ich der Entwicklung kostenloser Plug-ins bei FUNtasia Audio besondere Sorgfalt und viel Arbeit.",
+    "Für mich ist ein kostenloses Produkt nicht weniger wert als ein kostenpflichtiges. Qualität und Umfang unserer kostenlosen Angebote nehme ich genauso ernst.",
+    "Ehrlich gesagt stehen Zeitaufwand und Kosten der Entwicklung derzeit in einem deutlichen Missverhältnis zu den Einnahmen.",
+    "Trotzdem möchte ich diesen Grundsatz nicht aufgeben, indem ich weniger kostenlose Produkte anbiete oder ihre Qualität einschränke.",
+    "Deshalb <strong>bitte ich ausdrücklich um Unterstützung</strong> von Menschen, die die Überzeugung von FUNtasia Audio teilen und helfen können.",
+    "Unsere Amazon-Wunschliste enthält Entwicklungsausrüstung sowie Lebensmittel und Dinge des täglichen Bedarfs, die diese Arbeit ermöglichen.",
+    "Deine Unterstützung hilft ganz konkret dabei, die Entwicklung fortzusetzen und kreative Werkzeuge mehr Menschen zugänglich zu machen.",
+    "UNSERE AMAZON-WUNSCHLISTE ANSEHEN",
+    "Wenn du aus finanziellen oder anderen Gründen nichts beitragen kannst, mach dir bitte keinerlei Sorgen.",
+    "Du musst dich niemals schuldig fühlen, wenn du uns nicht unterstützt.",
+    "Kostenlose Plug-ins sind für alle da, die sie brauchen – ohne Hemmungen und ohne Verpflichtung.",
+    "<strong>Wenn du auf deine eigene Weise Freude an Musik und kreativem Schaffen hast, ist eines meiner Ziele bereits erreicht.</strong>",
+    "Allen, die diese Arbeit unterstützen, danke ich von ganzem Herzen."
+  ],
+  "fr": [
+    "Un mot du développeur",
+    "La possibilité de créer,<br>pour tout le monde.",
+    "Je vis avec un handicap du développement et des sensibilités sensorielles qui y sont liées.",
+    "Pendant mes études, j’ai subi un harcèlement grave tout en travaillant pour pouvoir acheter des banques de sons et du matériel musical. Ces expériences me marquent encore profondément et je suis actuellement soigné pour une dépression.",
+    "Après avoir traversé moi-même ces difficultés, il y a quelque chose que je souhaite sincèrement.",
+    "Un monde où <strong>chacun peut être soi-même et explorer son potentiel</strong>, quels que soient son handicap, sa situation financière, son milieu d’origine ou les difficultés rencontrées.",
+    "Faire de la musique. Exprimer quelque chose qui nous appartient.",
+    "Je ne veux pas que quelqu’un doive renoncer à cette possibilité faute de pouvoir acheter les outils nécessaires.",
+    "C’est cette conviction qui me pousse à apporter un soin et un travail particuliers aux plug-ins gratuits de FUNtasia Audio.",
+    "Pour moi, un produit gratuit n’a pas moins de valeur qu’un produit payant. Je prends tout aussi au sérieux la qualité et l’étendue de nos offres gratuites.",
+    "Pour être honnête, le temps et les coûts consacrés au développement sont actuellement très disproportionnés par rapport aux revenus générés.",
+    "Pourtant, je ne veux pas abandonner cette conviction en réduisant le nombre de produits gratuits ou en sacrifiant leur qualité.",
+    "C’est pourquoi je <strong>sollicite activement le soutien</strong> des personnes qui partagent les valeurs de FUNtasia Audio et qui peuvent aider.",
+    "Notre liste de souhaits Amazon comprend du matériel de développement, mais aussi de la nourriture et des produits du quotidien qui permettent de poursuivre ce travail.",
+    "Votre soutien fait une réelle différence pour continuer le développement et rendre les outils créatifs accessibles à davantage de personnes.",
+    "CONSULTER NOTRE LISTE DE SOUHAITS AMAZON",
+    "Bien entendu, si votre situation financière ou personnelle ne vous permet pas de contribuer, ne vous inquiétez surtout pas.",
+    "Vous ne devez jamais vous sentir coupable de ne pas apporter de soutien.",
+    "Les plug-ins gratuits sont là pour toutes les personnes qui en ont besoin, sans hésitation ni obligation.",
+    "<strong>Si vous prenez plaisir à faire de la musique et à créer à votre manière, alors l’un de mes objectifs est déjà atteint.</strong>",
+    "À toutes les personnes qui soutiennent ce travail, merci du fond du cœur."
+  ],
+  "ru": [
+    "Обращение разработчика",
+    "Возможность творить —<br>для каждого.",
+    "У меня есть нарушение развития и связанная с ним повышенная сенсорная чувствительность.",
+    "Во время учёбы мне пришлось пережить жестокую травлю, одновременно зарабатывая на звуковые библиотеки и музыкальное оборудование. Этот опыт до сих пор глубоко влияет на меня, и сейчас я прохожу лечение от депрессии.",
+    "Пройдя через эти трудности, я искренне мечтаю об одном.",
+    "О мире, где <strong>каждый может оставаться собой и раскрывать свой потенциал</strong> независимо от инвалидности, финансового положения, условий взросления или жизненных трудностей.",
+    "Создавать музыку. Выражать что-то своё.",
+    "Я не хочу, чтобы кому-то приходилось отказываться от этой возможности лишь потому, что он не может позволить себе необходимые инструменты.",
+    "Именно поэтому я уделяю особое внимание и много сил разработке бесплатных плагинов FUNtasia Audio.",
+    "Для меня бесплатный продукт не менее ценен, чем платный. Я одинаково серьёзно отношусь к качеству и разнообразию наших бесплатных предложений.",
+    "Честно говоря, затраты времени и денег на разработку сейчас значительно превышают доходы от неё.",
+    "И всё же я не хочу отказываться от этого принципа, сокращая количество бесплатных продуктов или снижая их качество.",
+    "Поэтому я <strong>открыто прошу о поддержке</strong> тех, кому близка идея FUNtasia Audio и кто может помочь.",
+    "В нашем списке желаний Amazon есть оборудование для разработки, продукты питания и повседневные вещи, которые помогают продолжать работу.",
+    "Ваша поддержка действительно помогает развивать проект и делать творческие инструменты доступными большему числу людей.",
+    "ПОСМОТРЕТЬ СПИСОК ЖЕЛАНИЙ AMAZON",
+    "Конечно, если финансовые или другие обстоятельства не позволяют вам помочь, пожалуйста, не переживайте.",
+    "Вам никогда не нужно чувствовать вину из-за того, что вы не можете поддержать нас.",
+    "Бесплатные плагины доступны всем, кому они нужны, без стеснения и каких-либо обязательств.",
+    "<strong>Если вы получаете удовольствие от музыки и творчества по-своему, значит, одна из моих целей уже достигнута.</strong>",
+    "И всем, кто поддерживает эту работу, искреннее спасибо от всего сердца."
+  ]
+};
+  const appealNodes = appealKeys.map(key => document.querySelector('[data-appeal="' + key + '"]'));
+  const appealOriginal = appealNodes.map(node => node?.innerHTML ?? '');
 
   const original = {};
   const bindings = {};
@@ -244,6 +343,7 @@
 
   const catalogLinks = [...document.querySelectorAll('a[href="catalog/ja/"]')];
   const recordsLinks = [...document.querySelectorAll('a[href="records/"]')];
+  const studioLinks = [...document.querySelectorAll('a[href="studio/official/ja/"]')];
   const select = document.querySelector('#home-language');
 
   function browserLocale() {
@@ -278,6 +378,8 @@
     for (const [key, node] of Object.entries(altBindings)) {
       node.setAttribute('alt', strings[key] ?? original[key]);
     }
+    const appealStrings = locale === 'ja' ? appealOriginal : appealCopy[locale];
+    appealNodes.forEach((node, index) => { if (node) node.innerHTML = appealStrings[index]; });
     document.documentElement.lang = locale;
     document.title = strings.title;
     const meta = document.querySelector('meta[name="description"]');
@@ -288,6 +390,7 @@
     document.querySelector('.quick-paths')?.setAttribute('aria-label', strings.quickAria);
     for (const link of catalogLinks) link.href = 'catalog/' + locale + '/';
     for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + locale + '/';
+    for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : 'studio/official/');
     if (select) select.value = locale;
     if (remember) {
       try { localStorage.setItem(storageKey, locale); } catch { /* Browsing without local storage is supported. */ }

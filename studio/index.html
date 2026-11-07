@@ -1,1 +1,28 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><meta name="theme-color" content="#101a19"><title>FUNtasia Studio | FUNtasia</title><meta name="description" content="FUNtasia Studioと無料エクスパンションパック、それぞれの公式特設サイトをご案内します。"><link rel="stylesheet" href="../sections.css"><link rel="canonical" href="https://funtasiaaudio.github.io/studio/"></head><body><header class="top"><div class="wrap"><a class="brand" href="../">FUNtasia</a><a class="back" href="../">← 総合トップへ</a><nav class="site-nav" aria-label="サイト内ナビゲーション"><a href="../catalog/ja/">Audio</a><a href="./" aria-current="page">Studio</a><a href="../utilities/">Utilities</a><a href="../records/">Records</a><a href="../goods/">Goods</a><a href="../about/">About</a><a href="../support/">Support</a></nav></div></header><main class="wrap"><section class="hero"><div class="eyebrow">FUNtasia · Studio</div><h1>音楽制作の世界へ。</h1><p class="lead">FUNtasia Studioと、音楽制作を広げる無料エクスパンションパック。それぞれの新しい総合サイト内の特設ページで、詳しい情報をご覧いただけます。</p></section><section><div class="grid"><article class="card"><h2>FUNtasia Studio</h2><p>音楽制作と学びを楽しむ無料のWindows向けDAW。機能紹介、画面、公開ベータ版のダウンロードは公式特設サイトへ。</p><p><a href="official/ja/">FUNtasia Studioの詳しい紹介を見る →</a></p></article><article class="card"><h2>FUNtasia Studio Expansion Packs</h2><p>オリジナルのドラムMIDIフレーズを収録した無料追加コンテンツ。パックの紹介、ダウンロード、利用条件は専用特設サイトへ。</p><p><a href="official/expansions/ja/">無料エクスパンションパックを見る →</a></p><p><a href="official/expansions/">English site →</a></p></article></div></section></main><footer class="footer"><div class="wrap"><div class="footer-inner"><span>© 2026 FUNtasia</span><nav class="footer-links" aria-label="Footer navigation"><a href="../">Home</a><a href="../catalog/ja/">Audio</a><a href="../studio/">Studio</a><a href="../utilities/">Utilities</a><a href="../records/">Records</a><a href="../goods/">Goods</a><a href="../about/">About</a><a href="../support/">Support</a></nav></div></div></footer></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow"><meta name="theme-color" content="#101a19">
+<title>FUNtasia Studio — 公式特設サイトへ</title>
+<meta name="description" content="FUNtasia Studioの言語別公式特設サイトへご案内します。">
+<link rel="canonical" href="https://funtasiaaudio.github.io/studio/official/">
+<script>
+(function () {
+  var supported = ['ja', 'en', 'de', 'fr', 'ru'];
+  var explicit = new URLSearchParams(location.search).get('lang');
+  var saved = null;
+  try { saved = localStorage.getItem('funtasia.home.language'); } catch (e) {}
+  var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+  var browser = 'en';
+  for (var i = 0; i < prefs.length; i++) {
+    var lang = String(prefs[i]).toLowerCase().split(/[-_]/)[0];
+    if (supported.indexOf(lang) !== -1) { browser = lang; break; }
+  }
+  var locale = supported.indexOf(explicit) !== -1 ? explicit : (supported.indexOf(saved) !== -1 ? saved : browser);
+  var target = 'official/' + (locale === 'ja' || locale === 'ru' ? locale + '/' : '');
+  location.replace(target + location.hash);
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=official/ja/"></noscript>
+<style>body{background:#17231f;color:#f0eee6;font:17px/1.8 system-ui,sans-serif;margin:0;padding:12vh 8vw}a{color:#b5d5a4}nav{display:flex;flex-wrap:wrap;gap:18px}</style>
+</head><body><h1>FUNtasia Studio</h1><p>公式特設サイトへ移動します。自動で移動しない場合は、言語を選択してください。</p><nav><a href="official/ja/">日本語</a><a href="official/">English / Deutsch / Français</a><a href="official/ru/">Русский</a><a href="official/expansions/ja/">無料追加コンテンツ</a></nav></body></html>

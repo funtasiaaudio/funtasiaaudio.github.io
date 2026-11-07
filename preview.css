@@ -88,3 +88,19 @@
 
 /* Cyrillic typography: avoid Japanese font fallback metrics in Russian. */
 html[lang="ru"] body{font-family:"Times New Roman","Liberation Serif",serif}
+
+/* Original Audio developer appeal, restored at the very bottom of the unified home. */
+.developer-appeal{border-top:1px solid #557365;background:linear-gradient(160deg,#1d3029 0%,#14221d 62%,#101a17 100%);padding:clamp(60px,7vw,100px) 0}
+.appeal-wrap{max-width:900px}
+.appeal-heading{margin-bottom:32px}
+.appeal-heading h2{font-size:clamp(2.1rem,4.5vw,3.6rem);letter-spacing:-.025em;line-height:1.28;margin:.4em 0;color:#f5f1e6}
+.appeal-copy,.appeal-afterword{color:#e4e9dd;line-height:2.05}
+.appeal-copy p,.appeal-afterword p{margin:0 0 1.25em}
+.appeal-copy strong,.appeal-afterword strong{color:#fff5da}
+.appeal-callout{margin:42px 0;padding:clamp(24px,4vw,40px);border:1px solid #739c7c;border-left:4px solid #b5d5a4;background:#254035;border-radius:9px;box-shadow:0 12px 36px #08120b33}
+.appeal-callout p{margin:0 0 1.2em;line-height:1.9}
+.appeal-callout strong{color:#f8f1d5}
+.appeal-callout .btn{margin-top:6px;text-align:center;justify-content:center}
+.appeal-closing{font-size:1.1rem}
+.appeal-signature{text-align:right;margin-top:40px;color:#b7d2b2;font-style:italic;letter-spacing:.08em}
+@media(max-width:680px){.appeal-callout{margin:30px 0}.appeal-callout .btn{width:100%;white-space:normal}}

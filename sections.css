@@ -73,3 +73,12 @@ body{background:var(--bg);color:var(--text)}.top{background:#101a19;border-botto
 .section-language-switch select:hover{border-color:#a8c5ae}
 .section-language-switch select:focus-visible{outline:2px solid #a8c5ae;outline-offset:3px}
 @media(max-width:600px){.section-language-switch{width:auto;margin-left:0}.section-language-switch select{min-height:44px}}
+
+/* About page: five-language selector */
+.about-page .about-language-switch{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:7px;margin:18px 0 0}
+.about-page .about-language-switch a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:7px 11px;border:1px solid #78988977;border-radius:5px;text-decoration:none;color:#c7d9cc;font:500 .78rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+.about-page .about-language-switch a:hover{background:#2b4234}
+.about-page .about-language-switch a[aria-current="page"]{background:#3e5d49;border-color:#b0d0ba;color:#fff}
+.about-page .about-language-switch a:focus-visible{outline:2px solid #e8d99f;outline-offset:3px}
+html[lang="de"] .about-page,html[lang="fr"] .about-page,html[lang="en"] .about-page,html[lang="ru"] .about-page{font-family:Georgia,"Times New Roman",serif}
+@media(max-width:600px){.about-page .about-language-switch{justify-content:flex-start;gap:5px}.about-page .about-language-switch a{padding:7px 10px;font-size:.75rem}}

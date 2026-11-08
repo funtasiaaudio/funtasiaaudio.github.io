@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -125,6 +125,40 @@ renderGenres();filter();
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};
 const localized=window.FUN_PRODUCT_LOCALIZED||{};
+details['fun-stereo-pack']={
+ lead:'Shape your stereo. Your way.',
+ paras:[
+  'FUN Stereo Pack v1.0.0 brings together two independent, free Windows 64-bit VST3 effects: FUN Dual Pan v1.0.5 and FUN Stereo Width v1.0.7.',
+  'FUN Dual Pan lets you independently position the left and right input channels, adjust input balance, link controls, check mono and choose a pan law.',
+  'FUN Stereo Width offers width adjustment from mono to an expanded stereo image, supported by a stereo-field display, correlation meter and mono check. Both plug-ins can be inserted directly into a VST3-compatible DAW. Five-language PDF manuals are included in the ZIP.'
+ ],
+ features:['TWO INDEPENDENT VST3 EFFECTS','DUAL PAN / INPUT BALANCE','PAN LAW / LINK / MONO','STEREO WIDTH 0–200%','STEREO FIELD / CORRELATION','MONO CHECK','FREE · WINDOWS x64']
+};
+const stereoPackTranslations={
+ ja:{paras:[
+  'FUN Stereo Pack v1.0.0は、FUN Dual Pan v1.0.5とFUN Stereo Width v1.0.7の2製品を収録した、Windows 64-bit用の無料VST3エフェクトパックです。',
+  'FUN Dual Panは、左右の入力チャンネルの定位を個別に調整でき、INPUT BALANCE、LINK、MONO、PAN LAW切替を備えています。',
+  'FUN Stereo Widthは、ステレオの広がりを0〜200%で調整でき、STEREO FIELD表示、相関メーター、MONO CHECKを搭載しています。2製品はそれぞれ単体でDAWに挿入でき、日本語・英語・ドイツ語・フランス語・ロシア語のPDFマニュアルがZIPに付属します。'
+ ]},
+ de:{paras:[
+  'FUN Stereo Pack v1.0.0 enthält zwei unabhängige, kostenlose VST3-Effekte für Windows x64: FUN Dual Pan v1.0.5 und FUN Stereo Width v1.0.7.',
+  'FUN Dual Pan ermöglicht die unabhängige Positionierung des linken und rechten Eingangskanals sowie Input Balance, gekoppelte Regler, Mono-Prüfung und wählbares Pan Law.',
+  'FUN Stereo Width regelt die Stereobreite von Mono bis zu einem erweiterten Stereobild und bietet eine Stereo-Field-Anzeige, einen Korrelationsmesser und Mono Check. Beide Plug-ins lassen sich einzeln in einer VST3-kompatiblen DAW verwenden. PDF-Handbücher in fünf Sprachen liegen der ZIP-Datei bei.'
+ ]},
+ fr:{paras:[
+  'FUN Stereo Pack v1.0.0 réunit deux effets VST3 gratuits et indépendants pour Windows 64 bits : FUN Dual Pan v1.0.5 et FUN Stereo Width v1.0.7.',
+  'FUN Dual Pan permet de positionner séparément les canaux d’entrée gauche et droit, de régler leur balance, de lier les commandes, de vérifier le mono et de choisir une loi de panoramique.',
+  'FUN Stereo Width règle la largeur stéréo du mono à une image élargie, avec affichage du champ stéréo, indicateur de corrélation et contrôle mono. Les deux plug-ins s’utilisent séparément dans toute DAW compatible VST3. Des manuels PDF en cinq langues sont inclus dans le ZIP.'
+ ]},
+ ru:{paras:[
+  'FUN Stereo Pack v1.0.0 объединяет два независимых бесплатных VST3-эффекта для Windows x64: FUN Dual Pan v1.0.5 и FUN Stereo Width v1.0.7.',
+  'FUN Dual Pan позволяет отдельно размещать левый и правый входные каналы, регулировать входной баланс, связывать регуляторы, проверять моно и выбирать закон панорамирования.',
+  'FUN Stereo Width регулирует ширину от моно до расширенной стереокартины и содержит дисплей стереополя, индикатор корреляции и проверку моно. Оба плагина можно использовать по отдельности в DAW с поддержкой VST3. В ZIP включены PDF-руководства на пяти языках.'
+ ]}
+};
+for(const [language,translation] of Object.entries(stereoPackTranslations)){
+ (localized[language]??={})['fun-stereo-pack']=translation;
+}
 details['fun-volume-shaper']={
  lead:'Draw the volume. Shape the groove.',
  paras:[
@@ -203,7 +237,7 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href;
+ const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href;
  if(!href)continue;
  const key=card.dataset.productKey||href.split('#')[1],item=details[key];
  if(!item)continue;
@@ -217,7 +251,7 @@ for(const card of cards){
   if(translation){const paragraphs=typeof translation==='string'?[translation]:(translation.paras?.length?translation.paras:[translation.summary]);for(const line of paragraphs){const p=document.createElement('p');p.textContent=line;body.append(p);}const disclosure=document.createElement('details');disclosure.className='dialog-english';const summary=document.createElement('summary');summary.textContent=words[4];disclosure.append(summary);for(const line of item.paras){const original=document.createElement('p');original.textContent=line;disclosure.append(original);}body.append(disclosure);}
   else for(const line of item.paras){const p=document.createElement('p');p.textContent=line;body.append(p);}
   if(item.features.length){const list=document.createElement('ul');list.className='dialog-features';for(const feature of item.features){const li=document.createElement('li');li.textContent=feature;list.append(li);}body.append(list);}
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

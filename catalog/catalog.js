@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Volume Shaper':'dynamics','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -134,6 +134,40 @@ details['fun-volume-shaper']={
  ],
  features:['SINGLE-BAND STEREO','EDITABLE CURVE','SYNC / MIDI / AUDIO TRIGGER','INTERNAL / EXTERNAL SIDECHAIN','USER PRESETS','WINDOWS VST3','FIVE-LANGUAGE PDF MANUALS']
 };
+details['fun-fader']={
+ lead:'One fader. Complete control.',
+ paras:[
+  'FUN Fader is a free VST3 volume-control utility for Windows, with a Gothic-inspired, resizable interface and a single precise gain fader.',
+  'It supports mono and stereo audio, DAW automation, and host project state saving and restoration. The visual design features a wooden fader, deep green scenery and Kaisei Opti typography.',
+  'Version 1.0.0 passed pluginval Strictness Level 5 and all 537 Steinberg VST3 Validator extensive tests. Automated tests do not guarantee compatibility with every DAW.'
+ ],
+ features:['FREE WINDOWS VST3','MONO / STEREO','VOLUME FADER','DAW AUTOMATION','RESIZABLE GUI','KAISEI OPTI']
+};
+const faderTranslations={
+ ja:{paras:[
+  'FUN Faderは、ゴシック調のGUIを備えたWindows用の無料VST3音量フェーダーです。木製フェーダーをドラッグして音量を調整でき、GUIサイズも変更できます。',
+  'モノラル／ステレオ音声、DAWオートメーション、プロジェクトへの設定保存・復元に対応。深緑の情景とKaisei Optiの文字を組み合わせたデザインです。',
+  'v1.0.0はpluginval Strictness Level 5とSteinberg VST3 Validatorの全537項目に合格しました。ただし、すべてのDAWでの動作を保証するものではありません。'
+ ]},
+ de:{paras:[
+  'FUN Fader ist ein kostenloses VST3-Werkzeug für Windows zur Lautstärkeregelung. Die skalierbare Oberfläche kombiniert einen hölzernen Fader mit einer gotisch inspirierten Gestaltung.',
+  'Unterstützt Mono und Stereo, DAW-Automation sowie das Speichern und Wiederherstellen des Plugin-Zustands im Projekt. Die Typografie verwendet Kaisei Opti.',
+  'Version 1.0.0 bestand pluginval auf Strictness Level 5 und alle 537 erweiterten Tests des Steinberg VST3 Validators. Eine Kompatibilität mit jeder DAW kann damit nicht garantiert werden.'
+ ]},
+ fr:{paras:[
+  'FUN Fader est un outil VST3 gratuit pour Windows permettant un réglage précis du volume, avec une interface redimensionnable d’inspiration gothique et un curseur en bois.',
+  'Il prend en charge les pistes mono et stéréo, l’automatisation dans le DAW et la sauvegarde ainsi que la restauration de l’état du plugin. La typographie est en Kaisei Opti.',
+  'La version 1.0.0 a réussi pluginval au niveau de rigueur 5 et les 537 tests approfondis du validateur VST3 de Steinberg. Cela ne garantit pas la compatibilité avec tous les DAW.'
+ ]},
+ ru:{paras:[
+  'FUN Fader — бесплатный VST3-плагин для Windows с точным управлением громкостью, изменяемым размером интерфейса и готическим оформлением с деревянным фейдером.',
+  'Поддерживаются моно и стерео, автоматизация DAW, сохранение и восстановление состояния плагина в проекте. Используется шрифт Kaisei Opti.',
+  'Версия 1.0.0 прошла pluginval Strictness Level 5 и все 537 расширенных тестов Steinberg VST3 Validator. Это не гарантирует совместимость со всеми DAW.'
+ ]}
+};
+for(const [language,translation] of Object.entries(faderTranslations)){
+ (localized[language]??={})['fun-fader']=translation;
+}
 const volumeShaperTranslations={
  ja:{paras:[
   'FUN Volume Shaperは、音量の変化をカーブで直接描けるWindows用の無料VST3エフェクトです。リズミカルなダッキング、ゲート、フェード、自由な音量シェイピングに使えます。',
@@ -169,7 +203,7 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href;
+ const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href;
  if(!href)continue;
  const key=card.dataset.productKey||href.split('#')[1],item=details[key];
  if(!item)continue;
@@ -183,7 +217,7 @@ for(const card of cards){
   if(translation){const paragraphs=typeof translation==='string'?[translation]:(translation.paras?.length?translation.paras:[translation.summary]);for(const line of paragraphs){const p=document.createElement('p');p.textContent=line;body.append(p);}const disclosure=document.createElement('details');disclosure.className='dialog-english';const summary=document.createElement('summary');summary.textContent=words[4];disclosure.append(summary);for(const line of item.paras){const original=document.createElement('p');original.textContent=line;disclosure.append(original);}body.append(disclosure);}
   else for(const line of item.paras){const p=document.createElement('p');p.textContent=line;body.append(p);}
   if(item.features.length){const list=document.createElement('ul');list.className='dialog-features';for(const feature of item.features){const li=document.createElement('li');li.textContent=feature;list.append(li);}body.append(list);}
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

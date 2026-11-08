@@ -125,6 +125,28 @@ renderGenres();filter();
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};
 const localized=window.FUN_PRODUCT_LOCALIZED||{};
+
+/* FUN Utility Pack v1.0.0 — FUN Time Align + FUN Channel. */
+details['fun-utility-pack']={
+ lead:'Two essential tools. One pack.',
+ paras:[
+  'FUN Utility Pack v1.0.0 brings together two audio utility plugins from FUNtasia Audio: FUN Time Align and FUN Channel.',
+  'FUN Time Align provides independent left and right delay adjustment for precise stereo timing alignment and Haas-style positioning.',
+  'FUN Channel provides stereo and channel routing options, left/right swap, mono summing, polarity and mute controls, Mid/Side encode/decode, and monitoring modes. Download both plugins from the release package.'
+ ],
+ features:['FUN TIME ALIGN','FUN CHANNEL','LEFT / RIGHT TIMING','STEREO ROUTING','MID / SIDE','POLARITY / MUTE','FREE DOWNLOAD']
+};
+const utilityPackTranslations={
+ ja:['FUN Utility Pack v1.0.0は、FUN Time AlignとFUN Channelの2製品をまとめたFUNtasia Audioのオーディオユーティリティパックです。','FUN Time Alignは左右チャンネルのディレイを個別に調整し、精密なタイミング補正やHaas効果を使った音作りに対応します。','FUN Channelは、L/R SWAP、MONO SUM、L TO BOTH、R TO BOTH、M/S ENCODE・DECODE、左右独立のPOLARITY・MUTE、ソロ・Mid・Sideなどのモニター切替を備えています。'],
+ en:['FUN Utility Pack v1.0.0 combines FUN Time Align and FUN Channel for practical stereo timing and channel control.','FUN Time Align offers independent left/right timing adjustment and Haas-style control.','FUN Channel includes stereo routing, L/R swap, mono sum, Mid/Side encoding and decoding, polarity, mute, and useful monitoring modes.'],
+ de:['FUN Utility Pack v1.0.0 enthält die beiden Audiowerkzeuge FUN Time Align und FUN Channel.','FUN Time Align bietet unabhängige Zeitkorrekturen für die linken und rechten Kanäle, auch für Haas-Effekte.','FUN Channel bietet Stereo-Routing, L/R-Tausch, Monosumme, Mid/Side-Encoding und -Decoding, Polarität, Mute und verschiedene Monitoring-Modi.'],
+ fr:['FUN Utility Pack v1.0.0 regroupe deux utilitaires audio : FUN Time Align et FUN Channel.','FUN Time Align permet de régler séparément le décalage temporel des canaux gauche et droit, notamment pour les effets Haas.','FUN Channel propose le routage stéréo, l’inversion L/R, la somme mono, l’encodage/décodage Mid/Side, la polarité, le mute et des modes de monitoring.'],
+ ru:['FUN Utility Pack v1.0.0 объединяет два аудиоплагина: FUN Time Align и FUN Channel.','FUN Time Align позволяет независимо корректировать задержку левого и правого каналов, в том числе для эффекта Хааса.','FUN Channel предлагает маршрутизацию каналов, обмен L/R, моносуммирование, кодирование и декодирование Mid/Side, полярность, Mute и режимы мониторинга.']
+};
+for(const [lang,paras] of Object.entries(utilityPackTranslations)){
+ if(!localized[lang])localized[lang]={};
+ localized[lang]['fun-utility-pack']={paras};
+}
 details['fun-stereo-pack']={
  lead:'Shape your stereo. Your way.',
  paras:[
@@ -237,7 +259,7 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href;
+ const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Utility-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href;
  if(!href)continue;
  const key=card.dataset.productKey||href.split('#')[1],item=details[key];
  if(!item)continue;
@@ -251,7 +273,7 @@ for(const card of cards){
   if(translation){const paragraphs=typeof translation==='string'?[translation]:(translation.paras?.length?translation.paras:[translation.summary]);for(const line of paragraphs){const p=document.createElement('p');p.textContent=line;body.append(p);}const disclosure=document.createElement('details');disclosure.className='dialog-english';const summary=document.createElement('summary');summary.textContent=words[4];disclosure.append(summary);for(const line of item.paras){const original=document.createElement('p');original.textContent=line;disclosure.append(original);}body.append(disclosure);}
   else for(const line of item.paras){const p=document.createElement('p');p.textContent=line;body.append(p);}
   if(item.features.length){const list=document.createElement('ul');list.className='dialog-features';for(const feature of item.features){const li=document.createElement('li');li.textContent=feature;list.append(li);}body.append(list);}
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-utility-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

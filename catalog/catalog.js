@@ -15,7 +15,7 @@ const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
-'FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
+'FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
 'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
 };
 for(const card of cards){
@@ -254,6 +254,36 @@ const volumeShaperTranslations={
 for(const [language,translation] of Object.entries(volumeShaperTranslations)){
  (localized[language]??={})['fun-volume-shaper']=translation;
 }
+/* FUN Lo-Fi Pack v1.0.0 — FUN Bitcrusher + FUN Downsampler. */
+details['fun-lo-fi-pack']={
+ lead:'Two plugins. Digital character.',
+ paras:[
+  'FUN Lo-Fi Pack v1.0.0 brings together two separate digital lo-fi audio effects: FUN Bitcrusher and FUN Downsampler.',
+  'FUN Bitcrusher reduces bit depth for crunchy quantization textures. FUN Downsampler reduces sample rate for gritty, retro-inspired digital color. Use the two effects independently or combine them in your own signal chain.'
+ ],
+ features:['FUN BITCRUSHER','FUN DOWNSAMPLER','BIT DEPTH REDUCTION','SAMPLE RATE REDUCTION','FREE DOWNLOAD']
+};
+const loFiTranslations={
+ ja:{paras:[
+  'FUN Lo-Fi Pack v1.0.0は、デジタルLo-Fiサウンドを作る2つのエフェクト、FUN BitcrusherとFUN Downsamplerを収録した無料パックです。',
+  'FUN Bitcrusherはビット深度を下げて粗い量子化の質感を作り、FUN Downsamplerはサンプルレートを下げてレトロなデジタルサウンドを生み出します。2つは独立したエフェクトとして使用できます。'
+ ]},
+ de:{paras:[
+  'FUN Lo-Fi Pack v1.0.0 enthält zwei eigenständige digitale Lo-Fi-Effekte: FUN Bitcrusher und FUN Downsampler.',
+  'FUN Bitcrusher reduziert die Bittiefe für körnige Quantisierungsartefakte. FUN Downsampler senkt die Abtastrate für raue, retro-inspirierte digitale Klangfarben. Beide Effekte können einzeln oder kombiniert verwendet werden.'
+ ]},
+ fr:{paras:[
+  'FUN Lo-Fi Pack v1.0.0 rassemble deux effets lo-fi numériques indépendants : FUN Bitcrusher et FUN Downsampler.',
+  'FUN Bitcrusher réduit la résolution en bits pour créer une texture de quantification granuleuse. FUN Downsampler réduit la fréquence d’échantillonnage pour des couleurs numériques brutes et rétro. Les deux effets peuvent être utilisés séparément ou ensemble.'
+ ]},
+ ru:{paras:[
+  'FUN Lo-Fi Pack v1.0.0 объединяет два самостоятельных цифровых lo-fi эффекта: FUN Bitcrusher и FUN Downsampler.',
+  'FUN Bitcrusher уменьшает разрядность для характерной грубой текстуры квантования, а FUN Downsampler снижает частоту дискретизации для ретро-цифрового звучания. Эффекты можно использовать по отдельности или вместе.'
+ ]}
+};
+for(const [language,translation] of Object.entries(loFiTranslations)){
+ (localized[language]??={})['fun-lo-fi-pack']=translation;
+}
 const locale=document.documentElement.lang||'en';
 const words={ja:['詳しく見る','製品紹介','元サイトで見る','閉じる','元サイト掲載の英語説明'],en:['Details','Product details','Original page','Close','Original English description'],de:['Details','Produktdetails','Originalseite','Schließen','Englische Originalbeschreibung'],fr:['Détails','Présentation','Page originale','Fermer','Description originale en anglais'],ru:['Подробнее','О продукте','Оригинальная страница','Закрыть','Оригинальное описание на английском']}[locale]||['Details','Product details','Original page','Close','Original English description'];
 const dialog=document.createElement('dialog');dialog.className='product-dialog';dialog.setAttribute('aria-labelledby','product-dialog-title');
@@ -264,7 +294,7 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Utility-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Pair/releases"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href;
+ const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Lo-Fi-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Utility-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Pair/releases"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href;
  if(!href)continue;
  const key=card.dataset.productKey||href.split('#')[1],item=details[key];
  if(!item)continue;
@@ -278,7 +308,7 @@ for(const card of cards){
   if(translation){const paragraphs=typeof translation==='string'?[translation]:(translation.paras?.length?translation.paras:[translation.summary]);for(const line of paragraphs){const p=document.createElement('p');p.textContent=line;body.append(p);}const disclosure=document.createElement('details');disclosure.className='dialog-english';const summary=document.createElement('summary');summary.textContent=words[4];disclosure.append(summary);for(const line of item.paras){const original=document.createElement('p');original.textContent=line;disclosure.append(original);}body.append(disclosure);}
   else for(const line of item.paras){const p=document.createElement('p');p.textContent=line;body.append(p);}
   if(item.features.length){const list=document.createElement('ul');list.className='dialog-features';for(const feature of item.features){const li=document.createElement('li');li.textContent=feature;list.append(li);}body.append(list);}
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-lo-fi-pack','fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

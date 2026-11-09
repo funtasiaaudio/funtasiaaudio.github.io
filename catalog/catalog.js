@@ -150,32 +150,37 @@ for(const [lang,paras] of Object.entries(utilityPackTranslations)){
 details['fun-stereo-pack']={
  lead:'Shape your stereo. Your way.',
  paras:[
-  'FUN Stereo Pack v1.0.0 brings together two independent, free Windows 64-bit VST3 effects: FUN Dual Pan v1.0.5 and FUN Stereo Width v1.0.7.',
-  'FUN Dual Pan lets you independently position the left and right input channels, adjust input balance, link controls, check mono and choose a pan law.',
-  'FUN Stereo Width offers width adjustment from mono to an expanded stereo image, supported by a stereo-field display, correlation meter and mono check. Both plug-ins can be inserted directly into a VST3-compatible DAW. Five-language PDF manuals are included in the ZIP.'
+  'FUN Stereo Pack v1.1.0 includes two independent free VST3 effects for Windows x64: FUN Dual Pan and FUN Stereo Width.',
+  'FUN Dual Pan provides independent left/right positioning, input balance, linked controls, mono check and selectable pan law. FUN Stereo Width adjusts stereo width from 0% mono to 200% expanded stereo, with stereo-field and correlation monitoring.',
+  'NEW IN v1.1.0: Both plug-ins now offer nine colour themes, including Sakura Pink and Aquamarine. Each plug-in remembers the last manually selected theme for new instances. Saved DAW projects restore their own themes, while other open instances stay unchanged.',
+  'Theme settings affect only the GUI, not audio processing or automation. Both plug-ins work separately in VST3-compatible DAWs. Five-language PDF manuals are included in the ZIP.'
  ],
- features:['TWO INDEPENDENT VST3 EFFECTS','DUAL PAN / INPUT BALANCE','PAN LAW / LINK / MONO','STEREO WIDTH 0–200%','STEREO FIELD / CORRELATION','MONO CHECK','FREE · WINDOWS x64']
+ features:['TWO FREE VST3 EFFECTS','DUAL PAN / INPUT BALANCE','PAN LAW / LINK / MONO','STEREO WIDTH 0–200%','STEREO FIELD / CORRELATION','MONO CHECK','9 COLOUR THEMES','GLOBAL THEME PREFERENCES','WINDOWS x64']
 };
 const stereoPackTranslations={
  ja:{paras:[
-  'FUN Stereo Pack v1.0.0は、FUN Dual Pan v1.0.5とFUN Stereo Width v1.0.7の2製品を収録した、Windows 64-bit用の無料VST3エフェクトパックです。',
-  'FUN Dual Panは、左右の入力チャンネルの定位を個別に調整でき、INPUT BALANCE、LINK、MONO、PAN LAW切替を備えています。',
-  'FUN Stereo Widthは、ステレオの広がりを0〜200%で調整でき、STEREO FIELD表示、相関メーター、MONO CHECKを搭載しています。2製品はそれぞれ単体でDAWに挿入でき、日本語・英語・ドイツ語・フランス語・ロシア語のPDFマニュアルがZIPに付属します。'
+  'FUN Stereo Pack v1.1.0は、FUN Dual PanとFUN Stereo Widthの2製品を収録したWindows 64-bit用の無料VST3エフェクトパックです。',
+  'FUN Dual Panは左右の定位、入力バランス、LINK、MONO CHECK、PAN LAWを操作できます。FUN Stereo Widthは0〜200%のステレオ幅調整とSTEREO FIELD表示、相関メーターを搭載しています。',
+  'v1.1.0では、両プラグインにSakura PinkとAquamarineを追加し、全9色のGUIテーマに対応しました。手動選択したテーマは各プラグインの新規インスタンスに引き継がれます。保存済みDAWプロジェクトではプロジェクトの保存色が優先され、開いている他のインスタンスは自動変更されません。',
+  'テーマ設定はGUI専用で、音声処理やAutomationには影響しません。2製品は別々に使用でき、日本語・英語・ドイツ語・フランス語・ロシア語のPDFマニュアルがZIPに付属します。'
  ]},
  de:{paras:[
-  'FUN Stereo Pack v1.0.0 enthält zwei unabhängige, kostenlose VST3-Effekte für Windows x64: FUN Dual Pan v1.0.5 und FUN Stereo Width v1.0.7.',
-  'FUN Dual Pan ermöglicht die unabhängige Positionierung des linken und rechten Eingangskanals sowie Input Balance, gekoppelte Regler, Mono-Prüfung und wählbares Pan Law.',
-  'FUN Stereo Width regelt die Stereobreite von Mono bis zu einem erweiterten Stereobild und bietet eine Stereo-Field-Anzeige, einen Korrelationsmesser und Mono Check. Beide Plug-ins lassen sich einzeln in einer VST3-kompatiblen DAW verwenden. PDF-Handbücher in fünf Sprachen liegen der ZIP-Datei bei.'
+  'FUN Stereo Pack v1.1.0 enthält zwei unabhängige, kostenlose VST3-Effekte für Windows x64: FUN Dual Pan und FUN Stereo Width.',
+  'FUN Dual Pan bietet eine separate Positionierung der beiden Eingangskanäle, Eingangs-Balance, gekoppelte Regler, Mono-Prüfung und wählbares Pan Law. FUN Stereo Width regelt die Stereobreite von 0 % (Mono) bis 200 % mit Stereo-Field-Anzeige und Korrelationsmesser.',
+  'NEU IN v1.1.0: Beide Plug-ins bieten jetzt neun Farbthemen, darunter Sakura Pink und Aquamarine. Jedes Plug-in merkt sich das zuletzt manuell gewählte Thema für neue Instanzen. Gespeicherte DAW-Projekte stellen ihr eigenes Thema wieder her; bereits geöffnete Instanzen bleiben unverändert.',
+  'Die Themen betreffen nur die Oberfläche, nicht die Audioverarbeitung oder Automation. Beide Effekte sind einzeln verwendbar. PDF-Handbücher in fünf Sprachen sind im ZIP enthalten.'
  ]},
  fr:{paras:[
-  'FUN Stereo Pack v1.0.0 réunit deux effets VST3 gratuits et indépendants pour Windows 64 bits : FUN Dual Pan v1.0.5 et FUN Stereo Width v1.0.7.',
-  'FUN Dual Pan permet de positionner séparément les canaux d’entrée gauche et droit, de régler leur balance, de lier les commandes, de vérifier le mono et de choisir une loi de panoramique.',
-  'FUN Stereo Width règle la largeur stéréo du mono à une image élargie, avec affichage du champ stéréo, indicateur de corrélation et contrôle mono. Les deux plug-ins s’utilisent séparément dans toute DAW compatible VST3. Des manuels PDF en cinq langues sont inclus dans le ZIP.'
+  'FUN Stereo Pack v1.1.0 réunit deux effets VST3 gratuits et indépendants pour Windows 64 bits : FUN Dual Pan et FUN Stereo Width.',
+  'FUN Dual Pan permet de positionner séparément les canaux gauche et droit, de régler la balance, de lier les commandes, de vérifier le mono et de choisir une loi panoramique. FUN Stereo Width règle la largeur stéréo de 0 % (mono) à 200 %, avec affichage du champ stéréo et corrélation.',
+  'NOUVEAUTÉ v1.1.0 : Les deux plug-ins proposent désormais neuf thèmes, dont Sakura Pink et Aquamarine. Chaque plug-in mémorise le dernier thème choisi manuellement pour les nouvelles instances. Les projets DAW enregistrés restaurent leur propre thème et les autres instances ouvertes ne changent pas.',
+  'Les thèmes modifient uniquement l’interface, sans toucher au traitement audio ni à l’automation. Les deux effets sont utilisables séparément. Des manuels PDF en cinq langues sont inclus dans le ZIP.'
  ]},
  ru:{paras:[
-  'FUN Stereo Pack v1.0.0 объединяет два независимых бесплатных VST3-эффекта для Windows x64: FUN Dual Pan v1.0.5 и FUN Stereo Width v1.0.7.',
-  'FUN Dual Pan позволяет отдельно размещать левый и правый входные каналы, регулировать входной баланс, связывать регуляторы, проверять моно и выбирать закон панорамирования.',
-  'FUN Stereo Width регулирует ширину от моно до расширенной стереокартины и содержит дисплей стереополя, индикатор корреляции и проверку моно. Оба плагина можно использовать по отдельности в DAW с поддержкой VST3. В ZIP включены PDF-руководства на пяти языках.'
+  'FUN Stereo Pack v1.1.0 объединяет два независимых бесплатных VST3-эффекта для Windows x64: FUN Dual Pan и FUN Stereo Width.',
+  'FUN Dual Pan позволяет отдельно размещать левый и правый каналы, регулировать входной баланс, связывать регуляторы, проверять моно и выбирать закон панорамирования. FUN Stereo Width изменяет ширину от 0 % (моно) до 200 % с дисплеем стереополя и индикатором корреляции.',
+  'НОВОЕ В v1.1.0: В обоих плагинах теперь девять цветовых тем, включая Sakura Pink и Aquamarine. Каждый плагин запоминает последнюю выбранную вручную тему для новых экземпляров. Сохранённые проекты DAW восстанавливают свою тему, а уже открытые экземпляры не изменяются.',
+  'Темы меняют только интерфейс и не влияют на обработку звука или автоматизацию. Оба эффекта можно использовать отдельно. В ZIP включены PDF-руководства на пяти языках.'
  ]}
 };
 for(const [language,translation] of Object.entries(stereoPackTranslations)){

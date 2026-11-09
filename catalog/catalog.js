@@ -129,39 +129,64 @@ const localized=window.FUN_PRODUCT_LOCALIZED||{};
 
 /* FUN Test Tone v1.0.0 — free signal generator used for our own plugin testing. */
 details['fun-test-tone']={
- lead:'Reference signals from our own development desk.',
- paras:[
-  'FUN Test Tone v1.0.0 is a free Windows x64 VST3 signal generator used in FUNtasia Audio’s own plug-in development tests.',
-  'Generate sine, square and sawtooth waves or white and pink noise, with frequency control from 20 Hz to 20 kHz and output level from −100 to 0 dBFS.',
-  'Use the 1 kHz reference, 10-second 20 Hz–20 kHz sweep, mono/stereo operation, phase reset and 50–200% GUI scaling to check signal paths, levels and DSP response. Reduce monitor volume before playing test signals.'
+ "lead": "A precise starting point for sound inside your DAW.",
+ "paras": [
+  "FUN Test Tone v1.0.0 is a free Windows 64-bit VST3 signal generator used in FUNtasia Audio's own plug-in development and testing. It replaces the incoming audio with a generated signal rather than mixing the two. OUTPUT OFF therefore produces silence, not dry-through.",
+  "Select SINE, SQUARE, SAW or NOISE, with WHITE and PINK noise types. Square and saw waves use band-limited edge processing to reduce aliasing. The oscillator covers 20 Hz to 20 kHz, while LEVEL ranges from −100 to 0 dBFS in 0.1 dB steps; −100 dBFS is silence.",
+  "Periodic tones are identical on left and right. In NOISE mode, MONO outputs the same noise on both channels, while STEREO generates independent left/right noise. FREQUENCY and SWEEP are unavailable in NOISE mode.",
+  "The 1 kHz button changes only frequency to 1000 Hz. REF sets SINE, 1000 Hz and −18 dBFS and resets oscillator phase without changing OUTPUT or CHANNEL. PHASE RESET sets the oscillator phase to zero at the next audio block. SWEEP runs logarithmically from 20 Hz to 20 kHz over 10 seconds for periodic waves.",
+  "The waveform preview and peak display are visual aids, not calibrated measurement tools. The GUI scales from 50% to 200%, and settings are saved with the DAW project. The ZIP includes PDF manuals in Japanese, English, Korean and Traditional Chinese (Taiwan). Turn down monitoring before using test signals; start near −18 dBFS or lower."
  ],
- features:['SINE / SQUARE / SAW','WHITE / PINK NOISE','20 Hz–20 kHz','−100 TO 0 dBFS','1 kHz REFERENCE','10-SECOND SWEEP','MONO / STEREO','PHASE RESET','GUI SCALING 50–200%','FREE WINDOWS x64 VST3']
+ "features": [
+  "FREE WINDOWS x64 VST3",
+  "SINE / SQUARE / SAW",
+  "WHITE / PINK NOISE",
+  "20 Hz–20 kHz",
+  "−100 TO 0 dBFS",
+  "MONO / STEREO",
+  "1 kHz / REF",
+  "PHASE RESET",
+  "10-SECOND LOG SWEEP",
+  "50–200% GUI SIZE",
+  "DAW STATE SAVE",
+  "4-LANGUAGE PDF MANUALS"
+ ]
 };
 const testToneTranslations={
- ja:[
-  'FUN Test Tone v1.0.0は、FUNtasia Audio自身がプラグイン開発の動作確認に使用している、Windows 64-bit向けの無料VST3テスト信号ジェネレーターです。',
-  'Sine／Square／Saw、White／Pink Noiseを生成でき、20 Hz〜20 kHzの周波数設定と−100〜0 dBFSの出力レベル調整に対応します。',
-  '1 kHz基準信号、20 Hz〜20 kHzを10秒で走査するスイープ、Mono／Stereo、Phase Reset、GUI倍率50〜200%を搭載。試験音の再生時はモニター音量にご注意ください。'
+ "ja": [
+  "FUN Test Tone v1.0.0は、FUNtasia Audio自身がプラグイン開発・動作検証に使っている、Windows 64-bit向け無料VST3信号ジェネレーターです。入力音声に音を混ぜるのではなく、入力を生成信号で置き換えます。OUTPUTをOFFにしても原音は通過せず、無音になります。",
+  "SINE（正弦波）・SQUARE（矩形波）・SAW（ノコギリ波）・NOISEを選択でき、ノイズはWHITE／PINKを切り替えられます。SQUAREとSAWには折り返し歪みを抑える帯域制限処理を搭載。周期波形の周波数は20 Hz〜20 kHz、LEVELは−100〜0 dBFS（0.1 dB刻み）で、−100 dBFSは無音です。",
+  "周期波形は左右同じ信号です。NOISE時のMONOは左右同じノイズ、STEREOは左右独立のノイズを生成します。NOISE中はFREQUENCYとSWEEPが無効になります。",
+  "「1 kHz」は周波数だけを1000 Hzに設定。「REF」はSINE／1000 Hz／−18 dBFSへ戻して位相もリセットしますが、OUTPUTとCHANNELは変更しません。「PHASE RESET」は次のオーディオブロックで位相を0に戻します。「SWEEP」は周期波形で20 Hz〜20 kHzを10秒かけて対数的に走査します。",
+  "波形プレビューとピーク表示は状態確認用で、校正された測定器ではありません。GUI倍率は50〜200%で、設定はDAWプロジェクトに保存されます。ZIPには日本語・英語・韓国語・繁体字中国語（台湾）のPDFマニュアルが付属。テスト信号の再生前にモニター音量を下げ、−18 dBFS以下の控えめなレベルから始めてください。"
  ],
- en:[
-  'FUN Test Tone v1.0.0 is a free Windows x64 VST3 signal generator used during FUNtasia Audio’s own plug-in development and testing.',
-  'Generate sine, square and saw waves, white/pink noise, and adjust frequency over 20 Hz–20 kHz and output level from −100 to 0 dBFS.',
-  'A 1 kHz reference, 10-second sweep, mono/stereo modes, phase reset and 50–200% GUI scaling help check audio paths and DSP response. Keep the monitoring volume low when using test signals.'
+ "en": [
+  "FUN Test Tone v1.0.0 is a free Windows 64-bit VST3 signal generator used in FUNtasia Audio's own plug-in development and testing. It replaces the incoming audio with a generated signal rather than mixing the two. OUTPUT OFF therefore produces silence, not dry-through.",
+  "Select SINE, SQUARE, SAW or NOISE, with WHITE and PINK noise types. Square and saw waves use band-limited edge processing to reduce aliasing. The oscillator covers 20 Hz to 20 kHz, while LEVEL ranges from −100 to 0 dBFS in 0.1 dB steps; −100 dBFS is silence.",
+  "Periodic tones are identical on left and right. In NOISE mode, MONO outputs the same noise on both channels, while STEREO generates independent left/right noise. FREQUENCY and SWEEP are unavailable in NOISE mode.",
+  "The 1 kHz button changes only frequency to 1000 Hz. REF sets SINE, 1000 Hz and −18 dBFS and resets oscillator phase without changing OUTPUT or CHANNEL. PHASE RESET sets the oscillator phase to zero at the next audio block. SWEEP runs logarithmically from 20 Hz to 20 kHz over 10 seconds for periodic waves.",
+  "The waveform preview and peak display are visual aids, not calibrated measurement tools. The GUI scales from 50% to 200%, and settings are saved with the DAW project. The ZIP includes PDF manuals in Japanese, English, Korean and Traditional Chinese (Taiwan). Turn down monitoring before using test signals; start near −18 dBFS or lower."
  ],
- de:[
-  'FUN Test Tone v1.0.0 ist ein kostenloser VST3-Testsignalgenerator für Windows x64, den FUNtasia Audio selbst bei der Plugin-Entwicklung nutzt.',
-  'Er erzeugt Sinus-, Rechteck- und Sägezahnwellen sowie weißes und rosa Rauschen. Frequenz: 20 Hz bis 20 kHz; Ausgangspegel: −100 bis 0 dBFS.',
-  'Hinzu kommen eine 1-kHz-Referenz, ein 10-Sekunden-Sweep, Mono/Stereo, Phasen-Reset und GUI-Skalierung von 50 bis 200 %. Bitte die Abhörlautstärke vor Testsignalen reduzieren.'
+ "de": [
+  "FUN Test Tone v1.0.0 ist ein kostenloser VST3-Testsignalgenerator für Windows 64 Bit, den FUNtasia Audio selbst bei der Plugin-Entwicklung verwendet. Das erzeugte Signal ersetzt das Eingangsaudio; OUTPUT OFF führt zu Stille und nicht zur Durchleitung des Originals.",
+  "Wählbar sind SINE, SQUARE, SAW sowie NOISE mit WHITE oder PINK. Rechteck- und Sägezahnwellen verwenden eine bandbegrenzende Verarbeitung zur Verringerung von Aliasing. Frequenz: 20 Hz bis 20 kHz; LEVEL: −100 bis 0 dBFS in 0,1-dB-Schritten, wobei −100 dBFS stumm bedeutet.",
+  "Periodische Signale sind links und rechts identisch. NOISE MONO verwendet dasselbe Rauschen auf beiden Kanälen, NOISE STEREO erzeugt unabhängiges L/R-Rauschen. FREQUENCY und SWEEP sind im NOISE-Modus deaktiviert.",
+  "1 kHz setzt nur die Frequenz. REF wählt SINE, 1000 Hz und −18 dBFS und setzt die Phase zurück, ohne OUTPUT oder CHANNEL zu ändern. PHASE RESET setzt die Phase im nächsten Audioblock auf null. SWEEP durchläuft logarithmisch 20 Hz bis 20 kHz in 10 Sekunden.",
+  "Wellenform- und Pegelanzeigen dienen zur Orientierung, nicht als kalibrierte Messgeräte. GUI-Größe: 50–200 %; Einstellungen werden im DAW-Projekt gespeichert. Das ZIP enthält PDF-Handbücher auf Japanisch, Englisch, Koreanisch und traditionellem Chinesisch (Taiwan). Vor Testsignalen die Abhörlautstärke reduzieren."
  ],
- fr:[
-  'FUN Test Tone v1.0.0 est un générateur de signaux VST3 gratuit pour Windows x64, utilisé par FUNtasia Audio lors du développement de ses propres plug-ins.',
-  'Il produit des ondes sinusoïdales, carrées et en dents de scie, ainsi que du bruit blanc et rose, avec une fréquence de 20 Hz à 20 kHz et un niveau de −100 à 0 dBFS.',
-  'Il propose une référence à 1 kHz, un balayage de 10 secondes, les modes mono/stéréo, une remise à zéro de phase et une interface redimensionnable de 50 à 200 %. Réduisez le volume d’écoute avant d’utiliser les signaux de test.'
+ "fr": [
+  "FUN Test Tone v1.0.0 est un générateur de signaux VST3 gratuit pour Windows 64 bits, utilisé lors du développement des plug-ins FUNtasia Audio. Le signal généré remplace l'audio entrant : OUTPUT OFF produit du silence, sans laisser passer le signal original.",
+  "Il propose SINE, SQUARE, SAW et NOISE (WHITE ou PINK). Les formes carrée et en dents de scie emploient un traitement limitant le repliement spectral. Fréquence : 20 Hz à 20 kHz ; LEVEL : −100 à 0 dBFS par pas de 0,1 dB (−100 dBFS correspond au silence).",
+  "Les signaux périodiques sont identiques à gauche et à droite. En mode NOISE, MONO duplique le même bruit sur les deux canaux, tandis que STEREO génère deux bruits indépendants. FREQUENCY et SWEEP sont désactivés en mode NOISE.",
+  "1 kHz ne change que la fréquence. REF rétablit SINE, 1000 Hz et −18 dBFS, puis réinitialise la phase sans toucher à OUTPUT ni CHANNEL. PHASE RESET remet la phase à zéro au bloc audio suivant. SWEEP parcourt 20 Hz à 20 kHz de façon logarithmique en 10 secondes.",
+  "L'aperçu et le niveau crête sont des indicateurs visuels, non des instruments étalonnés. Interface redimensionnable de 50 à 200 % ; réglages enregistrés dans le projet DAW. Le ZIP contient des manuels PDF en japonais, anglais, coréen et chinois traditionnel (Taïwan). Réduisez le volume d'écoute avant tout test."
  ],
- ru:[
-  'FUN Test Tone v1.0.0 — бесплатный генератор тестовых сигналов VST3 для Windows x64, который FUNtasia Audio использует при разработке собственных плагинов.',
-  'Доступны синусоидальная, прямоугольная и пилообразная волны, белый и розовый шум; частота от 20 Гц до 20 кГц и уровень от −100 до 0 dBFS.',
-  'Предусмотрены опорный тон 1 кГц, 10-секундный свип, моно/стерео, сброс фазы и масштаб интерфейса 50–200 %. Перед воспроизведением тестовых сигналов уменьшите громкость мониторов.'
+ "ru": [
+  "FUN Test Tone v1.0.0 — бесплатный VST3-генератор тестовых сигналов для Windows 64-bit, который FUNtasia Audio использует при разработке своих плагинов. Он заменяет входной звук, а не подмешивает к нему сигнал: при OUTPUT OFF на выходе тишина.",
+  "Доступны SINE, SQUARE, SAW и NOISE с вариантами WHITE / PINK. Прямоугольные и пилообразные сигналы используют ограничение спектра для уменьшения алиасинга. Частота: 20 Гц–20 кГц; уровень: от −100 до 0 dBFS с шагом 0,1 дБ (−100 dBFS — тишина).",
+  "Периодические сигналы одинаковы слева и справа. NOISE MONO дублирует один шум на оба канала, а NOISE STEREO создаёт независимые сигналы L/R. В режиме NOISE настройки FREQUENCY и SWEEP недоступны.",
+  "Кнопка 1 kHz меняет только частоту. REF устанавливает SINE, 1000 Гц и −18 dBFS и сбрасывает фазу, не меняя OUTPUT или CHANNEL. PHASE RESET обнуляет фазу в следующем аудиоблоке. SWEEP выполняет логарифмический проход 20 Гц–20 кГц за 10 секунд.",
+  "Предпросмотр волны и индикатор пика — вспомогательные, не калиброванные измерители. Масштаб GUI: 50–200 %, параметры сохраняются с проектом DAW. В ZIP находятся PDF-руководства на японском, английском, корейском и традиционном китайском (Тайвань). Перед тестом уменьшите громкость мониторов."
  ]
 };
 for(const [lang,paras] of Object.entries(testToneTranslations)){
@@ -337,7 +362,7 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Lo-Fi-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Utility-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Pair/releases"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href;
+ const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Lo-Fi-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Test-Tone/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Utility-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Pair/releases"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href;
  if(!href)continue;
  const key=card.dataset.productKey||href.split('#')[1],item=details[key];
  if(!item)continue;

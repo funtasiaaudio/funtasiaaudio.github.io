@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+'FUN Test Tone':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -125,6 +125,49 @@ renderGenres();filter();
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};
 const localized=window.FUN_PRODUCT_LOCALIZED||{};
+
+
+/* FUN Test Tone v1.0.0 — free signal generator used for our own plugin testing. */
+details['fun-test-tone']={
+ lead:'Reference signals from our own development desk.',
+ paras:[
+  'FUN Test Tone v1.0.0 is a free Windows x64 VST3 signal generator used in FUNtasia Audio’s own plug-in development tests.',
+  'Generate sine, square and sawtooth waves or white and pink noise, with frequency control from 20 Hz to 20 kHz and output level from −100 to 0 dBFS.',
+  'Use the 1 kHz reference, 10-second 20 Hz–20 kHz sweep, mono/stereo operation, phase reset and 50–200% GUI scaling to check signal paths, levels and DSP response. Reduce monitor volume before playing test signals.'
+ ],
+ features:['SINE / SQUARE / SAW','WHITE / PINK NOISE','20 Hz–20 kHz','−100 TO 0 dBFS','1 kHz REFERENCE','10-SECOND SWEEP','MONO / STEREO','PHASE RESET','GUI SCALING 50–200%','FREE WINDOWS x64 VST3']
+};
+const testToneTranslations={
+ ja:[
+  'FUN Test Tone v1.0.0は、FUNtasia Audio自身がプラグイン開発の動作確認に使用している、Windows 64-bit向けの無料VST3テスト信号ジェネレーターです。',
+  'Sine／Square／Saw、White／Pink Noiseを生成でき、20 Hz〜20 kHzの周波数設定と−100〜0 dBFSの出力レベル調整に対応します。',
+  '1 kHz基準信号、20 Hz〜20 kHzを10秒で走査するスイープ、Mono／Stereo、Phase Reset、GUI倍率50〜200%を搭載。試験音の再生時はモニター音量にご注意ください。'
+ ],
+ en:[
+  'FUN Test Tone v1.0.0 is a free Windows x64 VST3 signal generator used during FUNtasia Audio’s own plug-in development and testing.',
+  'Generate sine, square and saw waves, white/pink noise, and adjust frequency over 20 Hz–20 kHz and output level from −100 to 0 dBFS.',
+  'A 1 kHz reference, 10-second sweep, mono/stereo modes, phase reset and 50–200% GUI scaling help check audio paths and DSP response. Keep the monitoring volume low when using test signals.'
+ ],
+ de:[
+  'FUN Test Tone v1.0.0 ist ein kostenloser VST3-Testsignalgenerator für Windows x64, den FUNtasia Audio selbst bei der Plugin-Entwicklung nutzt.',
+  'Er erzeugt Sinus-, Rechteck- und Sägezahnwellen sowie weißes und rosa Rauschen. Frequenz: 20 Hz bis 20 kHz; Ausgangspegel: −100 bis 0 dBFS.',
+  'Hinzu kommen eine 1-kHz-Referenz, ein 10-Sekunden-Sweep, Mono/Stereo, Phasen-Reset und GUI-Skalierung von 50 bis 200 %. Bitte die Abhörlautstärke vor Testsignalen reduzieren.'
+ ],
+ fr:[
+  'FUN Test Tone v1.0.0 est un générateur de signaux VST3 gratuit pour Windows x64, utilisé par FUNtasia Audio lors du développement de ses propres plug-ins.',
+  'Il produit des ondes sinusoïdales, carrées et en dents de scie, ainsi que du bruit blanc et rose, avec une fréquence de 20 Hz à 20 kHz et un niveau de −100 à 0 dBFS.',
+  'Il propose une référence à 1 kHz, un balayage de 10 secondes, les modes mono/stéréo, une remise à zéro de phase et une interface redimensionnable de 50 à 200 %. Réduisez le volume d’écoute avant d’utiliser les signaux de test.'
+ ],
+ ru:[
+  'FUN Test Tone v1.0.0 — бесплатный генератор тестовых сигналов VST3 для Windows x64, который FUNtasia Audio использует при разработке собственных плагинов.',
+  'Доступны синусоидальная, прямоугольная и пилообразная волны, белый и розовый шум; частота от 20 Гц до 20 кГц и уровень от −100 до 0 dBFS.',
+  'Предусмотрены опорный тон 1 кГц, 10-секундный свип, моно/стерео, сброс фазы и масштаб интерфейса 50–200 %. Перед воспроизведением тестовых сигналов уменьшите громкость мониторов.'
+ ]
+};
+for(const [lang,paras] of Object.entries(testToneTranslations)){
+ if(!localized[lang])localized[lang]={};
+ localized[lang]['fun-test-tone']={paras};
+}
 
 /* FUN Utility Pack v1.0.0 — FUN Time Align + FUN Channel. */
 details['fun-utility-pack']={
@@ -308,7 +351,7 @@ for(const card of cards){
   if(translation){const paragraphs=typeof translation==='string'?[translation]:(translation.paras?.length?translation.paras:[translation.summary]);for(const line of paragraphs){const p=document.createElement('p');p.textContent=line;body.append(p);}const disclosure=document.createElement('details');disclosure.className='dialog-english';const summary=document.createElement('summary');summary.textContent=words[4];disclosure.append(summary);for(const line of item.paras){const original=document.createElement('p');original.textContent=line;disclosure.append(original);}body.append(disclosure);}
   else for(const line of item.paras){const p=document.createElement('p');p.textContent=line;body.append(p);}
   if(item.features.length){const list=document.createElement('ul');list.className='dialog-features';for(const feature of item.features){const li=document.createElement('li');li.textContent=feature;list.append(li);}body.append(list);}
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-lo-fi-pack','fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-lo-fi-pack','fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','fun-test-tone','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

@@ -106,7 +106,7 @@ html[lang="ru"] body{font-family:"Times New Roman","Liberation Serif",serif}
 @media(max-width:680px){.appeal-callout{margin:30px 0}.appeal-callout .btn{width:100%;white-space:normal}}
 
 /* Official Instagram discovery without displacing the primary hero CTAs. */
-.hero-social{margin-top:20px;font:500 .84rem/1.6 Arial,sans-serif;letter-spacing:.025em}
+.hero-social{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin-top:20px;font:500 .84rem/1.6 Arial,sans-serif;letter-spacing:.025em}
 .hero-social a{display:inline-flex;align-items:center;gap:7px;min-height:44px;color:var(--light);text-decoration:underline;text-decoration-color:rgba(143,174,159,.55);text-underline-offset:5px}
 .hero-social a:hover{color:var(--ivory);text-decoration-color:var(--ivory)}
 .hero-social a:focus-visible{outline:2px solid var(--light);outline-offset:3px}

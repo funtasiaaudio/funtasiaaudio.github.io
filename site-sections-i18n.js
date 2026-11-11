@@ -83,6 +83,21 @@
     ["Windows 11向け・無料 / v0.1 / ZIP約3.6 MB","For Windows 11 · Free / v0.1 / ZIP approx. 3.6 MB","Für Windows 11 · Kostenlos / v0.1 / ZIP ca. 3,6 MB","Pour Windows 11 · Gratuit / v0.1 / ZIP env. 3,6 Mo","Для Windows 11 · Бесплатно / v0.1 / ZIP около 3,6 МБ"],
     ["。アーカイブを展開し、付属の",". Extract the archive and open the included ",". Entpacke das Archiv und öffne die enthaltene Datei ",". Extrayez l’archive et ouvrez le fichier fourni ",". Распакуйте архив и откройте файл "],
     ["からカラーを選択できます。詳しい手順・注意事項はリリース情報をご確認ください。"," to choose your color. See the release notes for detailed instructions and precautions."," , um eine Farbe auszuwählen. Anleitungen und Hinweise stehen in den Versionsinformationen."," pour choisir une couleur. Consultez les notes de version pour les instructions et précautions."," , чтобы выбрать цвет. Инструкции и предупреждения указаны на странице выпуска."]
+,
+    ["FUNtasiaを、好きなアイテムに。","Bring FUNtasia to the things you love.","FUNtasia für deine Lieblingsstücke.","FUNtasia sur les objets que vous aimez.","FUNtasia — на любимых вещах."],
+    ["SUZURIなどにないアイテムも、好きなプリントサービスで。フォルテ単独・FUNtasia文字付き・Hʉeliang DJロゴの透過PNGを無料で配布しています。","Make personalized items even when they are not sold on SUZURI. Download transparent PNGs of the forte emblem, FUNtasia wordmark and Hʉeliang DJ logo for your preferred printing service.","Gestalte persönliche Artikel auch dann, wenn SUZURI sie nicht anbietet. Lade transparente PNGs des Forte-Symbols, des FUNtasia-Schriftzugs und des Hʉeliang-DJ-Logos herunter.","Personnalisez même les objets indisponibles sur SUZURI. Téléchargez les PNG transparents du symbole forte, du logo FUNtasia et du logo DJ Hʉeliang pour votre imprimeur préféré.","Создавайте персональные вещи, даже если их нет на SUZURI. Скачайте PNG с прозрачным фоном: знак forte, логотип FUNtasia и DJ-логотип Hʉeliang."],
+    ["フォルテ単独ロゴ","Forte emblem","Forte-Symbol","Symbole forte","Символ forte"],
+    ["FUNtasia Studioの追加8色。PNG・背景透過。","Eight additional FUNtasia Studio colors. Transparent PNGs.","Acht weitere FUNtasia-Studio-Farben. Transparente PNGs.","Huit couleurs supplémentaires de FUNtasia Studio. PNG transparents.","Восемь дополнительных цветов FUNtasia Studio. PNG с прозрачным фоном."],
+    ["8色ZIPをダウンロード","Download 8-color ZIP","8-Farben-ZIP herunterladen","Télécharger le ZIP de 8 couleurs","Скачать ZIP с 8 цветами"],
+    ["フォルテ＋FUNtasia文字付きロゴ","Forte + FUNtasia wordmark","Forte + FUNtasia-Schriftzug","Forte + nom FUNtasia","Forte + надпись FUNtasia"],
+    ["フォルテとFUNtasiaの組み合わせ。追加8色・背景透過PNG。","Forte emblem with FUNtasia lettering. Eight additional colors, transparent PNGs.","Forte-Symbol mit FUNtasia-Schriftzug. Acht weitere Farben, transparente PNGs.","Symbole forte et texte FUNtasia. Huit couleurs supplémentaires, PNG transparents.","Знак forte и надпись FUNtasia. Восемь дополнительных цветов, прозрачные PNG."],
+    ["Hʉeliang DJロゴ","Hʉeliang DJ logo","Hʉeliang DJ-Logo","Logo DJ Hʉeliang","DJ-логотип Hʉeliang"],
+    ["HʉeliangのDJワードマーク。追加8色・背景透過PNG。","Hʉeliang DJ wordmark. Eight additional colors, transparent PNGs.","Hʉeliang DJ-Schriftzug. Acht weitere Farben, transparente PNGs.","Logo typographique DJ Hʉeliang. Huit couleurs supplémentaires, PNG transparents.","DJ-логотип Hʉeliang. Восемь дополнительных цветов, прозрачные PNG."],
+    ["基本カラー＆制作キット","Core colors & publishing kit","Basisfarben & Publishing-Kit","Couleurs de base et kit de publication","Базовые цвета и комплект для публикации"],
+    ["基本カラーと制作向けの参考ファイルを同梱。","Includes core-color assets and reference files for publishing.","Enthält Basisfarbdateien und Referenzmaterial zur Veröffentlichung.","Contient les couleurs de base et des fichiers de référence pour la publication.","Включает основные цвета и вспомогательные файлы для публикации."],
+    ["基本キットをダウンロード","Download core kit","Basis-Kit herunterladen","Télécharger le kit de base","Скачать основной комплект"],
+    ["個人用のオーダーメイドグッズ制作や、制作を依頼する印刷サービスへの入稿に利用できます。","You may use these files to make custom items for personal use, including submitting them to a print service.","Die Dateien dürfen für persönliche Sonderanfertigungen verwendet und dafür an einen Druckdienst übermittelt werden.","Vous pouvez utiliser ces fichiers pour créer des objets personnalisés à usage personnel, y compris auprès d’un imprimeur.","Эти файлы можно использовать для личных заказных вещей, в том числе отправлять в типографию."],
+    ["素材データの再配布・無断販売・公式商品と誤認される利用はご遠慮ください。商用利用を希望する場合はお問い合わせください。","Please do not redistribute the source files, sell merchandise without permission, or imply that your items are official products. Contact us about commercial use.","Bitte die Quelldateien nicht weiterverbreiten, ohne Erlaubnis keine Waren verkaufen und private Artikel nicht als offizielle Produkte darstellen. Für kommerzielle Nutzung bitte Kontakt aufnehmen.","Merci de ne pas redistribuer les fichiers, de vendre des objets sans autorisation ni de les présenter comme des produits officiels. Contactez-nous pour un usage commercial.","Не распространяйте исходные файлы, не продавайте товары без разрешения и не выдавайте их за официальную продукцию. Для коммерческого использования свяжитесь с нами."]
   ];
 
   const localeIndex = {ja: 0, en: 1, de: 2, fr: 3, ru: 4};
@@ -97,11 +112,11 @@
       ru: ['FUNtasia Utilities | Инструменты для Windows', 'Скачать FUNtasia Quick Launcher, Player, Mixer и Session Note для Windows.']
     },
     goods: {
-      ja: ['FUNtasia Goods | 無料壁紙21枚・マウスカーソル7テーマ', 'FUNtasia Studioの無料壁紙21枚と、Windows 11向けFUNtasia Alchemist Cursors 7テーマを紹介。どちらも無料でダウンロードできます。'],
-      en: ['FUNtasia Goods | 21 Free Wallpapers & 7 Cursor Themes', 'Download 21 FUNtasia Studio wallpapers and seven free Windows 11 cursor themes.'],
-      de: ['FUNtasia Goods | 21 kostenlose Wallpaper & 7 Cursor-Themes', 'Lade 21 FUNtasia-Studio-Wallpaper und sieben kostenlose Cursor-Themes für Windows 11 herunter.'],
-      fr: ['FUNtasia Goods | 21 fonds d’écran et 7 thèmes de curseurs gratuits', 'Téléchargez 21 fonds d’écran FUNtasia Studio et sept thèmes de curseurs pour Windows 11.'],
-      ru: ['FUNtasia Goods | 21 бесплатных обоев и 7 тем курсоров', 'Скачайте 21 изображение FUNtasia Studio и семь бесплатных тем курсоров для Windows 11.']
+      ja: ['FUNtasia Goods | 無料壁紙・カーソル・公式ロゴ素材', 'FUNtasiaの無料壁紙、Windows用マウスカーソル、カスタムグッズ制作に使える公式ロゴ素材をダウンロードできます。'],
+      en: ['FUNtasia Goods | Free Wallpapers, Cursors & Logos', 'Download FUNtasia wallpapers, Windows cursor themes and official logo assets for personal custom merchandise.'],
+      de: ['FUNtasia Goods | Kostenlose Wallpaper, Cursor & Logos', 'Lade FUNtasia-Wallpaper, Windows-Cursor und offizielle Logo-Dateien für persönliche Sonderanfertigungen herunter.'],
+      fr: ['FUNtasia Goods | Fonds d’écran, curseurs et logos gratuits', 'Téléchargez les fonds d’écran FUNtasia, les curseurs Windows et les logos officiels pour des objets personnalisés à usage personnel.'],
+      ru: ['FUNtasia Goods | Обои, курсоры и логотипы', 'Скачайте обои FUNtasia, курсоры Windows и официальные логотипы для персональных вещей.']
     }
   };
   const common = {

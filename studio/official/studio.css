@@ -28,3 +28,18 @@ html[lang="ja"] .hero h1{font-size:clamp(2.8rem,4.8vw,5.3rem)}
 .release-highlights li strong{color:var(--cream)}
 .release-highlights .release-hint{margin:16px 0 0;color:#a8b9aa;font-size:.82rem}
 @media(max-width:760px){.release-highlights{padding:22px 19px}.release-highlights ul{grid-template-columns:1fr;gap:8px}}
+
+/* Studio responsive header: prevent narrow Japanese/Cyrillic nav columns */
+.wordmark{flex-shrink:0}
+.head-nav>a{flex-shrink:0;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+@media(max-width:980px){
+  .head-inner{flex-direction:column;align-items:stretch;justify-content:center;gap:10px;padding:14px 0}
+  .head-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px 17px;min-width:0;width:100%}
+  .head-nav>a{display:inline-flex;align-items:center;min-height:40px}
+}
+@media(max-width:540px){
+  .head-inner{gap:8px;padding:12px 0}
+  .head-nav{display:grid;grid-template-columns:max-content max-content;justify-content:start;column-gap:14px;row-gap:9px}
+  .head-nav>a{min-height:38px}
+  .head-nav .language{padding:6px 12px}
+}

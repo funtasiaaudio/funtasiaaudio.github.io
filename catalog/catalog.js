@@ -64,6 +64,45 @@ for(const card of cards){
  actions.prepend(saveLink);
 }
 
+/* Editorial links: show a note button only where a verified, product-relevant article exists. */
+const noteArticleUrls={
+ 'FUN Lo-Fi Pack':'https://note.com/hueliang_/n/n5394df5d19c1',
+ 'FUN Stereo Pack':'https://note.com/hueliang_/n/n28cf323b9c04',
+ 'FUN Dimension Expander':'https://note.com/hueliang_/n/nba13c974ee1b',
+ 'FUN Volume Shaper':'https://note.com/hueliang_/n/ne37c8caea459',
+ 'FUN Pair':'https://note.com/hueliang_/n/n827fcb586475',
+ 'FUN Drum Pad':'https://note.com/hueliang_/n/n51639c5b5515',
+ 'FUN PreAmp':'https://note.com/yucila_funtasia/n/n34f61e322ab7',
+ 'FUN MEQ':'https://note.com/hueliang_/n/na80e32517859',
+ 'FUN Strike':'https://note.com/yucila_funtasia/n/n3e9bd940e046',
+ 'FUN Sampler':'https://note.com/hueliang_/n/nc87525a831ae',
+ 'FUN Basic Filter Pack':'https://note.com/hueliang_/n/n1a37c585f102',
+ 'The Deep Roots':'https://note.com/hueliang_/n/n54dea131da1f',
+ 'FUN Clipper & Limiter Pack':'https://note.com/yucila_funtasia/n/n44e70e2c1b17',
+ 'FUN OTT':'https://note.com/hueliang_/n/n49f84e3d5ef1'
+};
+const noteButtonLabels={
+ ja:'noteで記事を読む',
+ en:'Read on note',
+ de:'Artikel auf note',
+ fr:'Lire sur note',
+ ru:'Читать на note'
+};
+const noteButtonLabel=noteButtonLabels[localeFilter]||noteButtonLabels.en;
+for(const card of cards){
+ const articleUrl=noteArticleUrls[card.dataset.productName];
+ const actions=card.querySelector('.card-actions');
+ if(!articleUrl||!actions)continue;
+ const link=document.createElement('a');
+ link.className='mini-btn note-article-btn';
+ link.href=articleUrl;
+ link.target='_blank';
+ link.rel='noopener noreferrer';
+ link.textContent=noteButtonLabel;
+ link.setAttribute('aria-label',card.dataset.productName+' — '+noteButtonLabel);
+ actions.append(link);
+}
+
 const categoryBar=document.querySelector('.filters');
 const genreBar=document.createElement('div');genreBar.className='filters genre-filters';genreBar.setAttribute('role','group');genreBar.setAttribute('aria-label',tr.genre);genreBar.hidden=true;
 const priceBar=document.createElement('div');priceBar.className='price-filters';priceBar.setAttribute('role','group');priceBar.setAttribute('aria-label','Pricing');

@@ -93,3 +93,8 @@ html{scroll-behavior:smooth}
 .catalog-faq-jump:focus-visible,.catalog-faq-back:focus-visible,.catalog-faq-item a:focus-visible{outline:3px solid var(--light);outline-offset:3px}
 @media(max-width:720px){.catalog-faq{margin-top:55px;padding-top:27px}.catalog-faq-list{grid-template-columns:1fr}.catalog-faq-item{padding:19px 18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Compact work-in-progress notice below Quality Assurance, above social links. */
+.catalog-work-progress{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:13px 0 15px;padding:11px 15px;border:1px solid var(--line);border-radius:2px;background:rgba(143,174,159,.035)}
+.catalog-work-progress strong{color:var(--light);font:600 12px/1.55 Arial,sans-serif;letter-spacing:.04em}
+.catalog-work-progress span{flex:1 1 260px;min-width:0;color:var(--muted);font:13px/1.65 Arial,sans-serif}

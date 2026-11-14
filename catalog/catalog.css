@@ -69,3 +69,9 @@ main{padding-top:64px}
 .social-follow-link:hover{background:var(--light);color:var(--bg)}
 .social-follow-link:focus-visible,.note a:focus-visible{outline:3px solid var(--light);outline-offset:3px}
 .note .official-x-link{color:var(--ivory);text-decoration:underline;text-decoration-color:var(--light);text-underline-offset:3px}
+
+/* Quality Assurance companion link beside the existing X CTA. */
+.social-follow-actions{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px;min-width:0}
+.social-follow-actions .qa-follow-link{background:rgba(143,174,159,.11)}
+.note .qa-footer-link{color:var(--ivory);text-decoration:underline;text-decoration-color:var(--light);text-underline-offset:3px}
+@media(max-width:680px){.social-follow-actions{justify-content:flex-start;width:100%}.social-follow-actions .social-follow-link{flex:1 1 175px}}

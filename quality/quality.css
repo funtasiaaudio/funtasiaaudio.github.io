@@ -1,0 +1,24 @@
+/* FUNtasia Audio QA: muted sage to match the catalog */
+.qa-main{max-width:900px}
+.qa-hero{padding-bottom:25px;border-bottom:1px solid var(--line)}
+.qa-hero p{max-width:850px;line-height:1.95}
+.qa-lead{font-size:clamp(1.2rem,2.7vw,1.65rem);color:var(--ivory);margin:20px 0 14px}
+.qa-section{margin:34px 0;padding:25px 29px;background:var(--panel);border:1px solid var(--line);border-radius:3px}
+.qa-section h2{font-size:clamp(1.35rem,3vw,1.7rem);line-height:1.4;letter-spacing:-.01em;font-weight:500;margin:0 0 16px;color:var(--ivory)}
+.qa-section p{max-width:none;line-height:1.95;margin:11px 0;color:var(--muted)}
+.qa-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;padding-left:20px;margin:18px 0;color:var(--ivory)}
+.qa-checks li{padding-left:2px;line-height:1.65}
+.qa-small{font-size:.87rem}
+.qa-community{border-left:3px solid var(--light);background:rgba(143,174,159,.065)}
+.qa-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin:16px 0 8px;padding:11px 18px;border-radius:2px;border:1px solid var(--light);color:var(--bg);background:var(--light);font:600 13px/1.4 Arial,sans-serif;text-decoration:none}
+.qa-cta:hover{background:var(--ivory);border-color:var(--ivory)}
+.qa-resources{margin:35px 0;color:var(--muted);font:13px/1.8 Arial,sans-serif}
+.qa-resources a,.qa-bottom a{color:var(--ivory);text-decoration:underline;text-decoration-color:var(--light);text-underline-offset:4px}
+.qa-resources a:hover,.qa-bottom a:hover{color:var(--light)}
+.qa-resources ul{padding-left:20px}
+.qa-bottom{padding:20px 0;border-top:1px solid var(--line)}
+.qa-lang-nav{display:flex;gap:7px;flex-wrap:wrap}
+.qa-lang-nav a{min-height:36px;display:inline-flex;align-items:center;padding:5px 9px;border:1px solid var(--line);border-radius:2px;font:12px Arial,sans-serif}
+.qa-lang-nav a[aria-current="page"]{color:var(--bg);background:var(--light)}
+.qa-section a:focus-visible,.qa-resources a:focus-visible,.qa-bottom a:focus-visible{outline:3px solid var(--light);outline-offset:3px}
+@media(max-width:620px){.qa-section{padding:20px 17px;margin:22px 0}.qa-checks{grid-template-columns:1fr}.qa-lang-nav{gap:4px}}

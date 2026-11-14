@@ -75,3 +75,21 @@ main{padding-top:64px}
 .social-follow-actions .qa-follow-link{background:rgba(143,174,159,.11)}
 .note .qa-footer-link{color:var(--ivory);text-decoration:underline;text-decoration-color:var(--light);text-underline-offset:3px}
 @media(max-width:680px){.social-follow-actions{justify-content:flex-start;width:100%}.social-follow-actions .social-follow-link{flex:1 1 175px}}
+
+/* Catalog FAQ: single in-page jump; visible answers at the end of each catalog. */
+html{scroll-behavior:smooth}
+.catalog-faq-jump{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin:8px 0 14px;padding:9px 17px;border:1px solid var(--light);border-radius:2px;background:rgba(143,174,159,.10);color:var(--ivory);font:600 13px/1.4 Arial,sans-serif;letter-spacing:.025em}
+.catalog-faq-jump:hover,.catalog-faq-jump:focus-visible{background:var(--light);color:var(--bg)}
+.catalog-faq{margin:75px 0 12px;padding:35px 0 8px;border-top:1px solid var(--line);scroll-margin-top:25px}
+.catalog-faq h2{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:400;line-height:1.3;margin:12px 0 26px}
+.catalog-faq-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.catalog-faq-item{padding:23px 24px;background:var(--panel);border:1px solid var(--line);border-radius:3px}
+.catalog-faq-item h3{font-size:1.12rem;font-weight:500;line-height:1.5;margin:0 0 12px;color:var(--ivory)}
+.catalog-faq-item p{font-size:.94rem;line-height:1.85;margin:0;max-width:none;color:var(--muted)}
+.catalog-faq-item a{color:var(--ivory);text-decoration:underline;text-decoration-color:var(--light);text-underline-offset:4px}
+.catalog-faq-item a:hover,.catalog-faq-item a:focus-visible{color:var(--light)}
+.catalog-faq-back{display:inline-flex;align-items:center;min-height:42px;margin-top:25px;color:var(--light);font:13px/1.5 Arial,sans-serif;text-decoration:underline;text-underline-offset:4px}
+.catalog-faq-back:hover{color:var(--ivory)}
+.catalog-faq-jump:focus-visible,.catalog-faq-back:focus-visible,.catalog-faq-item a:focus-visible{outline:3px solid var(--light);outline-offset:3px}
+@media(max-width:720px){.catalog-faq{margin-top:55px;padding-top:27px}.catalog-faq-list{grid-template-columns:1fr}.catalog-faq-item{padding:19px 18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

@@ -193,6 +193,43 @@ const nineThemeFeatureLabels={
 };
 
 
+
+/* FUNtasia Free Collection v1.0.0 — free VST3 bundle and manuals. */
+details['funtasia-free-collection']={
+ lead:'All free FUNtasia Audio plugins in one collection.',
+ paras:[
+  'FUNtasia Free Collection v1.0.0 gathers the free FUNtasia Audio instruments, effects, mixing tools and analyzers into one downloadable package.',
+  'The release ZIP contains VST3 plugins and user manuals only. There is no installer or source code in the package. The individual plugin releases remain available separately.',
+  'The collection has its own v1.0.0 version, while the included plugins retain their individual version numbers.'
+ ],
+ features:['ALL FREE PLUGINS','VST3 PLUGINS','USER MANUALS','SINGLE DOWNLOAD','INDIVIDUAL RELEASES AVAILABLE']
+};
+const freeCollectionTranslations={
+ ja:[
+  'FUNtasia Free Collection v1.0.0は、FUNtasia Audioの無料音源、エフェクト、ミキシングツール、解析ツールをひとつにまとめたコレクションです。',
+  '配布ZIPにはVST3プラグイン本体とユーザーマニュアルのみを収録しています。インストーラーやソースコードは含まれません。各プラグインの個別配布も継続しています。',
+  'コレクション全体のバージョンはv1.0.0です。収録プラグインそれぞれのバージョンは異なる場合があります。'
+ ],
+ de:[
+  'FUNtasia Free Collection v1.0.0 bündelt die kostenlosen Instrumente, Effekte, Mixing-Tools und Analyse-Plugins von FUNtasia Audio in einem Download.',
+  'Das ZIP enthält ausschließlich VST3-Plugins und Benutzerhandbücher. Ein Installer und Quellcode sind nicht enthalten. Die einzelnen Plugins bleiben separat verfügbar.',
+  'Die Sammlung hat die Version v1.0.0; die enthaltenen Plugins behalten ihre jeweiligen eigenen Versionsnummern.'
+ ],
+ fr:[
+  'FUNtasia Free Collection v1.0.0 regroupe les instruments, effets, outils de mixage et analyseurs gratuits de FUNtasia Audio dans un seul téléchargement.',
+  'L’archive ZIP contient uniquement les plugins VST3 et leurs manuels. Aucun installateur ni code source n’est inclus. Les plugins restent également disponibles séparément.',
+  'La version de la collection est v1.0.0, tandis que les plugins inclus conservent leurs propres numéros de version.'
+ ],
+ ru:[
+  'FUNtasia Free Collection v1.0.0 объединяет бесплатные инструменты, эффекты, средства сведения и аудиоанализа FUNtasia Audio в один архив.',
+  'ZIP-архив содержит только плагины VST3 и руководства пользователя. Установщик и исходный код в комплект не входят. Каждый плагин также доступен отдельно.',
+  'Версия коллекции — v1.0.0; версии отдельных плагинов внутри могут отличаться.'
+ ]
+};
+for(const [language,paras] of Object.entries(freeCollectionTranslations)){
+ (localized[language]??={})['funtasia-free-collection']={paras};
+}
+
 /* FUN Developer Pack v1.0.0 — FUN Test Tone + FUN Test EQ. */
 details['fun-developer-pack']={
  lead:'Two free tools for testing audio and digital EQ behaviour.',

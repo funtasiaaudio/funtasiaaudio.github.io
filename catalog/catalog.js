@@ -180,6 +180,7 @@ const localized=window.FUN_PRODUCT_LOCALIZED||{};
 const nineThemeProductKeys=new Set([
  'fun-pair','fun-dc-filter','fun-dither','fun-monofilter',
  'fun-stereo-pack','fun-lo-fi-pack','fun-dimension-expander','fun-volume-shaper',
+ 'fun-analysis-pack',
  'fun-drum-pad','fun-room','fun-ott','fun-clip-distortion',
  'fun-waveshaper','fun-kick','fun-sampler','basic-filter-pack'
 ]);

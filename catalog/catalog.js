@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Test Tone':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -67,7 +67,6 @@ for(const card of cards){
 /* Editorial links: show a note button only where a verified, product-relevant article exists. */
 const noteArticleUrls={
  'FUN Lo-Fi Pack':'https://note.com/hueliang_/n/n5394df5d19c1',
- 'FUN Test Tone':'https://note.com/hueliang_/n/n4128046fbe66',
  'FUN Analysis Pack':'https://note.com/hueliang_/n/n6132a91b81f9',
  'FUN Stereo Pack':'https://note.com/hueliang_/n/n28cf323b9c04',
  'FUN Dimension Expander':'https://note.com/hueliang_/n/nba13c974ee1b',
@@ -193,71 +192,61 @@ const nineThemeFeatureLabels={
 };
 
 
-/* FUN Test Tone v1.1.0 — free signal generator used for our own plugin testing. */
-details['fun-test-tone']={
- "lead": "A precise starting point for sound inside your DAW.",
- "paras": [
-  "FUN Test Tone v1.1.0 is a free Windows 64-bit VST3 signal generator used in FUNtasia Audio's own plug-in development and testing. It replaces the incoming audio with a generated signal rather than mixing the two. OUTPUT OFF therefore produces silence, not dry-through.",
-  "Select SINE, SQUARE, SAW or NOISE, with WHITE and PINK noise types. Square and saw waves use band-limited edge processing to reduce aliasing. The oscillator covers 20 Hz to 20 kHz, while LEVEL ranges from −100 to 0 dBFS in 0.1 dB steps; −100 dBFS is silence.",
-  "Periodic tones are identical on left and right. In NOISE mode, MONO outputs the same noise on both channels, while STEREO generates independent left/right noise. FREQUENCY and SWEEP are unavailable in NOISE mode.",
-  "The 1 kHz button changes only frequency to 1000 Hz. REF sets SINE, 1000 Hz and −18 dBFS and resets oscillator phase without changing OUTPUT or CHANNEL. PHASE RESET sets the oscillator phase to zero at the next audio block. SWEEP runs logarithmically from 20 Hz to 20 kHz over 10 seconds for periodic waves.",
-  "The waveform preview and peak display are visual aids, not calibrated measurement tools. The GUI scales from 50% to 200%, and settings are saved with the DAW project. The ZIP includes PDF manuals in Japanese, English, Korean and Traditional Chinese (Taiwan). Turn down monitoring before using test signals; start near −18 dBFS or lower."
+/* FUN Developer Pack v1.0.0 — FUN Test Tone + FUN Test EQ. */
+details['fun-developer-pack']={
+ lead:'Two free tools for testing audio and digital EQ behaviour.',
+ paras:[
+  'FUN Developer Pack v1.0.0 combines two Windows 64-bit VST3 plugins: FUN Test Tone v1.1.0 and FUN Test EQ v1.0.0.',
+  'FUN Test Tone generates sine, square and saw waves, white/pink noise, and a 20 Hz–20 kHz sweep for checking signal paths, levels and audio processing. Start with a low monitor volume when using test signals.',
+  'FUN Test EQ is a six-band digital equalizer without de-cramping compensation. It deliberately retains the high-frequency clamping associated with conventional bilinear-transform EQ designs, making it a useful reference for comparisons with FUN EQ.',
+  'Both plugins have their own controls and are installed separately from the same pack. The download includes PDF manuals in Japanese, English, German, French and Russian.'
  ],
- "features": [
-  "FREE WINDOWS x64 VST3",
-  "SINE / SQUARE / SAW",
-  "WHITE / PINK NOISE",
-  "20 Hz–20 kHz",
-  "−100 TO 0 dBFS",
-  "MONO / STEREO",
-  "1 kHz / REF",
-  "PHASE RESET",
-  "10-SECOND LOG SWEEP",
-  "50–200% GUI SIZE",
-  "DAW STATE SAVE",
-  "4-LANGUAGE PDF MANUALS"
+ features:[
+  'FUN TEST TONE v1.1.0',
+  'FUN TEST EQ v1.0.0',
+  'FREE WINDOWS x64 VST3',
+  'SINE / SQUARE / SAW',
+  'WHITE / PINK NOISE',
+  '20 Hz–20 kHz SWEEP',
+  '6-BAND UNCOMPENSATED DIGITAL EQ',
+  'FIVE-LANGUAGE PDF MANUALS'
  ]
 };
-const testToneTranslations={
- "ja": [
-  "FUN Test Tone v1.1.0は、FUNtasia Audio自身がプラグイン開発・動作検証に使っている、Windows 64-bit向け無料VST3信号ジェネレーターです。入力音声に音を混ぜるのではなく、入力を生成信号で置き換えます。OUTPUTをOFFにしても原音は通過せず、無音になります。",
-  "SINE（正弦波）・SQUARE（矩形波）・SAW（ノコギリ波）・NOISEを選択でき、ノイズはWHITE／PINKを切り替えられます。SQUAREとSAWには折り返し歪みを抑える帯域制限処理を搭載。周期波形の周波数は20 Hz〜20 kHz、LEVELは−100〜0 dBFS（0.1 dB刻み）で、−100 dBFSは無音です。",
-  "周期波形は左右同じ信号です。NOISE時のMONOは左右同じノイズ、STEREOは左右独立のノイズを生成します。NOISE中はFREQUENCYとSWEEPが無効になります。",
-  "「1 kHz」は周波数だけを1000 Hzに設定。「REF」はSINE／1000 Hz／−18 dBFSへ戻して位相もリセットしますが、OUTPUTとCHANNELは変更しません。「PHASE RESET」は次のオーディオブロックで位相を0に戻します。「SWEEP」は周期波形で20 Hz〜20 kHzを10秒かけて対数的に走査します。",
-  "波形プレビューとピーク表示は状態確認用で、校正された測定器ではありません。GUI倍率は50〜200%で、設定はDAWプロジェクトに保存されます。ZIPには日本語・英語・韓国語・繁体字中国語（台湾）のPDFマニュアルが付属。テスト信号の再生前にモニター音量を下げ、−18 dBFS以下の控えめなレベルから始めてください。"
+const developerPackTranslations={
+ ja:[
+  'FUN Developer Pack v1.0.0は、Windows 64-bit向けの無料VST3ツールを2つ収録しています。FUN Test Tone v1.1.0とFUN Test EQ v1.0.0を、ひとつのZIPから個別にインストールできます。',
+  'FUN Test Toneは、Sine・Square・Saw、White／Pink Noise、20 Hz〜20 kHzのスイープ信号を生成します。信号経路やレベル、DSPの挙動を確認するためのツールです。再生前にモニター音量を下げてください。',
+  'FUN Test EQは、デクランピング補正を行わない6バンドデジタルEQです。高域のクランピングをあえて残し、FUN EQなどとの周波数応答比較に使えます。',
+  '日本語・英語・ドイツ語・フランス語・ロシア語のPDFマニュアルを同梱しています。'
  ],
- "en": [
-  "FUN Test Tone v1.1.0 is a free Windows 64-bit VST3 signal generator used in FUNtasia Audio's own plug-in development and testing. It replaces the incoming audio with a generated signal rather than mixing the two. OUTPUT OFF therefore produces silence, not dry-through.",
-  "Select SINE, SQUARE, SAW or NOISE, with WHITE and PINK noise types. Square and saw waves use band-limited edge processing to reduce aliasing. The oscillator covers 20 Hz to 20 kHz, while LEVEL ranges from −100 to 0 dBFS in 0.1 dB steps; −100 dBFS is silence.",
-  "Periodic tones are identical on left and right. In NOISE mode, MONO outputs the same noise on both channels, while STEREO generates independent left/right noise. FREQUENCY and SWEEP are unavailable in NOISE mode.",
-  "The 1 kHz button changes only frequency to 1000 Hz. REF sets SINE, 1000 Hz and −18 dBFS and resets oscillator phase without changing OUTPUT or CHANNEL. PHASE RESET sets the oscillator phase to zero at the next audio block. SWEEP runs logarithmically from 20 Hz to 20 kHz over 10 seconds for periodic waves.",
-  "The waveform preview and peak display are visual aids, not calibrated measurement tools. The GUI scales from 50% to 200%, and settings are saved with the DAW project. The ZIP includes PDF manuals in Japanese, English, Korean and Traditional Chinese (Taiwan). Turn down monitoring before using test signals; start near −18 dBFS or lower."
+ en:[
+  'FUN Developer Pack v1.0.0 includes two free Windows 64-bit VST3 plugins: FUN Test Tone v1.1.0 and FUN Test EQ v1.0.0. Install them individually from the same ZIP.',
+  'FUN Test Tone provides sine, square and saw waves, white/pink noise, and a 20 Hz–20 kHz sweep to check signal paths, levels and DSP behaviour. Lower your monitor volume before using test signals.',
+  'FUN Test EQ is a six-band digital EQ without de-cramping compensation. Its deliberate high-frequency clamping makes it a useful comparison reference alongside FUN EQ.',
+  'PDF manuals are included in Japanese, English, German, French and Russian.'
  ],
- "de": [
-  "FUN Test Tone v1.1.0 ist ein kostenloser VST3-Testsignalgenerator für Windows 64 Bit, den FUNtasia Audio selbst bei der Plugin-Entwicklung verwendet. Das erzeugte Signal ersetzt das Eingangsaudio; OUTPUT OFF führt zu Stille und nicht zur Durchleitung des Originals.",
-  "Wählbar sind SINE, SQUARE, SAW sowie NOISE mit WHITE oder PINK. Rechteck- und Sägezahnwellen verwenden eine bandbegrenzende Verarbeitung zur Verringerung von Aliasing. Frequenz: 20 Hz bis 20 kHz; LEVEL: −100 bis 0 dBFS in 0,1-dB-Schritten, wobei −100 dBFS stumm bedeutet.",
-  "Periodische Signale sind links und rechts identisch. NOISE MONO verwendet dasselbe Rauschen auf beiden Kanälen, NOISE STEREO erzeugt unabhängiges L/R-Rauschen. FREQUENCY und SWEEP sind im NOISE-Modus deaktiviert.",
-  "1 kHz setzt nur die Frequenz. REF wählt SINE, 1000 Hz und −18 dBFS und setzt die Phase zurück, ohne OUTPUT oder CHANNEL zu ändern. PHASE RESET setzt die Phase im nächsten Audioblock auf null. SWEEP durchläuft logarithmisch 20 Hz bis 20 kHz in 10 Sekunden.",
-  "Wellenform- und Pegelanzeigen dienen zur Orientierung, nicht als kalibrierte Messgeräte. GUI-Größe: 50–200 %; Einstellungen werden im DAW-Projekt gespeichert. Das ZIP enthält PDF-Handbücher auf Japanisch, Englisch, Koreanisch und traditionellem Chinesisch (Taiwan). Vor Testsignalen die Abhörlautstärke reduzieren."
+ de:[
+  'FUN Developer Pack v1.0.0 enthält zwei kostenlose VST3-Plug-ins für Windows 64-Bit: FUN Test Tone v1.1.0 und FUN Test EQ v1.0.0. Beide lassen sich aus demselben ZIP separat installieren.',
+  'FUN Test Tone erzeugt Sinus-, Rechteck- und Sägezahnwellen, weißes und rosa Rauschen sowie einen Sweep von 20 Hz bis 20 kHz. Damit lassen sich Signalwege, Pegel und DSP-Verhalten prüfen. Vor dem Test die Abhörlautstärke reduzieren.',
+  'FUN Test EQ ist ein digitaler Sechsband-EQ ohne De-Cramping-Kompensation. Das bewusst beibehaltene Clamping im Hochtonbereich ermöglicht Vergleiche mit FUN EQ.',
+  'PDF-Handbücher liegen auf Japanisch, Englisch, Deutsch, Französisch und Russisch bei.'
  ],
- "fr": [
-  "FUN Test Tone v1.1.0 est un générateur de signaux VST3 gratuit pour Windows 64 bits, utilisé lors du développement des plug-ins FUNtasia Audio. Le signal généré remplace l'audio entrant : OUTPUT OFF produit du silence, sans laisser passer le signal original.",
-  "Il propose SINE, SQUARE, SAW et NOISE (WHITE ou PINK). Les formes carrée et en dents de scie emploient un traitement limitant le repliement spectral. Fréquence : 20 Hz à 20 kHz ; LEVEL : −100 à 0 dBFS par pas de 0,1 dB (−100 dBFS correspond au silence).",
-  "Les signaux périodiques sont identiques à gauche et à droite. En mode NOISE, MONO duplique le même bruit sur les deux canaux, tandis que STEREO génère deux bruits indépendants. FREQUENCY et SWEEP sont désactivés en mode NOISE.",
-  "1 kHz ne change que la fréquence. REF rétablit SINE, 1000 Hz et −18 dBFS, puis réinitialise la phase sans toucher à OUTPUT ni CHANNEL. PHASE RESET remet la phase à zéro au bloc audio suivant. SWEEP parcourt 20 Hz à 20 kHz de façon logarithmique en 10 secondes.",
-  "L'aperçu et le niveau crête sont des indicateurs visuels, non des instruments étalonnés. Interface redimensionnable de 50 à 200 % ; réglages enregistrés dans le projet DAW. Le ZIP contient des manuels PDF en japonais, anglais, coréen et chinois traditionnel (Taïwan). Réduisez le volume d'écoute avant tout test."
+ fr:[
+  'FUN Developer Pack v1.0.0 regroupe deux plug-ins VST3 gratuits pour Windows 64 bits : FUN Test Tone v1.1.0 et FUN Test EQ v1.0.0. Ils s’installent séparément depuis la même archive ZIP.',
+  'FUN Test Tone génère des signaux sinusoïdaux, carrés et en dents de scie, du bruit blanc ou rose et un balayage de 20 Hz à 20 kHz pour vérifier les trajets audio, les niveaux et les traitements DSP. Baissez le volume d’écoute avant les tests.',
+  'FUN Test EQ est un égaliseur numérique à six bandes sans correction de de-cramping. Il conserve volontairement le clamping dans les hautes fréquences afin de comparer sa réponse à celle de FUN EQ.',
+  'Des manuels PDF sont inclus en japonais, anglais, allemand, français et russe.'
  ],
- "ru": [
-  "FUN Test Tone v1.1.0 — бесплатный VST3-генератор тестовых сигналов для Windows 64-bit, который FUNtasia Audio использует при разработке своих плагинов. Он заменяет входной звук, а не подмешивает к нему сигнал: при OUTPUT OFF на выходе тишина.",
-  "Доступны SINE, SQUARE, SAW и NOISE с вариантами WHITE / PINK. Прямоугольные и пилообразные сигналы используют ограничение спектра для уменьшения алиасинга. Частота: 20 Гц–20 кГц; уровень: от −100 до 0 dBFS с шагом 0,1 дБ (−100 dBFS — тишина).",
-  "Периодические сигналы одинаковы слева и справа. NOISE MONO дублирует один шум на оба канала, а NOISE STEREO создаёт независимые сигналы L/R. В режиме NOISE настройки FREQUENCY и SWEEP недоступны.",
-  "Кнопка 1 kHz меняет только частоту. REF устанавливает SINE, 1000 Гц и −18 dBFS и сбрасывает фазу, не меняя OUTPUT или CHANNEL. PHASE RESET обнуляет фазу в следующем аудиоблоке. SWEEP выполняет логарифмический проход 20 Гц–20 кГц за 10 секунд.",
-  "Предпросмотр волны и индикатор пика — вспомогательные, не калиброванные измерители. Масштаб GUI: 50–200 %, параметры сохраняются с проектом DAW. В ZIP находятся PDF-руководства на японском, английском, корейском и традиционном китайском (Тайвань). Перед тестом уменьшите громкость мониторов."
+ ru:[
+  'FUN Developer Pack v1.0.0 содержит два бесплатных VST3-плагина для Windows 64-bit: FUN Test Tone v1.1.0 и FUN Test EQ v1.0.0. Их можно установить отдельно из одного ZIP-архива.',
+  'FUN Test Tone генерирует синусоидальный, прямоугольный и пилообразный сигналы, белый и розовый шум, а также свип от 20 Гц до 20 кГц. Это помогает проверять маршрутизацию, уровни и работу DSP. Перед тестом уменьшите громкость мониторов.',
+  'FUN Test EQ — шестиполосный цифровой эквалайзер без de-cramping-коррекции. Он намеренно сохраняет сужение полосы на высоких частотах для сравнения с FUN EQ.',
+  'PDF-руководства включены на японском, английском, немецком, французском и русском языках.'
  ]
 };
-for(const [lang,paras] of Object.entries(testToneTranslations)){
+for(const [lang,paras] of Object.entries(developerPackTranslations)){
  if(!localized[lang])localized[lang]={};
- localized[lang]['fun-test-tone']={paras};
+ localized[lang]['fun-developer-pack']={paras};
 }
 
 /* FUN Utility Pack v1.0.0 — FUN Time Align + FUN Channel. */
@@ -449,7 +438,7 @@ for(const card of cards){
    if(hasNineThemes){const li=document.createElement('li');li.textContent=nineThemeFeatureLabels[locale]||nineThemeFeatureLabels.en;list.append(li);}
    body.append(list);
   }
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-lo-fi-pack','fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','fun-test-tone','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-lo-fi-pack','fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','fun-developer-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

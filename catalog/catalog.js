@@ -417,9 +417,17 @@ dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
 for(const card of cards){
- const href=card.querySelector('a[href*="funtasia-audio/#"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Lo-Fi-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dither/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Fader/releases/"]') || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Volume-Shaper/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-DC-Filter/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Dimension-Expander/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-MonoFilter/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Analysis-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Stereo-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Test-Tone/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Utility-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Pair/releases"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Basic-Filter-Pack/releases/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Kick/releases/tag/"]')?.href || card.querySelector('a[href*="github.com/funtasiaaudio/FUN-Sampler/releases/tag/"]')?.href;
+ // The original product title link is marked earlier by the artwork setup.
+ // Do not use the first anchor: the artwork link is inserted before it.
+ const href=card.querySelector(':scope > a.card-title-link[href]')?.href
+  || card.querySelector(':scope > a[href]:not(.card-image-link)')?.href;
  if(!href)continue;
- const key=card.dataset.productKey||({'FUN Kick':'fun-kick','FUN Sampler':'fun-sampler'}[card.dataset.productName])||href.split('#')[1],item=details[key];
+ // Prefer the explicit stable product key, then an existing landing-page
+ // fragment, then a normalized product name for GitHub release cards.
+ const key=card.dataset.productKey
+  || href.split('#')[1]
+  || (card.dataset.productName||'').toLowerCase().replace(/\s+free$/i,'').trim().replace(/\s+/g,'-');
+ const item=details[key];
  if(!item)continue;
  const btn=document.createElement('button');btn.type='button';btn.className='mini-btn detail-btn';btn.textContent=words[0];
  const actions=card.querySelector('.card-actions');actions?.prepend(btn);
@@ -438,7 +446,7 @@ for(const card of cards){
    if(hasNineThemes){const li=document.createElement('li');li.textContent=nineThemeFeatureLabels[locale]||nineThemeFeatureLabels.en;list.append(li);}
    body.append(list);
   }
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(['fun-lo-fi-pack','fun-dither','fun-volume-shaper','fun-fader','fun-dc-filter','fun-dimension-expander','fun-monofilter','fun-analysis-pack','fun-stereo-pack','fun-pair','fun-utility-pack','fun-developer-pack','basic-filter-pack'].includes(card.dataset.productKey)?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(href.includes('github.com/funtasiaaudio/')&&href.includes('/releases/')?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

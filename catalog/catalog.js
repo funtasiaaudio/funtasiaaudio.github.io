@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','FUN Strike':'physical'
+'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -90,7 +90,7 @@ const noteArticleUrls={
  'FUN MEQ':'https://note.com/hueliang_/n/na80e32517859',
  'FUN Kick':'https://note.com/hueliang_/n/nc0ae64c3f062',
  'FUN Sampler':'https://note.com/hueliang_/n/nc87525a831ae',
- 'FUN Strike':'https://note.com/hueliang_/n/n3e9bd940e046',
+ 'The Resonant Forge':'https://note.com/hueliang_/n/n3e9bd940e046',
  'FUN Basic Filter Pack':'https://note.com/hueliang_/n/n1a37c585f102'
 };
 const noteButtonLabels={

@@ -332,32 +332,32 @@ details['fun-volume-shaper']={
 details['fun-fader']={
  lead:'One fader. Complete control.',
  paras:[
-  'FUN Fader is a free VST3 volume-control utility for Windows, with a Gothic-inspired, resizable interface and a single precise gain fader.',
-  'It supports mono and stereo audio, DAW automation, and host project state saving and restoration. The visual design features a wooden fader, deep green scenery and Kaisei Opti typography.',
-  'Version 1.0.0 passed pluginval Strictness Level 5 and all 537 Steinberg VST3 Validator extensive tests. Automated tests do not guarantee compatibility with every DAW.'
+  'FUN Fader is a free VST3 volume-control utility for Windows, with a slim, resizable interface and a single precise gain fader. Version 1.1.0 adds the Classic style plus nine additional coordinated colour styles.',
+  'It supports mono and stereo audio, DAW automation, and host project state saving and restoration. The Classic design features a wooden fader, deep green scenery and Kaisei Opti typography. Manually selected GUI styles become the user default for new instances; saved DAW projects restore their own styles.',
+  'Version 1.1.0 passed pluginval Strictness Level 10 and all 537 Steinberg VST3 Validator extensive tests. Automated tests do not guarantee compatibility with every DAW.'
  ],
- features:['FREE WINDOWS VST3','MONO / STEREO','VOLUME FADER','DAW AUTOMATION','RESIZABLE GUI','KAISEI OPTI']
+ features:['FREE WINDOWS VST3','MONO / STEREO','VOLUME FADER','DAW AUTOMATION','10 GUI STYLES','PROJECT STYLE RESTORE']
 };
 const faderTranslations={
  ja:{paras:[
   'FUN Faderは、ゴシック調のGUIを備えたWindows用の無料VST3音量フェーダーです。木製フェーダーをドラッグして音量を調整でき、GUIサイズも変更できます。',
-  'モノラル／ステレオ音声、DAWオートメーション、プロジェクトへの設定保存・復元に対応。深緑の情景とKaisei Optiの文字を組み合わせたデザインです。',
-  'v1.0.0はpluginval Strictness Level 5とSteinberg VST3 Validatorの全537項目に合格しました。ただし、すべてのDAWでの動作を保証するものではありません。'
+  'モノラル／ステレオ音声、DAWオートメーション、プロジェクトへの設定保存・復元に対応。深緑の情景とKaisei Optiの文字を組み合わせたClassicに加え、9種類のカラーテーマを選択できます。手動選択したStyleは新しいインスタンスの初期表示に使われ、保存済みDAWプロジェクトのテーマは個別に復元されます。',
+  'v1.1.0はpluginval Strictness Level 10とSteinberg VST3 Validatorの全537項目に合格しました。ただし、すべてのDAWでの動作を保証するものではありません。'
  ]},
  de:{paras:[
-  'FUN Fader ist ein kostenloses VST3-Werkzeug für Windows zur Lautstärkeregelung. Die skalierbare Oberfläche kombiniert einen hölzernen Fader mit einer gotisch inspirierten Gestaltung.',
+  'FUN Fader ist ein kostenloses VST3-Werkzeug für Windows zur Lautstärkeregelung. Die skalierbare Oberfläche kombiniert einen hölzernen Fader mit einer gotisch inspirierten Gestaltung. Neben Classic stehen neun weitere Farbthemen zur Auswahl.',
   'Unterstützt Mono und Stereo, DAW-Automation sowie das Speichern und Wiederherstellen des Plugin-Zustands im Projekt. Die Typografie verwendet Kaisei Opti.',
-  'Version 1.0.0 bestand pluginval auf Strictness Level 5 und alle 537 erweiterten Tests des Steinberg VST3 Validators. Eine Kompatibilität mit jeder DAW kann damit nicht garantiert werden.'
+  'Version 1.1.0 bestand pluginval auf Strictness Level 10 und alle 537 erweiterten Tests des Steinberg VST3 Validators. Eine Kompatibilität mit jeder DAW kann damit nicht garantiert werden.'
  ]},
  fr:{paras:[
   'FUN Fader est un outil VST3 gratuit pour Windows permettant un réglage précis du volume, avec une interface redimensionnable d’inspiration gothique et un curseur en bois.',
-  'Il prend en charge les pistes mono et stéréo, l’automatisation dans le DAW et la sauvegarde ainsi que la restauration de l’état du plugin. La typographie est en Kaisei Opti.',
-  'La version 1.0.0 a réussi pluginval au niveau de rigueur 5 et les 537 tests approfondis du validateur VST3 de Steinberg. Cela ne garantit pas la compatibilité avec tous les DAW.'
+  'Il prend en charge les pistes mono et stéréo, l’automatisation dans le DAW et la sauvegarde ainsi que la restauration de l’état du plugin. La typographie est en Kaisei Opti. La version 1.1.0 propose le style Classic et neuf autres thèmes de couleur.',
+  'La version 1.1.0 a réussi pluginval au niveau de rigueur 10 et les 537 tests approfondis du validateur VST3 de Steinberg. Cela ne garantit pas la compatibilité avec tous les DAW.'
  ]},
  ru:{paras:[
   'FUN Fader — бесплатный VST3-плагин для Windows с точным управлением громкостью, изменяемым размером интерфейса и готическим оформлением с деревянным фейдером.',
-  'Поддерживаются моно и стерео, автоматизация DAW, сохранение и восстановление состояния плагина в проекте. Используется шрифт Kaisei Opti.',
-  'Версия 1.0.0 прошла pluginval Strictness Level 5 и все 537 расширенных тестов Steinberg VST3 Validator. Это не гарантирует совместимость со всеми DAW.'
+  'Поддерживаются моно и стерео, автоматизация DAW, сохранение и восстановление состояния плагина в проекте. Используется шрифт Kaisei Opti. Версия 1.1.0 включает стиль Classic и ещё девять цветовых тем.',
+  'Версия 1.1.0 прошла pluginval Strictness Level 10 и все 537 расширенных тестов Steinberg VST3 Validator. Это не гарантирует совместимость со всеми DAW.'
  ]}
 };
 for(const [language,translation] of Object.entries(faderTranslations)){

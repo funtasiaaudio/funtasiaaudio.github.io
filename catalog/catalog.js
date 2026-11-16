@@ -54,6 +54,16 @@ for(const card of cards){
  imageLink.setAttribute('aria-label',card.dataset.productName+' — '+artworkText.open);
  productLink.before(imageLink);
  imageLink.append(image);
+ // Leave the Free Collection unmarked; every other current catalog entry supports 9 themes.
+ if(card.dataset.productKey!=='funtasia-free-collection'){
+  const mark=document.createElement('img');
+  mark.className='nine-color-theme-mark';
+  mark.src='../assets/nine-color-theme-mark.svg';
+  mark.alt='';
+  mark.setAttribute('aria-hidden','true');
+  mark.decoding='async';
+  imageLink.append(mark);
+ }
  productLink.classList.add('card-title-link');
  const saveLink=document.createElement('a');
  saveLink.className='mini-btn image-download-btn';

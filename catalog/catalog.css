@@ -58,6 +58,17 @@ main{padding-top:64px}
 .card > .card-image-link .shot{transition:filter .2s ease}
 .card > .card-image-link:hover .shot{filter:brightness(1.09)}
 .card > .card-image-link:focus-visible{outline:3px solid var(--light);outline-offset:-4px}
+/* Visual overlay only: source artwork and downloadable image files remain unchanged. */
+.card > .card-image-link .nine-color-theme-mark{
+  position:absolute;
+  right:2%;
+  bottom:3.56%;
+  width:clamp(82px,14.5%,174px);
+  height:auto;
+  aspect-ratio:174 / 14;
+  pointer-events:none;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));
+}
 .card-actions .image-download-btn{background:#203f32;border-color:#88b398}
 
 /* Official X profile: subtle discovery CTA, separate from product downloads. */

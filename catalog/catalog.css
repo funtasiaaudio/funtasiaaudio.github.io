@@ -58,6 +58,18 @@ main{padding-top:64px}
 .card > .card-image-link .shot{transition:filter .2s ease}
 .card > .card-image-link:hover .shot{filter:brightness(1.09)}
 .card > .card-image-link:focus-visible{outline:3px solid var(--light);outline-offset:-4px}
+/* Supporting copy sits below the title, outside the artwork itself. */
+.card .theme-choice-note{
+  margin:0;
+  padding:0 24px 8px;
+  max-width:none;
+  color:var(--light);
+  font:12px/1.55 Arial,sans-serif;
+}
+@media(max-width:680px){
+  .card .theme-choice-note{padding:0 18px 8px}
+}
+
 /* Visual overlay only: source artwork and downloadable image files remain unchanged. */
 .card > .card-image-link .nine-color-theme-mark{
   position:absolute;

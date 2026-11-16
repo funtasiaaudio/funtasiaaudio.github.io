@@ -34,6 +34,14 @@ const artworkLabels={
  ru:{open:'Открыть изображение в новой вкладке',save:'Сохранить изображение',note:'Изображения продуктов можно скачать кнопкой « Сохранить изображение » на каждой карточке.'}
 };
 const artworkText=artworkLabels[localeFilter]||artworkLabels.en;
+const themeChoiceLabels={
+ ja:'9種類のカラーテーマから、お好みの色を選べます。',
+ en:'Choose your favorite from 9 color themes.',
+ de:'Wähle deine Lieblingsfarbe aus 9 Farbthemen.',
+ fr:'Choisissez votre couleur préférée parmi 9 thèmes de couleurs.',
+ ru:'Выберите любимую цветовую тему из 9 вариантов.'
+};
+const themeChoiceText=themeChoiceLabels[localeFilter]||themeChoiceLabels.en;
 const mediaNote=document.createElement('p');
 mediaNote.className='media-note';
 mediaNote.textContent=artworkText.note;
@@ -63,6 +71,10 @@ for(const card of cards){
   mark.setAttribute('aria-hidden','true');
   mark.decoding='async';
   imageLink.append(mark);
+  const themeNote=document.createElement('p');
+  themeNote.className='theme-choice-note';
+  themeNote.textContent=themeChoiceText;
+  productLink.after(themeNote);
  }
  productLink.classList.add('card-title-link');
  const saveLink=document.createElement('a');

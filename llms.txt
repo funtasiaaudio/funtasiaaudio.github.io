@@ -1,0 +1,39 @@
+# FUNtasia
+
+> FUNtasia is a creative project connecting audio software, music production, artist activities, and creator tools. This is the official FUNtasia website.
+
+FUNtasia Audio develops audio plugins, instruments, and utilities. FUNtasia Studio is a separate, free Windows educational music-production application in public beta. FUNtasia Records shares music, artists, and creative collaborations.
+
+For current availability, pricing, compatibility, versions, downloads, documentation, and licenses, follow the linked official pages and the release notes for each product. Concept artwork in the audio catalog is not necessarily a screenshot of the software. Free-to-download software or sample packs do not imply that every included asset is public domain.
+
+## Official Website
+
+- [FUNtasia home](https://funtasiaaudio.github.io/): Entry point for the FUNtasia creative projects.
+- [About FUNtasia](https://funtasiaaudio.github.io/about/): Background, creator profile, and the project's purpose.
+- [Support](https://funtasiaaudio.github.io/support/): Support information and official contact routes.
+
+## FUNtasia Audio
+
+- [Audio plugin catalog (English)](https://funtasiaaudio.github.io/catalog/en/): Published effects, instruments, utilities, product information, downloads, and release links.
+- [Audio plugin catalog (Japanese)](https://funtasiaaudio.github.io/catalog/ja/): Japanese-language product catalog.
+- [Quality assurance (English)](https://funtasiaaudio.github.io/quality/en/): Plugin validation, testing practices, and quality information.
+- [Quality assurance (Japanese)](https://funtasiaaudio.github.io/quality/ja/): Japanese-language quality assurance information.
+
+## FUNtasia Studio
+
+- [FUNtasia Studio (English)](https://funtasiaaudio.github.io/studio/official/): Official page for the free Windows educational music-production beta, features, caveats, and download guidance.
+- [FUNtasia Studio (Japanese)](https://funtasiaaudio.github.io/studio/official/ja/): Japanese-language Studio information.
+- [Free expansion packs (English)](https://funtasiaaudio.github.io/studio/official/expansions/): Official WAV sample and MIDI expansion packs, with individual download and license details.
+- [Free expansion packs (Japanese)](https://funtasiaaudio.github.io/studio/official/expansions/ja/): Japanese-language expansion information.
+- [FUNtasia Studio llms.txt](https://funtasiaaudio.github.io/studio/llms.txt): Focused guidance to the Studio pages and expansion packs.
+
+## Other FUNtasia Projects
+
+- [FUNtasia Utilities](https://funtasiaaudio.github.io/utilities/): Creator utilities and their public release information.
+- [FUNtasia Records (English)](https://funtasiaaudio.github.io/records/en/): Music, artists, and creative collaborations.
+- [FUNtasia Records (Japanese)](https://funtasiaaudio.github.io/records/): Japanese-language Records information.
+
+## Optional
+
+- [FUNtasia Audio on GitHub](https://github.com/funtasiaaudio): Official repositories, releases, and project information.
+- [Sitemap](https://funtasiaaudio.github.io/sitemap.xml): Site page index.

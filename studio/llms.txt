@@ -1,0 +1,25 @@
+# FUNtasia Studio
+
+> FUNtasia Studio is a free Windows educational music-production application in public beta, created for learning and exploring audio production. This file covers the official FUNtasia Studio pages and expansion packs.
+
+FUNtasia Studio includes an arrangement workspace, mixing and device workflows, MIDI-related features, sample browsing, and interactive music-theory learning tools. It is intended for education and experimentation, not as a guarantee of production-grade reliability. The official Studio page and release notes provide the latest beta version, installation instructions, known limitations, and terms.
+
+Expansion packs include WAV samples and editable MIDI material. Each pack has its own contents and license terms. Licensing for source recordings, generated or original sounds, MIDI files, artwork, and brand assets may differ; consult each pack's linked license and release details rather than treating all assets as interchangeable.
+
+## FUNtasia Studio Official Pages
+
+- [Studio overview (English)](https://funtasiaaudio.github.io/studio/official/): Current public beta, features, screenshots, availability, limitations, and download instructions.
+- [Studio overview (Japanese)](https://funtasiaaudio.github.io/studio/official/ja/): Japanese-language Studio overview and beta notices.
+- [Studio overview (Russian)](https://funtasiaaudio.github.io/studio/official/ru/): Russian-language Studio overview.
+
+## Free Expansion Packs
+
+- [Expansion packs (English)](https://funtasiaaudio.github.io/studio/official/expansions/): Official packs, formats, download links, and pack-specific conditions.
+- [Expansion packs (Japanese)](https://funtasiaaudio.github.io/studio/official/expansions/ja/): Japanese-language expansion descriptions and usage guidance.
+
+## Related Official Resources
+
+- [FUNtasia home](https://funtasiaaudio.github.io/): Overview of the FUNtasia projects.
+- [FUNtasia Audio plugin catalog (English)](https://funtasiaaudio.github.io/catalog/en/): Separate audio effects, instruments, and utilities.
+- [Support](https://funtasiaaudio.github.io/support/): Official support information.
+- [FUNtasia site llms.txt](https://funtasiaaudio.github.io/llms.txt): Guide to the wider FUNtasia website.

@@ -12,6 +12,7 @@
   // Each row: original Japanese, English, German, French, Russian.
   // Keep this table aligned with the Japanese source page's text nodes.
   const utilityRows = [
+    ["FUNtasia Audio Compare · Original Sage（クリックで拡大）","FUNtasia Audio Compare · Original Sage (click to enlarge)","FUNtasia Audio Compare · Original Sage (zum Vergrößern klicken)","FUNtasia Audio Compare · Original Sage (cliquer pour agrandir)","FUNtasia Audio Compare · Original Sage (нажмите для увеличения)"],
     ["公開ベータ · v0.2.1 · Windows 10/11 x64 · 無料","Public beta · v0.2.1 · Windows 10/11 x64 · Free","Öffentliche Beta · v0.2.1 · Windows 10/11 x64 · Kostenlos","Bêta publique · v0.2.1 · Windows 10/11 x64 · Gratuit","Публичная бета · v0.2.1 · Windows 10/11 x64 · Бесплатно"],
     ["最大4つの音源を同じ条件で聴き比べる、Windows用スタンドアロン・オーディオ比較ツール。A/B/C/Dの切替とラウドネスマッチングで、ミックスやマスタリングの判断をサポートします。","A standalone Windows tool for comparing up to four audio references under consistent listening conditions. Switch between A/B/C/D sources and match loudness when evaluating mixes or masters.","Ein eigenständiges Windows-Tool zum Vergleich von bis zu vier Audioreferenzen unter gleichen Hörbedingungen. Wechsle zwischen A/B/C/D und gleiche die Lautheit für Mix- und Mastering-Entscheidungen ab.","Un outil Windows autonome pour comparer jusqu’à quatre références audio dans des conditions d’écoute cohérentes. Passez de A à D et égalisez la sonie pour évaluer vos mixages et masters.","Автономная программа для Windows, позволяющая сравнивать до четырёх аудиофайлов в сопоставимых условиях. Переключайтесь между A/B/C/D и выравнивайте громкость при оценке сведения и мастеринга."],
     ["最大4音源（A/B/C/D）","Up to four sources (A/B/C/D)","Bis zu vier Quellen (A/B/C/D)","Jusqu’à quatre sources (A/B/C/D)","До четырёх источников (A/B/C/D)"],
@@ -167,6 +168,19 @@
     const locale = common[code];
     if (value === 'サイト内ナビゲーション') return locale.nav;
     if (value === 'Quick Launcherの機能') return locale.quickFeatures;
+    if (value === 'FUNtasia Audio Compare v0.2.1の実画面を拡大表示') return {
+      en: 'Enlarge FUNtasia Audio Compare v0.2.1 screenshot',
+      de: 'Screenshot von FUNtasia Audio Compare v0.2.1 vergrößern',
+      fr: 'Agrandir la capture de FUNtasia Audio Compare v0.2.1',
+      ru: 'Увеличить снимок экрана FUNtasia Audio Compare v0.2.1'
+    }[code];
+    if (value === 'FUNtasia Audio Compare v0.2.1のOriginal Sage画面。4音源の読み込み、再生操作、True Peakメーターを表示。') return {
+      en: 'FUNtasia Audio Compare v0.2.1 in Original Sage, showing four source slots, playback controls and True Peak meters.',
+      de: 'FUNtasia Audio Compare v0.2.1 im Design Original Sage mit vier Audioquellen, Wiedergabesteuerung und True-Peak-Anzeigen.',
+      fr: 'FUNtasia Audio Compare v0.2.1 avec le thème Original Sage, quatre sources audio, des commandes de lecture et des indicateurs True Peak.',
+      ru: 'FUNtasia Audio Compare v0.2.1 в теме Original Sage: четыре источника, управление воспроизведением и индикаторы True Peak.'
+    }[code];
+
     if (value === 'FUNtasia Audio Compareの機能') return {en:'FUNtasia Audio Compare features',de:'Funktionen von FUNtasia Audio Compare',fr:'Fonctions de FUNtasia Audio Compare',ru:'Функции FUNtasia Audio Compare'}[code];
     if (value === 'FUNtasia Playerの機能') return locale.playerFeatures;
     if (value === 'FUNtasia Playerの7つのテーマ') return locale.playerThemes;

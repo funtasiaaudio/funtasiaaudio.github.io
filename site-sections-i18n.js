@@ -12,9 +12,22 @@
   // Each row: original Japanese, English, German, French, Russian.
   // Keep this table aligned with the Japanese source page's text nodes.
   const utilityRows = [
+    ["公開ベータ · v0.2.1 · Windows 10/11 x64 · 無料","Public beta · v0.2.1 · Windows 10/11 x64 · Free","Öffentliche Beta · v0.2.1 · Windows 10/11 x64 · Kostenlos","Bêta publique · v0.2.1 · Windows 10/11 x64 · Gratuit","Публичная бета · v0.2.1 · Windows 10/11 x64 · Бесплатно"],
+    ["最大4つの音源を同じ条件で聴き比べる、Windows用スタンドアロン・オーディオ比較ツール。A/B/C/Dの切替とラウドネスマッチングで、ミックスやマスタリングの判断をサポートします。","A standalone Windows tool for comparing up to four audio references under consistent listening conditions. Switch between A/B/C/D sources and match loudness when evaluating mixes or masters.","Ein eigenständiges Windows-Tool zum Vergleich von bis zu vier Audioreferenzen unter gleichen Hörbedingungen. Wechsle zwischen A/B/C/D und gleiche die Lautheit für Mix- und Mastering-Entscheidungen ab.","Un outil Windows autonome pour comparer jusqu’à quatre références audio dans des conditions d’écoute cohérentes. Passez de A à D et égalisez la sonie pour évaluer vos mixages et masters.","Автономная программа для Windows, позволяющая сравнивать до четырёх аудиофайлов в сопоставимых условиях. Переключайтесь между A/B/C/D и выравнивайте громкость при оценке сведения и мастеринга."],
+    ["最大4音源（A/B/C/D）","Up to four sources (A/B/C/D)","Bis zu vier Quellen (A/B/C/D)","Jusqu’à quatre sources (A/B/C/D)","До четырёх источников (A/B/C/D)"],
+    ["LUFS解析・音量マッチング","LUFS analysis · loudness matching","LUFS-Analyse · Lautheitsabgleich","Analyse LUFS · égalisation de sonie","Анализ LUFS · выравнивание громкости"],
+    ["True Peak測定","True Peak measurement","True-Peak-Messung","Mesure True Peak","Измерение True Peak"],
+    ["相関を考慮したクロスフェード","Correlation-aware crossfade","Korrelationsbewusstes Crossfade","Fondu enchaîné tenant compte de la corrélation","Кроссфейд с учётом корреляции"],
+    ["Blind X/Y試聴","Blind X/Y listening","Blindes X/Y-Hörvergleich","Écoute à l’aveugle X/Y","Слепое прослушивание X/Y"],
+    ["セッション保存・復元","Save and restore sessions","Sessions speichern und wiederherstellen","Sauvegarde et restauration de sessions","Сохранение и восстановление сессий"],
+    ["9色のダークテーマ","Nine dark themes","Neun dunkle Themes","Neuf thèmes sombres","Девять тёмных тем"],
+    ["Original Sageを初期色に、9色のダークテーマを搭載。ブラインド比較や測定結果の確認にも対応し、比較セッションを保存・復元できます。","Choose from nine dark themes, with Original Sage as the default. Blind comparisons, measurement results and session saving and restoration are supported.","Neun dunkle Themes mit Original Sage als Standard. Blindvergleiche, Messwerte und das Speichern und Wiederherstellen von Sessions werden unterstützt.","Neuf thèmes sombres, dont Original Sage par défaut. Comparez à l’aveugle, consultez les mesures et enregistrez ou restaurez vos sessions.","Девять тёмных тем, по умолчанию Original Sage. Доступны слепое сравнение, просмотр измерений, сохранение и восстановление сессий."],
+    ["FUNtasia Audio Compareをダウンロード（ZIP） →","Download FUNtasia Audio Compare (ZIP) →","FUNtasia Audio Compare herunterladen (ZIP) →","Télécharger FUNtasia Audio Compare (ZIP) →","Скачать FUNtasia Audio Compare (ZIP) →"],
+    ["リリースノート・インストール案内 →","Release notes and installation details →","Versionshinweise und Installationsanleitung →","Notes de version et installation →","Примечания к выпуску и установка →"],
+    ["公開ベータ版です。配布内容とインストール方法は公式リリースページをご確認ください。","This is a public beta. Check the official release page for package contents and installation details.","Dies ist eine öffentliche Beta. Paketinhalt und Installationshinweise findest du auf der offiziellen Release-Seite.","Il s’agit d’une bêta publique. Consultez la page officielle pour le contenu de l’archive et l’installation.","Это публичная бета-версия. Состав архива и инструкции по установке приведены на официальной странице выпуска."],
     ["← 総合トップへ","← Back to home","← Zur Startseite","← Retour à l’accueil","← На главную"],
     ["制作を支える、小さく便利なツール。","Small tools for your creative flow.","Kleine Helfer für deinen kreativen Alltag.","De petits outils pour faciliter la création.","Небольшие инструменты для творчества."],
-    ["FUNtasia Quick Launcher、Player、Mixer、Session Noteなど、公開中のWindows向けアプリをご紹介します。","Explore our Windows applications: Quick Launcher, Player, Mixer and Session Note.","Entdecke unsere Windows-Programme: Quick Launcher, Player, Mixer und Session Note.","Découvrez nos applications Windows : Quick Launcher, Player, Mixer et Session Note.","Знакомьтесь с нашими приложениями для Windows: Quick Launcher, Player, Mixer и Session Note."],
+    ["FUNtasia Audio Compare、Quick Launcher、Player、Mixer、Session Noteなど、公開中のWindows向けアプリをご紹介します。","Explore our Windows applications: Audio Compare, Quick Launcher, Player, Mixer and Session Note.","Entdecke unsere Windows-Programme: Audio Compare, Quick Launcher, Player, Mixer und Session Note.","Découvrez nos applications Windows : Audio Compare, Quick Launcher, Player, Mixer et Session Note.","Знакомьтесь с нашими приложениями для Windows: Audio Compare, Quick Launcher, Player, Mixer и Session Note."],
     ["Utilitiesのご案内","About Utilities","Über Utilities","À propos des utilitaires","Об утилитах"],
     ["日々の制作を支えるツール","Tools for everyday creativity","Werkzeuge für den kreativen Alltag","Des outils pour créer au quotidien","Инструменты для повседневного творчества"],
     ["音楽制作やWindowsでの作業を快適にするユーティリティを紹介するためのページです。公開状態や基本機能とともに、各ツールの入手先をご案内します。","A home for helpful tools that make music production and Windows workflows easier. Find features, availability and official downloads here.","Hier stellen wir nützliche Programme für Musikproduktion und Windows vor – mit Funktionen, Veröffentlichungsstatus und offiziellen Downloads.","Cette page présente des outils qui simplifient la production musicale et l’utilisation de Windows, avec leurs fonctions et liens officiels.","Здесь собраны программы, упрощающие создание музыки и работу в Windows, с описанием функций и официальными ссылками."],
@@ -105,11 +118,11 @@
   const byJapanese = new Map(rows.map(row => [row[0], row]));
   const head = {
     utilities: {
-      ja: ['FUNtasia Utilities | FUNtasia', 'FUNtasia Quick Launcher、Player、Mixer、Session Noteの公開情報とWindows版ダウンロード先をご紹介します。'],
-      en: ['FUNtasia Utilities | Creative Windows Tools', 'Download FUNtasia Quick Launcher, Player, Mixer and Session Note for Windows.'],
-      de: ['FUNtasia Utilities | Kreative Windows-Werkzeuge', 'FUNtasia Quick Launcher, Player, Mixer und Session Note für Windows entdecken und herunterladen.'],
-      fr: ['FUNtasia Utilities | Outils créatifs Windows', 'Découvrez et téléchargez FUNtasia Quick Launcher, Player, Mixer et Session Note pour Windows.'],
-      ru: ['FUNtasia Utilities | Инструменты для Windows', 'Скачать FUNtasia Quick Launcher, Player, Mixer и Session Note для Windows.']
+      ja: ['FUNtasia Utilities | FUNtasia', 'FUNtasia Audio Compare、Quick Launcher、Player、Mixer、Session Noteの公開情報とWindows版ダウンロード先をご紹介します。'],
+      en: ['FUNtasia Utilities | Creative Windows Tools', 'Download FUNtasia Audio Compare, Quick Launcher, Player, Mixer and Session Note for Windows.'],
+      de: ['FUNtasia Utilities | Kreative Windows-Werkzeuge', 'FUNtasia Audio Compare, Quick Launcher, Player, Mixer und Session Note für Windows entdecken und herunterladen.'],
+      fr: ['FUNtasia Utilities | Outils créatifs Windows', 'Découvrez et téléchargez FUNtasia Audio Compare, Quick Launcher, Player, Mixer et Session Note pour Windows.'],
+      ru: ['FUNtasia Utilities | Инструменты для Windows', 'Скачать FUNtasia Audio Compare, Quick Launcher, Player, Mixer и Session Note для Windows.']
     },
     goods: {
       ja: ['FUNtasia Goods | 無料壁紙・カーソル・公式ロゴ素材', 'FUNtasiaの無料壁紙、Windows用マウスカーソル、カスタムグッズ制作に使える公式ロゴ素材をダウンロードできます。'],
@@ -154,6 +167,7 @@
     const locale = common[code];
     if (value === 'サイト内ナビゲーション') return locale.nav;
     if (value === 'Quick Launcherの機能') return locale.quickFeatures;
+    if (value === 'FUNtasia Audio Compareの機能') return {en:'FUNtasia Audio Compare features',de:'Funktionen von FUNtasia Audio Compare',fr:'Fonctions de FUNtasia Audio Compare',ru:'Функции FUNtasia Audio Compare'}[code];
     if (value === 'FUNtasia Playerの機能') return locale.playerFeatures;
     if (value === 'FUNtasia Playerの7つのテーマ') return locale.playerThemes;
     if (value === '7種類のカラーテーマ') return locale.colorThemes;

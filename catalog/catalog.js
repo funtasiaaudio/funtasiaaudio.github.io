@@ -237,41 +237,42 @@ const nineThemeFeatureLabels={
 
 
 
-/* FUNtasia Free Collection v1.0.0 — free VST3 bundle and manuals. */
+/* FUNtasia Free Collection v1.0.4 — FUN Modulation Pack added. */
 details['funtasia-free-collection']={
  lead:'All free FUNtasia Audio plugins in one collection.',
  paras:[
-  'FUNtasia Free Collection v1.0.1 gathers the free FUNtasia Audio instruments, effects, mixing tools and analyzers into one downloadable package. v1.0.1 adds The Hollow Winds v1.0.0, a physical-modeling wind instrument.',
-  'The release ZIP contains VST3 plugins and user manuals only. There is no installer or source code in the package. The individual plugin releases remain available separately.',
-  'The collection has its own v1.0.1 version, while the included plugins retain their individual version numbers.'
+  'FUNtasia Free Collection v1.0.4 brings together free FUNtasia Audio effects, instruments, mixing tools and analyzers in one Windows x64 VST3 download.',
+  'NEW IN v1.0.4: FUN Chorus v1.0.0, FUN Flanger v1.0.0 and FUN Phaser v1.0.0 join the collection as FUN Modulation Pack. Chorus offers organic motion, Flanger adds delay-based modulation and feedback, and Phaser provides adjustable stages and frequency-swept phase movement. Each of these three plugins offers nine selectable GUI color themes.',
+  'Previously included plugins, including The Hollow Winds added in v1.0.1, remain part of the collection. The collection and its individual plugins have separate version numbers. Extract the release ZIP and install the VST3 files in your Windows VST3 folder.'
  ],
- features:['ALL FREE PLUGINS','VST3 PLUGINS','USER MANUALS','SINGLE DOWNLOAD','INDIVIDUAL RELEASES AVAILABLE']
+ features:['ALL FREE PLUGINS','NEW: CHORUS / FLANGER / PHASER','9 GUI THEMES EACH','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
 };
 const freeCollectionTranslations={
  ja:[
-  'FUNtasia Free Collection v1.0.1は、FUNtasia Audioの無料音源、エフェクト、ミキシングツール、解析ツールをひとつにまとめたコレクションです。v1.0.1では、物理モデリング管楽器音源「The Hollow Winds v1.0.0」を新たに収録しました。',
-  '配布ZIPにはVST3プラグイン本体とユーザーマニュアルのみを収録しています。インストーラーやソースコードは含まれません。各プラグインの個別配布も継続しています。',
-  'コレクション全体のバージョンはv1.0.1です。収録プラグインそれぞれのバージョンは異なる場合があります。'
+  'FUNtasia Free Collection v1.0.4は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
+  'v1.0.4ではFUN Modulation Pack v1.0.0を追加。FUN Chorusは有機的な揺れ、FUN Flangerはディレイ変調とフィードバック、FUN Phaserは段数と周波数スイープを調整できる位相効果を提供します。新たな3製品は、それぞれ9種類のGUIカラーテーマに対応しています。',
+  'v1.0.1で追加されたThe Hollow Windsを含め、従来の収録プラグインも引き続き利用できます。コレクションのバージョンと各製品のバージョンは独立しています。ZIPを展開し、VST3ファイルをWindowsのVST3フォルダーへ配置してください。'
  ],
  de:[
-  'FUNtasia Free Collection v1.0.1 bündelt die kostenlosen Instrumente, Effekte, Mixing-Tools und Analyse-Plugins von FUNtasia Audio in einem Download. Neu in v1.0.1 ist The Hollow Winds v1.0.0, ein Blasinstrument mit Physical Modeling.',
-  'Das ZIP enthält ausschließlich VST3-Plugins und Benutzerhandbücher. Ein Installer und Quellcode sind nicht enthalten. Die einzelnen Plugins bleiben separat verfügbar.',
-  'Die Sammlung hat die Version v1.0.1; die enthaltenen Plugins behalten ihre jeweiligen eigenen Versionsnummern.'
+  'FUNtasia Free Collection v1.0.4 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
+  'NEU IN v1.0.4: FUN Chorus v1.0.0, FUN Flanger v1.0.0 und FUN Phaser v1.0.0 kommen mit dem FUN Modulation Pack hinzu. Chorus bietet organische Modulation, Flanger Delay-Modulation mit Feedback und Phaser Phasenbewegung mit einstellbaren Stages. Jedes der drei neuen Plug-ins hat neun auswählbare GUI-Farbthemen.',
+  'Alle zuvor enthaltenen Plug-ins, einschließlich The Hollow Winds aus v1.0.1, bleiben Teil der Sammlung. Die Versionsnummer der Sammlung ist unabhängig von denen der einzelnen Plug-ins. ZIP entpacken und die VST3-Dateien in den Windows-VST3-Ordner kopieren.'
  ],
  fr:[
-  'FUNtasia Free Collection v1.0.1 regroupe les instruments, effets, outils de mixage et analyseurs gratuits de FUNtasia Audio dans un seul téléchargement. La version v1.0.1 ajoute The Hollow Winds v1.0.0, un instrument à vent à modélisation physique.',
-  'L’archive ZIP contient uniquement les plugins VST3 et leurs manuels. Aucun installateur ni code source n’est inclus. Les plugins restent également disponibles séparément.',
-  'La version de la collection est v1.0.1, tandis que les plugins inclus conservent leurs propres numéros de version.'
+  'FUNtasia Free Collection v1.0.4 réunit gratuitement les effets, instruments, outils de mixage et analyseurs de FUNtasia Audio dans une archive VST3 pour Windows x64.',
+  'NOUVEAU EN v1.0.4 : FUN Chorus v1.0.0, FUN Flanger v1.0.0 et FUN Phaser v1.0.0 rejoignent la collection avec FUN Modulation Pack. Chorus apporte une modulation organique, Flanger un mouvement de délai avec feedback et Phaser un balayage de phase avec nombre d’étages réglable. Chacun des trois nouveaux plug-ins propose neuf thèmes de couleur pour son interface.',
+  'Les plug-ins déjà inclus, dont The Hollow Winds ajouté en v1.0.1, restent disponibles. La version de la collection est distincte de celle de chaque plug-in. Extrayez le ZIP et copiez les fichiers VST3 dans le dossier VST3 de Windows.'
  ],
  ru:[
-  'FUNtasia Free Collection v1.0.1 объединяет бесплатные инструменты, эффекты, средства сведения и аудиоанализа FUNtasia Audio в один архив. В версии v1.0.1 добавлен The Hollow Winds v1.0.0 — духовой инструмент с физическим моделированием.',
-  'ZIP-архив содержит только плагины VST3 и руководства пользователя. Установщик и исходный код в комплект не входят. Каждый плагин также доступен отдельно.',
-  'Версия коллекции — v1.0.1; версии отдельных плагинов внутри могут отличаться.'
+  'FUNtasia Free Collection v1.0.4 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
+  'НОВОЕ В v1.0.4: в коллекцию добавлен FUN Modulation Pack с FUN Chorus v1.0.0, FUN Flanger v1.0.0 и FUN Phaser v1.0.0. Chorus создаёт органическую модуляцию, Flanger — движение задержки с обратной связью, а Phaser — фазовые эффекты с настраиваемым числом каскадов. У каждого из трёх новых плагинов есть девять цветовых тем интерфейса.',
+  'Все ранее включённые плагины, в том числе The Hollow Winds из v1.0.1, остаются в коллекции. Номер версии коллекции не совпадает обязательно с версиями отдельных плагинов. Распакуйте ZIP и скопируйте файлы VST3 в системную папку VST3 Windows.'
  ]
 };
 for(const [language,paras] of Object.entries(freeCollectionTranslations)){
  (localized[language]??={})['funtasia-free-collection']={paras};
 }
+
 
 /* FUN Developer Pack v1.0.0 — FUN Test Tone + FUN Test EQ. */
 details['fun-developer-pack']={

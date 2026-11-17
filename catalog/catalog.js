@@ -16,7 +16,7 @@ const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
 'FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical'
+'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;

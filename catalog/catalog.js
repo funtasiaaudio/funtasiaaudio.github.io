@@ -220,32 +220,32 @@ const nineThemeFeatureLabels={
 details['funtasia-free-collection']={
  lead:'All free FUNtasia Audio plugins in one collection.',
  paras:[
-  'FUNtasia Free Collection v1.0.0 gathers the free FUNtasia Audio instruments, effects, mixing tools and analyzers into one downloadable package.',
+  'FUNtasia Free Collection v1.0.1 gathers the free FUNtasia Audio instruments, effects, mixing tools and analyzers into one downloadable package. v1.0.1 adds The Hollow Winds v1.0.0, a physical-modeling wind instrument.',
   'The release ZIP contains VST3 plugins and user manuals only. There is no installer or source code in the package. The individual plugin releases remain available separately.',
-  'The collection has its own v1.0.0 version, while the included plugins retain their individual version numbers.'
+  'The collection has its own v1.0.1 version, while the included plugins retain their individual version numbers.'
  ],
  features:['ALL FREE PLUGINS','VST3 PLUGINS','USER MANUALS','SINGLE DOWNLOAD','INDIVIDUAL RELEASES AVAILABLE']
 };
 const freeCollectionTranslations={
  ja:[
-  'FUNtasia Free Collection v1.0.0は、FUNtasia Audioの無料音源、エフェクト、ミキシングツール、解析ツールをひとつにまとめたコレクションです。',
+  'FUNtasia Free Collection v1.0.1は、FUNtasia Audioの無料音源、エフェクト、ミキシングツール、解析ツールをひとつにまとめたコレクションです。v1.0.1では、物理モデリング管楽器音源「The Hollow Winds v1.0.0」を新たに収録しました。',
   '配布ZIPにはVST3プラグイン本体とユーザーマニュアルのみを収録しています。インストーラーやソースコードは含まれません。各プラグインの個別配布も継続しています。',
-  'コレクション全体のバージョンはv1.0.0です。収録プラグインそれぞれのバージョンは異なる場合があります。'
+  'コレクション全体のバージョンはv1.0.1です。収録プラグインそれぞれのバージョンは異なる場合があります。'
  ],
  de:[
-  'FUNtasia Free Collection v1.0.0 bündelt die kostenlosen Instrumente, Effekte, Mixing-Tools und Analyse-Plugins von FUNtasia Audio in einem Download.',
+  'FUNtasia Free Collection v1.0.1 bündelt die kostenlosen Instrumente, Effekte, Mixing-Tools und Analyse-Plugins von FUNtasia Audio in einem Download. Neu in v1.0.1 ist The Hollow Winds v1.0.0, ein Blasinstrument mit Physical Modeling.',
   'Das ZIP enthält ausschließlich VST3-Plugins und Benutzerhandbücher. Ein Installer und Quellcode sind nicht enthalten. Die einzelnen Plugins bleiben separat verfügbar.',
-  'Die Sammlung hat die Version v1.0.0; die enthaltenen Plugins behalten ihre jeweiligen eigenen Versionsnummern.'
+  'Die Sammlung hat die Version v1.0.1; die enthaltenen Plugins behalten ihre jeweiligen eigenen Versionsnummern.'
  ],
  fr:[
-  'FUNtasia Free Collection v1.0.0 regroupe les instruments, effets, outils de mixage et analyseurs gratuits de FUNtasia Audio dans un seul téléchargement.',
+  'FUNtasia Free Collection v1.0.1 regroupe les instruments, effets, outils de mixage et analyseurs gratuits de FUNtasia Audio dans un seul téléchargement. La version v1.0.1 ajoute The Hollow Winds v1.0.0, un instrument à vent à modélisation physique.',
   'L’archive ZIP contient uniquement les plugins VST3 et leurs manuels. Aucun installateur ni code source n’est inclus. Les plugins restent également disponibles séparément.',
-  'La version de la collection est v1.0.0, tandis que les plugins inclus conservent leurs propres numéros de version.'
+  'La version de la collection est v1.0.1, tandis que les plugins inclus conservent leurs propres numéros de version.'
  ],
  ru:[
-  'FUNtasia Free Collection v1.0.0 объединяет бесплатные инструменты, эффекты, средства сведения и аудиоанализа FUNtasia Audio в один архив.',
+  'FUNtasia Free Collection v1.0.1 объединяет бесплатные инструменты, эффекты, средства сведения и аудиоанализа FUNtasia Audio в один архив. В версии v1.0.1 добавлен The Hollow Winds v1.0.0 — духовой инструмент с физическим моделированием.',
   'ZIP-архив содержит только плагины VST3 и руководства пользователя. Установщик и исходный код в комплект не входят. Каждый плагин также доступен отдельно.',
-  'Версия коллекции — v1.0.0; версии отдельных плагинов внутри могут отличаться.'
+  'Версия коллекции — v1.0.1; версии отдельных плагинов внутри могут отличаться.'
  ]
 };
 for(const [language,paras] of Object.entries(freeCollectionTranslations)){

@@ -467,6 +467,52 @@ const loFiTranslations={
 for(const [language,translation] of Object.entries(loFiTranslations)){
  (localized[language]??={})['fun-lo-fi-pack']=translation;
 }
+/* The Hollow Winds v1.0.0 — five-language product details. */
+details['the-hollow-winds']={
+ lead:'Shape a wind instrument from breath to resonance.',
+ paras:[
+  'The Hollow Winds is a free physical-modeling VST3 wind instrument for Windows. Choose from Transverse, Fipple, End-Blown, Vessel, and Custom models, then shape the sound with breath and body controls.',
+  'Play with Manual breath input, MIDI CC2, Channel Pressure, or Poly Aftertouch. Adjust Pressure, Air Noise, Embouchure, attack response, resonance, vibrato, and six Tone Holes. Dimo and other model-specific controls offer further ways to shape the tone.',
+  'The preset browser lets you save and recall your own sounds. Nine selectable GUI themes and a scalable interface let you adapt the instrument to your workspace.'
+ ],
+ features:[
+  '5 WIND MODELS',
+  'MANUAL / CC2 / CHANNEL PRESSURE / POLY AFTERTOUCH',
+  'BREATH & BODY CONTROLS',
+  'ATTACK, VIBRATO & PERFORMANCE',
+  '6 TONE HOLES & DIMO',
+  'USER PRESET BROWSER',
+  'SCALABLE GUI',
+  'WINDOWS 64-BIT VST3'
+ ]
+};
+nineThemeProductKeys.add('the-hollow-winds');
+const hollowWindsTranslations={
+ ja:[
+  'The Hollow Windsは、5種類の音響モデルを搭載したWindows用の無料VST3管楽器音源です。TRANSVERSE、FIPPLE、END-BLOWN、VESSEL、CUSTOMを切り替え、息の流れや管体の響きを調整して音色を作れます。',
+  '息の制御はMANUAL、MIDI CC2、Channel Pressure、Poly Aftertouchから選択可能。PRESSURE、AIR NOISE、EMBOUCHURE、アタック、共鳴、ビブラート、6つのTONE HOLESなどを調整できます。DIMOやモデル専用の操作も備えています。',
+  'プリセットブラウザで自作音色を保存・呼び出しできます。9種類のGUIテーマと画面倍率の変更にも対応しています。'
+ ],
+ de:[
+  'The Hollow Winds ist ein kostenloses VST3-Blasinstrument mit Physical Modeling für Windows. Die fünf Modelle Transverse, Fipple, End-Blown, Vessel und Custom lassen sich über Atem- und Korpusparameter formen.',
+  'Die Atemsteuerung erfolgt manuell, über MIDI CC2, Channel Pressure oder Poly Aftertouch. Einstellbar sind unter anderem Druck, Luftgeräusch, Ansatz, Anschlagverhalten, Resonanz, Vibrato und sechs Tonlöcher. Dimo und modellspezifische Regler erweitern die Klanggestaltung.',
+  'Im Preset-Browser kannst du eigene Klänge speichern und wieder aufrufen. Neun wählbare GUI-Farbthemen und eine skalierbare Oberfläche passen sich deinem Arbeitsplatz an.'
+ ],
+ fr:[
+  'The Hollow Winds est un instrument à vent VST3 gratuit pour Windows fondé sur la modélisation physique. Cinq modèles — Transverse, Fipple, End-Blown, Vessel et Custom — permettent de façonner le son grâce aux réglages de souffle et de corps.',
+  'Le souffle se contrôle manuellement, par MIDI CC2, Channel Pressure ou Poly Aftertouch. Réglez la pression, le bruit d’air, l’embouchure, l’attaque, la résonance, le vibrato et six trous de jeu. Dimo et les commandes propres à chaque modèle offrent davantage de possibilités.',
+  'Le navigateur de presets permet d’enregistrer et de rappeler vos sons. Neuf thèmes de couleur et une interface redimensionnable complètent l’instrument.'
+ ],
+ ru:[
+  'The Hollow Winds — бесплатный VST3-инструмент для Windows с физическим моделированием духовых звуков. Пять моделей — Transverse, Fipple, End-Blown, Vessel и Custom — позволяют настраивать характер звука с помощью параметров дыхания и резонанса корпуса.',
+  'Потоком воздуха можно управлять вручную, через MIDI CC2, Channel Pressure или Poly Aftertouch. Доступны давление, шум воздуха, амбушюр, атака, резонанс, вибрато и шесть игровых отверстий Tone Holes. Параметр Dimo и настройки отдельных моделей расширяют возможности звучания.',
+  'Браузер пресетов позволяет сохранять и загружать собственные тембры. Доступны девять цветовых тем оформления и масштабирование интерфейса.'
+ ]
+};
+for(const [language,paras] of Object.entries(hollowWindsTranslations)){
+ (localized[language]??={})['the-hollow-winds']={paras};
+}
+
 const locale=document.documentElement.lang||'en';
 const words={ja:['詳しく見る','製品紹介','元サイトで見る','閉じる','元サイト掲載の英語説明'],en:['Details','Product details','Original page','Close','Original English description'],de:['Details','Produktdetails','Originalseite','Schließen','Englische Originalbeschreibung'],fr:['Détails','Présentation','Page originale','Fermer','Description originale en anglais'],ru:['Подробнее','О продукте','Оригинальная страница','Закрыть','Оригинальное описание на английском']}[locale]||['Details','Product details','Original page','Close','Original English description'];
 const dialog=document.createElement('dialog');dialog.className='product-dialog';dialog.setAttribute('aria-labelledby','product-dialog-title');

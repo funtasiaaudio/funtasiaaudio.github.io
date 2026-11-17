@@ -15,7 +15,7 @@ const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
-'FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
+'FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
 'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
 };
 for(const card of cards){
@@ -51,7 +51,7 @@ for(const card of cards){
  const image=productLink?.querySelector('img.shot');
  const actions=card.querySelector('.card-actions');
  if(!image||!actions)continue;
- const source=image.getAttribute('src');
+ const source=image.dataset.artworkSrc||image.getAttribute('src');
  if(!source)continue;
  const imageUrl=new URL(source,document.baseURI).href;
  const imageLink=document.createElement('a');
@@ -198,9 +198,30 @@ renderGenres();filter();
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};
 const localized=window.FUN_PRODUCT_LOCALIZED||{};
+/* FUN Modulation Pack v1.0.0: three distinct Windows VST3 effects. */
+details['fun-modulation-pack']={
+ lead:'Three modulation effects, one cohesive collection.',
+ paras:[
+  'FUN Modulation Pack v1.0.0 brings together FUN Chorus, FUN Flanger, and FUN Phaser in a single free download for Windows x64 VST3 hosts.',
+  'FUN Chorus provides organic modulation with adjustable voices, phase spread and stereo spread. FUN Flanger offers delay-based motion, feedback and stereo control. FUN Phaser provides frequency-swept phase effects with adjustable stages and feedback.',
+  'Each plugin includes nine selectable interface color themes. The release archive includes five-language PDF user manuals.'
+ ],
+ features:['FUN CHORUS','FUN FLANGER','FUN PHASER','9 COLOR THEMES EACH','WINDOWS x64 VST3','FREE DOWNLOAD','PDF USER MANUALS']
+};
+const modulationPackTranslations={
+ ja:{summary:'FUN Chorus・FUN Flanger・FUN Phaserの3種類を収録した無料のWindows VST3モジュレーションパック。3製品とも9カラーテーマに対応。',paras:['FUN Modulation Pack v1.0.0は、FUN Chorus、FUN Flanger、FUN Phaserをまとめた無料のWindows x64 VST3エフェクトパックです。','Chorusは有機的なモジュレーションとVoice／Phase Spread／Stereo Spread調整、Flangerはディレイの動きとFeedback／ステレオ制御、PhaserはStagesとFeedbackを備えた周波数スイープ型の位相効果を提供します。','3製品すべて9種類のGUIカラーテーマに対応。日本語・英語・ドイツ語・フランス語・ロシア語のPDFマニュアルを同梱しています。']},
+ en:{summary:'Three free Windows VST3 effects: FUN Chorus, FUN Flanger, and FUN Phaser. Nine color themes in each plugin.'},
+ de:{summary:'Drei kostenlose Windows-VST3-Effekte: FUN Chorus, FUN Flanger und FUN Phaser. Jeder bietet neun Farbthemen.',paras:['FUN Modulation Pack v1.0.0 vereint drei kostenlose VST3-Effekte für Windows x64 in einem Download: FUN Chorus, FUN Flanger und FUN Phaser.','FUN Chorus bietet organische Modulation mit Voices, Phase Spread und Stereo Spread. FUN Flanger ermöglicht Delay-Modulation mit Feedback und Stereo-Steuerung. FUN Phaser formt bewegte Phaseneffekte mit Stages und Feedback.','Alle drei Plug-ins bieten jeweils neun auswählbare GUI-Farbthemen. PDF-Handbücher liegen in fünf Sprachen bei.']},
+ fr:{summary:'Trois effets VST3 gratuits pour Windows : FUN Chorus, FUN Flanger et FUN Phaser. Neuf thèmes de couleur pour chacun.',paras:['FUN Modulation Pack v1.0.0 réunit trois effets VST3 gratuits pour Windows x64 : FUN Chorus, FUN Flanger et FUN Phaser.','FUN Chorus propose une modulation organique avec réglage des voix et de la répartition de phase et stéréo. FUN Flanger apporte un mouvement de délai et des commandes de feedback et de stéréo. FUN Phaser offre un balayage de phase avec réglage des étages et du feedback.','Chaque plug-in dispose de neuf thèmes de couleur pour son interface. Des manuels PDF en cinq langues sont inclus.']},
+ ru:{summary:'Три бесплатных VST3-эффекта для Windows: FUN Chorus, FUN Flanger и FUN Phaser. У каждого девять цветовых тем.',paras:['FUN Modulation Pack v1.0.0 включает три бесплатных VST3-эффекта для Windows x64: FUN Chorus, FUN Flanger и FUN Phaser.','FUN Chorus предлагает органическую модуляцию с настройками Voices, Phase Spread и Stereo Spread. FUN Flanger позволяет управлять задержкой, обратной связью и стерео. FUN Phaser создаёт движущиеся фазовые эффекты с настройкой числа каскадов и обратной связи.','Во всех трёх плагинах доступно по девять цветовых тем интерфейса. PDF-руководства прилагаются на пяти языках.']}
+};
+for(const [language,body] of Object.entries(modulationPackTranslations)){
+ (localized[language]??={})['fun-modulation-pack']=body;
+}
+
 /* Keep the selectable 9-colour GUI themes visible in details for these 16 releases. */
 const nineThemeProductKeys=new Set([
- 'fun-pair','fun-dc-filter','fun-dither','fun-monofilter',
+ 'fun-modulation-pack','fun-pair','fun-dc-filter','fun-dither','fun-monofilter',
  'fun-stereo-pack','fun-lo-fi-pack','fun-dimension-expander','fun-volume-shaper',
  'fun-analysis-pack',
  'fun-drum-pad','fun-room','fun-ott','fun-clip-distortion',

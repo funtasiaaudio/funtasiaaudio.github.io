@@ -86,6 +86,20 @@
     .advanced-guidance p:last-child{margin-bottom:0}
     .advanced-guidance strong{color:#f0e5cc}
     @media(max-width:760px){.study-advanced{padding:56px 0}.advanced-grid{grid-template-columns:1fr}.advanced-card .button{width:100%}.advanced-guidance{margin-top:23px}}
+
+    /* Beginner-friendly author recommendation preceding the academic textbooks */
+    .study-beginner{padding:78px 0}
+    .study-beginner h2{font-size:clamp(2rem,3.35vw,3.5rem);max-width:940px}
+    .beginner-panel{display:grid;grid-template-columns:minmax(210px,.7fr) minmax(0,1.3fr);gap:clamp(25px,4.5vw,58px);align-items:center;background:linear-gradient(135deg,#24392d,#13271e);border:1px solid #55735d;border-radius:12px;padding:clamp(25px,4.5vw,48px)}
+    .beginner-cover{display:flex;flex-direction:column;justify-content:space-between;min-height:310px;max-width:245px;padding:25px 21px;background:linear-gradient(155deg,#638574,#294535);color:#f2f4e8;border:1px solid rgba(236,239,216,.4);border-radius:4px 10px 10px 4px;box-shadow:6px 12px 27px rgba(0,0,0,.25),inset 7px 0 0 rgba(0,0,0,.14)}
+    .beginner-cover-kicker{font-size:.58rem;letter-spacing:.1em;line-height:1.6}
+    .beginner-cover-title{font-family:Georgia,"Noto Serif JP",serif;font-size:clamp(1.4rem,2.2vw,1.85rem);line-height:1.5}
+    .beginner-cover-foot{font-size:.7rem;letter-spacing:.08em;color:#dce8d8}
+    .beginner-body h3{font-size:clamp(1.65rem,2.6vw,2.45rem);line-height:1.35;margin:0 0 19px}
+    .beginner-body>p:not(.eyebrow){font-size:1rem;line-height:1.9}
+    .beginner-body .button{margin:17px 0 15px;text-align:center}
+    .beginner-body .beginner-footnote{font-size:.81rem!important;color:#aebfaf;line-height:1.7}
+    @media(max-width:760px){.study-beginner{padding:56px 0}.beginner-panel{grid-template-columns:1fr}.beginner-cover{min-height:240px;max-width:195px}.beginner-body .button{width:100%}}
   </style>
 </head>
 <body>
@@ -102,7 +116,7 @@
       <div class="shell study-shell">
         <p class="eyebrow">FUNtasia Studio / Independent Study</p>
         <h1 id="study-title">独学で<span>作曲を学ぶなら。</span></h1>
-        <p class="lead">音楽理論を「知っている」から、「理解し、説明できる」へ。Hʉeliangが27年間の音楽経験から大切にしている学び方と、経験に応じて選べる推薦図書を紹介します。</p>
+        <p class="lead">音楽理論を「知っている」から、「理解し、説明できる」へ。Hʉeliangが27年間の音楽経験から大切にしている学び方と、初心者向けの解説書から専門書まで、経験に応じて選べる推薦図書を紹介します。</p>
       </div>
     </section>
 
@@ -114,6 +128,29 @@
           <p>現代で称賛される複雑なコード進行を手っ取り早く調べるよりも、まずは音楽の言語とも呼べる「楽典」で、分からないことをゼロにする。それこそが、最も近道だと私は考えています。</p>
           <p>あなたも自分だけの、現代で評価されるようなコード進行や和声を生み出したいなら、基礎を完璧に理解すること。これは、私が27年間の音楽経験から学んだことです。</p>
           <p class="signature">— Hʉeliang</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section study-beginner" aria-labelledby="beginner-title">
+      <div class="shell study-shell">
+        <p class="eyebrow">Before Step 01 / Friendly Introductions</p>
+        <h2 id="beginner-title">専門書が難しく感じたら、<br>やさしい解説書から。</h2>
+        <p class="study-section-intro">そうは言っても、最初から専門書だけで独学するのは簡単ではありません。分かりやすい言葉や身近な音楽の例から学べる理論書も、入口としておすすめしておきます。</p>
+        <div class="beginner-panel">
+          <div class="beginner-cover" aria-hidden="true">
+            <span class="beginner-cover-kicker">FUNtasia Studio / Reading Guide</span>
+            <span class="beginner-cover-title">音楽理論を、<br>もっと身近に。</span>
+            <span class="beginner-cover-foot">BEGINNER FRIENDLY</span>
+          </div>
+          <div class="beginner-body">
+            <p class="eyebrow">Recommended Author</p>
+            <h3>彦坂 恭人さんの著書</h3>
+            <p>彦坂恭人さんは、メロディー作りやポピュラー音楽での対位法などを、実際の音楽制作と結びつけて学べる本を書かれています。</p>
+            <p>専門書にいきなり取り組むのが難しければ、興味のあるテーマから親しみやすい解説に触れてみてください。そこを入口に、楽典の基礎書や、さらに専門的な理論書へ進めばよいと思います。</p>
+            <a class="button" href="https://www.amazon.co.jp/%E5%BD%A6%E5%9D%82-%E6%81%AD%E4%BA%BA/e/B00M6GM5Y0/" target="_blank" rel="noopener noreferrer">彦坂恭人さんの著書を見る（Amazon）↗</a>
+            <p class="beginner-footnote">※ 著者ページへのリンクです。著書ごとに内容と難易度は異なるので、ご自身の経験に合わせて選んでください。</p>
+          </div>
         </div>
       </div>
     </section>

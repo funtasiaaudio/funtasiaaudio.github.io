@@ -43,3 +43,11 @@ html[lang="ja"] .hero h1{font-size:clamp(2.8rem,4.8vw,5.3rem)}
   .head-nav>a{min-height:38px}
   .head-nav .language{padding:6px 12px}
 }
+
+/* Japanese Studio: a welcome bridge toward future creative tools */
+.bridge-section{position:relative;padding:38px 0 48px;border-top:1px solid rgba(205,226,202,.13)}
+.bridge-copy{max-width:1000px}
+.bridge-copy p{font-size:clamp(1rem,1.25vw,1.16rem);line-height:1.9;margin:0 0 16px}
+.bridge-copy p:first-child{color:#e8eee3}
+.bridge-copy p:last-child{color:var(--sage);margin-bottom:0}
+@media(max-width:760px){.bridge-section{padding:30px 0 38px}.bridge-copy p{font-size:1rem;line-height:1.8}}

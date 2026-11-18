@@ -237,36 +237,41 @@ const nineThemeFeatureLabels={
 
 
 
-/* FUNtasia Free Collection v1.0.4 — FUN Modulation Pack added. */
+/* FUNtasia Free Collection v1.0.6 — FUN Tuner + FUN De-Esser added. */
 details['funtasia-free-collection']={
  lead:'All free FUNtasia Audio plugins in one collection.',
  paras:[
-  'FUNtasia Free Collection v1.0.4 brings together free FUNtasia Audio effects, instruments, mixing tools and analyzers in one Windows x64 VST3 download.',
-  'NEW IN v1.0.4: FUN Chorus v1.0.0, FUN Flanger v1.0.0 and FUN Phaser v1.0.0 join the collection as FUN Modulation Pack. Chorus offers organic motion, Flanger adds delay-based modulation and feedback, and Phaser provides adjustable stages and frequency-swept phase movement. Each of these three plugins offers nine selectable GUI color themes.',
-  'Previously included plugins, including The Hollow Winds added in v1.0.1, remain part of the collection. The collection and its individual plugins have separate version numbers. Extract the release ZIP and install the VST3 files in your Windows VST3 folder.'
+  'FUNtasia Free Collection v1.0.6 brings free FUNtasia Audio effects, instruments, mixing tools and analyzers together in one Windows x64 VST3 download.',
+  'NEW IN v1.0.6: FUN Tuner and FUN De-Esser. FUN Tuner helps you check instrument tuning. FUN De-Esser reduces harsh sibilance in vocal recordings.',
+  'The previously added FUN Modulation Pack (FUN Chorus, FUN Flanger and FUN Phaser) remains included. Each of those three plugins offers nine GUI color themes. Other earlier additions, including The Hollow Winds, remain available.',
+  'The collection and its plugins have separate version numbers. Extract the ZIP and install the VST3 files in your Windows VST3 folder.'
  ],
- features:['ALL FREE PLUGINS','NEW: CHORUS / FLANGER / PHASER','9 GUI THEMES EACH','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
+ features:['ALL FREE PLUGINS','NEW: FUN TUNER / FUN DE-ESSER','CHORUS / FLANGER / PHASER','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
 };
 const freeCollectionTranslations={
  ja:[
-  'FUNtasia Free Collection v1.0.4は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
-  'v1.0.4ではFUN Modulation Pack v1.0.0を追加。FUN Chorusは有機的な揺れ、FUN Flangerはディレイ変調とフィードバック、FUN Phaserは段数と周波数スイープを調整できる位相効果を提供します。新たな3製品は、それぞれ9種類のGUIカラーテーマに対応しています。',
-  'v1.0.1で追加されたThe Hollow Windsを含め、従来の収録プラグインも引き続き利用できます。コレクションのバージョンと各製品のバージョンは独立しています。ZIPを展開し、VST3ファイルをWindowsのVST3フォルダーへ配置してください。'
+  'FUNtasia Free Collection v1.0.6は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
+  'v1.0.6ではFUN TunerとFUN De-Esserを追加。FUN Tunerは楽器のチューニング確認に、FUN De-Esserはボーカルの耳につく歯擦音の抑制に使えます。',
+  '以前追加されたFUN Modulation Pack（FUN Chorus・FUN Flanger・FUN Phaser）も引き続き収録しています。この3製品はそれぞれ9種類のGUIカラーテーマに対応。The Hollow Windsを含む従来のプラグインも利用できます。',
+  'コレクションと各プラグインのバージョン番号は独立しています。ZIPを展開し、VST3ファイルをWindowsのVST3フォルダーへ配置してください。'
  ],
  de:[
-  'FUNtasia Free Collection v1.0.4 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
-  'NEU IN v1.0.4: FUN Chorus v1.0.0, FUN Flanger v1.0.0 und FUN Phaser v1.0.0 kommen mit dem FUN Modulation Pack hinzu. Chorus bietet organische Modulation, Flanger Delay-Modulation mit Feedback und Phaser Phasenbewegung mit einstellbaren Stages. Jedes der drei neuen Plug-ins hat neun auswählbare GUI-Farbthemen.',
-  'Alle zuvor enthaltenen Plug-ins, einschließlich The Hollow Winds aus v1.0.1, bleiben Teil der Sammlung. Die Versionsnummer der Sammlung ist unabhängig von denen der einzelnen Plug-ins. ZIP entpacken und die VST3-Dateien in den Windows-VST3-Ordner kopieren.'
+  'FUNtasia Free Collection v1.0.6 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
+  'NEU IN v1.0.6: FUN Tuner und FUN De-Esser. Mit FUN Tuner lässt sich die Stimmung von Instrumenten prüfen. FUN De-Esser hilft, scharfe Zischlaute in Gesangsaufnahmen zu reduzieren.',
+  'Das bereits hinzugefügte FUN Modulation Pack mit FUN Chorus, FUN Flanger und FUN Phaser bleibt enthalten. Diese drei Plug-ins bieten jeweils neun GUI-Farbthemen. Frühere Ergänzungen wie The Hollow Winds bleiben ebenfalls dabei.',
+  'Die Sammlung und die einzelnen Plug-ins haben separate Versionsnummern. Entpacken Sie die ZIP-Datei und kopieren Sie die VST3-Dateien in den Windows-VST3-Ordner.'
  ],
  fr:[
-  'FUNtasia Free Collection v1.0.4 réunit gratuitement les effets, instruments, outils de mixage et analyseurs de FUNtasia Audio dans une archive VST3 pour Windows x64.',
-  'NOUVEAU EN v1.0.4 : FUN Chorus v1.0.0, FUN Flanger v1.0.0 et FUN Phaser v1.0.0 rejoignent la collection avec FUN Modulation Pack. Chorus apporte une modulation organique, Flanger un mouvement de délai avec feedback et Phaser un balayage de phase avec nombre d’étages réglable. Chacun des trois nouveaux plug-ins propose neuf thèmes de couleur pour son interface.',
-  'Les plug-ins déjà inclus, dont The Hollow Winds ajouté en v1.0.1, restent disponibles. La version de la collection est distincte de celle de chaque plug-in. Extrayez le ZIP et copiez les fichiers VST3 dans le dossier VST3 de Windows.'
+  'FUNtasia Free Collection v1.0.6 réunit les effets, instruments, outils de mixage et analyseurs gratuits de FUNtasia Audio dans une archive VST3 pour Windows x64.',
+  'NOUVEAU EN v1.0.6 : FUN Tuner et FUN De-Esser. FUN Tuner permet de vérifier l’accordage des instruments. FUN De-Esser aide à atténuer les sifflantes trop marquées dans les voix.',
+  'FUN Modulation Pack, avec FUN Chorus, FUN Flanger et FUN Phaser, reste inclus. Ces trois plug-ins proposent chacun neuf thèmes de couleur pour leur interface. Les ajouts précédents, dont The Hollow Winds, sont également conservés.',
+  'La collection et chaque plug-in ont leurs propres numéros de version. Extrayez le ZIP et copiez les fichiers VST3 dans le dossier VST3 de Windows.'
  ],
  ru:[
-  'FUNtasia Free Collection v1.0.4 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
-  'НОВОЕ В v1.0.4: в коллекцию добавлен FUN Modulation Pack с FUN Chorus v1.0.0, FUN Flanger v1.0.0 и FUN Phaser v1.0.0. Chorus создаёт органическую модуляцию, Flanger — движение задержки с обратной связью, а Phaser — фазовые эффекты с настраиваемым числом каскадов. У каждого из трёх новых плагинов есть девять цветовых тем интерфейса.',
-  'Все ранее включённые плагины, в том числе The Hollow Winds из v1.0.1, остаются в коллекции. Номер версии коллекции не совпадает обязательно с версиями отдельных плагинов. Распакуйте ZIP и скопируйте файлы VST3 в системную папку VST3 Windows.'
+  'FUNtasia Free Collection v1.0.6 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
+  'НОВОЕ В v1.0.6: FUN Tuner и FUN De-Esser. FUN Tuner помогает проверить настройку музыкальных инструментов. FUN De-Esser уменьшает резкие свистящие звуки в записи вокала.',
+  'Ранее добавленный FUN Modulation Pack с FUN Chorus, FUN Flanger и FUN Phaser остаётся в наборе. Каждый из этих трёх плагинов поддерживает девять цветовых тем интерфейса. Другие прежние дополнения, включая The Hollow Winds, также сохранены.',
+  'У коллекции и отдельных плагинов собственные номера версий. Распакуйте ZIP и скопируйте файлы VST3 в системную папку VST3 Windows.'
  ]
 };
 for(const [language,paras] of Object.entries(freeCollectionTranslations)){

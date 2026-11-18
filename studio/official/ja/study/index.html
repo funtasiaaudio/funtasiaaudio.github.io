@@ -53,6 +53,20 @@
       .principle-copy{padding-left:18px}
       .study-goal{padding:56px 0 70px}
     }
+
+    /* Typographic reading-guide artworks — original graphics, not publisher book covers */
+    .study-cover{display:flex;position:relative;flex-direction:column;justify-content:space-between;width:190px;max-width:100%;min-height:244px;margin:0 0 25px;padding:20px 18px 22px 24px;border:1px solid rgba(229,235,220,.42);border-radius:3px 8px 8px 3px;box-shadow:5px 10px 24px rgba(0,0,0,.25),inset 6px 0 0 rgba(0,0,0,.16);color:#f1f2e9;transition:transform .2s ease,box-shadow .2s ease;overflow:hidden}
+    .study-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 45%,rgba(255,255,255,.06));pointer-events:none}
+    .study-cover:hover,.study-cover:focus-visible{transform:translateY(-3px);box-shadow:6px 15px 26px rgba(0,0,0,.33),inset 6px 0 0 rgba(0,0,0,.16)}
+    .study-cover-intro{background:linear-gradient(145deg,#426652,#1a332c)}
+    .study-cover-classic{background:linear-gradient(145deg,#516379,#252e3b)}
+    .study-cover-harmony{background:linear-gradient(145deg,#765c49,#362c29)}
+    .study-cover-series{font-family:system-ui,sans-serif;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;line-height:1.5;opacity:.8}
+    .study-cover-main{font-family:Georgia,"Noto Serif JP",serif;font-size:1.35rem;font-weight:500;line-height:1.5;letter-spacing:.03em;color:#f6f2e9}
+    .study-cover-main small{font-size:.85rem}
+    .study-cover-sub{font-size:.7rem;letter-spacing:.08em;color:#d8d8cd}
+    .study-cover-note{font-size:.83rem!important;color:#aab9aa;margin:22px 0 0;line-height:1.75}
+    @media(max-width:760px){.study-cover{width:164px;min-height:213px;padding:17px 15px 17px 20px}.study-cover-main{font-size:1.18rem}}
   </style>
 </head>
 <body>
@@ -92,6 +106,11 @@
         <p class="study-section-intro">楽典を学ぶなら、次の2冊から自分の経験に合うほうを選ぶのがおすすめです。どちらも「とりあえず読み終える」のではなく、疑問を残さず理解するための本として取り組んでほしいと思っています。</p>
         <div class="study-choices">
           <article class="study-choice">
+            <a class="study-cover study-cover-intro" href="https://www.ongakunotomo.co.jp/catalog/detail.php?id=100310" target="_blank" rel="noopener noreferrer" aria-label="『音符と鍵盤でおぼえる わかりやすい楽典』の出版社ページで表紙を確認">
+              <span class="study-cover-series">FUNtasia Studio / Reading Guide</span>
+              <span class="study-cover-main">わかりやすい<br>楽典</span>
+              <span class="study-cover-sub">独学の入口に</span>
+            </a>
             <p class="choice-level">初めて学ぶ・基礎を整理したい人へ</p>
             <h3>音符と鍵盤でおぼえる<br>わかりやすい楽典</h3>
             <p class="choice-meta">川辺 真 著 / 音楽之友社</p>
@@ -99,6 +118,11 @@
             <div class="choice-footer"><a class="button" href="https://www.ongakunotomo.co.jp/catalog/detail.php?id=100310" target="_blank" rel="noopener noreferrer">出版社の書籍ページを見る ↗</a></div>
           </article>
           <article class="study-choice">
+            <a class="study-cover study-cover-classic" href="https://www.ongakunotomo.co.jp/catalog/detail.php?id=100000" target="_blank" rel="noopener noreferrer" aria-label="『楽典 理論と実習』の出版社ページで表紙を確認">
+              <span class="study-cover-series">FUNtasia Studio / Reading Guide</span>
+              <span class="study-cover-main">楽典<br><small>理論と実習</small></span>
+              <span class="study-cover-sub">基礎を体系的に</span>
+            </a>
             <p class="choice-level">基礎を学んだ経験がある・深く学び直したい人へ</p>
             <h3>楽典 理論と実習<br>（新装版）</h3>
             <p class="choice-meta">石桁真礼生ほか 著 / 音楽之友社</p>
@@ -106,6 +130,7 @@
             <div class="choice-footer"><a class="button" href="https://www.ongakunotomo.co.jp/catalog/detail.php?id=100000" target="_blank" rel="noopener noreferrer">出版社の書籍ページを見る ↗</a></div>
           </article>
         </div>
+        <p class="study-cover-note">※ 表紙画像ではなく、FUNtasia Studioによるオリジナルの書籍案内ビジュアルです。実際の書影は各出版社リンク先で確認できます。</p>
       </div>
     </section>
 
@@ -116,6 +141,11 @@
         <p class="study-section-intro">基礎を理解したら、コード理論をさらに深く学ぶための次の一冊へ。複雑な進行の形だけを覚えるのではなく、なぜその響きが生まれるのかを考えることを大切にしてください。</p>
         <div class="study-next-panel">
           <div>
+            <a class="study-cover study-cover-harmony" href="https://www.rittor-music.co.jp/product/detail/3117317127/" target="_blank" rel="noopener noreferrer" aria-label="『コード理論大全』の出版社ページで表紙を確認">
+              <span class="study-cover-series">FUNtasia Studio / Reading Guide</span>
+              <span class="study-cover-main">コード<br>理論大全</span>
+              <span class="study-cover-sub">和声をもっと深く</span>
+            </a>
             <h3>コード理論大全</h3>
             <p class="book-meta">清水 響 著 / リットーミュージック</p>
             <p>音楽理論の基礎から長調・短調の和声、テンション、セカンダリードミナント、モーダルインターチェンジ、転調、コードスケール、コンパウンドコードまでを扱う理論書です。</p>

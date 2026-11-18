@@ -570,7 +570,12 @@ for(const card of cards){
   const featureList=hasNineThemes?item.features.map(feature=>feature.replace(/\b9\s+(?:(?:GUI|COLOUR|COLOR)\s+)*THEMES?\b/gi,'').replace(/^[\s·|/]+|[\s·|/]+$/g,'')).filter(Boolean):item.features;
   if(featureList.length||hasNineThemes){
    const list=document.createElement('ul');list.className='dialog-features';
-   for(const feature of featureList){const li=document.createElement('li');li.textContent=feature;list.append(li);}
+   const tunerAddedLabel={ja:'v1.2.0 新規追加：FUN Tuner v1.1.2',en:'NEW IN v1.2.0: FUN Tuner v1.1.2',de:'NEU IN v1.2.0: FUN Tuner v1.1.2',fr:'NOUVEAUTÉ v1.2.0 : FUN Tuner v1.1.2',ru:'НОВИНКА В v1.2.0: FUN Tuner v1.1.2'};
+  for(const feature of featureList){
+    const li=document.createElement('li');
+    li.textContent=key==='fun-analysis-pack'&&feature==='NEW: FUN TUNER v1.1.2' ? (tunerAddedLabel[locale]||tunerAddedLabel.en) : feature;
+    list.append(li);
+  }
    if(hasNineThemes){const li=document.createElement('li');li.textContent=nineThemeFeatureLabels[locale]||nineThemeFeatureLabels.en;list.append(li);}
    body.append(list);
   }

@@ -74,7 +74,8 @@
     recordsAlt: '#explore #records img',
     studioAlt: '#explore #studio img',
     utilitiesAlt: '#explore #utilities img',
-    goodsAlt: '#explore #goods img'
+    goodsAlt: '#explore #goods img',
+    storeAlt: '#store .store-product img'
   };
 
   const copy = {
@@ -113,7 +114,7 @@
       guildButton: 'Join the Alchemist Guild ↗',
       aboutEyebrow: 'The creator', aboutBody: 'Piano since age three, composing since sixteen. Hʉeliang creates both music and software, aiming to make creative expression accessible to everyone.', aboutButton: 'Read the profile',
       supportTitle: 'Find what you need, simply.', supportBody: 'Find product information, contact options for FUNtasia Records, and other resources for your next step.', supportButton: 'Support information', supportNote: 'The existing FUNtasia Audio and FUNtasia Records websites also remain available.',
-      audioAlt: 'FUN Modulation Pack artwork with Chorus, Flanger, and Phaser', recordsAlt: 'FUNtasia Records illustrated header surrounded by flowers', studioAlt: 'FUNtasia Studio DAW workspace with tracks and Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher on Windows in the Original Sage theme', goodsAlt: 'FUNtasia Studio Original Sage wallpaper',
+      audioAlt: 'FUN Modulation Pack artwork with Chorus, Flanger, and Phaser', recordsAlt: 'FUNtasia Records illustrated header surrounded by flowers', studioAlt: 'FUNtasia Studio DAW workspace with tracks and Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher on Windows in the Original Sage theme', storeAlt: "Black FUNtasia hoodie with a sage-green botanical forte emblem on the chest.", goodsAlt: 'FUNtasia Studio Original Sage wallpaper',
       logoAria: 'FUNtasia home', navAria: 'Main navigation', languageAria: 'Select website language', quickAria: 'Browse by interest'
     },
     de: {
@@ -151,7 +152,7 @@
       guildButton: 'Dem Alchemist Guild beitreten ↗',
       aboutEyebrow: 'Der Entwickler', aboutBody: 'Seit dem dritten Lebensjahr am Klavier, seit dem sechzehnten am Komponieren. Hʉeliang entwickelt Musik und Software, damit kreative Arbeit für alle zugänglich wird.', aboutButton: 'Profil lesen',
       supportTitle: 'Schnell zur richtigen Information.', supportBody: 'Hier findest du Produktinformationen, Kontaktmöglichkeiten für FUNtasia Records und weitere Hilfen.', supportButton: 'Zum Support', supportNote: 'Die bisherigen Websites von FUNtasia Audio und FUNtasia Records bleiben weiterhin erreichbar.',
-      audioAlt: 'FUN Modulation Pack mit Chorus, Flanger und Phaser', recordsAlt: 'Illustrierter FUNtasia-Records-Header mit Blumen', studioAlt: 'FUNtasia Studio DAW mit Spuren und Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher unter Windows im Theme Original Sage', goodsAlt: 'FUNtasia Studio Wallpaper Original Sage',
+      audioAlt: 'FUN Modulation Pack mit Chorus, Flanger und Phaser', recordsAlt: 'Illustrierter FUNtasia-Records-Header mit Blumen', studioAlt: 'FUNtasia Studio DAW mit Spuren und Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher unter Windows im Theme Original Sage', storeAlt: "Schwarzer FUNtasia-Hoodie mit salbeigrünem botanischem Forte-Symbol auf der Brust.", goodsAlt: 'FUNtasia Studio Wallpaper Original Sage',
       logoAria: 'FUNtasia Startseite', navAria: 'Hauptnavigation', languageAria: 'Sprache der Website wählen', quickAria: 'Nach Interesse stöbern'
     },
     fr: {
@@ -189,7 +190,7 @@
       guildButton: 'Rejoindre l’Alchemist Guild ↗',
       aboutEyebrow: 'Le créateur', aboutBody: 'Pianiste depuis l’âge de trois ans et compositeur depuis seize ans, Hʉeliang crée de la musique et des logiciels pour rendre la création accessible à tous.', aboutButton: 'Lire le profil',
       supportTitle: 'Trouvez facilement les bonnes informations.', supportBody: 'Accédez aux informations produits, aux contacts de FUNtasia Records et aux ressources utiles.', supportButton: 'Voir l’assistance', supportNote: 'Les anciens sites FUNtasia Audio et FUNtasia Records restent également accessibles.',
-      audioAlt: 'Visuel FUN Modulation Pack avec Chorus, Flanger et Phaser', recordsAlt: 'Illustration de la bannière FUNtasia Records entourée de fleurs', studioAlt: 'Station FUNtasia Studio avec pistes et Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher sur Windows avec le thème Original Sage', goodsAlt: 'Fond d’écran FUNtasia Studio Original Sage',
+      audioAlt: 'Visuel FUN Modulation Pack avec Chorus, Flanger et Phaser', recordsAlt: 'Illustration de la bannière FUNtasia Records entourée de fleurs', studioAlt: 'Station FUNtasia Studio avec pistes et Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher sur Windows avec le thème Original Sage', storeAlt: "Sweat à capuche FUNtasia noir avec un emblème forte végétal vert sauge sur la poitrine.", goodsAlt: 'Fond d’écran FUNtasia Studio Original Sage',
       logoAria: 'Accueil FUNtasia', navAria: 'Navigation principale', languageAria: 'Choisir la langue du site', quickAria: 'Explorer par centre d’intérêt'
     },
     ru: {
@@ -227,7 +228,7 @@
       guildButton: 'Присоединиться к Alchemist Guild ↗',
       aboutEyebrow: 'Об авторе', aboutBody: 'Hʉeliang играет на фортепиано с трёх лет и пишет музыку с шестнадцати. Он создаёт музыку и программы, делая творчество доступнее для всех.', aboutButton: 'Читать профиль',
       supportTitle: 'Нужная информация — без лишних поисков.', supportBody: 'Здесь собраны сведения о продуктах, контакты FUNtasia Records и полезные ресурсы.', supportButton: 'Раздел поддержки', supportNote: 'Предыдущие сайты FUNtasia Audio и FUNtasia Records по-прежнему доступны.',
-      audioAlt: 'FUN Modulation Pack: изображение Chorus, Flanger и Phaser', recordsAlt: 'Иллюстрированная обложка FUNtasia Records с цветами', studioAlt: 'DAW FUNtasia Studio с дорожками и Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher для Windows в теме Original Sage', goodsAlt: 'Обои FUNtasia Studio Original Sage',
+      audioAlt: 'FUN Modulation Pack: изображение Chorus, Flanger и Phaser', recordsAlt: 'Иллюстрированная обложка FUNtasia Records с цветами', studioAlt: 'DAW FUNtasia Studio с дорожками и Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher для Windows в теме Original Sage', storeAlt: "Чёрное худи FUNtasia с ботанической эмблемой forte шалфейно-зелёного цвета на груди.", goodsAlt: 'Обои FUNtasia Studio Original Sage',
       logoAria: 'Главная FUNtasia', navAria: 'Главная навигация', languageAria: 'Выбор языка сайта', quickAria: 'Поиск по интересам'
     }
   };

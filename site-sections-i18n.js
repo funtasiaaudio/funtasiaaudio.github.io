@@ -169,6 +169,12 @@
   function attributeText(value, code) {
     if (code === 'ja') return value;
     const locale = common[code];
+    if (value === "黒いFUNtasiaパーカー。胸元にセージグリーンの植物モチーフのフォルテロゴ。") return {
+      en: "Black FUNtasia hoodie with a sage-green botanical forte emblem on the chest.",
+      de: "Schwarzer FUNtasia-Hoodie mit salbeigrünem botanischem Forte-Symbol auf der Brust.",
+      fr: "Sweat à capuche FUNtasia noir avec un emblème forte végétal vert sauge sur la poitrine.",
+      ru: "Чёрное худи FUNtasia с ботанической эмблемой forte шалфейно-зелёного цвета на груди."
+    }[code];
     if (value === 'サイト内ナビゲーション') return locale.nav;
     if (value === 'Quick Launcherの機能') return locale.quickFeatures;
     if (value === 'FUNtasia Audio Compare v0.2.1の実画面を拡大表示') return {

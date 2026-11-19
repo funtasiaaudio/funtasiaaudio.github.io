@@ -121,3 +121,12 @@ html[lang="ru"] body{font-family:"Times New Roman","Liberation Serif",serif}
 .store-inner .btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;text-align:center}
 .store-inner .btn:focus-visible{outline:2px solid #e8e1ce;outline-offset:4px}
 @media(max-width:680px){.store-inner{gap:22px}.store-inner .btn{width:100%;white-space:normal}}
+
+/* SUZURI hoodie visual paired with the Store call to action. */
+.store-section .store-inner{display:grid;grid-template-columns:minmax(190px,280px) minmax(0,1fr);align-items:center;gap:clamp(20px,4vw,44px)}
+.store-product{display:block;width:100%;max-width:320px;background:#000;border:1px solid rgba(143,174,159,.2);line-height:0}
+.store-product img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain}
+.store-product:hover,.store-product:focus-visible{border-color:var(--light)}
+.store-product:focus-visible{outline:2px solid #e8e1ce;outline-offset:4px}
+.store-copy .btn{margin-top:24px}
+@media(max-width:680px){.store-section .store-inner{grid-template-columns:minmax(0,1fr)}.store-product{width:min(100%,330px);margin:auto}}

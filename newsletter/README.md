@@ -6,6 +6,7 @@ Status: **STAGED ONLY — not live**. Both JA and EN public Brevo iframe URLs ar
 - `newsletter/ja/` and `newsletter/en/`: Japanese and English subscription pages.
 - `news/ja/` and `news/en/`: archive landing pages; empty until real announcements are approved.
 - `newsletter/privacy/ja/` and `newsletter/privacy/en/`: draft newsletter privacy information linked from both subscription pages; review prior to launch.
+- `newsletter/templates/update-ja.html` and `newsletter/templates/update-en.html`: ready-to-customize HTML campaign layout. **Never send** without replacing the obvious product/URL and verified sender identity/address/contact placeholders. Brevo `{{ unsubscribe }}` is intentionally retained for its official unsubscribe link.
 - Catalog links in the Japanese and English product catalogs.
 - Existing product and audio/download code is untouched.
 
@@ -21,6 +22,10 @@ Status: **STAGED ONLY — not live**. Both JA and EN public Brevo iframe URLs ar
 7. Verify: form appearance on mobile/desktop, required consent, CAPTCHA/anti-bot behavior, double-opt-in email, confirmed Brevo list/segment, language-specific welcome message, successful unsubscribe, and blocked/declined confirmation.
 8. Review privacy notice / sender identification / local marketing-email law before enabling campaigns. Authenticate a sending domain with SPF, DKIM, and DMARC as supported by your domain and Brevo.
 9. Only then remove `noindex,follow` (if desired), merge the PR and announce the subscription publicly.
+
+## Launch gate and communication templates
+- See [`LAUNCH_GATE_JA_EN.md`](./LAUNCH_GATE_JA_EN.md) for the pre-publication legal/sender QA checklist.
+- The campaign templates are **source drafts**, not yet uploaded to Brevo. Before any general distribution, verify the legal sender identity, public address, a functioning contact route, correct links and localized unsubscribe behavior.
 
 ## Security and deployment
 - This is a GitHub Pages static-site integration; **do not** expose a private Brevo API key, credentials, or contact records to client-side JavaScript.

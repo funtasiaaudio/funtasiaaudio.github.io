@@ -1,5 +1,5 @@
 /* FUNtasia Audio: no Brevo API key or subscriber information is handled by this site.
-   Replace each locale's data-form-url with its public Brevo iframe URL after DOI is tested. */
+   Each locale uses a separate public Brevo iframe URL. Keep API credentials out of GitHub Pages. */
 (function(){
   "use strict";
   var container=document.querySelector("[data-brevo-embed]");

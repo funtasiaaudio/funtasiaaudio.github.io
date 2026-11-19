@@ -111,3 +111,13 @@ html[lang="ru"] body{font-family:"Times New Roman","Liberation Serif",serif}
 .hero-social a:hover{color:var(--ivory);text-decoration-color:var(--ivory)}
 .hero-social a:focus-visible{outline:2px solid var(--light);outline-offset:3px}
 .hero-social .social-handle{font-weight:400;color:var(--muted)}
+
+/* SUZURI store: a distinct, low-glare destination directly below Goods. */
+.store-section{background:linear-gradient(125deg,#101a19,#15251f)}
+.store-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;border:1px solid rgba(143,174,159,.27);border-left:3px solid var(--light);background:#172721;padding:clamp(24px,4vw,40px)}
+.store-copy{flex:1 1 460px;min-width:0}
+.store-section h2{margin:10px 0 15px}
+.store-section .lead{margin:0;max-width:670px}
+.store-inner .btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;text-align:center}
+.store-inner .btn:focus-visible{outline:2px solid #e8e1ce;outline-offset:4px}
+@media(max-width:680px){.store-inner{gap:22px}.store-inner .btn{width:100%;white-space:normal}}

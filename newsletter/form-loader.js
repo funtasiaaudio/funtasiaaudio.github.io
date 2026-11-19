@@ -9,7 +9,7 @@
   var url;
   try{url=new URL(raw)}catch(e){return}
   var host=url.hostname.toLowerCase();
-  if(url.protocol!=="https:"||!(host==="sibforms.com"||host.endsWith(".sibforms.com"))||!url.pathname.startsWith("/serve/"))return;
+  if(url.protocol!=="https:"||!(host==="sibforms.com"||host.endsWith(".sibforms.com"))||!(url.pathname.startsWith("/serve/")||url.pathname.startsWith("/v2/serve/")))return;
   var lang=document.documentElement.lang==="ja"?"ja":"en";
   var iframe=document.createElement("iframe");
   iframe.className="brevo-frame";

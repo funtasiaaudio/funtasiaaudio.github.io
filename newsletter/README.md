@@ -1,6 +1,6 @@
 # FUNtasia Audio Newsletter — Brevo integration
 
-Status: **STAGED ONLY — not live**. No sign-up endpoint has been connected and no emails have been sent.
+Status: **STAGED ONLY — not live**. JA public Brevo iframe URL has been connected in the draft branch; EN is still unconfigured. The site has not been deployed and no end-to-end registration, confirmation, or unsubscribe test has been completed.
 
 ## Scope
 - `newsletter/ja/` and `newsletter/en/`: Japanese and English subscription pages.
@@ -16,7 +16,7 @@ Status: **STAGED ONLY — not live**. No sign-up endpoint has been connected and
 3. Give each form its own language-specific opt-in consent statement and **Double confirmation email** template. Check that the mandatory confirmation button works.
 4. Map the Japanese and English forms to distinct subscription lists or a tested language attribute/segment, so a Japanese subscriber isn't automatically sent English newsletters.
 5. Copy each published **iframe URL** from Brevo's embed code. Only the public HTTPS `https://...sibforms.com/serve/...` URL is needed; NEVER an API key.
-6. Replace `data-form-url=""` on `newsletter/ja/index.html` and `newsletter/en/index.html` with each locale's exact URL, HTML-encoding `&` as `&amp;` in attributes.
+6. **JA connected in draft:** the Japanese `data-form-url` is set to the supplied Brevo HTTPS iframe URL. **EN pending:** replace `data-form-url=""` on `newsletter/en/index.html` with the English form's exact URL, HTML-encoding `&` as `&amp;` in attributes.
 7. Verify: form appearance on mobile/desktop, required consent, CAPTCHA/anti-bot behavior, double-opt-in email, confirmed Brevo list/segment, language-specific welcome message, successful unsubscribe, and blocked/declined confirmation.
 8. Review privacy notice / sender identification / local marketing-email law before enabling campaigns. Authenticate a sending domain with SPF, DKIM, and DMARC as supported by your domain and Brevo.
 9. Only then remove `noindex,follow` (if desired), merge the PR and announce the subscription publicly.

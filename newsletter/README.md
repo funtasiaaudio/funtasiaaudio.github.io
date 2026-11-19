@@ -1,6 +1,6 @@
 # FUNtasia Audio Newsletter — Brevo integration
 
-Status: **STAGED ONLY — not live**. Both JA and EN public Brevo iframe URLs are connected in the draft branch. The site has not been deployed. The owner reported successful JA and EN Brevo-hosted registrations through the confirmation-email link (2026-11-19). Exact final list membership, unsubscribe, public-site iframe display, and email template localization remain to be verified before launch.
+Status: **STAGED ONLY — not live**. Both JA and EN public Brevo iframe URLs are connected in the draft branch. The site has not been deployed. The owner reported successful JA and EN Brevo-hosted registrations through the confirmation-email link (2026-11-19). The owner confirmed the test contacts appear in their intended JA and EN lists (2026-11-19). Unsubscribe, public-site iframe display, and email template localization remain to be verified before launch.
 
 ## Scope
 - `newsletter/ja/` and `newsletter/en/`: Japanese and English subscription pages.

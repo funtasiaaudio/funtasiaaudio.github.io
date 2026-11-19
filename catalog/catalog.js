@@ -259,39 +259,44 @@ const nineThemeFeatureLabels={
 
 
 
-/* FUNtasia Free Collection v1.0.6 — FUN Tuner + FUN De-Esser added. */
+/* FUNtasia Free Collection v1.0.8 — FUN Tape Stop + FUN Auto Pan added. */
 details['funtasia-free-collection']={
  lead:'All free FUNtasia Audio plugins in one collection.',
  paras:[
-  'FUNtasia Free Collection v1.0.6 brings free FUNtasia Audio effects, instruments, mixing tools and analyzers together in one Windows x64 VST3 download.',
-  'NEW IN v1.0.6: FUN Tuner and FUN De-Esser. FUN Tuner helps you check instrument tuning. FUN De-Esser reduces harsh sibilance in vocal recordings.',
+  'FUNtasia Free Collection v1.0.8 brings free FUNtasia Audio effects, instruments, mixing tools and analyzers together in one Windows x64 VST3 download.',
+  'NEW IN v1.0.8: FUN Tape Stop creates creative tape-style slowdowns, while FUN Auto Pan adds rhythmic stereo movement.',
+  'Previously added in v1.0.6: FUN Tuner helps you check instrument tuning, and FUN De-Esser reduces harsh sibilance in vocal recordings. Both remain included.',
   'The previously added FUN Modulation Pack (FUN Chorus, FUN Flanger and FUN Phaser) remains included. Each of those three plugins offers nine GUI color themes. Other earlier additions, including The Hollow Winds, remain available.',
   'The collection and its plugins have separate version numbers. Extract the ZIP and install the VST3 files in your Windows VST3 folder.'
  ],
- features:['ALL FREE PLUGINS','NEW: FUN TUNER / FUN DE-ESSER','CHORUS / FLANGER / PHASER','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
+ features:['ALL FREE PLUGINS','NEW: FUN TAPE STOP / FUN AUTO PAN','FUN TUNER / FUN DE-ESSER','CHORUS / FLANGER / PHASER','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
 };
 const freeCollectionTranslations={
  ja:[
-  'FUNtasia Free Collection v1.0.6は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
-  'v1.0.6ではFUN TunerとFUN De-Esserを追加。FUN Tunerは楽器のチューニング確認に、FUN De-Esserはボーカルの耳につく歯擦音の抑制に使えます。',
+  'FUNtasia Free Collection v1.0.8は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
+  'v1.0.8ではFUN Tape StopとFUN Auto Panを追加。FUN Tape Stopはテープ風の減速エフェクト、FUN Auto Panはリズミカルなステレオの動きを作れます。',
+  'v1.0.6で追加されたFUN TunerとFUN De-Esserも引き続き収録。FUN Tunerは楽器のチューニング確認に、FUN De-Esserはボーカルの耳につく歯擦音の抑制に使えます。',
   '以前追加されたFUN Modulation Pack（FUN Chorus・FUN Flanger・FUN Phaser）も引き続き収録しています。この3製品はそれぞれ9種類のGUIカラーテーマに対応。The Hollow Windsを含む従来のプラグインも利用できます。',
   'コレクションと各プラグインのバージョン番号は独立しています。ZIPを展開し、VST3ファイルをWindowsのVST3フォルダーへ配置してください。'
  ],
  de:[
-  'FUNtasia Free Collection v1.0.6 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
-  'NEU IN v1.0.6: FUN Tuner und FUN De-Esser. Mit FUN Tuner lässt sich die Stimmung von Instrumenten prüfen. FUN De-Esser hilft, scharfe Zischlaute in Gesangsaufnahmen zu reduzieren.',
+  'FUNtasia Free Collection v1.0.8 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
+  'NEU IN v1.0.8: FUN Tape Stop erzeugt kreative Bandstopp-Verlangsamungen, während FUN Auto Pan rhythmische Stereobewegungen ermöglicht.',
+  'Die in v1.0.6 hinzugefügten Plug-ins FUN Tuner und FUN De-Esser bleiben enthalten. FUN Tuner prüft die Stimmung von Instrumenten; FUN De-Esser reduziert scharfe Zischlaute in Gesangsaufnahmen.',
   'Das bereits hinzugefügte FUN Modulation Pack mit FUN Chorus, FUN Flanger und FUN Phaser bleibt enthalten. Diese drei Plug-ins bieten jeweils neun GUI-Farbthemen. Frühere Ergänzungen wie The Hollow Winds bleiben ebenfalls dabei.',
   'Die Sammlung und die einzelnen Plug-ins haben separate Versionsnummern. Entpacken Sie die ZIP-Datei und kopieren Sie die VST3-Dateien in den Windows-VST3-Ordner.'
  ],
  fr:[
-  'FUNtasia Free Collection v1.0.6 réunit les effets, instruments, outils de mixage et analyseurs gratuits de FUNtasia Audio dans une archive VST3 pour Windows x64.',
-  'NOUVEAU EN v1.0.6 : FUN Tuner et FUN De-Esser. FUN Tuner permet de vérifier l’accordage des instruments. FUN De-Esser aide à atténuer les sifflantes trop marquées dans les voix.',
+  'FUNtasia Free Collection v1.0.8 réunit les effets, instruments, outils de mixage et analyseurs gratuits de FUNtasia Audio dans une archive VST3 pour Windows x64.',
+  'NOUVEAU EN v1.0.8 : FUN Tape Stop crée des ralentissements façon arrêt de bande, tandis que FUN Auto Pan apporte des mouvements stéréo rythmiques.',
+  'FUN Tuner et FUN De-Esser, ajoutés dans la v1.0.6, restent inclus. FUN Tuner permet de vérifier l’accordage des instruments et FUN De-Esser aide à atténuer les sifflantes trop marquées dans les voix.',
   'FUN Modulation Pack, avec FUN Chorus, FUN Flanger et FUN Phaser, reste inclus. Ces trois plug-ins proposent chacun neuf thèmes de couleur pour leur interface. Les ajouts précédents, dont The Hollow Winds, sont également conservés.',
   'La collection et chaque plug-in ont leurs propres numéros de version. Extrayez le ZIP et copiez les fichiers VST3 dans le dossier VST3 de Windows.'
  ],
  ru:[
-  'FUNtasia Free Collection v1.0.6 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
-  'НОВОЕ В v1.0.6: FUN Tuner и FUN De-Esser. FUN Tuner помогает проверить настройку музыкальных инструментов. FUN De-Esser уменьшает резкие свистящие звуки в записи вокала.',
+  'FUNtasia Free Collection v1.0.8 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
+  'НОВОЕ В v1.0.8: FUN Tape Stop создаёт эффект замедления магнитной ленты, а FUN Auto Pan добавляет ритмичное движение звука в стереополе.',
+  'Добавленные в v1.0.6 плагины FUN Tuner и FUN De-Esser по-прежнему входят в набор. FUN Tuner помогает проверить настройку инструментов, а FUN De-Esser уменьшает резкие свистящие звуки в записи вокала.',
   'Ранее добавленный FUN Modulation Pack с FUN Chorus, FUN Flanger и FUN Phaser остаётся в наборе. Каждый из этих трёх плагинов поддерживает девять цветовых тем интерфейса. Другие прежние дополнения, включая The Hollow Winds, также сохранены.',
   'У коллекции и отдельных плагинов собственные номера версий. Распакуйте ZIP и скопируйте файлы VST3 в системную папку VST3 Windows.'
  ]
@@ -299,7 +304,6 @@ const freeCollectionTranslations={
 for(const [language,paras] of Object.entries(freeCollectionTranslations)){
  (localized[language]??={})['funtasia-free-collection']={paras};
 }
-
 
 /* FUN Developer Pack v1.0.0 — FUN Test Tone + FUN Test EQ. */
 details['fun-developer-pack']={

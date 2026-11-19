@@ -1,6 +1,6 @@
 # Brevo campaign templates (JA / EN)
 
-Files: `update-ja.html`, `update-en.html`.
+Current delivery policy: **English-only campaigns**. Use `update-en.html` for production campaigns to subscribers from both the JA and EN opt-in lists. `update-ja.html` remains an unused reference from the initial bilingual concept; it must not be accidentally selected for live sends.
 
 Use Brevo **Marketing → Templates → Email**, choose the HTML editor, and import/paste the corresponding HTML. Save each as a reusable template. Brevo's supported unsubscribe variable is **`{{ unsubscribe }}`** and must remain in the final HTML with a visible language-specific link.
 

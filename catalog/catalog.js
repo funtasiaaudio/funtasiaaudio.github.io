@@ -15,7 +15,7 @@ const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
-'FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
+'FUN Motion Pack':'modulation','FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
 'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
 };
 for(const card of cards){
@@ -217,6 +217,28 @@ const modulationPackTranslations={
 };
 for(const [language,body] of Object.entries(modulationPackTranslations)){
  (localized[language]??={})['fun-modulation-pack']=body;
+}
+
+/* FUN Motion Pack v1.0.0 — two independently usable motion effects. */
+details['fun-motion-pack']={
+ lead:'Shape time. Move through stereo.',
+ paras:[
+  'FUN Motion Pack v1.0.0 includes FUN Tape Stop / Start and FUN Auto Pan, two free VST3 audio effects for Windows x64.',
+  'FUN Tape Stop / Start creates tape-style slowdown and speed-up effects with adjustable stop/start times, transport curves, and Dry/Wet blending.',
+  'FUN Auto Pan draws and plays stereo movement curves with DAW sync, phase and width controls, retriggering, pan slew and Dry/Wet mix. The two effects can be loaded independently.',
+  'The downloadable ZIP contains five-language PDF documentation.'
+ ],
+ features:['FUN TAPE STOP / START','FUN AUTO PAN','TAPE SLOWDOWN / SPEED-UP','EDITABLE PAN CURVES','DAW SYNC','WINDOWS x64 VST3','FREE DOWNLOAD','PDF USER MANUALS']
+};
+const motionPackTranslations={
+ ja:{paras:['FUN Motion Pack v1.0.0は、FUN Tape Stop / StartとFUN Auto Panの2製品を収録したWindows x64向け無料VST3エフェクトパックです。','FUN Tape Stop / Startは、停止・再始動時間や変化カーブを調整してテープ風の減速・加速効果を作れます。','FUN Auto Panは、編集可能なPan Curveによる左右の動きに、DAW同期、Phase・Width、Retrigger、Pan Slew、Mixなどの操作を組み合わせられます。両製品は独立して使用可能です。','日本語・英語・ドイツ語・フランス語・ロシア語のPDFマニュアルを同梱しています。']},
+ en:{summary:'Two free Windows x64 VST3 motion effects: FUN Tape Stop / Start and FUN Auto Pan.'},
+ de:{paras:['FUN Motion Pack v1.0.0 enthält zwei kostenlose VST3-Effekte für Windows x64: FUN Tape Stop / Start und FUN Auto Pan.','FUN Tape Stop / Start erzeugt bandähnliches Verlangsamen und Beschleunigen mit einstellbaren Zeiten und Kurven.','FUN Auto Pan ermöglicht Stereo-Bewegungen mit editierbarer Panoramakurve, DAW-Synchronisation, Phasen- und Breitenreglern sowie Retrigger und Pan Slew. Beide Plug-ins sind einzeln nutzbar.','PDF-Handbücher in fünf Sprachen sind im ZIP enthalten.']},
+ fr:{paras:['FUN Motion Pack v1.0.0 rassemble deux effets VST3 gratuits pour Windows 64 bits : FUN Tape Stop / Start et FUN Auto Pan.','FUN Tape Stop / Start crée des ralentissements et des accélérations de bande avec durées et courbes réglables.','FUN Auto Pan crée des mouvements stéréo grâce à une courbe panoramique modifiable, la synchronisation DAW, les réglages de phase et de largeur, le redéclenchement et le Pan Slew. Les deux effets sont indépendants.','Des manuels PDF en cinq langues sont inclus dans le ZIP.']},
+ ru:{paras:['FUN Motion Pack v1.0.0 включает два бесплатных эффекта VST3 для Windows x64: FUN Tape Stop / Start и FUN Auto Pan.','FUN Tape Stop / Start создаёт замедление и ускорение в стиле магнитной ленты с настраиваемыми длительностями и кривыми.','FUN Auto Pan позволяет рисовать кривые панорамирования и создавать стереодвижение с синхронизацией DAW, управлением фазой и шириной, повторным запуском и Pan Slew. Оба эффекта работают независимо.','PDF-руководства на пяти языках включены в ZIP.']}
+};
+for(const [language,body] of Object.entries(motionPackTranslations)){
+ (localized[language]??={})['fun-motion-pack']=body;
 }
 
 /* Keep the selectable 9-colour GUI themes visible in details for these 16 releases. */

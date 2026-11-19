@@ -1,6 +1,13 @@
 # FUNtasia Audio Newsletter — Brevo integration
 
-Status: **STAGED ONLY — not live**. Both JA and EN public Brevo iframe URLs are connected in the draft branch. The site has not been deployed. The owner reported successful JA and EN Brevo-hosted registrations through the confirmation-email link (2026-11-19). The owner confirmed the test contacts appear in their intended JA and EN lists (2026-11-19). The owner also reported receipt of a Brevo email campaign test message (2026-11-19); delivery to the test recipient is confirmed by user report. The owner also reported completing the unsubscribe test (2026-11-19); exact Brevo suppression/log details have not been independently inspected. Public-site iframe display, final email template localization, and published privacy information remain to be reviewed before launch.
+Status: **STAGED ONLY — not live**.
+
+## Newsletter language policy (2026-11-19)
+- **Campaign emails: English only.** Maintain one English campaign body and send it to subscribed contacts in both the JA and EN lists, selecting only actively subscribed/confirmed recipients. Avoid duplicate sends to overlapping contacts.
+- **Sign-up pages: Japanese and English both remain available.** Explicitly disclose to Japanese subscribers that messages are in English and can be translated in mail clients (where supported).
+- **Brevo form editor must also be updated manually:** revise the Japanese form's on-form description and opt-in wording to indicate English-only newsletter delivery, because GitHub Pages cannot change text inside Brevo's hosted iframe.
+- Future news archives and product pages can remain localized independently of the campaign language. The Japanese campaign HTML file is now a non-production reference, not a second language that needs recurring maintenance.
+ Both JA and EN public Brevo iframe URLs are connected in the draft branch. The site has not been deployed. The owner reported successful JA and EN Brevo-hosted registrations through the confirmation-email link (2026-11-19). The owner confirmed the test contacts appear in their intended JA and EN lists (2026-11-19). The owner also reported receipt of a Brevo email campaign test message (2026-11-19); delivery to the test recipient is confirmed by user report. The owner also reported completing the unsubscribe test (2026-11-19); exact Brevo suppression/log details have not been independently inspected. Public-site iframe display, final email template localization, and published privacy information remain to be reviewed before launch.
 
 ## Scope
 - `newsletter/ja/` and `newsletter/en/`: Japanese and English subscription pages.

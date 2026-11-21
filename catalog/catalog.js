@@ -86,14 +86,7 @@ function attachCatalogArtwork(card){
  saveLink.setAttribute('aria-label',card.dataset.productName+' — '+artworkText.save);
  actions.prepend(saveLink);
 }
-for(const card of cards){
- if(card.dataset.productKey==='nyan-buildup'){
-  const image=card.querySelector('img.shot');
-  if(!image)continue;
-  const onLoaded=()=>{if(!image.naturalWidth)return;image.style.removeProperty('display');attachCatalogArtwork(card);};
-  if(image.complete)onLoaded(); else image.addEventListener('load',onLoaded,{once:true});
- }else attachCatalogArtwork(card);
-}
+for(const card of cards)attachCatalogArtwork(card);
 
 /* Editorial links: show a note button only where a verified, product-relevant article exists. */
 const noteArticleUrls={

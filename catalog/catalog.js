@@ -15,6 +15,7 @@ const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
+'Nyan BuildUp':'other',
 'FUN Motion Pack':'modulation','FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
 'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
 };
@@ -46,13 +47,13 @@ const mediaNote=document.createElement('p');
 mediaNote.className='media-note';
 mediaNote.textContent=artworkText.note;
 document.querySelector('.concept-note')?.after(mediaNote);
-for(const card of cards){
+function attachCatalogArtwork(card){
  const productLink=card.querySelector(':scope > a');
  const image=productLink?.querySelector('img.shot');
  const actions=card.querySelector('.card-actions');
- if(!image||!actions)continue;
+ if(!image||!actions)return;
  const source=image.dataset.artworkSrc||image.getAttribute('src');
- if(!source)continue;
+ if(!source)return;
  const imageUrl=new URL(source,document.baseURI).href;
  const imageLink=document.createElement('a');
  imageLink.className='card-image-link';
@@ -84,6 +85,14 @@ for(const card of cards){
  saveLink.textContent=artworkText.save;
  saveLink.setAttribute('aria-label',card.dataset.productName+' — '+artworkText.save);
  actions.prepend(saveLink);
+}
+for(const card of cards){
+ if(card.dataset.productKey==='nyan-buildup'){
+  const image=card.querySelector('img.shot');
+  if(!image)continue;
+  const onLoaded=()=>{if(!image.naturalWidth)return;image.style.removeProperty('display');attachCatalogArtwork(card);};
+  if(image.complete)onLoaded(); else image.addEventListener('load',onLoaded,{once:true});
+ }else attachCatalogArtwork(card);
 }
 
 /* Editorial links: show a note button only where a verified, product-relevant article exists. */
@@ -564,6 +573,13 @@ const hollowWindsTranslations={
 };
 for(const [language,paras] of Object.entries(hollowWindsTranslations)){
  (localized[language]??={})['the-hollow-winds']={paras};
+}
+
+/* Nyan BuildUp v1.0.1 — five-language details. */
+details['nyan-buildup']={"lead":"One knob / Infinite excitement.","paras":["Nyan BuildUp is a free one-knob VST3 effect for Windows. DREAM adds dreamy ambience, BLOOM brings shimmering textures, ENERGY builds intensity, and INFINITY creates swirling soundscapes.","Automate INTENSITY in your DAW to shape buildups, risers and transitions. ENERGY offers 4× oversampling with minimum- and linear-phase options. Choose from nine color themes, animated character visuals, and FESTIVAL or MINIMAL display modes.","Version 1.0.1 addresses GUI clipping on smaller and high-DPI displays and adds proportional resizing. The audio DSP is unchanged."],"features":["DREAM / BLOOM / ENERGY / INFINITY","INTENSITY AUTOMATION","ENERGY 4× OVERSAMPLING","MINIMUM / LINEAR PHASE","FESTIVAL / MINIMAL","PROPORTIONAL GUI RESIZING","WINDOWS 64-BIT VST3"]};
+nineThemeProductKeys.add('nyan-buildup');
+for(const [language,paras] of Object.entries({"ja":["Nyan BuildUpは、ビルドアップやライザー、トランジションをワンノブで作るWindows用の無料VST3エフェクトです。DREAMは幻想的なアンビエンス、BLOOMは華やかな広がり、ENERGYは力強い上昇感、INFINITYは渦を巻くような空間表現が特徴です。","INTENSITYをDAWでオートメーションして、楽曲の展開に合わせてエフェクトを変化させられます。ENERGYは4倍オーバーサンプリングとMinimum／Linear Phaseの選択に対応。9種類のカラーテーマ、キャラクターアニメーション、FESTIVAL／MINIMAL表示を備えています。","v1.0.1では小さな画面や高DPI環境でGUIの一部が切れる問題に対処し、縦横比を維持したサイズ変更に対応しました。音声DSPは変更していません。"],"de":["Nyan BuildUp ist ein kostenloser VST3-Effekt für Windows, der Buildups, Riser und Übergänge mit nur einem Regler gestaltet. DREAM erzeugt verträumte Atmosphären, BLOOM schillernde Klangtexturen, ENERGY kraftvolle Steigerungen und INFINITY wirbelnde Klangräume.","Automatisiere INTENSITY in deiner DAW. ENERGY bietet 4-faches Oversampling mit minimal- oder linearphasiger Filterung. Neun Farbthemen, animierte Figuren und die Anzeigemodi FESTIVAL und MINIMAL stehen zur Wahl.","Version 1.0.1 behebt abgeschnittene GUI-Bereiche auf kleineren und hochauflösenden Bildschirmen und ermöglicht proportionales Skalieren. Die Audioverarbeitung bleibt unverändert."],"fr":["Nyan BuildUp est un effet VST3 gratuit pour Windows qui permet de créer des montées, des risers et des transitions avec un seul réglage. DREAM crée des ambiances oniriques, BLOOM des textures scintillantes, ENERGY des montées puissantes et INFINITY des espaces sonores tourbillonnants.","Automatisez INTENSITY dans votre STAN. ENERGY propose un suréchantillonnage 4× avec filtrage à phase minimale ou linéaire. L’interface propose neuf thèmes de couleur, des personnages animés et les modes FESTIVAL et MINIMAL.","La version 1.0.1 corrige les problèmes de découpage de l’interface sur les petits écrans et les écrans haute densité et permet un redimensionnement proportionnel. Le traitement audio reste inchangé."],"ru":["Nyan BuildUp — бесплатный VST3-эффект для Windows, позволяющий создавать билд-апы, райзеры и переходы одной ручкой. DREAM добавляет атмосферные текстуры, BLOOM — мерцающие переливы, ENERGY — мощное нарастание, а INFINITY — вихревые звуковые пространства.","Автоматизируйте INTENSITY в DAW. В режиме ENERGY доступны 4-кратный оверсэмплинг и фильтры с минимальной или линейной фазой. Интерфейс предлагает девять цветовых тем, анимацию персонажей и режимы FESTIVAL и MINIMAL.","Версия 1.0.1 исправляет обрезание интерфейса на небольших экранах и дисплеях с высоким DPI и добавляет пропорциональное масштабирование. Алгоритмы обработки звука не изменились."]})){
+ (localized[language]??={})['nyan-buildup']={paras};
 }
 
 const locale=document.documentElement.lang||'en';

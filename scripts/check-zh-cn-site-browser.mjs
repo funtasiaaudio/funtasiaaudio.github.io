@@ -554,6 +554,12 @@ try {
       .filter(alt=>/\b(?:artwork|concept artwork|plugin panels|thumbnail|3D product render)\b/i.test(alt))
   );
   verify(legacyAlts.length===0,'Chinese catalog has untranslated image descriptions: '+legacyAlts.join('; '));
+  const cardAlts=await aliasPage.locator('article.card img.shot').evaluateAll(images=>
+    images.map(img=>img.getAttribute('alt')||''));
+  verify(cardAlts.length===34,'Expected all 34 Audio card image descriptions');
+  verify(cardAlts.every(alt=>/[\u3400-\u9fff]/u.test(alt)),
+    'Some Chinese catalog artwork descriptions are still entirely English: '+
+    cardAlts.filter(alt=>!/[\u3400-\u9fff]/u.test(alt)).join(' | '));
   await aliasContext.close();
 
 } catch(error) {

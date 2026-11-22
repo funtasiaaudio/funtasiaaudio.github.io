@@ -7,6 +7,7 @@ on:
       - 'studio/official/expansions/**'
       - 'scripts/check-studio-expansion-release-metadata.mjs'
       - 'scripts/check-studio-expansion-downloads.sh'
+      - 'scripts/audit-studio-expansion-license-sources.sh'
       - 'docs/studio-expansion-release-pins.json'
       - '.github/workflows/check-studio-expansion-releases.yml'
   pull_request:
@@ -15,6 +16,7 @@ on:
       - 'studio/official/expansions/**'
       - 'scripts/check-studio-expansion-release-metadata.mjs'
       - 'scripts/check-studio-expansion-downloads.sh'
+      - 'scripts/audit-studio-expansion-license-sources.sh'
       - 'docs/studio-expansion-release-pins.json'
       - '.github/workflows/check-studio-expansion-releases.yml'
   workflow_dispatch:
@@ -41,3 +43,13 @@ jobs:
         run: node scripts/check-studio-expansion-release-metadata.mjs --remote
       - name: Fetch four small or medium ZIPs and verify bytes, SHA-256 and ZIP CRC
         run: bash scripts/check-studio-expansion-downloads.sh
+      - name: Extract and inspect official license texts (no archive execution)
+        run: bash scripts/audit-studio-expansion-license-sources.sh
+      - name: Preserve original license texts and exact-source summaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: studio-expansion-license-evidence-${{ github.run_id }}
+          path: artifacts/studio-expansion-license/
+          retention-days: 14
+          if-no-files-found: warn

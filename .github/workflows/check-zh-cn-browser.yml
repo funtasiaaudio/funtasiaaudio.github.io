@@ -9,11 +9,15 @@ on:
       - 'records/**'
       - 'utilities/**'
       - 'goods/**'
+      - 'about/**'
+      - 'quality/**'
+      - 'support/**'
       - 'home-i18n.js'
       - 'site-sections-i18n.js'
       - 'index.html'
       - 'scripts/check-zh-cn-browser.mjs'
       - 'scripts/check-zh-cn-site-browser.mjs'
+      - 'scripts/check-zh-cn-keyboard-reflow.mjs'
       - '.github/workflows/check-zh-cn-browser.yml'
   pull_request:
     branches: [feature/zh-cn-studio-20261123]
@@ -21,6 +25,7 @@ on:
       - 'studio/**'
       - 'scripts/check-zh-cn-browser.mjs'
       - 'scripts/check-zh-cn-site-browser.mjs'
+      - 'scripts/check-zh-cn-keyboard-reflow.mjs'
       - '.github/workflows/check-zh-cn-browser.yml'
   workflow_dispatch:
 
@@ -46,6 +51,7 @@ jobs:
         run: |
           node scripts/check-zh-cn-browser.mjs
           node scripts/check-zh-cn-site-browser.mjs
+          node scripts/check-zh-cn-keyboard-reflow.mjs
       - name: Preserve desktop/mobile screenshots and browser diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -54,5 +60,6 @@ jobs:
           path: |
             artifacts/zh-cn-browser/
             artifacts/zh-cn-site-browser/
+            artifacts/zh-cn-keyboard-reflow/
           retention-days: 14
           if-no-files-found: warn

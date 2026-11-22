@@ -84,5 +84,25 @@ for(const section of ['about','support']){
  if(/(?:records\/en\/|utilities\/\?lang=en|goods\/\?lang=en|studio\/official\/(?:ja|ru)\/)/.test(zh))
    warn(section+' has an outdated English/non-Chinese destination');
 }
+// About page must retain the AI collaborator section from its Japanese source.
+// The two characters and their work scopes are localized; identity and
+// decorative portrait sprites are preserved without introducing new assets.
+{
+ const zh=load('about/zh-cn/index.html'),ja=load('about/index.html');
+ for(const [file,html] of [['ja',ja],['zh-CN',zh]]){
+  if(!html.includes('id="ai-partners-title"'))warn('about '+file+' missing AI partner heading');
+  if((html.match(/class="card ai-partner-card"/g)||[]).length!==2)
+   warn('about '+file+' must have exactly two AI partner cards');
+  for(const name of ['遥（Haruka）','優春（Yasaharu）'])
+   if(!html.includes('<h2>'+name+'</h2>'))warn('about '+file+' missing collaborator '+name);
+  for(const sprite of ['ai-partner-art--haruka','ai-partner-art--yasaharu'])
+   if(!html.includes('class="ai-partner-art '+sprite+'" aria-hidden="true"'))
+    warn('about '+file+' missing decorative AI portrait '+sprite);
+ }
+ for(const phrase of ['参与 DSP 算法','FUNtasia Records 的创作','ChatGPT 中的 AI 角色','由 Hʉeliang 作出决定'])
+  if(!zh.includes(phrase))warn('Chinese About missing original collaborator scope: '+phrase);
+ if(!zh.includes('sections.css?v=20261122ai-partners'))
+  warn('Chinese About should use current AI collaborator stylesheet revision');
+}
 assert.deepEqual(errors,[],'zh-CN canonical, reciprocal alternate and navigation audit');
 console.log('zh-CN SEO and reciprocity QA: PASS ('+checked+' Chinese pages, '+alternateChecks+' reciprocal language links)');

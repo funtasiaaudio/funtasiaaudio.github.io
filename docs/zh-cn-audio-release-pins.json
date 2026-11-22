@@ -1,0 +1,314 @@
+{
+  "schema": "funtasia-audio-catalog-release-pins-v1",
+  "verifiedOn": "2026-11-23 JST",
+  "source": "Official GitHub Releases REST API asset metadata",
+  "notes": "Pins match the staged site's published release links; not necessarily each repository's latest release. FUN Room official tag is v1,1,8 (URL-encoded v1%2C1%2C8).",
+  "products": [
+    {
+      "name": "FUNtasia Free Collection",
+      "repository": "FUNtasia-Free-Collection",
+      "tag": "v1.1.0",
+      "asset": "FUNtasia.Free.Collection.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 547672152,
+      "sha256": "01393758a129ca52a74d570843626f66770abf091f1bf9046d7e6fd7d23d5be5"
+    },
+    {
+      "name": "FUN Plate",
+      "repository": "FUN-Plate",
+      "tag": "v1.0.0",
+      "asset": "FUN.Plate.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 16311514,
+      "sha256": "6460e8ee848a88b23440151c761206cdfb6c8d46bb2636f5bbee7cca8535a7d0"
+    },
+    {
+      "name": "Nyan BuildUp",
+      "repository": "Nyan-BuildUp",
+      "tag": "v1.0.1",
+      "asset": "Nyan.BuildUp.1.0.1.zip",
+      "version": "v1.0.1",
+      "bytes": 30273140,
+      "sha256": "d8fca6668992abfaab84cbc2f7470570a56ccf6c829f1eea23a60088f4327a8c"
+    },
+    {
+      "name": "The Hollow Winds",
+      "repository": "The-Hollow-Winds",
+      "tag": "v1.0.0",
+      "asset": "The.Hollow.Winds.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 23231035,
+      "sha256": "e3d519fdca3fb666a732cce9681c0f93c6c74cc007423b0e7f7ff88b0a752ab1"
+    },
+    {
+      "name": "FUN Motion Pack",
+      "repository": "FUN-Motion-Pack",
+      "tag": "v1.0.0",
+      "asset": "FUN.Motion.Pack.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 12782511,
+      "sha256": "c6ecd2d511b40e0aab018d6db22d4061fccb33b307be65dd16ea061fe06af870"
+    },
+    {
+      "name": "FUN Modulation Pack",
+      "repository": "FUN-Modulation-Pack",
+      "tag": "v1.0.0",
+      "asset": "FUN.Modulation.Pack.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 17885407,
+      "sha256": "faa2bfea3abdfce0dbf42724ac8dab7122eb16f590977192a5d9bf12df99d79c"
+    },
+    {
+      "name": "FUN Lo-Fi Pack",
+      "repository": "FUN-Lo-Fi-Pack",
+      "tag": "v1.0.0",
+      "asset": "FUN.Lo-Fi.Pack.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 12499740,
+      "sha256": "fac1cff284cb901a572610df529b35e7366fbf03e2c4aa41c9a301dd3900dad1"
+    },
+    {
+      "name": "FUN Utility Pack",
+      "repository": "FUN-Utility-Pack",
+      "tag": "v1.1.0",
+      "asset": "FUN.Utility.Pack.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 12852389,
+      "sha256": "304f1c269de9e4a543bc151ce04059ba8140611dc78e461df9d25a13f721957c"
+    },
+    {
+      "name": "FUN Developer Pack",
+      "repository": "FUN-Developer-Pack",
+      "tag": "v1.0.0",
+      "asset": "FUN.Developer.Pack.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 15301519,
+      "sha256": "f26b53982dd261b60bed7fb808c6052b1843a76ce2a95da4c45ae1c6ac3425af"
+    },
+    {
+      "name": "FUN Analysis Pack",
+      "repository": "FUN-Analysis-Pack",
+      "tag": "v1.2.0",
+      "asset": "FUN.Analysis.Pack.1.2.0.zip",
+      "version": "v1.2.0",
+      "bytes": 56870004,
+      "sha256": "940422dce6e558217457efcae62bbd5b12a8356af334f43883b11482642316d9"
+    },
+    {
+      "name": "FUN Stereo Pack",
+      "repository": "FUN-Stereo-Pack",
+      "tag": "v1.1.0",
+      "asset": "FUN.Stereo.Pack.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 12526083,
+      "sha256": "c69c4e3f87ff0cae27fdd09d3493a347defec6df1442876e62f26c3fd2533010"
+    },
+    {
+      "name": "FUN Dimension Expander",
+      "repository": "FUN-Dimension-Expander",
+      "tag": "v1.2.3",
+      "asset": "FUN.Dimension.Expander.1.2.3.zip",
+      "version": "v1.2.3",
+      "bytes": 4943244,
+      "sha256": "ccceca53e258e5ed33a74b47ee3a365758491c570715124647370ff093f77b3e"
+    },
+    {
+      "name": "FUN DC Filter",
+      "repository": "FUN-DC-Filter",
+      "tag": "v1.1.1",
+      "asset": "FUN.DC.Filter.1.1.1.zip",
+      "version": "v1.1.1",
+      "bytes": 6164507,
+      "sha256": "bf3e125ca1eab117476440d2683bf48955f2bdbf78878f05844025384098c28b"
+    },
+    {
+      "name": "FUN Dither",
+      "repository": "FUN-Dither",
+      "tag": "v1.1.0",
+      "asset": "FUN.Dither.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 14434188,
+      "sha256": "2f325ffb0e668eb87bed609b7232585b3ce9e816ea80f5b3e8c78d5b46165a7e"
+    },
+    {
+      "name": "FUN Volume Shaper",
+      "repository": "FUN-Volume-Shaper",
+      "tag": "v1.1.0",
+      "asset": "FUN.Volume.Shaper.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 6822996,
+      "sha256": "a4879db658b4732657b957ebe6d6895eea7a82a631e443444e60453679ac547c"
+    },
+    {
+      "name": "FUN Fader",
+      "repository": "FUN-Fader",
+      "tag": "v1.1.0",
+      "asset": "FUN.Fader.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 19739471,
+      "sha256": "1605953ab894b39b9506141aef236e1fcdf95ed6c15fec9b34a08f74739dbf6a"
+    },
+    {
+      "name": "FUN MonoFilter",
+      "repository": "FUN-MonoFilter",
+      "tag": "v1.1.0",
+      "asset": "FUN.MonoFilter.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 6070159,
+      "sha256": "9dc913b61d15f75be86ca9e1f34b9b432a61c642eec968a5747e8fbcdf3d32f6"
+    },
+    {
+      "name": "FUN Pair",
+      "repository": "FUN-Pair",
+      "tag": "v1.1.0",
+      "asset": "FUN.Pair.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 6208189,
+      "sha256": "1512dc0c127c64f22ae13657e8b08b00a70788fd3b5a2f2b781efb87a39340b2"
+    },
+    {
+      "name": "FUN Rack FREE",
+      "repository": "FUN-Rack",
+      "tag": "v1.1.0",
+      "asset": "FUN.Rack.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 12707976,
+      "sha256": "c6cb16419f1c11965b888c817cb36f8f38a32ec6862a34b19062a447aba1fe6f"
+    },
+    {
+      "name": "FUN Drum Pad",
+      "repository": "fun-drum-pad",
+      "tag": "v1.1.0",
+      "asset": "FUN.Drum.Pad.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 8916808,
+      "sha256": "d74a96e84320302d1656df758072d0effec6833c81c789d9cbbbefe3baba2357"
+    },
+    {
+      "name": "FUN Room",
+      "repository": "FUN-Room",
+      "tag": "v1,1,8",
+      "asset": "FUN.Room.1.1.8.zip",
+      "version": "v1.1.8",
+      "bytes": 5172548,
+      "sha256": "c88805724db6ed0cc0cbe884f2146bc88326df9c993169bb810d302e92dc2a9c"
+    },
+    {
+      "name": "FUN PreAmp",
+      "repository": "FUN-PreAmp",
+      "tag": "v1.1.0",
+      "asset": "FUN.PreAmp.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 47639467,
+      "sha256": "7df23b9fcc1d457840894e7808c09fa3c5834cef4dfec035516c1d43e427b2e7"
+    },
+    {
+      "name": "FUN Clipper &amp; Limiter Pack",
+      "repository": "FUN-Clipper-Limiter-Pack",
+      "tag": "v1.2.0",
+      "asset": "FUN.Clipper.Limiter.Pack1.2.0.zip",
+      "version": "v1.2.0",
+      "bytes": 26987421,
+      "sha256": "043f22a0aad733faa0cf95919ff1d922c139340e0a010bf8975bc99e184a5a7d"
+    },
+    {
+      "name": "FUN Dynamics Pack",
+      "repository": "FUN-Dynamics-Pack",
+      "tag": "v1.3.0",
+      "asset": "FUN.Dynamics.Pack.1.3.0.zip",
+      "version": "v1.3.0",
+      "bytes": 42600851,
+      "sha256": "5664d544bba827baaa5e32deed09329ee945435b9994f3803dfda36f2caf2eb2"
+    },
+    {
+      "name": "FUN OTT",
+      "repository": "fun-ott",
+      "tag": "v1.0.0",
+      "asset": "FUN.OTT.1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 9852620,
+      "sha256": "1eb9473a3074e4ba0b57055b94d9e5328dabc6ece84632098e4c1ef408bfade5"
+    },
+    {
+      "name": "The Deep Roots",
+      "repository": "fun-sub-bass",
+      "tag": "v1.1.0",
+      "asset": "The.Deep.Roots.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 18225102,
+      "sha256": "25eef190d50114aea266df405f9571e00ed367e8c8fa5ed9d1a834694aa74754"
+    },
+    {
+      "name": "FUN Clip Distortion",
+      "repository": "FUN-ClipDistortion-",
+      "tag": "v1.1.0",
+      "asset": "FUN.Clip.Distortion.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 8510737,
+      "sha256": "0a23ab984e76be6a3b622f3910779e4adb4374bb422f0734aa38d4239d3ed3a9"
+    },
+    {
+      "name": "FUN WaveShaper",
+      "repository": "FUN-WaveShaper",
+      "tag": "v1.1.0",
+      "asset": "FUN.Wave.Shaper.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 9237654,
+      "sha256": "e816da1000887be820a9a45aef68c63205bb5ab9d20c69a9ac0c6e68159d59b4"
+    },
+    {
+      "name": "FUN EQ",
+      "repository": "fun-eq",
+      "tag": "v1.1.0",
+      "asset": "FUN.EQ.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 11452208,
+      "sha256": "3a5c962fff551a08ba84b29edc2584c6801e2112a0e2ca77247c5f3b4d9d35ed"
+    },
+    {
+      "name": "FUN MEQ",
+      "repository": "FUN-MEQ",
+      "tag": "v1.1.0",
+      "asset": "FUN.MEQ.1.1.0.zip",
+      "version": "v1.1.0",
+      "bytes": 19728490,
+      "sha256": "38e6b78b9771a61caba3098c11f43f328d8f240a1020abee7057239ce4e145e3"
+    },
+    {
+      "name": "FUN Kick",
+      "repository": "FUN-Kick",
+      "tag": "v1.1.5",
+      "asset": "FUN.Kick.1.1.5.zip",
+      "version": "v1.1.5",
+      "bytes": 5565851,
+      "sha256": "2cbfbc2fb36c139aca58c4d34f9af70338cfea86063c192dca5122a2b240ce65"
+    },
+    {
+      "name": "FUN Sampler",
+      "repository": "FUN-Sampler",
+      "tag": "v1.3.8",
+      "asset": "FUN.Sampler.1.3.8.zip",
+      "version": "v1.3.8",
+      "bytes": 7105700,
+      "sha256": "e83ec8f92467d5a2ca6299ffa7ed23ef3fc251848d18fee17a6218ee142dba03"
+    },
+    {
+      "name": "The Resonant Forge",
+      "repository": "FUN-Strike",
+      "tag": "v1.2.0",
+      "asset": "The.Resonant.Forge.1.2.0.zip",
+      "version": "v1.2.0",
+      "bytes": 10582431,
+      "sha256": "194339e2d03585815b510006a6daf9a79bc738559f4f0617d145c2549a6c5ee3"
+    },
+    {
+      "name": "FUN Basic Filter Pack",
+      "repository": "FUN-Basic-Filter-Pack",
+      "tag": "v1.2.4",
+      "asset": "FUN.Filter.Pack.1.2.4.zip",
+      "version": "v1.2.4",
+      "bytes": 28569698,
+      "sha256": "e18eede502ac1937ab22ce2d55cf118f486c1418fd642e3ee9026d3cc271e1bc"
+    }
+  ]
+}

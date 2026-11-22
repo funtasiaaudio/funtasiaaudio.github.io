@@ -1,0 +1,39 @@
+name: FUNtasia Audio catalog release integrity
+
+on:
+  push:
+    branches: [feature/zh-cn-studio-subpages-20261123]
+    paths:
+      - 'catalog/**'
+      - 'docs/zh-cn-audio-release-pins.json'
+      - 'scripts/check-zh-cn-audio-release-metadata.mjs'
+      - '.github/workflows/check-zh-cn-audio-releases.yml'
+  pull_request:
+    branches: [feature/zh-cn-studio-20261123]
+    paths:
+      - 'catalog/**'
+      - 'docs/zh-cn-audio-release-pins.json'
+      - 'scripts/check-zh-cn-audio-release-metadata.mjs'
+      - '.github/workflows/check-zh-cn-audio-releases.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-all-34-audio-releases:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Checkout staged review branch
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate 34 product cards in all six languages
+        run: node scripts/check-zh-cn-audio-release-metadata.mjs
+      - name: Recheck all 34 official GitHub release ZIP sizes and digests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/check-zh-cn-audio-release-metadata.mjs --remote

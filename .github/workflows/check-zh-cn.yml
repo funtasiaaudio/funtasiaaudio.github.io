@@ -24,6 +24,8 @@ on:
       - 'scripts/check-zh-cn-seo.mjs'
       - 'scripts/check-zh-cn-analytics.mjs'
       - 'scripts/check-zh-cn-monofilter-release.mjs'
+      - 'scripts/check-zh-cn-audio-release-metadata.mjs'
+      - 'docs/zh-cn-audio-release-pins.json'
       - 'scripts/check-zh-cn-expansion-runtime.mjs'
       - '.github/workflows/check-zh-cn.yml'
   workflow_dispatch:
@@ -48,5 +50,6 @@ jobs:
           node scripts/check-zh-cn-links.mjs
           node scripts/check-zh-cn-seo.mjs
           node scripts/check-zh-cn-monofilter-release.mjs
+          node scripts/check-zh-cn-audio-release-metadata.mjs
           node scripts/check-zh-cn-analytics.mjs
           node scripts/check-zh-cn-expansion-runtime.mjs

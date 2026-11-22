@@ -109,7 +109,7 @@ for(const section of ['about','support']){
 for(const section of ['about','support','records']){
  const page=section+'/zh-cn/index.html';
  const html=load(page);
- const navs=[...html.matchAll(/<nav class="(?:site-nav|footer-links)"[^>]*>[\\s\\S]*?<\\/nav>/g)].map(m=>m[0]);
+ const navs=[...html.matchAll(/<nav class="(?:site-nav|footer-links)"[^>]*>[\s\S]*?<\/nav>/g)].map(m=>m[0]);
  if(navs.length!==2){warn(page+' should have header and footer navigation');continue;}
  const labels={
   '../../?lang=zh-CN':'首页',
@@ -124,7 +124,7 @@ for(const section of ['about','support','records']){
  };
  for(const nav of navs){
   if(nav.includes('href="../../studio/"'))warn(page+' Studio should link directly to zh-CN');
-  for(const match of nav.matchAll(/<a\\b([^>]*)>([^<]+)<\\/a>/g)){
+  for(const match of nav.matchAll(/<a\b([^>]*)>([^<]+)<\/a>/g)){
    const href=attribute(match[1],'href');
    const label=match[2].trim();
    if(!(href in labels))warn(page+' unexpected locale navigation target '+href);

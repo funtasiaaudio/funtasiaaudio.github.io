@@ -211,6 +211,26 @@ try {
         if(key==='about'){
           verify(await page.locator('main').innerText().then(t=>!t.includes('（英文）')),
             label+' stale English-label disclosure in translated About');
+          const profiles=page.locator('.ai-partner-card');
+          verify(await page.locator('#ai-partners-title').innerText()==='一起创作的 AI 伙伴',
+            label+' Chinese About missing localized AI partner heading');
+          verify(await profiles.count()===2,
+            label+' Chinese About must show both AI collaborators');
+          for(const [index,name] of ['遥（Haruka）','優春（Yasaharu）'].entries()){
+            const card=profiles.nth(index);
+            verify((await card.locator('.ai-partner-text h2').innerText())===name,
+              label+' AI partner name/order mismatch: '+name);
+            const portrait=await card.locator('.ai-partner-art').evaluate(el=>{
+              const rect=el.getBoundingClientRect();
+              return {decorative:el.getAttribute('aria-hidden')==='true',
+                sprite:getComputedStyle(el).backgroundImage.includes('haruka-yasaharu-about-v03.webp'),
+                width:rect.width,height:rect.height};
+            });
+            verify(portrait.decorative&&portrait.sprite&&portrait.width>100&&portrait.height>200,
+              label+' AI partner portrait layout/asset invalid: '+name);
+          }
+          verify((await page.locator('main').innerText()).includes('由 Hʉeliang 作出决定'),
+            label+' Chinese About missing human publication/validation responsibility');
         }
         if(key==='support'){
           const jaLink=page.locator('.section-language-switch a[href="../"]');

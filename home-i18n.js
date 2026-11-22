@@ -451,6 +451,8 @@
 
   const catalogLinks = [...document.querySelectorAll('a[href="catalog/ja/"]')];
   const recordsLinks = [...document.querySelectorAll('a[href="records/"]')];
+  const utilityLinks = [...document.querySelectorAll('a[href="utilities/"]')];
+  const goodsLinks = [...document.querySelectorAll('a[href="goods/"]')];
   const studioLinks = [...document.querySelectorAll('a[href="studio/official/ja/"]')];
   const aboutLinks = [...document.querySelectorAll('a[href="about/"]')];
   const supportLinks = [...document.querySelectorAll('a[href="support/"]')];
@@ -502,6 +504,8 @@
     document.querySelector('.quick-paths')?.setAttribute('aria-label', strings.quickAria);
     for (const link of catalogLinks) link.href = 'catalog/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
     for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
+    for (const link of utilityLinks) link.href = 'utilities/?lang=' + locale;
+    for (const link of goodsLinks) link.href = 'goods/?lang=' + locale;
     for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : 'studio/official/');
     for (const link of aboutLinks) link.href = locale === 'zh-CN' ? 'about/zh-cn/' : 'about/?lang=' + locale;
     for (const link of supportLinks) link.href = locale === 'zh-CN' ? 'support/zh-cn/' : 'support/';

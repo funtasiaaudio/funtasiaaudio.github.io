@@ -44,7 +44,7 @@ for (const lang of ['ja','en','de','fr','ru','zh-cn']) {
 
 const productKeys=[...source.matchAll(/^\s+"([a-z0-9-]+)": \{/gm)].map(m=>m[1]);
 assert.equal(productKeys.length, 34, 'Every catalog product needs a zh-CN translation');
-for(const path of ['home-i18n.js','catalog/catalog.js','catalog/product-zh-cn.js']) {
+for(const path of ['home-i18n.js','catalog/catalog.js','catalog/product-zh-cn.js','site-sections-i18n.js']) {
   const check = spawnSync(process.execPath, ['--check', path], {encoding: 'utf8'});
   assert.equal(check.status, 0, `JavaScript syntax error in ${path}: ${check.stderr}`);
 }
@@ -62,4 +62,14 @@ for (const path of ['records/index.html','records/en/index.html','records/de/ind
 }
 assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/records/zh-cn/'), 'Records sitemap missing');
 
-console.log('zh-CN Audio + Records static checks: PASS');
+const shared = read('site-sections-i18n.js');
+assert.ok(shared.includes("'zh-CN': 5"), 'Shared zh-CN translation index missing');
+assert.ok(shared.includes('zhUtilityRows.length !== utilityRows.length'), 'Shared row count guard missing');
+assert.ok(shared.includes('zhGoodsRows.length !== goodsRows.length'), 'Goods row count guard missing');
+for (const path of ['utilities/index.html','goods/index.html']) {
+  assert.ok(read(path).includes('<option value="zh-CN" lang="zh-CN">简体中文</option>'), `Missing zh-CN selector: ${path}`);
+}
+assert.ok(read('home-i18n.js').includes("'utilities/?lang=' + locale"), 'Homepage Utilities locale route missing');
+assert.ok(read('home-i18n.js').includes("'goods/?lang=' + locale"), 'Homepage Goods locale route missing');
+
+console.log('zh-CN Audio + Records + Utilities + Goods static checks: PASS');

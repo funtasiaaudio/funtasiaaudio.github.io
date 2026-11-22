@@ -16,6 +16,31 @@
   const locale = document.documentElement.lang.toLowerCase();
   const ja = locale.startsWith("ja");
   const zh = locale.startsWith("zh");
+
+  // Release-hosted cover artwork may be unreachable on restricted networks.
+  // Keep the local pack title, downloads and license text usable, and preserve
+  // the original cover's alt description for assistive technology.
+  const coverUnavailable = ja ? "カバー画像を読み込めません"
+    : zh ? "封面图片暂时无法加载" : "Cover image unavailable";
+  for (const card of cards) {
+    const img = card.querySelector(".expansion-art img[src^='https://']");
+    if (!img) continue;
+    const art = img.closest(".expansion-art");
+    if (!art) continue;
+    const showFallback = () => {
+      if (img.naturalWidth > 0 || art.classList.contains("image-unavailable")) return;
+      art.dataset.fallbackName = card.querySelector("h3")?.textContent.trim() || "FUNtasia";
+      art.dataset.fallbackHint = coverUnavailable;
+      art.setAttribute("role", "img");
+      art.setAttribute("aria-label", img.alt || art.dataset.fallbackName);
+      art.classList.add("image-unavailable");
+      img.hidden = true;
+    };
+    img.addEventListener("error", showFallback, {once:true});
+    // Eager assets can fail before this script attaches its event handler.
+    if (img.complete && img.naturalWidth === 0) showFallback();
+  }
+
   const validTypes = new Set(["all", "midi", "sample", "wavetable", "library"]);
   let activeType = "all";
   let activeSort = "featured";

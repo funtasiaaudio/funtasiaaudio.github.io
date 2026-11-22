@@ -18,6 +18,7 @@ on:
       - 'scripts/check-zh-cn-browser.mjs'
       - 'scripts/check-zh-cn-site-browser.mjs'
       - 'scripts/check-zh-cn-keyboard-reflow.mjs'
+      - 'scripts/check-zh-cn-external-fallback.mjs'
       - '.github/workflows/check-zh-cn-browser.yml'
   pull_request:
     branches: [feature/zh-cn-studio-20261123]
@@ -26,6 +27,7 @@ on:
       - 'scripts/check-zh-cn-browser.mjs'
       - 'scripts/check-zh-cn-site-browser.mjs'
       - 'scripts/check-zh-cn-keyboard-reflow.mjs'
+      - 'scripts/check-zh-cn-external-fallback.mjs'
       - '.github/workflows/check-zh-cn-browser.yml'
   workflow_dispatch:
 
@@ -52,6 +54,7 @@ jobs:
           node scripts/check-zh-cn-browser.mjs
           node scripts/check-zh-cn-site-browser.mjs
           node scripts/check-zh-cn-keyboard-reflow.mjs
+          node scripts/check-zh-cn-external-fallback.mjs
       - name: Preserve desktop/mobile screenshots and browser diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -61,5 +64,6 @@ jobs:
             artifacts/zh-cn-browser/
             artifacts/zh-cn-site-browser/
             artifacts/zh-cn-keyboard-reflow/
+            artifacts/zh-cn-network-fallback/
           retention-days: 14
           if-no-files-found: warn

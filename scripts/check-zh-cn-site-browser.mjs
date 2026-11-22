@@ -221,6 +221,46 @@ try {
     await context.close();
   }
 
+
+  // Check actual release artwork/download link and mobile layout in all 6 localized detail pages.
+  for(const viewport of sizes){
+    const context=await browser.newContext({viewport,locale:'en-US',reducedMotion:'reduce'});
+    await context.route('**/*',route=>route.request().url().startsWith(origin+'/')
+      ?route.continue():route.fulfill({status:204,body:''}));
+    for(const lang of ['ja','en','de','fr','ru','zh-cn']){
+      const page=await context.newPage();
+      const errors=[];
+      page.on('pageerror',e=>errors.push(e.message));
+      await page.goto(origin+'/catalog/'+lang+'/fun-monofilter.html',{waitUntil:'load'});
+      const snapshot=await page.evaluate(()=>{
+        const image=document.querySelector('img.shot');
+        const href=document.querySelector('a.btn.primary')?.getAttribute('href');
+        return {
+          lang:document.documentElement.lang,
+          title:document.title,
+          width:document.documentElement.scrollWidth,
+          viewport:innerWidth,
+          imageLoaded:!!image&&image.complete&&image.naturalWidth>0,
+          href,footer:document.querySelector('footer')?.textContent||'',
+          headings:document.querySelectorAll('h1').length
+        };
+      });
+      const id='monofilter-'+lang+'-'+viewport.width;
+      verify(snapshot.lang===(lang==='zh-cn'?'zh-CN':lang),id+' language incorrect');
+      verify(snapshot.headings===1,id+' h1 missing or duplicate');
+      verify(snapshot.width<=viewport.width+2,id+' page horizontal overflow');
+      verify(snapshot.imageLoaded,id+' updated v1.1.0 image failed to load');
+      verify(snapshot.href==='https://github.com/funtasiaaudio/FUN-MonoFilter/releases/download/v1.1.0/FUN.MonoFilter.1.1.0.zip',
+        id+' release ZIP mismatch');
+      verify(snapshot.footer.includes('v1.1.0'),id+' footer version mismatch');
+      verify(errors.length===0,id+' browser errors '+errors.join('; '));
+      report.push({key:'monofilter-'+lang,viewport:viewport.width,...snapshot});
+      await page.screenshot({path:path.join(dir,id+'.png'),fullPage:false,animations:'disabled'});
+      await page.close();
+    }
+    await context.close();
+  }
+
   // Browser-language and query alias matrix: Simplified and Traditional must not be conflated.
   const localeCases = [
     ['zh', 'zh-CN'], ['zh-CN', 'zh-CN'],

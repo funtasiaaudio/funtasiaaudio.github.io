@@ -1,6 +1,8 @@
 name: Simplified Chinese site checks
 
 on:
+  push:
+    branches: ['feature/zh-cn-audio-localization-20261122']
   pull_request:
     branches: [main]
     paths:

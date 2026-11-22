@@ -45,7 +45,7 @@ const cases=[
  ['expansions','/studio/official/expansions/zh-cn/'],
  ['study','/studio/official/zh-cn/study/']
 ];
-const viewports=[{width:1440,height:900},{width:390,height:844}];
+const viewports=[{width:1440,height:900},{width:390,height:844},{width:320,height:780}];
 const report={scope:'Linux Playwright Firefox/WebKit engine compatibility, not actual Safari/iOS or physical mobile devices',
   engines:['firefox','webkit'],viewports,scans:[],failures:[],assertions:0};
 const verify=(value,what)=>{report.assertions++;if(!value)report.failures.push(what);};

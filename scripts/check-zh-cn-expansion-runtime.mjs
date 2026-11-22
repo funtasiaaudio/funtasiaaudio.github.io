@@ -20,6 +20,9 @@ function scenario(lang, initialQuery = '') {
         contains(value) {return classes.has(value);}
       },
       querySelector(query) {
+        // This lightweight DOM harness has no <img>; offsite cover failures
+        // are exercised separately by real Chromium restricted-network QA.
+        if (query === ".expansion-art img[src^='https://']") return null;
         assert.equal(query, 'h3');
         return {textContent: name};
       }

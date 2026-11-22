@@ -157,6 +157,12 @@ try {
           verify(intent.searchParams.get('url')===expected,
             label+' '+id+' X share should return to zh-CN');
         }
+
+        const enManualLinks=page.locator('article.card a[href$="_EN.pdf"]');
+        verify(await enManualLinks.count()===5,label+' should have five known English PDF manuals');
+        const enManualLabels=await enManualLinks.allTextContents();
+        verify(enManualLabels.every(text=>text.trim()==='PDF 使用手册（英文）'),
+          label+' English PDF language not disclosed: '+enManualLabels.join(' | '));
         const cards=page.locator('[data-product-name]');
         verify(await cards.count()===34,label+' expected 34 catalog products');
         const count=await page.locator('#product-count').textContent();

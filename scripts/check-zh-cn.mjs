@@ -181,4 +181,18 @@ assert.equal(
   'Some encoded X share links still point to the English catalog');
 console.log('zh-CN Audio product social sharing: PASS (6 Chinese-localized X/Instagram URL pairs + localized utility label)');
 
+const englishManualLinks=[...zhShareHtml.matchAll(
+  /<a\b[^>]*href="([^"]+_EN\.pdf)"[^>]*>([\s\S]*?)<\/a>/g
+)];
+assert.equal(englishManualLinks.length,5,'Expected five existing EN-only PDF manuals');
+for(const [,href,body] of englishManualLinks) {
+  assert.equal(body.replace(/<[^>]+>/g,'').trim(),'PDF 使用手册（英文）',
+    'English manual language not disclosed on Chinese Audio catalog: '+href);
+}
+assert.ok(!zhShareHtml.includes('>PDF 使用手册</a>'),
+  'Chinese catalog retains ambiguous unlabeled PDF manuals');
+console.log('zh-CN Audio PDF manual language labels: PASS (5 English manuals explicitly disclosed)');
+
+
+
 console.log('zh-CN Audio + Records + Utilities + Goods + Studio static and locale runtime checks: PASS');

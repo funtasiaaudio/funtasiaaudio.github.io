@@ -452,6 +452,8 @@
   const catalogLinks = [...document.querySelectorAll('a[href="catalog/ja/"]')];
   const recordsLinks = [...document.querySelectorAll('a[href="records/"]')];
   const studioLinks = [...document.querySelectorAll('a[href="studio/official/ja/"]')];
+  const aboutLinks = [...document.querySelectorAll('a[href="about/"]')];
+  const supportLinks = [...document.querySelectorAll('a[href="support/"]')];
   const select = document.querySelector('#home-language');
 
   function browserLocale() {
@@ -501,6 +503,8 @@
     for (const link of catalogLinks) link.href = 'catalog/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
     for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + (locale === 'zh-CN' ? 'en' : locale) + '/';
     for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : 'studio/official/');
+    for (const link of aboutLinks) link.href = locale === 'zh-CN' ? 'about/zh-cn/' : 'about/?lang=' + locale;
+    for (const link of supportLinks) link.href = locale === 'zh-CN' ? 'support/zh-cn/' : 'support/';
     if (select) select.value = locale;
     if (remember) {
       try { localStorage.setItem(storageKey, locale); } catch { /* Browsing without local storage is supported. */ }

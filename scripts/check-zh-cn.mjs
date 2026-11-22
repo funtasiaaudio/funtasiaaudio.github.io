@@ -72,4 +72,24 @@ for (const path of ['utilities/index.html','goods/index.html']) {
 assert.ok(read('home-i18n.js').includes("'utilities/?lang=' + locale"), 'Homepage Utilities locale route missing');
 assert.ok(read('home-i18n.js').includes("'goods/?lang=' + locale"), 'Homepage Goods locale route missing');
 
-console.log('zh-CN Audio + Records + Utilities + Goods static checks: PASS');
+
+const studioZh = read('studio/official/zh-cn/index.html');
+const studioEn = read('studio/official/index.html');
+const studioLink = html => [...html.matchAll(/https:\/\/github\.com\/funtasiaaudio\/[^" ]+/g)].map(m=>m[0]);
+assert.ok(studioZh.includes('<html lang="zh-CN">'), 'Studio Chinese locale missing');
+assert.ok(studioZh.includes('https://funtasiaaudio.github.io/studio/official/zh-cn/'), 'Studio canonical missing');
+assert.ok(studioZh.includes('href="../studio.css?v=4"'), 'Studio stylesheet relative path incorrect');
+assert.ok(studioZh.includes('src="../assets/theme-forest.webp"'), 'Studio gallery relative path incorrect');
+assert.ok(studioZh.includes('href="../../favicon.png"'), 'Studio icon relative path incorrect');
+assert.ok(studioZh.includes('Beta 1.3.0'), 'Studio version missing');
+assert.ok(studioZh.includes('日语／英语手册'), 'Studio manual language disclosure missing');
+assert.ok(studioZh.includes('可能出现崩溃或数据丢失'), 'Studio beta safety disclosure missing');
+assert.deepEqual(studioLink(studioZh), studioLink(studioEn), 'Studio release links changed');
+assert.ok(read('studio/index.html').includes("['ja', 'en', 'de', 'fr', 'ru', 'zh-CN']"), 'Studio locale router not extended');
+assert.ok(read('studio/index.html').includes("'zh-cn' : locale"), 'Studio zh-CN path mapping missing');
+for (const path of ['studio/official/index.html','studio/official/ja/index.html','studio/official/ru/index.html']) {
+  assert.ok(read(path).includes('hreflang="zh-CN"'), `Studio language switch missing: ${path}`);
+}
+assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/studio/official/zh-cn/'), 'Studio sitemap missing');
+
+console.log('zh-CN Audio + Records + Utilities + Goods + Studio static checks: PASS');

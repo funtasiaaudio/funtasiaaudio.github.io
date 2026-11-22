@@ -34,3 +34,13 @@ Status: **Draft implementation — not published**. Branch: `feature/zh-cn-audio
 ## Update workflow
 
 Maintain product names, versions, release URLs, and card ordering consistently across language catalog files. When a product is added or updated, update `catalog/product-zh-cn.js`, run the static check and manually verify translated UI content.
+
+
+## Studio subpages — staged 2026-11-23 (Japan time)
+
+- Chinese expansion browser: `/studio/official/expansions/zh-cn/` with five packs (original MIDI performances, drum/WAV sample sets and The Wavelace wavetables), translated specifications, use instructions and license distinctions.
+- Chinese composition reading guide: `/studio/official/zh-cn/study/`, translating the Japanese composition-theory guide, preserving Japanese bibliographic titles and author/publisher links. It clearly states that the listed books are Japanese publications.
+- Studio zh-CN landing navigation links directly to both Chinese subpages. Existing English/Japanese expansion pages and Japanese study page link to the new Chinese pages; sitemap entries added.
+- Expansion category/sort JavaScript now displays Chinese result counts. Existing English/Japanese behavior and pack downloads remain unchanged.
+- Run both `node scripts/check-zh-cn.mjs` and `node scripts/check-zh-cn-studio-subpages.mjs` before publishing. The latter checks the five-pack count, official release/book URL parity, local asset paths, reciprocal navigation and JS syntax.
+- Review pending: actual desktop/mobile layout, browser interactions, external downloads, Chinese native-language editorial checks and mainland-China network access. The Chinese translation does not imply that Japanese-language books or manuals have been translated into Chinese.

@@ -13,7 +13,9 @@
   const counts = Array.from(browser.querySelectorAll("[data-pack-count]"));
   if (!cards.length || !sortSelect || !resultText || !emptyText) return;
 
-  const ja = document.documentElement.lang.toLowerCase().startsWith("ja");
+  const locale = document.documentElement.lang.toLowerCase();
+  const ja = locale.startsWith("ja");
+  const zh = locale.startsWith("zh");
   const validTypes = new Set(["all", "midi", "sample", "wavetable", "library"]);
   let activeType = "all";
   let activeSort = "featured";
@@ -38,7 +40,7 @@
     const ordered = cards.slice().sort((a, b) => {
       if (activeSort === "name") {
         return a.querySelector("h3").textContent.trim().localeCompare(
-          b.querySelector("h3").textContent.trim(), ja ? "ja" : "en"
+          b.querySelector("h3").textContent.trim(), ja ? "ja" : zh ? "zh-CN" : "en"
         );
       }
       return Number(a.dataset.packOrder) - Number(b.dataset.packOrder);
@@ -66,6 +68,7 @@
     const visible = ordered.filter(card => !card.hidden).length;
     resultText.textContent = ja
       ? `${visible} / ${cards.length} パックを表示`
+      : zh ? `显示 ${visible} / ${cards.length} 个资源包`
       : `Showing ${visible} of ${cards.length} packs`;
     resultText.hidden = false;
     emptyText.hidden = visible !== 0;

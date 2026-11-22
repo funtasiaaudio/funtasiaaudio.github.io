@@ -2,9 +2,9 @@ name: Simplified Chinese site checks
 
 on:
   push:
-    branches: ['feature/zh-cn-audio-localization-20261122', 'feature/zh-cn-studio-20261123']
+    branches: ['feature/zh-cn-audio-localization-20261122', 'feature/zh-cn-studio-20261123', 'feature/zh-cn-studio-subpages-20261123']
   pull_request:
-    branches: [main, feature/zh-cn-audio-localization-20261122]
+    branches: [main, feature/zh-cn-audio-localization-20261122, feature/zh-cn-studio-20261123]
     paths:
       - 'studio/**'
       - 'records/**'
@@ -19,6 +19,7 @@ on:
       - 'index.html'
       - 'sitemap.xml'
       - 'scripts/check-zh-cn.mjs'
+      - 'scripts/check-zh-cn-studio-subpages.mjs'
       - '.github/workflows/check-zh-cn.yml'
   workflow_dispatch:
 
@@ -36,4 +37,6 @@ jobs:
         with:
           node-version: '22'
       - name: Check Simplified Chinese pages and links
-        run: node scripts/check-zh-cn.mjs
+        run: |
+          node scripts/check-zh-cn.mjs
+          node scripts/check-zh-cn-studio-subpages.mjs

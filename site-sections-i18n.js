@@ -405,7 +405,9 @@
   }
   function queryLocale() {
     const requested = new URLSearchParams(location.search).get('lang');
-    return requested === 'zh' || requested?.toLowerCase() === 'zh-cn' ? 'zh-CN' : (locales.includes(requested) ? requested : null);
+    const normalized = String(requested || '').toLowerCase().replace(/_/g, '-');
+    return /^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(normalized)
+      ? 'zh-CN' : (locales.includes(requested) ? requested : null);
   }
 
   function applyLocale(code, remember = false) {

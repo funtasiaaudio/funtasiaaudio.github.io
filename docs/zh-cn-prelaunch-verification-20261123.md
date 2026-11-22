@@ -119,3 +119,23 @@ The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt 
 - [Full push Chromium QA PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45062588766): **1,108 keyboard/reflow assertions**, **700 Chinese whole-site assertions**, **127 Chinese Studio assertions**. [Keyboard focus/reflow inspection JSON and existing 54 page screenshots](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45062588766/artifacts/14770441072), limited GitHub Actions artifact retention.
 - The 320 CSS pixel viewport provides a **reflow-width proxy**, not a simulation of browser 400% zoom, operating-system magnification, a screen reader or touch device. Human/manual focus visibility and browser zoom remain separate acceptance criteria. The axe-core WCAG rule scans from the prior gate remain valid independently.
 
+
+## Studio Expansion 5-pack official release integrity and multilingual terms — 2026-11-23 JST
+
+- Independently inspected **all five pinned GitHub Releases** and their official asset metadata. The five public ZIP URLs used in the **EN, JA and zh-CN** expansion browser match the official URLs: **15 cards**, five product/version mappings. The three publicly linked license-asset URLs also match official release assets across all three locales. This verifies link identity/existence, **not independent legal interpretation of usage terms**.
+- Pinned authoritative release ZIP byte counts and GitHub SHA-256 digests in `docs/studio-expansion-release-pins.json`. Values, all current v1.0.0:
+  
+  | Pack | Official ZIP size | Automated real download |
+  | --- | ---: | --- |
+  | Kawaii Wavetable Vol.1 | 61,179,905 B | **PASS** (bytes + SHA-256 + CRC) |
+  | FUN Orchestral Percussion Vol.1 | 650,597,565 B | **Not downloaded** (official API size + SHA-256 match) |
+  | Nyan 8bit Drum Kit Vol.1 | 594,270 B | **PASS** (bytes + SHA-256 + CRC) |
+  | FUN Epic Metal Drums Vol.1 | 3,608,882 B | **PASS** (bytes + SHA-256 + CRC) |
+  | FUN Fantasy Folk Drums MIDI Pack | 3,507,170 B | **PASS** (bytes + SHA-256 + CRC) |
+
+- Corrected the outdated EN and JA Epic Metal `3.44 MB` display to decimal **approximately 3.61 MB / binary 3.44 MiB**, consistent with the Chinese page and official 3,608,882-byte release ZIP. Added the missing Chinese Nyan 8bit (`约 594 KB`) and Fantasy Folk (`约 3.51 MB`) size references. Reworded repetitive Chinese license sentences without changing their destinations or license claims. Added localization and size regression assertions to `scripts/check-zh-cn-studio-subpages.mjs`.
+- New `scripts/check-studio-expansion-release-metadata.mjs` protects five ZIP URLs across three localized pages, product order, pinned byte counts and digests and linked official license assets. With `--remote`, it fetches official GitHub Releases data to revalidate all five file sizes/digests dynamically.
+- New `scripts/check-studio-expansion-downloads.sh` downloads **four** official ZIP files from GitHub on a runner (the large Orchestral ZIP is excluded to avoid a 650 MB transfer on every PR), checks each file's authoritative SHA-256 and byte count and runs `unzip -tqq` for CRC. Separate `.github/workflows/check-studio-expansion-releases.yml` triggers these checks on relevant changes.
+- **[Push official metadata and real ZIP integrity QA: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45080454778)** and **[PR official metadata/integrity QA: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45080458496)**. The standard Simplified Chinese site static QA also passed for this code change.
+- **Scope:** The actual ZIP transfers were made from a GitHub-hosted Ubuntu runner, not from a device or network in mainland China. The 650 MB Orchestral ZIP was not independently transferred. License file *contents* were not legally reviewed or certified by metadata validation. Native Chinese editorial, physical user-device accessibility, live GA4 event receipt and mainland China access remain pending publication gates.
+

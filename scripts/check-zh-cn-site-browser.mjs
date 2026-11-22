@@ -285,6 +285,70 @@ try {
   }
 
 
+
+  // Test query overrides, saved language and direct links across Home/Utilities/Goods.
+  // An older stored 'en' choice must not break an explicit Chinese deep link.
+  const localeContext=await browser.newContext({viewport:{width:390,height:844},
+    locale:'en-US',reducedMotion:'reduce'});
+  await localeContext.route('**/*',route=>route.request().url().startsWith(origin+'/')
+    ?route.continue():route.fulfill({status:204,body:''}));
+  const localePage=await localeContext.newPage();
+  const localeIs=async(value,label)=>{
+    verify(await localePage.locator('html').getAttribute('lang')===value,label+' html lang');
+    verify(await localePage.locator('#section-language').inputValue()===value,
+      label+' language picker');
+  };
+  await localePage.goto(origin+'/?lang=en',{waitUntil:'load'});
+  await localePage.evaluate(()=>localStorage.setItem('funtasia.home.language','en'));
+  await localePage.goto(origin+'/utilities/?lang=zh-CN',{waitUntil:'load'});
+  await localeIs('zh-CN','Utilities explicit zh-CN overrides saved en');
+  for(const target of ['studio/official/zh-cn/','about/zh-cn/','support/zh-cn/']){
+    verify(await localePage.locator('a[href="../'+target+'"]').count()>0,
+      'Utilities missing Chinese '+target);
+  }
+  await localePage.reload({waitUntil:'load'});
+  await localeIs('zh-CN','Utilities Chinese reload');
+  await localePage.locator('#section-language').selectOption('en');
+  await localeIs('en','Utilities manual English choice');
+  verify(new URL(localePage.url()).searchParams.get('lang')===null,
+    'Manual language choice should clear the previous query');
+  await localePage.reload({waitUntil:'load'});
+  await localeIs('en','Utilities saved English on reload');
+  await localePage.goto(origin+'/goods/?lang=zh-CN',{waitUntil:'load'});
+  await localeIs('zh-CN','Goods explicit zh-CN overrides saved English');
+  for(const target of ['studio/official/zh-cn/','about/zh-cn/','support/zh-cn/']){
+    verify(await localePage.locator('a[href="../'+target+'"]').count()>0,
+      'Goods missing Chinese '+target);
+  }
+  await localePage.locator('a[href="../about/zh-cn/"]').first().click();
+  verify(new URL(localePage.url()).pathname==='/about/zh-cn/',
+    'Goods to Chinese About navigation failed');
+  verify(await localePage.locator('html').getAttribute('lang')==='zh-CN',
+    'Goods to Chinese About changed language');
+  await localePage.goto(origin+'/goods/?lang=zh-CN',{waitUntil:'load'});
+  await localePage.reload({waitUntil:'load'});
+  await localeIs('zh-CN','Goods explicit Chinese reload');
+  await localePage.locator('#section-language').selectOption('zh-CN');
+  verify(await localePage.evaluate(()=>
+    localStorage.getItem('funtasia.home.language'))==='zh-CN',
+    'Explicit Chinese selection did not persist');
+  await localePage.goto(origin+'/utilities/',{waitUntil:'load'});
+  await localeIs('zh-CN','Utilities saved Chinese without query');
+  await localePage.goto(origin+'/',{waitUntil:'load'});
+  verify(await localePage.locator('html').getAttribute('lang')==='zh-CN',
+    'Home should load saved Chinese');
+  verify(await localePage.locator('#studio').getAttribute('href')==='studio/official/zh-cn/',
+    'Chinese home Studio route changed');
+  await localePage.goto(origin+'/goods/?lang=ja',{waitUntil:'load'});
+  await localeIs('ja','Japanese query overrides saved Chinese');
+  verify(await localePage.locator('a[href="../about/zh-cn/"]').count()===0,
+    'Japanese Goods should not link to Chinese About');
+  verify(await localePage.locator('a[href="../support/zh-cn/"]').count()===0,
+    'Japanese Goods should not link to Chinese Support');
+  await localeContext.close();
+  report.push({key:'locale-query-precedence-and-navigation',
+    coverage:'Home, Utilities, Goods explicit locale, saved choice, reload and Chinese subpage links'});
+
   // Front-end GTM dataLayer event contract: a ZIP click is an intent, not proof of download.
   // Run with GTM remote JS blocked; only assert the site's own event payload and single firing.
   const analyticsContext=await browser.newContext({viewport:{width:1280,height:800},locale:'zh-CN'});

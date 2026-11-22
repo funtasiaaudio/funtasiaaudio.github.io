@@ -104,5 +104,34 @@ for(const section of ['about','support']){
  if(!zh.includes('sections.css?v=20261122ai-partners'))
   warn('Chinese About should use current AI collaborator stylesheet revision');
 }
+// Shared Chinese section navigation must use the same readable labels as
+// Records, and should never fall back to Studio's browser-language router.
+for(const section of ['about','support','records']){
+ const page=section+'/zh-cn/index.html';
+ const html=load(page);
+ const navs=[...html.matchAll(/<nav class="(?:site-nav|footer-links)"[^>]*>[\\s\\S]*?<\\/nav>/g)].map(m=>m[0]);
+ if(navs.length!==2){warn(page+' should have header and footer navigation');continue;}
+ const labels={
+  '../../?lang=zh-CN':'首页',
+  '../../catalog/zh-cn/':'音频插件',
+  '../../studio/official/zh-cn/':'Studio',
+  '../../utilities/?lang=zh-CN':'实用工具',
+  '../../records/zh-cn/':'Records',
+  '../../goods/?lang=zh-CN':'周边',
+  '../../about/zh-cn/':'关于',
+  '../../support/zh-cn/':'支持',
+  './':{about:'关于',support:'支持',records:'Records'}[section]
+ };
+ for(const nav of navs){
+  if(nav.includes('href="../../studio/"'))warn(page+' Studio should link directly to zh-CN');
+  for(const match of nav.matchAll(/<a\\b([^>]*)>([^<]+)<\\/a>/g)){
+   const href=attribute(match[1],'href');
+   const label=match[2].trim();
+   if(!(href in labels))warn(page+' unexpected locale navigation target '+href);
+   else if(label!==labels[href])warn(page+' '+href+' expected '+labels[href]+' but got '+label);
+  }
+ }
+ if(!navs[1].includes('aria-label="页脚导航"'))warn(page+' footer aria-label not localized');
+}
 assert.deepEqual(errors,[],'zh-CN canonical, reciprocal alternate and navigation audit');
 console.log('zh-CN SEO and reciprocity QA: PASS ('+checked+' Chinese pages, '+alternateChecks+' reciprocal language links)');

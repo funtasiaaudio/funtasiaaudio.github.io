@@ -38,6 +38,19 @@ assert.ok(cnStudy.includes('<html lang="zh-CN">'));
 assert.ok(cnExpansion.includes('https://funtasiaaudio.github.io/studio/official/expansions/zh-cn/'));
 assert.ok(cnStudy.includes('https://funtasiaaudio.github.io/studio/official/zh-cn/study/'));
 assert.ok(cnStudy.includes('学习说明：以下推荐书籍均为日语出版物'));
+
+// Preserve original Japanese bibliographic attribution, including exact author,
+// publisher, and circle names, as explicitly promised by the Chinese reading guide.
+const attribution = html => [...html.matchAll(/<p class="(?:choice-meta|book-meta)">([^<]+)<\/p>/g)]
+  .map(match => match[1]);
+assert.equal(attribution(enStudy).length, 7, 'Source study guide must have seven book attributions');
+assert.deepEqual(attribution(cnStudy), attribution(enStudy),
+  'Chinese book attribution must preserve Japanese source names verbatim');
+// FEM01's authoritative GitHub release asset is 3,608,882 bytes,
+// which is about 3.61 decimal MB / 3.44 binary MiB.
+assert.ok(cnExpansion.includes('约 3.61 MB，约 3.44 MiB'),
+  'FEM01 display units should distinguish decimal MB from binary MiB');
+
 assert.ok(cnStudy.includes('在和声学与对位法的学习中'));
 assert.ok(cnExpansion.includes('独立素材重新分发'));
 assert.ok(cnExpansion.includes('CC0 1.0'));

@@ -40,8 +40,8 @@ const cases=[
  ['study','/studio/official/zh-cn/study/']
 ];
 const viewports=[{width:1440,height:900},{width:390,height:844}];
-const tags=['wcag2a','wcag2aa','wcag21a','wcag21aa'];
-const report={scope:'Automated axe-core WCAG 2.0/2.1 A+AA checks; not human conformance certification',
+const tags=['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa'];
+const report={scope:'Automated axe-core WCAG 2.0/2.1/2.2 A+AA checks; not human conformance certification',
  axeVersion:null,viewports,scans:[],totals:{violations:0,affectedElements:0,incompleteGroups:0}};
 const failures=[];
 const browser=await chromium.launch({headless:true});
@@ -77,6 +77,47 @@ try{
       JSON.stringify(v.nodes.slice(0,4).map(n=>n.target)));
     }
     console.log(label+': '+result.violations.length+' rule violations, '+affected+' affected elements; '+result.incomplete.length+' incomplete rule groups');
+
+    // Separately scan UI states reached by user input; default-page checks cannot see
+    // focus traps, dialogs, post-filter visibility and dynamic list accessibility.
+    const states=key==='audio'?[
+      {id:'details-open',action:async()=>{
+        await page.locator('button.detail-btn').first().click();
+        await page.locator('dialog[open]').waitFor({state:'visible'});
+      }},
+      {id:'effects-filter',action:async()=>{
+        await page.keyboard.press('Escape');
+        await page.locator('[data-filter="effect"]').click();
+      }}
+    ]:key==='expansions'?[
+      {id:'midi-filter',action:async()=>{
+        await page.locator('[data-pack-filter="midi"]').click();
+      }}
+    ]:[];
+    for(const state of states){
+      await state.action();
+      const dynamic=await page.evaluate(async tags=>{
+        const a=await window.axe.run(document,{runOnly:{type:'tag',values:tags}});
+        return {version:window.axe.version,
+          violations:a.violations.map(v=>({rule:v.id,impact:v.impact,help:v.help,
+            url:v.helpUrl,count:v.nodes.length,
+            nodes:v.nodes.slice(0,30).map(n=>({target:n.target,html:n.html,summary:n.failureSummary}))})),
+          incomplete:a.incomplete.map(v=>({rule:v.id,count:v.nodes.length}))};
+      },tags);
+      const dynamicLabel=label+'/'+state.id;
+      report.scans.push({page:key,path:p,viewport:viewport.width,state:state.id,...dynamic});
+      const dynCount=dynamic.violations.reduce((n,v)=>n+v.count,0);
+      report.totals.violations+=dynamic.violations.length;
+      report.totals.affectedElements+=dynCount;
+      report.totals.incompleteGroups+=dynamic.incomplete.length;
+      for(const v of dynamic.violations){
+        failures.push(dynamicLabel+': '+v.rule+' ('+v.impact+', '+v.count+' elements): '+
+          JSON.stringify(v.nodes.slice(0,4).map(n=>n.target)));
+      }
+      console.log(dynamicLabel+': '+dynamic.violations.length+' rule violations, '+
+        dynCount+' affected elements; '+dynamic.incomplete.length+' incomplete groups');
+    }
+
    }catch(e){failures.push(label+': scan failed '+(e.stack||e.message));}
   }
   await context.close();
@@ -92,4 +133,4 @@ console.log('axe-core '+report.axeVersion+': '+report.scans.length+
 if(failures.length){
  console.error('Accessibility findings:\n'+failures.slice(0,120).join('\n'));
  process.exitCode=1;
-}else console.log('Chinese automated WCAG 2.0/2.1 A+AA rules PASS (not a human WCAG certificate)');
+}else console.log('Chinese automated WCAG 2.0/2.1/2.2 A+AA rules PASS (not a human WCAG certificate)');

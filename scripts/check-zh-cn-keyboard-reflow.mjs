@@ -141,6 +141,30 @@ try{
      verify(await page.locator('[data-product-name]:not([hidden])').count()>0,
        label+' typed catalog search did not reveal matching card');
      pathResult.tasks.push('dialog Enter/Tab/Shift+Tab/Escape/focus return; typed search');
+     // Shared catalog.js runs on all locales; verify the fix does not break JA/EN.
+     for(const otherLocale of ['ja','en']){
+      await page.goto(origin+'/catalog/'+otherLocale+'/',{waitUntil:'load'});
+      const otherTrigger=page.locator('button.detail-btn').first();
+      await otherTrigger.focus();
+      await page.keyboard.press('Enter');
+      verify(await page.locator('dialog[open]').count()===1,
+        label+' '+otherLocale+' dialog did not open via Enter');
+      for(const [direction,keyPress] of [['forward','Tab'],['reverse','Shift+Tab']]){
+       for(let n=0;n<6;n++){
+        await page.keyboard.press(keyPress);
+        verify(await page.evaluate(()=>{
+          const d=document.querySelector('dialog[open]');
+          return !!d&&(document.activeElement===d||d.contains(document.activeElement));
+        }),label+' '+otherLocale+' '+direction+' tab '+n+' escaped native modal');
+       }
+      }
+      await page.keyboard.press('Escape');
+      verify(await page.locator('dialog[open]').count()===0,label+' '+otherLocale+' dialog did not close');
+      verify(await otherTrigger.evaluate(el=>document.activeElement===el),
+        label+' '+otherLocale+' dialog did not return focus to trigger');
+     }
+     pathResult.tasks.push('JA/EN shared dialog modal keyboard-focus regressions');
+
     }
     if(key==='expansions'){
      const midi=page.locator('[data-pack-filter="midi"]');

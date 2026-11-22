@@ -44,3 +44,9 @@ Maintain product names, versions, release URLs, and card ordering consistently a
 - Expansion category/sort JavaScript now displays Chinese result counts. Existing English/Japanese behavior and pack downloads remain unchanged.
 - Run both `node scripts/check-zh-cn.mjs` and `node scripts/check-zh-cn-studio-subpages.mjs` before publishing. The latter checks the five-pack count, official release/book URL parity, local asset paths, reciprocal navigation and JS syntax.
 - Review pending: actual desktop/mobile layout, browser interactions, external downloads, Chinese native-language editorial checks and mainland-China network access. The Chinese translation does not imply that Japanese-language books or manuals have been translated into Chinese.
+
+## Automated site-local link audit
+
+- `node scripts/check-zh-cn-links.mjs` checks 13 entry points (Chinese pages and shared-language home/Utilities/Goods routers), HTML language and metadata, image alternative text, same-page fragment targets and link/file existence in this repository.
+- Legacy references under `https://funtasiaaudio.github.io/funtasia-audio/` intentionally point at **a different GitHub Pages project**, repository `funtasiaaudio/funtasia-audio`. They are counted separately, not misreported as missing files. Its repository structure has been checked independently, but actual mainland-China network reachability and individual HTTP download success are not yet verified.
+- Run all three static checks in GitHub Actions before publication. They complement, not replace, browser rendering/interaction and real-network checks.

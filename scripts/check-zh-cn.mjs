@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import vm from 'node:vm';
 
 const read = file => fs.readFileSync(file, 'utf8');
 const files = ['catalog/zh-cn/index.html', 'catalog/zh-cn/fun-monofilter.html',
@@ -72,4 +73,59 @@ for (const path of ['utilities/index.html','goods/index.html']) {
 assert.ok(read('home-i18n.js').includes("'utilities/?lang=' + locale"), 'Homepage Utilities locale route missing');
 assert.ok(read('home-i18n.js').includes("'goods/?lang=' + locale"), 'Homepage Goods locale route missing');
 
-console.log('zh-CN Audio + Records + Utilities + Goods static checks: PASS');
+
+// Exercise the actual client-side locale switch with a small DOM harness.
+// This catches mapping/runtime regressions that a text-only source check misses.
+for (const [page, japanese, chinese] of [
+  ['utilities', '公開ベータ · v0.2.1 · Windows 10/11 x64 · 無料', '公开测试版 · v0.2.1 · Windows 10/11 x64 · 免费'],
+  ['goods', '無料ダウンロード', '免费下载']
+]) {
+  const node = {nodeValue: japanese, parentElement: {tagName: 'P'}};
+  const image = {
+    values: {alt: 'FUNtasia Studio Charcoalの壁紙プレビュー'},
+    getAttribute(key) { return this.values[key] || null; },
+    setAttribute(key, value) { this.values[key] = value; }
+  };
+  const record = {href: '../records/'};
+  const catalog = {href: '../catalog/ja/'};
+  const select = {value: '', setAttribute() {}, addEventListener() {}};
+  const meta = {content: ''};
+  const nav = {setAttribute() {}};
+  const doc = {
+    body: {dataset: {i18nPage: page}},
+    documentElement: {lang: 'ja'},
+    title: '',
+    createTreeWalker() {
+      let seen = false;
+      return {nextNode() { if (seen) return null; seen = true; return node; }};
+    },
+    querySelectorAll(query) {
+      if (query === '[alt],[aria-label],[title]') return [image];
+      if (query === 'a[href="../records/"]') return [record];
+      if (query === 'a[href="../catalog/ja/"]') return [catalog];
+      return [];
+    },
+    querySelector(query) {
+      if (query === '#section-language') return select;
+      if (query === 'meta[name="description"]') return meta;
+      if (query === '.site-nav') return nav;
+      return null;
+    }
+  };
+  vm.runInNewContext(shared, {
+    document: doc, NodeFilter: {SHOW_TEXT: 4},
+    navigator: {languages: ['zh-CN'], language: 'zh-CN'},
+    location: {search: '?lang=zh-CN', href: 'https://funtasiaaudio.github.io/' + page + '/?lang=zh-CN'},
+    localStorage: {getItem() { return null; }, setItem() {}},
+    URL, URLSearchParams, history: {replaceState() {}, state: null}
+  }, {timeout: 3000});
+  assert.equal(node.nodeValue, chinese, `Client-side Chinese text failed on ${page}`);
+  assert.equal(doc.documentElement.lang, 'zh-CN');
+  assert.equal(select.value, 'zh-CN');
+  assert.equal(record.href, '../records/zh-cn/');
+  assert.equal(catalog.href, '../catalog/zh-cn/');
+  assert.ok(meta.content.length > 15);
+  assert.equal(image.values.alt, 'FUNtasia Studio Charcoal 壁纸预览');
+}
+
+console.log('zh-CN Audio + Records + Utilities + Goods static and locale runtime checks: PASS');

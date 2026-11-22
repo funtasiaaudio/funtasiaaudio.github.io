@@ -1,0 +1,23 @@
+name: FUN MonoFilter official release download integrity
+
+on:
+  push:
+    branches: [feature/zh-cn-studio-subpages-20261123]
+    paths:
+      - 'catalog/*/fun-monofilter.html'
+      - 'scripts/check-zh-cn-monofilter-download.sh'
+      - '.github/workflows/check-zh-cn-monofilter-download.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-published-zip:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout candidate source
+        uses: actions/checkout@v4
+      - name: Download official v1.1.0 ZIP and check bytes, SHA-256 and ZIP CRC
+        run: bash scripts/check-zh-cn-monofilter-download.sh

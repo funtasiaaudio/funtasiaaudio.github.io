@@ -459,6 +459,36 @@ try {
     verify(new URL(aliasPage.url()).pathname==='/studio/official/zh-cn/',
       'explicit Studio locale '+alias+' did not resolve to zh-CN');
   }
+  // The three shared JS-rendered sections must follow Studio's explicit
+  // Simplified Chinese alias rules, without hijacking Traditional Chinese.
+  const queryLocaleCases = [
+    ['zh', 'zh-CN'], ['zh-CN', 'zh-CN'],
+    ['zh-Hans', 'zh-CN'], ['zh-SG', 'zh-CN'],
+    ['ZH_CN', 'zh-CN'], ['zh_Hans', 'zh-CN'],
+    ['zh-TW', 'en'], ['zh-HK', 'en'], ['zh-Hant', 'en']
+  ];
+  for(const [tag, expected] of queryLocaleCases){
+    for(const [route, subject] of [['/', 'home'], ['/utilities/', 'utilities'], ['/goods/', 'goods']]){
+      await aliasPage.goto(origin+route+'?lang='+encodeURIComponent(tag),{waitUntil:'load'});
+      const actual=await aliasPage.locator('html').getAttribute('lang');
+      verify(actual===expected,'explicit '+tag+' '+subject+' expected '+expected+', got '+actual);
+      if(subject==='home' && expected==='zh-CN'){
+        verify(relativeTarget(await aliasPage.locator('#audio').getAttribute('href'))==='/catalog/zh-cn/',
+          'explicit '+tag+' should route Audio navigation to the Chinese catalog');
+      }
+    }
+  }
+  // Explicit Simplified Chinese must also take precedence over a prior
+  // manually saved choice, without overwriting that stored choice.
+  await aliasPage.goto(origin+'/?lang=en',{waitUntil:'load'});
+  await aliasPage.evaluate(() => localStorage.setItem('funtasia.home.language','ja'));
+  for(const route of ['/', '/utilities/', '/goods/']){
+    await aliasPage.goto(origin+route+'?lang=zh-Hans',{waitUntil:'load'});
+    verify(await aliasPage.locator('html').getAttribute('lang')==='zh-CN',
+      'explicit zh-Hans did not override saved Japanese on '+route);
+    verify(await aliasPage.evaluate(() => localStorage.getItem('funtasia.home.language'))==='ja',
+      'query language unexpectedly overwrote stored user preference on '+route);
+  }
   // Keyboard-only opening and dismissal of the product detail dialog.
   await aliasPage.goto(origin+'/catalog/zh-cn/',{waitUntil:'load'});
   const firstDetails=aliasPage.locator('button.detail-btn').first();

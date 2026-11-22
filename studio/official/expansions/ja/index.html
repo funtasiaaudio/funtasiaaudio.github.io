@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101916">
-  <meta name="description" content="FUNtasia Studioの無料追加コンテンツ。FUN Orchestral Percussion Vol.1（1,132 WAV）、Nyan 8bit、ドラムMIDIパックを配布中。">
+  <meta name="description" content="FUNtasia Studioの無料追加パック。MIDI、WAVサンプル、The Wavelace用WavetableとFUNtasia Libraryのカテゴリー別に探せます。">
   <title>無料追加コンテンツ | FUNtasia Studio</title>
   <link rel="icon" href="../../../favicon.png" type="image/png">
   <link rel="canonical" href="https://funtasiaaudio.github.io/studio/official/expansions/ja/">
@@ -21,11 +21,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="alternate" hreflang="ja" href="https://funtasiaaudio.github.io/studio/official/expansions/ja/">
   <link rel="alternate" hreflang="x-default" href="https://funtasiaaudio.github.io/studio/official/expansions/">
   <meta property="og:title" content="無料追加コンテンツ | FUNtasia Studio">
-  <meta property="og:description" content="実楽器によるオーケストラ打楽器WAV 1,132音、8bitドラム＆ゲームFX WAV 224音、ドラムMIDIフレーズを無料配布中。">
+  <meta property="og:description" content="無料のMIDI・サンプル・Wavetableパックをカテゴリー別に探せるFUNtasia Studio追加ライブラリ。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://github.com/funtasiaaudio/fun-orchestral-percussion-vol-1/releases/download/v1.0.0/Artwork.png">
   <link rel="stylesheet" href="../../studio.css?v=3">
-  <link rel="stylesheet" href="../expansions.css?v=1">
+  <link rel="stylesheet" href="../expansions.css?v=2">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -51,7 +51,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="eyebrow">FUNtasia Studio / 無料追加コンテンツ</p>
           <h1>新しいリズムで。<span>新しい世界へ。</span></h1>
           <p class="lead">実楽器のオーケストラ打楽器から、8bitドラム＆ゲームFX、自由に編集できるMIDIフレーズまで。FUNtasia Studioで新しい音のアイデアを見つけよう。</p>
-          <div class="tag-row"><span class="tag">無料</span><span class="tag">WAVサンプル＆MIDI</span><span class="tag">追加パックを順次紹介</span></div>
+          <div class="tag-row"><span class="tag">無料</span><span class="tag">MIDI・サンプル・Wavetable</span><span class="tag">追加パックを順次紹介</span></div>
           <div class="btn-row"><a class="button primary" href="#packs">パックを見る ↓</a><a class="button" href="../../ja/">FUNtasia Studioについて</a></div>
         </div>
         <aside class="hero-note"><div class="big">次のアイデアは、<br>ここから。</div><p>追加コンテンツはこの特設ページにまとめ、FUNtasia Audioのトップページは見やすいままに。</p></aside>
@@ -61,11 +61,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="shell">
         <p class="number">01 / 追加パック一覧</p>
         <div class="section-head">
-          <p class="eyebrow">WAV Samples &amp; MIDI Collection</p>
+          <p class="eyebrow">MIDI · Samples · Wavetables · Library</p>
           <h2 id="packs-title">音楽の世界を、もっと広く。</h2>
-          <p>好みのWAVサンプルを並べてビートを作る。MIDIフレーズを編集する。あなたのスタイルに合う素材を選べます。</p>
+          <p>MIDIフレーズ、WAVサンプル、Wavetableなど、制作スタイルに合う追加パックをカテゴリー別に探せます。</p>
         </div>
-        <article class="expansion-card" aria-labelledby="orchestral-percussion-title">
+        <div class="pack-browser" data-pack-browser hidden>
+          <div class="pack-filters" role="group" aria-label="追加パックの種類で絞り込む">
+            <button type="button" class="pack-filter" data-pack-filter="all" aria-pressed="true" aria-controls="pack-list">すべて <span class="pack-count" data-pack-count="all"></span></button>
+            <button type="button" class="pack-filter" data-pack-filter="midi" aria-pressed="false" aria-controls="pack-list">MIDIパック <span class="pack-count" data-pack-count="midi"></span></button>
+            <button type="button" class="pack-filter" data-pack-filter="sample" aria-pressed="false" aria-controls="pack-list">サンプルパック <span class="pack-count" data-pack-count="sample"></span></button>
+            <button type="button" class="pack-filter" data-pack-filter="wavetable" aria-pressed="false" aria-controls="pack-list">Wavetables <span class="pack-count" data-pack-count="wavetable"></span></button>
+            <button type="button" class="pack-filter" data-pack-filter="library" aria-pressed="false" aria-controls="pack-list">FUNtasia Library <span class="pack-count" data-pack-count="library"></span></button>
+          </div>
+          <div class="pack-sort">
+            <label for="pack-sort">並び替え</label>
+            <select id="pack-sort" data-pack-sort>
+              <option value="featured">おすすめ順</option>
+              <option value="name">名前順 A–Z</option>
+            </select>
+          </div>
+        </div>
+        <p class="pack-results" data-pack-results aria-live="polite" aria-atomic="true" hidden></p>
+        <div class="pack-list" id="pack-list">
+        <article class="expansion-card" data-pack-type="wavetable" data-pack-order="0" aria-labelledby="kawaii-wavetable-title">
+          <div class="expansion-art">
+            <img src="https://github.com/funtasiaaudio/The-Wavelace-Kawaii-Wavetable-Vol1/releases/download/v1.0.0/Cover_Artwork.png" alt="ミントグリーンのドレスを着たひゅーりゃんちゃんと花、クリスタル、きらめく波形を描いたKawaii Wavetable Vol.1のジャケット" width="1254" height="1254" loading="eager">
+          </div>
+          <div class="expansion-copy">
+            <p class="eyebrow">WAVETABLE / KAWAIIWT01 / 無料 / VERSION 1.0.0</p>
+            <h3 id="kawaii-wavetable-title">Kawaii Wavetable <span>Vol.1</span></h3>
+            <p class="expansion-lead">甘く、きらめいて、音色の世界が広がる。</p>
+            <p>The Wavelaceに128種類のオリジナルWavetableを追加。星屑のようなきらめき、透明感のあるクリスタル、柔らかなキャンディの音色、夢見るような揺らぎ、レトロな電子音、かわいいボーカル風の音まで。8つのカテゴリーから選び、波形をモーフィングして自由に音作りできます。</p>
+            <div class="expansion-stats" aria-label="パック収録内容">
+              <div><strong>128</strong><span>Wavetables</span></div>
+              <div><strong>8</strong><span>Categories</span></div>
+              <div><strong>64</strong><span>Frames Each</span></div>
+              <div><strong>32-bit</strong><span>Float WAV</span></div>
+            </div>
+            <ul class="pack-specs">
+              <li>128種類のオリジナルMono WAV Wavetable・各64フレーム × 2,048サンプル</li>
+              <li>Sparkle &amp; Glitter / Candy &amp; Sugar / Crystal &amp; Glass / Dream &amp; Fairy</li>
+              <li>Pixel &amp; Toy / Nyan &amp; Vocal / Bubble &amp; Jelly / Kawaii Energy</li>
+              <li>WT POSITIONに応じて倍音が変化する、モーフィング向けの波形設計</li>
+              <li>FUNtasia Studioの<strong>The Wavelace</strong>向け。VST3音源本体やインストーラーは含まれません</li>
+            </ul>
+            <div class="btn-row pack-actions">
+              <a class="button primary" href="https://github.com/funtasiaaudio/The-Wavelace-Kawaii-Wavetable-Vol1/releases/download/v1.0.0/Kawaii_Wavetable_Vol1.zip">無料ZIPをダウンロード ↗</a>
+              <a class="button" href="https://github.com/funtasiaaudio/The-Wavelace-Kawaii-Wavetable-Vol1/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">リリースノート ↗</a>
+              <a class="button" href="#how-to-use">使い方を見る ↓</a>
+            </div>
+            <p class="pack-availability">公式公開版 v1.0.0 · 約61 MBのZIPに128種類のWavetable、プレビュー、アートワークを収録。商用・非商用の制作で追加ロイヤリティ・クレジット不要で利用できます。Wavetable素材単体の再配布には制限があります。詳しくは<a href="https://github.com/funtasiaaudio/The-Wavelace-Kawaii-Wavetable-Vol1/releases/download/v1.0.0/LICENSE.txt" target="_blank" rel="noopener noreferrer">LICENSE.txt</a>をご確認ください。</p>
+          </div>
+        </article>
+        <article class="expansion-card" data-pack-type="sample" data-pack-order="1" aria-labelledby="orchestral-percussion-title">
           <div class="expansion-art">
             <img src="https://github.com/funtasiaaudio/fun-orchestral-percussion-vol-1/releases/download/v1.0.0/Artwork.png" alt="FUN Orchestral Percussion Vol.1の公式アートワーク。花飾りの少女とティンパニ、シンバル、ゴング、大太鼓などのオーケストラ打楽器" width="1254" height="1254" loading="eager">
           </div>
@@ -95,7 +143,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="pack-availability">公式公開版 v1.0.0 · 約651 MBの統合ZIPを1回でダウンロードできます。音声は<a href="https://github.com/sgossner/VCSL" target="_blank" rel="noopener noreferrer">Versilian Community Sample Library（VCSL）</a>由来のCC0 1.0素材で、商用利用・加工・再配布が可能です（クレジット不要）。ジャケット画像とFUNtasiaのブランド表示はCC0音声とは別扱いです。詳しくは<a href="https://github.com/funtasiaaudio/fun-orchestral-percussion-vol-1/releases/download/v1.0.0/FUN_Orchestral_Percussion_Vol1_LICENSE.txt">利用条件（LICENSE.txt）</a>をご覧ください。</p>
           </div>
         </article>
-        <article class="expansion-card" aria-labelledby="nyan-8bit-title">
+        <article class="expansion-card" data-pack-type="sample" data-pack-order="2" aria-labelledby="nyan-8bit-title">
           <div class="expansion-art">
             <img src="https://github.com/funtasiaaudio/nyan-8bit-drum-kit-vol-1/releases/download/v1.0.0/Artwork.png" alt="Nyan 8bit Drum Kit Vol.1の公式ピクセルアート。花飾りの少女と8bitドラム・ゲーム効果音のアイコン" width="1254" height="1254" loading="eager">
           </div>
@@ -125,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="pack-availability">公式公開版 v1.0.0 · 全224サンプル（ドラム168音／ゲームFX56音）。商用・非商用の楽曲やゲーム・映像作品で利用可能。素材単体の再配布は禁止されています。詳しくは<a href="https://github.com/funtasiaaudio/nyan-8bit-drum-kit-vol-1/releases/download/v1.0.0/LICENSE.txt">利用条件（LICENSE.txt）</a>をご確認ください。</p>
           </div>
         </article>
-        <article class="expansion-card" aria-labelledby="epic-metal-title">
+        <article class="expansion-card" data-pack-type="midi" data-pack-order="3" aria-labelledby="epic-metal-title">
           <div class="expansion-art">
             <img src="../epic-metal-drums-vol01.webp" alt="古代遺跡を背景にした壮大なドラムセットのFUN Epic Metal Drums Vol. 1ジャケット" width="1000" height="1000" loading="lazy">
           </div>
@@ -155,7 +203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="pack-availability">公式公開版 v1.0.0 · 無料ZIP（3.44 MB）。MIDI全128ファイル、アートワーク、フレーズ一覧、日英利用条件を同梱しています。</p>
           </div>
         </article>
-        <article class="expansion-card" aria-labelledby="fantasy-folk-title">
+        <article class="expansion-card" data-pack-type="midi" data-pack-order="4" aria-labelledby="fantasy-folk-title">
           <div class="expansion-art">
             <img src="../fantasy-folk-drums-midi-pack.webp" alt="FUN Fantasy Folk Drums MIDI Packの公式ジャケット。幻想的な森とフォーク・ドラムの世界観" width="1000" height="1000" loading="lazy">
           </div>
@@ -186,7 +234,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="pack-availability">公式公開版 v1.0.0 · 全120 MIDI・ジャケット画像・日英ライセンスを同梱。商用・非商用の創作作品に追加ロイヤリティ・クレジット不要で利用可能です。独自の創作内容を持つ編集可能なDAWプロジェクトの共有も許可されています（素材集としての単独再配布は禁止）。詳しくは同梱の <strong>LICENSE.txt</strong> をご確認ください。</p>
           </div>
         </article>
-        <p class="pack-footnote">Orchestral PercussionとNyan 8bitは音声入りのWAVサンプルパックです。一方、Epic Metal／Fantasy Folkは演奏データのみのMIDIパックで、音声・VST3音源・インストーラーは含まれません。MIDIの再生には別途ドラム音源が必要です。</p>
+        </div>
+        <p class="pack-empty" data-pack-empty hidden>このカテゴリーの追加パックはまだありません。今後のリリースをお楽しみに。</p>
+        <p class="pack-footnote">WAVサンプルパック、MIDIパック、The Wavelace用Wavetableをカテゴリー別に探せます。FUNtasia Libraryは今後の追加ライブラリ用の分類です。MIDIパックには音声は含まれないため、対応する音源が必要です。</p>
       </div>
     </section>
     <section class="section expansion-usage" id="how-to-use" aria-labelledby="use-title">
@@ -195,20 +245,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="usage-grid">
           <div>
             <p class="eyebrow">使い方はシンプル</p>
-            <h2 id="use-title">リズムを、自分のものに。</h2>
+            <h2 id="use-title">音の世界を、自分のものに。</h2>
             <ol class="usage-steps">
               <li><strong>WAVパック（Orchestral Percussion／Nyan 8bit）：</strong>ZIPを展開し、使いたい録音やワンショットWAVを選びます。</li>
               <li>FUNtasia StudioなどのDAWのサンプラーやオーディオトラックに読み込み、並べてリズムやゲーム風サウンドを作ります。</li>
               <li><strong>MIDIパック（Epic Metal／Fantasy Folk）：</strong>ZIPを展開し、<strong>MIDI</strong>フォルダーを開きます。</li>
               <li>MIDI／InstrumentトラックにGM対応ドラム音源を用意して、好きな<strong>.mid</strong>ファイルをインポートします。ノートやVelocityも編集できます。</li>
               <li>FillはGrooveの一部と置き換えて使います。Epic Metalは終盤1〜2小節、Fantasy Folkは4小節目の1小節が目安です。</li>
+              <li><strong>Wavetableパック（Kawaii Wavetable）：</strong>ZIPを展開し、The WavelaceにWavetable WAVを読み込みます。WT POSITIONを動かして波形の変化を楽しめます。</li>
             </ol>
           </div>
           <aside class="usage-note">
             <p class="eyebrow">利用条件</p>
             <h3>楽曲制作に自由に使えます。</h3>
             <p>各パックの利用条件に従い、WAVやMIDIを商用・非商用の創作作品に利用できます。追加ロイヤリティやクレジット表記は不要です。</p>
-            <p>Orchestral Percussionの元音声はCC0で商用利用・加工・再配布が可能です（ジャケット画像やブランド表示は別扱い）。Nyan 8bitとMIDIパックには素材の単独再配布に関する個別の制限があります。Fantasy FolkのMIDIは独自の創作内容を持つDAWプロジェクト内で共有できます。詳細はOrchestral Percussionの<strong><a href="https://github.com/funtasiaaudio/fun-orchestral-percussion-vol-1/releases/download/v1.0.0/FUN_Orchestral_Percussion_Vol1_LICENSE.txt">LICENSE.txt</a></strong>、Nyan 8bitの<strong><a href="https://github.com/funtasiaaudio/nyan-8bit-drum-kit-vol-1/releases/download/v1.0.0/LICENSE.txt">LICENSE.txt</a></strong>、Epic Metalの<strong>LICENSE.md</strong>、Fantasy Folkの<strong>LICENSE.txt</strong>をご確認ください。</p>
+            <p>Orchestral Percussionの元音声はCC0で商用利用・加工・再配布が可能です（ジャケット画像やブランド表示は別扱い）。Nyan 8bit、MIDIパック、Kawaii Wavetableには素材の単独再配布に関する個別の制限があります。Fantasy FolkのMIDIは独自の創作内容を持つDAWプロジェクト内で共有できます。詳細はOrchestral Percussionの<strong><a href="https://github.com/funtasiaaudio/fun-orchestral-percussion-vol-1/releases/download/v1.0.0/FUN_Orchestral_Percussion_Vol1_LICENSE.txt">LICENSE.txt</a></strong>、Nyan 8bitの<strong><a href="https://github.com/funtasiaaudio/nyan-8bit-drum-kit-vol-1/releases/download/v1.0.0/LICENSE.txt">LICENSE.txt</a></strong>、Epic Metalの<strong>LICENSE.md</strong>、Fantasy Folkの<strong>LICENSE.txt</strong>、Kawaii Wavetableの<strong><a href="https://github.com/funtasiaaudio/The-Wavelace-Kawaii-Wavetable-Vol1/releases/download/v1.0.0/LICENSE.txt">LICENSE.txt</a></strong>をご確認ください。</p>
             <p><strong>MIDIのテンポについて：</strong>ファイル名のBPMは参考値です。Tempoメタイベントは含まないため、読み込みによってDAWのテンポを変更することは意図していません。</p>
           </aside>
         </div>
@@ -221,5 +272,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div><a href="../../ja/">← FUNtasia Studio</a></div>
     </div>
   </footer>
+  <script src="../expansions.js?v=1" defer></script>
 </body>
 </html>

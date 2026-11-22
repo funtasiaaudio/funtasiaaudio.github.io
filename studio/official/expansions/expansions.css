@@ -30,3 +30,20 @@ html[lang="ja"] .expansion-hero h1{font-size:clamp(2.6rem,5.6vw,5.2rem)}
 .usage-note p:last-child{margin-bottom:0}
 @media(max-width:920px){.expansion-card{grid-template-columns:1fr}.expansion-art{max-width:510px}.usage-grid{grid-template-columns:1fr}.expansion-hero{padding-bottom:65px}}
 @media(max-width:580px){.expansion-hero h1,html[lang="ja"] .expansion-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}.expansion-card{padding:18px}.expansion-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.usage-note{padding:24px}.pack-actions .button{width:100%}}
+
+
+/* Pack browser: four distinct asset families, with no layout change when JS is off. */
+.pack-browser{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin:30px 0 12px}
+.pack-browser[hidden],.expansion-card[hidden],.pack-results[hidden],.pack-empty[hidden]{display:none!important}
+.pack-filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.pack-filter{font:inherit;font-size:.82rem;font-weight:700;letter-spacing:.015em;line-height:1.3;color:#e8efe0;background:#20372a;border:1px solid #617962;border-radius:999px;min-height:44px;padding:10px 14px;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.pack-filter:hover{background:#33513b;border-color:#a5bc9f}
+.pack-filter[aria-pressed="true"]{background:#d4dfc9;border-color:#e1ebd8;color:#192d1d}
+.pack-filter:focus-visible,.pack-sort select:focus-visible{outline:3px solid #e2c98d;outline-offset:3px}
+.pack-count{display:inline-block;margin-left:7px;font-size:.76em;opacity:.85;font-variant-numeric:tabular-nums}
+.pack-sort{display:flex;gap:10px;align-items:center;color:#d6e4d2;font-size:.84rem}
+.pack-sort select{font:inherit;color:#eef4e9;background:#1e3226;border:1px solid #718b74;border-radius:7px;padding:10px 32px 10px 11px;min-height:44px}
+.pack-results{color:#bed2b9;font-size:.82rem;margin:0 0 24px}
+.pack-empty{padding:36px 24px;border:1px dashed #69816a;border-radius:12px;background:#1a2b21;color:#d7e7d3;text-align:center;margin-bottom:20px}
+.expansion-card.is-first-visible{margin-top:0}
+@media(max-width:580px){.pack-browser{align-items:stretch}.pack-filters{width:100%}.pack-filter{flex:1 1 auto}.pack-sort{width:100%;justify-content:space-between}.pack-sort select{max-width:75%}}

@@ -88,3 +88,14 @@ The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt 
 - All six standalone MonoFilter detail pages currently omit GTM. This remains a separate analytics coverage decision for the site owner; new tracking was **not** silently enabled.
 - [GTM / GA4 operational checklist](https://github.com/funtasiaaudio/funtasiaaudio.github.io/blob/feature/zh-cn-studio-subpages-20261123/docs/zh-cn-gtm-ga4-review.md) identifies the four Data Layer Variables, matching Custom Event trigger and GA4 Event tag, proper consent controls, duplicate-event review, GTM Preview/Tag Assistant and GA4 DebugView/Realtime checks.
 - **Still pending:** authorized GTM container inspection, actual GA4 event receipt, privacy/consent review, native Chinese proofread, real user-device accessibility, mainland-China connectivity and transfer tests, and explicit production approval.
+
+## Chinese bibliographic editorial consistency — 2026-11-23 JST
+
+- Cross-checked the Chinese FUNtasia Studio composition-reading page against its original Japanese study guide. The Chinese page promised to keep original Japanese author/publisher titles, but five bibliography metadata strings had translated or simplified name characters.
+- Corrected all **seven book credit strings** to the Japanese page's exact author, publisher and circle attributions, e.g. `川辺 真 / 音楽之友社`, `清水 響 / リットーミュージック` and `サークル「月に憑かれたピエロ」`. The Chinese learning explanations and all external book URLs were preserved.
+- Added an exact bibliography-parity assertion in `scripts/check-zh-cn-studio-subpages.mjs` to prevent future alteration of Japanese names in the Chinese guide.
+- Checked Epic Metal Drums Vol.01 official FEM01 v1.0.0 asset metadata (**3,608,882 bytes**) and clarified its Chinese expansion page size as **approximately 3.61 MB / 3.44 MiB** instead of the ambiguous `3.44 MB`. A static assertion protects both display units.
+- Updated `docs/zh-cn-rollout.md` to reflect the existing Chinese routes, completed Chromium checks and limited Ubuntu download integrity verification without misrepresenting physical devices, live GA4 measurement, mainland-China access or native Chinese language review.
+- [Static GitHub Actions Push QA: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45061332052), including the added book-credit and byte-unit assertions.
+- This is **automated/source editorial consistency**, not a professional native-Simplified-Chinese proofreading signoff.
+

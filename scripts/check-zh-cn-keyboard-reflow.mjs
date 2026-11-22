@@ -85,7 +85,8 @@ try{
     verify(state.scrollWidth<=width+2,label+' unexpected full-page horizontal scroll '+state.scrollWidth);
     verify(state.interactiveCount>0,label+' no interactive controls');
     const pathResult={page:key,width,document:state,keyboard:[],tasks:[]};
-    for(let n=0;n<12;n++){
+    const forwardTabs=Math.min(12,state.interactiveCount);
+    for(let n=0;n<forwardTabs;n++){
      await page.keyboard.press('Tab');
      const focus=await focusState(page);
      pathResult.keyboard.push(focus);
@@ -98,7 +99,8 @@ try{
        rect.bottom>=-2 && rect.top<=860+2,
        label+' Tab '+(n+1)+' target not reachable in viewport: '+JSON.stringify(focus));
     }
-    for(let n=0;n<4;n++){
+    const reverseTabs=Math.min(4,Math.max(0,forwardTabs-1));
+    for(let n=0;n<reverseTabs;n++){
      await page.keyboard.press('Shift+Tab');
      const focus=await focusState(page);
      verify(focus.focusVisible && !['BODY','HTML',''].includes(focus.element),
@@ -113,13 +115,21 @@ try{
        label+' open dialog did not receive focus');
      for(let n=0;n<8;n++){
       await page.keyboard.press('Tab');
-      verify(await page.evaluate(()=>document.querySelector('dialog[open]')?.contains(document.activeElement)),
-        label+' Tab escaped modal dialog on step '+n);
+      const inside=await page.evaluate(()=>{
+       const dialog=document.querySelector('dialog[open]');
+       return {ok:!!dialog&&(document.activeElement===dialog||dialog.contains(document.activeElement)),
+         active:document.activeElement?.outerHTML?.slice(0,280)||'',tag:document.activeElement?.tagName};
+     });
+     verify(inside.ok,label+' Tab escaped modal dialog on step '+n+': '+JSON.stringify(inside));
      }
      for(let n=0;n<8;n++){
       await page.keyboard.press('Shift+Tab');
-      verify(await page.evaluate(()=>document.querySelector('dialog[open]')?.contains(document.activeElement)),
-        label+' Shift+Tab escaped modal dialog on step '+n);
+      const inside=await page.evaluate(()=>{
+        const dialog=document.querySelector('dialog[open]');
+        return {ok:!!dialog&&(document.activeElement===dialog||dialog.contains(document.activeElement)),
+          active:document.activeElement?.outerHTML?.slice(0,280)||'',tag:document.activeElement?.tagName};
+      });
+      verify(inside.ok,label+' Shift+Tab escaped modal dialog on step '+n+': '+JSON.stringify(inside));
      }
      await page.keyboard.press('Escape');
      verify(await page.locator('dialog[open]').count()===0,label+' Escape did not close dialog');
@@ -148,7 +158,7 @@ try{
      pathResult.tasks.push('MIDI filter via Space; empty-library filter via Enter');
     }
     results.push(pathResult);
-    console.log(label+': 12 forward Tabs + 4 reverse Tabs, 320px reflow '+(state.scrollWidth<=width+2?'PASS':'FAIL'));
+    console.log(label+': '+forwardTabs+' forward Tabs + '+reverseTabs+' reverse Tabs, 320px reflow '+(state.scrollWidth<=width+2?'PASS':'FAIL'));
    }catch(e){
     failures.push(label+' test execution failed: '+(e.stack||e.message));
    }

@@ -1,0 +1,63 @@
+name: Simplified Chinese automated accessibility audit
+
+on:
+  push:
+    branches: [feature/zh-cn-studio-subpages-20261123]
+    paths:
+      - 'studio/**'
+      - 'catalog/**'
+      - 'records/**'
+      - 'utilities/**'
+      - 'goods/**'
+      - 'about/**'
+      - 'quality/**'
+      - 'support/**'
+      - 'index.html'
+      - 'home-i18n.js'
+      - 'site-sections-i18n.js'
+      - 'scripts/check-zh-cn-accessibility.mjs'
+      - '.github/workflows/check-zh-cn-accessibility.yml'
+  pull_request:
+    branches: [feature/zh-cn-studio-20261123]
+    paths:
+      - 'studio/**'
+      - 'catalog/**'
+      - 'records/**'
+      - 'utilities/**'
+      - 'goods/**'
+      - 'about/**'
+      - 'quality/**'
+      - 'support/**'
+      - 'index.html'
+      - 'scripts/check-zh-cn-accessibility.mjs'
+      - '.github/workflows/check-zh-cn-accessibility.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  axe-chromium:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout candidate branch
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Chromium and axe-core
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Scan 12 Chinese pages in desktop and mobile Chromium
+        run: node scripts/check-zh-cn-accessibility.mjs
+      - name: Preserve axe findings from passed or failed scans
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zh-cn-axe-findings-${{ github.run_id }}
+          path: artifacts/zh-cn-accessibility/
+          retention-days: 14
+          if-no-files-found: warn

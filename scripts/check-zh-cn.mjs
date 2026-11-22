@@ -150,10 +150,10 @@ assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/studio/o
 
 // All currently published Audio card artwork needs a meaningful Chinese alt
 // description, even when product/parameter names remain in English.
-const chineseCardAlts=[...zh.matchAll(/<img\\b[^>]*class="shot"[^>]*alt="([^"]+)"[^>]*>/g)].map(match=>match[1]);
+const chineseCardAlts=[...zh.matchAll(/<img\b[^>]*class="shot"[^>]*alt="([^"]+)"[^>]*>/g)].map(match=>match[1]);
 assert.equal(chineseCardAlts.length,34,'Missing Chinese Audio product artwork alt attributes');
 for(const [i,alt] of chineseCardAlts.entries()){
-  assert.ok(/[\\u3400-\\u9fff]/u.test(alt),
+  assert.ok(/[\u3400-\u9fff]/u.test(alt),
     'English-only artwork description on Chinese Audio card '+(i+1)+': '+alt);
 }
 assert.ok(chineseCardAlts.some(alt=>alt.includes('Nyan BuildUp 单旋钮渐强、上升音效与转场')),

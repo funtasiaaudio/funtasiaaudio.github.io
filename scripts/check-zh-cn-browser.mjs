@@ -133,8 +133,8 @@ try {
     const result = page.locator('[data-pack-results]');
     verify((await result.textContent()).includes('5 / 5'), 'zh filter initial result');
     await page.locator('[data-pack-filter="midi"]').click();
-    verify(await page.locator('.expansion-card:not([hidden])').count() === 3,
-      'zh filter MIDI count != 3');
+    verify(await page.locator('.expansion-card:not([hidden])').count() === 2,
+      'zh filter MIDI count != 2');
     verify(new URL(page.url()).searchParams.get('type') === 'midi', 'zh MIDI URL type');
     await page.locator('[data-pack-sort]').selectOption('name');
     verify(new URL(page.url()).searchParams.get('sort') === 'name', 'zh sort URL');

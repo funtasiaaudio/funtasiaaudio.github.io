@@ -99,3 +99,13 @@ The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt 
 - [Static GitHub Actions Push QA: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45061332052), including the added book-credit and byte-unit assertions.
 - This is **automated/source editorial consistency**, not a professional native-Simplified-Chinese proofreading signoff.
 
+
+## Automated accessibility audit — 2026-11-23 JST
+
+- Added `scripts/check-zh-cn-accessibility.mjs` and `.github/workflows/check-zh-cn-accessibility.yml`, running **axe-core 4.10.3 inside real Chromium** in the staged review branch.
+- Static/default view coverage: **12 Chinese/shared entry pages × two viewport widths (1440px desktop and 390px mobile) = 24 scans**, checking tagged WCAG **2.0, 2.1 and 2.2 Level A/AA** automated rules.
+- Dynamic UI coverage: Audio product details dialog (open), Audio Effects filter, and Studio expansion MIDI pack filter at both widths = **six additional state scans**. Total **30 automated scans**, all with **zero detected violations and zero affected elements**.
+- [Push accessibility audit PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45061823167); [initial 24-scan baseline PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45061689350).
+- [Full 30-scan axe result JSON artifact](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45061823167/artifacts/14769389363), including per-page rules and incompletely evaluated groups, retained temporarily under the GitHub Actions artifact policy.
+- **Scope boundary:** automated axe checks with zero violations **do not certify WCAG conformance**. The scanner reported some `incomplete` rule groups for human inspection. Physical keyboard-only navigation, NVDA/VoiceOver spoken output, zoom/reflow, contrast edge cases, touch target behavior and actual device/browser differences remain manual acceptance checks. Offsite Google tracking and external content were blocked in the local Chromium audit.
+

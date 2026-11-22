@@ -1,0 +1,50 @@
+{
+  "schema": "funtasia-studio-expansion-release-pins-v1",
+  "verifiedAt": "2026-11-23 JST",
+  "source": "official GitHub Releases API release asset size/digest",
+  "packs": [
+    {
+      "key": "wavelace",
+      "repo": "The-Wavelace-Kawaii-Wavetable-Vol1",
+      "tag": "v1.0.0",
+      "zip": "Kawaii_Wavetable_Vol1.zip",
+      "bytes": 61179905,
+      "sha256": "b5d7cc2352d8b2f2b17b2f23b139051398edfbb972e6df3413f50900433a8290",
+      "license": "LICENSE.txt"
+    },
+    {
+      "key": "orchestral",
+      "repo": "fun-orchestral-percussion-vol-1",
+      "tag": "v1.0.0",
+      "zip": "FUN.Orchestral.Percussion.Vol.1.zip",
+      "bytes": 650597565,
+      "sha256": "6a633d2415b1837cdcdc598155f577307e4505d232657cbb6462081666e4ca99",
+      "license": "FUN_Orchestral_Percussion_Vol1_LICENSE.txt"
+    },
+    {
+      "key": "nyan8bit",
+      "repo": "nyan-8bit-drum-kit-vol-1",
+      "tag": "v1.0.0",
+      "zip": "Nyan_8bit_Drum_Kit_Vol_1.zip",
+      "bytes": 594270,
+      "sha256": "a3b157ac89419044a6d0a481d8060a5d76a1c6817fc4cffc27c5fae9c61f858b",
+      "license": "LICENSE.txt"
+    },
+    {
+      "key": "epicmetal",
+      "repo": "FUNtasia-Studio-Expansion-Packs",
+      "tag": "FEM01-v1.0.0",
+      "zip": "FUN_Epic_Metal_Drums_Vol01_v1.0.0_Free.zip",
+      "bytes": 3608882,
+      "sha256": "2b998057bb17a455f966f14e372aef3acb2038baef84fdd8ee6b7d33ff130c89"
+    },
+    {
+      "key": "folk",
+      "repo": "fun-fantasy-folk-drums-midi-pack",
+      "tag": "v1.0.0",
+      "zip": "FUN_Fantasy_Folk_Drums_MIDI_Pack_v1.0.0.zip",
+      "bytes": 3507170,
+      "sha256": "ac111054ea450145ed13931d4272b4c49de8aa4c1b4312fa8d7e100a0b6b8ff3"
+    }
+  ]
+}

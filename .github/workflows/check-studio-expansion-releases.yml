@@ -1,0 +1,43 @@
+name: Studio expansion official release integrity
+
+on:
+  push:
+    branches: [feature/zh-cn-studio-subpages-20261123]
+    paths:
+      - 'studio/official/expansions/**'
+      - 'scripts/check-studio-expansion-release-metadata.mjs'
+      - 'scripts/check-studio-expansion-downloads.sh'
+      - 'docs/studio-expansion-release-pins.json'
+      - '.github/workflows/check-studio-expansion-releases.yml'
+  pull_request:
+    branches: [feature/zh-cn-studio-20261123]
+    paths:
+      - 'studio/official/expansions/**'
+      - 'scripts/check-studio-expansion-release-metadata.mjs'
+      - 'scripts/check-studio-expansion-downloads.sh'
+      - 'docs/studio-expansion-release-pins.json'
+      - '.github/workflows/check-studio-expansion-releases.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verified-releases:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Checkout candidate source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check all five ZIP links and source license links in EN/JA/zh-CN
+        run: node scripts/check-studio-expansion-release-metadata.mjs
+      - name: Verify five official Release assets with GitHub API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/check-studio-expansion-release-metadata.mjs --remote
+      - name: Fetch four small or medium ZIPs and verify bytes, SHA-256 and ZIP CRC
+        run: bash scripts/check-studio-expansion-downloads.sh

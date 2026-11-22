@@ -50,6 +50,11 @@ assert.deepEqual(attribution(cnStudy), attribution(enStudy),
 // which is about 3.61 decimal MB / 3.44 binary MiB.
 assert.ok(cnExpansion.includes('约 3.61 MB，约 3.44 MiB'),
   'FEM01 display units should distinguish decimal MB from binary MiB');
+assert.ok(enExpansion.includes('approx. 3.61 MB / 3.44 MiB'), 'English FEM01 ZIP size inconsistent');
+assert.ok(jaExpansion.includes('約3.61 MB／約3.44 MiB'), 'Japanese FEM01 ZIP size inconsistent');
+assert.ok(cnExpansion.includes('ZIP 约 594 KB'), 'Nyan 8bit ZIP size missing');
+assert.ok(cnExpansion.includes('ZIP 约 3.51 MB'), 'Fantasy Folk ZIP size missing');
+
 
 assert.ok(cnStudy.includes('在和声学与对位法的学习中'));
 assert.ok(cnExpansion.includes('独立素材重新分发'));

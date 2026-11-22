@@ -21,9 +21,12 @@ const releaseLinks = html => links(html).filter(u =>
 assert.equal((zh.match(/class="card" data-version=/g) || []).length + 
   (zh.match(/id="funtasia-free-collection" class="card"/g) || []).length +
   (zh.match(/id="nyan-buildup" class="card"/g) || []).length, 33,
-  'Expected 33 products');
+  'Expected 34 products');
 assert.deepEqual(releaseLinks(zh), releaseLinks(en),
   'Download and product image links differ from English catalog');
+assert.ok(zh.includes('data-product-key="fun-plate"'), 'FUN Plate card missing');
+assert.ok(zh.includes('FUNtasia.Free.Collection.1.1.0.zip'), 'Free Collection version stale');
+assert.ok(zh.includes('../product-plate.js?v=20261122-plate-free-100'), 'FUN Plate details missing');
 assert.ok(zh.includes('<html lang="zh-CN">'));
 assert.ok(zh.includes('https://funtasiaaudio.github.io/catalog/zh-cn/'));
 assert.ok(zh.includes('GTM-M88BK887'));
@@ -40,7 +43,7 @@ for (const lang of ['ja','en','de','fr','ru','zh-cn']) {
 }
 
 const productKeys=[...source.matchAll(/^\s+"([a-z0-9-]+)": \{/gm)].map(m=>m[1]);
-assert.equal(productKeys.length, 33, 'Every catalog product needs a zh-CN translation');
+assert.equal(productKeys.length, 34, 'Every catalog product needs a zh-CN translation');
 for(const path of ['home-i18n.js','catalog/catalog.js','catalog/product-zh-cn.js']) {
   const check = spawnSync(process.execPath, ['--check', path], {encoding: 'utf8'});
   assert.equal(check.status, 0, `JavaScript syntax error in ${path}: ${check.stderr}`);

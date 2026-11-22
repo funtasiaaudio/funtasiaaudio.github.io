@@ -9,7 +9,15 @@
     "summary": "FUNtasia Free Collection 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
     "paras": [
       "FUNtasia Free Collection 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
-      "v1.0.9 新增 Nyan BuildUp；各插件保留自己的版本号。下载 ZIP 后，请按插件类型将 VST3 安装到 Windows 的插件目录。"
+      "v1.1.0 新增 FUN Plate FREE v1.0.0；各插件仍保留各自的版本号。下载 ZIP 后，请按插件类型将 VST3 安装到 Windows 的插件目录。"
+    ]
+  },
+  "fun-plate": {
+    "summary": "FUN Plate FREE 是一款免费的 Windows 64-bit VST3 经典板式混响效果器，包含独立 Chorus 调制模块。",
+    "paras": [
+      "FUN Plate FREE v1.0.0 使用 FUN Plate Pro 的 CLASSIC 混响引擎，专注于经典板式混响音色；不包含 Pro 版本中的 MODERN、MODAL、PHYSICAL 引擎及 Organic、Pink 调制模式。",
+      "可以调整 Decay、Bandwidth、Damping 和 Dry/Wet Mix。独立的 Chorus 模块支持 1–7 Voices、Rate 0.05–2 Hz、Depth 0–5 ms、Stereo Width 0–200%，可切换开启或关闭。",
+      "提供 24 个出厂预设、搜索与收藏、A/B 对比、Undo/Redo、输出电平表、Mono Check、Wet Solo、可调整大小的界面及九种配色主题。"
     ]
   },
   "nyan-buildup": {

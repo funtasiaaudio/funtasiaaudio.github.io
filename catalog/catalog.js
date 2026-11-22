@@ -207,7 +207,7 @@ renderGenres();filter();
 if (localeFilter === 'zh-CN') {
   document.addEventListener('click', (event) => {
     const anchor = event.target.closest?.('a.mini-btn[href]');
-    if (!anchor || anchor.textContent.trim() !== '下载') return;
+    if (!anchor || !/\/releases\/download\/|\.zip(?:[?#]|$)/i.test(anchor.href)) return;
     const product = anchor.closest('[data-product-name]');
     if (!product) return;
     window.dataLayer = window.dataLayer || [];

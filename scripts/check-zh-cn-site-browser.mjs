@@ -204,7 +204,9 @@ try {
           const target=localizedNav.locator('a[href="'+href+'"]');
           if(key==='about'&&caption==='周边')continue; // About header omits Goods by design.
           if(key==='support'&&caption==='支持')continue; // Support is the current page.
-          verify(await target.count()===1&&((await target.innerText()).trim()===caption),
+          // The shared CSS may visually uppercase the Studio brand; compare source text,
+          // not the rendered text-transform result from innerText().
+          verify(await target.count()===1&&((await target.textContent()).trim()===caption),
             label+' mismatched Chinese nav caption/route '+caption);
         }
         verify(await page.locator('footer .footer-links').getAttribute('aria-label')==='页脚导航',

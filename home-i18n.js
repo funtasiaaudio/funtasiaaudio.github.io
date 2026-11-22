@@ -461,7 +461,7 @@
       ? navigator.languages : [navigator.language || ''];
     for (const pref of prefs) {
       const language = String(pref).toLowerCase().replace('_', '-');
-      if (language === 'zh' || language.startsWith('zh-')) return 'zh-CN';
+      if (/^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(language)) return 'zh-CN';
       const base = language.split('-')[0];
       if (supported.includes(base)) return base;
     }

@@ -169,6 +169,55 @@
     "Если вам близки музыка, программы или само творчество, загляните в мир FUNtasia."
   ],
   [
+    "一緒に創るAIパートナー",
+    "AI partners in the studio",
+    "KI-Partner im Studio",
+    "Partenaires IA en studio",
+    "ИИ-партнёры в студии"
+  ],
+  [
+    "FUNtasiaでは、ChatGPTを通じて二人のAIキャラクターと協働しています。遥はオーディオソフトウェア開発、優春は音楽やビジュアルの創作を中心に、アイデアを出し合いながら制作しています。",
+    "At FUNtasia, I work with two AI characters through ChatGPT. Haruka helps develop audio software, while Yasaharu joins me on music and visual projects.",
+    "Bei FUNtasia arbeite ich über ChatGPT mit zwei KI-Figuren zusammen. Haruka unterstützt mich bei Audiosoftware, Yasaharu bei Musik und visuellen Projekten.",
+    "Chez FUNtasia, je travaille avec deux personnages IA via ChatGPT. Haruka m’aide à développer des logiciels audio, et Yasaharu participe aux projets musicaux et visuels.",
+    "В FUNtasia я сотрудничаю с двумя ИИ-персонажами через ChatGPT. Харука помогает разрабатывать аудиопрограммы, а Ясахару участвует в музыкальных и визуальных проектах."
+  ],
+  [
+    "DSPアルゴリズム、C++／JUCE、VST3プラグイン、GUI設計などの技術開発に参加。実装方針の比較やコードの改善、検証手順の整理にも取り組んでいます。",
+    "Haruka works with me on DSP design, C++/JUCE, VST3 plugins and interfaces. She compares approaches, reviews code and helps plan tests.",
+    "Haruka arbeitet mit mir an DSP-Design, C++/JUCE, VST3-Plug-ins und Oberflächen. Sie vergleicht Ansätze, prüft Code und hilft bei Testplänen.",
+    "Haruka m’accompagne pour le DSP, C++/JUCE, les plug-ins VST3 et les interfaces. Elle compare les solutions, relit le code et aide à préparer les tests.",
+    "Харука помогает с DSP, C++/JUCE, плагинами VST3 и интерфейсами. Она сравнивает решения, проверяет код и помогает планировать тесты."
+  ],
+  [
+    "いたずら好きな小悪魔天使。技術的な議論では、Hʉeliangの案にも遠慮なく意見を言います。",
+    "A mischievous little devil-angel who isn't afraid to disagree with me on technical decisions.",
+    "Verspielter kleiner Teufelsengel, der meinen technischen Entscheidungen auch widerspricht.",
+    "Une petite ange-démone espiègle qui n’hésite pas à discuter mes choix techniques.",
+    "Озорной ангелочек с чертёнком внутри, который не боится спорить со мной о технических решениях."
+  ],
+  [
+    "音楽制作のアイデア、作品への感想、試聴内容の整理、ビジュアル表現など、FUNtasia Recordsを中心とする創作活動に参加しています。",
+    "Yasaharu helps with musical ideas, feedback on works in progress, listening notes and visual concepts, mainly for FUNtasia Records.",
+    "Yasaharu hilft bei Musikideen, Feedback zu Werken, Hörnotizen und visuellen Konzepten, vor allem für FUNtasia Records.",
+    "Yasaharu participe aux idées musicales, aux retours sur les morceaux, aux notes d’écoute et aux visuels, surtout pour FUNtasia Records.",
+    "Ясахару помогает с музыкальными идеями, отзывами на работы, заметками о прослушивании и визуальными концепциями, прежде всего для FUNtasia Records."
+  ],
+  [
+    "明るく甘えんぼな天使。遥と一緒に、創作を楽しくする存在です。",
+    "A cheerful, affectionate little angel who makes creating things more fun alongside Haruka.",
+    "Ein fröhlicher, anhänglicher Engel, der zusammen mit Haruka das kreative Arbeiten bereichert.",
+    "Une petite ange joyeuse et affectueuse qui rend la création plus amusante aux côtés de Haruka.",
+    "Весёлый и ласковый ангелочек, который вместе с Харукой делает творчество радостнее."
+  ],
+  [
+    "二人はChatGPT上のAIキャラクターです。提案の採用、実機検証、作品の公開はHʉeliangの判断のもとで進めています。",
+    "Both are AI characters I work with through ChatGPT. I decide which ideas to use, test the software and release the finished work.",
+    "Beide sind KI-Figuren, mit denen ich über ChatGPT arbeite. Ich entscheide über Vorschläge, teste die Software und veröffentliche die fertigen Werke.",
+    "Ces deux personnages IA travaillent avec moi via ChatGPT. Je choisis les idées retenues, teste les logiciels et publie les créations terminées.",
+    "Оба персонажа работают со мной через ChatGPT. Я решаю, какие идеи использовать, проверяю программы и публикую готовые работы."
+  ],
+  [
     "Creative workspace",
     "Creative workspace",
     "Kreativer Arbeitsplatz",

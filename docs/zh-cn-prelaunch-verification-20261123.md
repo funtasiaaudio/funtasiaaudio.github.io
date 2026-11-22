@@ -52,3 +52,18 @@ The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt 
 - [GitHub Actions Push Chromium: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052180618): **508 site-wide assertions + 127 Studio assertions PASS**; [PR Chromium: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052185254).
 - [Push static checks: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052180561); [PR static checks: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052185238).
 - [Screenshot and diagnosis artifact](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052180618/artifacts/14765663801): nine Studio and 27 other-site screenshots. This is Chromium-based local deployment QA, not a real smartphone, a native Chinese editorial signoff, nor a mainland-China download/network check.
+
+## Canonical, reciprocal hreflang and Chinese support navigation — 2026-11-23 JST
+
+- Fixed the Chinese About/Support header, body and footer links to their intended Simplified Chinese destinations for Audio, Studio, Records, Utilities and Goods. Removed outdated "(English)" annotations where the destination now has Chinese content.
+- Added visible JA/zh-CN language switching on Japanese and Chinese Support pages; reciprocal canonical-language alternates on Japanese About/Support; existing localized About language controls retained.
+- Audited `catalog/zh-cn/fun-monofilter.html`: its five non-Chinese counterpart pages lacked reciprocal language alternates. Added all six declared alternate language tags to each JA/EN/DE/FR/RU counterpart **without changing their legacy release links, manuals or page text**.
+- Added `scripts/check-zh-cn-seo.mjs` to CI. It verifies exactly one self-canonical, page language, meta description, one H1, sitemap entry, self hreflang, alternate target existence and reciprocity. **PASS: nine Chinese pages, 37 reciprocal language links**.
+- Extended Chromium QA with Chinese About/Support cross-division navigation clicks and the Japanese ↔ Chinese Support switch. **PASS: 559 site-wide assertions + 127 Studio assertions**.
+- [Push static QA PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052698586), [PR static QA PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052704409).
+- [Push Chromium PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052698577), [PR Chromium PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052704495).
+- [36 screenshots and diagnostic JSON](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45052698577/artifacts/14766093246) (GitHub Actions artifact with limited retention).
+
+**Content-review note:** The older JA/EN/DE/FR/RU standalone FUN MonoFilter detail pages describe v1.0.0 while the Chinese standalone page describes v1.1.0. This rollout did not silently change existing translations' product/release/manual versions. Version/content parity remains an item for editorial/product owner review.
+
+**Publication gates remain unchanged:** native Simplified Chinese editorial approval, real phone/tablet and assistive-technology checks, actual end-to-end download integrity, target-region connectivity from mainland China, GTM/GA4 event validation and explicit approval before merging into production `main`. Passing desktop Chromium QA does not establish these external conditions.

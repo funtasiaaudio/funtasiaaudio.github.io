@@ -1,0 +1,36 @@
+# FUNtasia zh-CN — Prelaunch verification record (2026-11-23 JST)
+
+All changes remain in review branches / Draft PRs. This is a report of the checks below, **not** a claim of production availability or a completed mainland-China user download.
+
+## Automated coverage
+- Chinese website static QA: 34 Audio catalog product entries; release/image parity against existing English Audio catalog.
+- Records, Utilities and Goods translation checks, including Utilities/Goods language-switch DOM harness.
+- Studio landing-page link and beta-information checks; Chinese expansion and composition-study checks.
+- New site-local URL and accessibility smoke test: 13 page entry points, internal image/file paths, same-page fragment IDs, Chinese language metadata and image alt attributes. CI result for commit `733e988c`: GitHub Actions PASS on push and pull request.
+- Expansion-filter runtime test: category selection, result counts, A–Z and featured sorting, URL state/Back handling, zero-results state and JA/EN fallback (run in simulated DOM, not a real browser).
+
+## GitHub release metadata (verified against official release asset records)
+| Product | Release | Exact published ZIP asset | Asset size |
+|---|---|---|---|
+| FUNtasia Studio | v1.3.0beta | FUNtasia.Studio.1.3.0beta.zip | 54,287,632 bytes |
+| Kawaii Wavetable Vol.1 | v1.0.0 | Kawaii_Wavetable_Vol1.zip | 61,179,905 bytes |
+| FUN Orchestral Percussion Vol.1 | v1.0.0 | FUN.Orchestral.Percussion.Vol.1.zip | 650,597,565 bytes |
+| Nyan 8bit Drum Kit Vol.1 | v1.0.0 | Nyan_8bit_Drum_Kit_Vol_1.zip | 594,270 bytes |
+| FUN Epic Metal Drums Vol.1 | FEM01-v1.0.0 | FUN_Epic_Metal_Drums_Vol01_v1.0.0_Free.zip | 3,608,882 bytes |
+| FUN Fantasy Folk Drums MIDI Pack | v1.0.0 | FUN_Fantasy_Folk_Drums_MIDI_Pack_v1.0.0.zip | 3,507,170 bytes |
+
+The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt assets also match the release records. The HTML points to the exact browser_download_url values, where applicable. This verifies **published metadata and filename/URL parity**, not transfer completion.
+
+## Legacy Pages project
+- The legacy path `/funtasia-audio/` is served by the separate repository `funtasiaaudio/funtasia-audio`, not the main website repository.
+- The four checked pages (home, Chinese Audio catalog, Utilities and Goods) contain **28 direct legacy-project references**; the linked image files exist in the legacy repository.
+- The nine Chinese catalog links targeting `/funtasia-audio/#...` correspond to existing element IDs in the legacy homepage.
+- The URL checker reports legacy-project references separately instead of falsely flagging them as absent local files.
+
+## Remaining release gates
+1. Native Chinese editorial and terminology review, especially product/license wording.
+2. Real desktop/mobile viewport, language-selection, keyboard and screen-reader checks.
+3. Actual ZIP/PDF transfers, download integrity, cross-border network access from mainland China, and linked pages in the target region.
+4. GTM Custom Event and GA4 tag/parameter configuration and consent-aware event QA.
+5. Final explicit approval to merge the rollout into production `main`.
+

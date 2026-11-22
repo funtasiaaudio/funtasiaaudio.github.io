@@ -21,6 +21,7 @@ on:
       - 'scripts/check-zh-cn.mjs'
       - 'scripts/check-zh-cn-studio-subpages.mjs'
       - 'scripts/check-zh-cn-links.mjs'
+      - 'scripts/check-zh-cn-expansion-runtime.mjs'
       - '.github/workflows/check-zh-cn.yml'
   workflow_dispatch:
 
@@ -42,3 +43,4 @@ jobs:
           node scripts/check-zh-cn.mjs
           node scripts/check-zh-cn-studio-subpages.mjs
           node scripts/check-zh-cn-links.mjs
+          node scripts/check-zh-cn-expansion-runtime.mjs

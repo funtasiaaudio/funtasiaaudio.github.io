@@ -187,6 +187,64 @@ try {
     }
     await context.close();
   }
+
+  // Browser-language and query alias matrix: Simplified and Traditional must not be conflated.
+  const localeCases = [
+    ['zh', 'zh-CN'], ['zh-CN', 'zh-CN'],
+    ['zh-Hans', 'zh-CN'], ['zh-SG', 'zh-CN'],
+    ['zh-TW', 'en'], ['zh-HK', 'en'], ['zh-Hant', 'en']
+  ];
+  for(const [browserTag, expected] of localeCases){
+    const context=await browser.newContext({viewport:{width:1024,height:768},locale:'en-US'});
+    await context.addInitScript(tag => {
+      Object.defineProperty(navigator,'language',{configurable:true,get:()=>tag});
+      Object.defineProperty(navigator,'languages',{configurable:true,get:()=>[tag]});
+    }, browserTag);
+    await context.route('**/*',route=>route.request().url().startsWith(origin+'/')
+      ?route.continue():route.fulfill({status:204,body:''}));
+    const page=await context.newPage();
+    for(const [route,subject] of [['/','home'],['/utilities/','utilities'],['/goods/','goods']]){
+      await page.goto(origin+route,{waitUntil:'load'});
+      const actual=await page.locator('html').getAttribute('lang');
+      verify(actual===expected,'browser '+browserTag+' '+subject+' expected '+expected+', got '+actual);
+    }
+    await page.goto(origin+'/studio/',{waitUntil:'domcontentloaded'});
+    const studioTarget=expected==='zh-CN'?'/studio/official/zh-cn/':'/studio/official/';
+    await page.waitForURL(url=>url.pathname===studioTarget,{timeout:8000});
+    verify(new URL(page.url()).pathname===studioTarget,
+      'browser '+browserTag+' Studio router expected '+studioTarget);
+    await context.close();
+  }
+  // Explicit language aliases should override the browser's unrelated English preference.
+  const aliasContext=await browser.newContext({locale:'en-US',viewport:{width:1024,height:768}});
+  const aliasPage=await aliasContext.newPage();
+  for(const alias of ['zh','zh-CN','zh-Hans','zh-SG']){
+    await aliasPage.goto(origin+'/studio/?lang='+encodeURIComponent(alias),
+      {waitUntil:'domcontentloaded'});
+    await aliasPage.waitForURL(url=>url.pathname==='/studio/official/zh-cn/',{timeout:8000});
+    verify(new URL(aliasPage.url()).pathname==='/studio/official/zh-cn/',
+      'explicit Studio locale '+alias+' did not resolve to zh-CN');
+  }
+  // Keyboard-only opening and dismissal of the product detail dialog.
+  await aliasPage.goto(origin+'/catalog/zh-cn/',{waitUntil:'load'});
+  const firstDetails=aliasPage.locator('button.detail-btn').first();
+  await firstDetails.focus();
+  verify(await firstDetails.evaluate(el=>document.activeElement===el),
+    'product details control cannot be focused');
+  await aliasPage.keyboard.press('Enter');
+  const activeDialog=aliasPage.locator('dialog[open]');
+  verify(await activeDialog.count()===1,'Enter did not open product details dialog');
+  verify(await activeDialog.evaluate(el=>el.contains(document.activeElement)),
+    'keyboard focus did not move inside open dialog');
+  await aliasPage.keyboard.press('Escape');
+  verify(await activeDialog.count()===0,'Escape did not close keyboard-opened dialog');
+  const legacyAlts=await aliasPage.locator('img[alt]').evaluateAll(images=>
+    images.map(img=>img.getAttribute('alt')||'')
+      .filter(alt=>/\b(?:artwork|concept artwork|plugin panels|thumbnail|3D product render)\b/i.test(alt))
+  );
+  verify(legacyAlts.length===0,'Chinese catalog has untranslated image descriptions: '+legacyAlts.join('; '));
+  await aliasContext.close();
+
 } catch(error) {
   failures.push('Uncaught browser test error: '+(error.stack||error.message));
 } finally {

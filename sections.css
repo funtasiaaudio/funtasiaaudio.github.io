@@ -95,3 +95,15 @@ body{background:var(--bg);color:var(--text)}.top{background:#101a19;border-botto
 .gear-tools{margin:0}
 @media(max-width:700px){.gear-grid{grid-template-columns:1fr;gap:14px}.gear-panel{padding:22px}.gear-section{padding:34px 0 52px}}
 @media(max-width:390px){.gear-plugins{grid-template-columns:1fr}}
+
+/* About / AI partners: portrait sprites use the official v0.3 transparent art. */
+.ai-partner-grid{align-items:stretch;margin-bottom:24px}
+.ai-partner-card{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0;overflow:hidden}
+.ai-partner-art{flex:none;width:172px;height:328px;background-image:url("assets/haruka-yasaharu-about-v03.webp");background-size:344px 328px;background-repeat:no-repeat;background-position:0 0}
+.ai-partner-art--yasaharu{background-position:-172px 0}
+.ai-partner-text{width:100%;min-width:0}
+.ai-partner-text .eyebrow{font-size:.65rem;letter-spacing:.09em;overflow-wrap:anywhere}
+.ai-partner-text h2{margin:6px 0 12px}
+.ai-partner-text p{line-height:1.85}
+.ai-partner-text p+p{margin-top:12px}
+@media(max-width:650px){.ai-partner-grid{grid-template-columns:1fr}.ai-partner-card{padding:20px;gap:10px}}

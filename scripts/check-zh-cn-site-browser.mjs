@@ -169,6 +169,39 @@ try {
         verify((await nav.locator('a[href*="utilities/?lang=zh-CN"]').count())>0,label+' Chinese Utilities nav');
         verify((await nav.locator('a[href*="goods/?lang=zh-CN"]').count())>0,label+' Chinese Goods nav');
       }
+      if(key==='about'||key==='support'){
+        const nav=page.locator('header .site-nav');
+        for(const fragment of [
+          '/catalog/zh-cn/','/studio/official/zh-cn/',
+          '/utilities/?lang=zh-CN','/records/zh-cn/',
+        ]){
+          verify(await nav.locator('a[href*="'+fragment+'"]').count()>0,
+            label+' missing Chinese navigation to '+fragment);
+        }
+        verify(await page.locator('a[href="../../records/zh-cn/"]').count()>0,
+          label+' Chinese Records link not reachable');
+        const recordsLink=nav.locator('a[href="../../records/zh-cn/"]').first();
+        await recordsLink.click();
+        verify(new URL(page.url()).pathname==='/records/zh-cn/',
+          label+' clicking Chinese Records nav unexpectedly changed locale');
+        await page.goBack({waitUntil:'load'});
+        if(key==='about'){
+          verify(await page.locator('main').innerText().then(t=>!t.includes('（英文）')),
+            label+' stale English-label disclosure in translated About');
+        }
+        if(key==='support'){
+          const jaLink=page.locator('.section-language-switch a[href="../"]');
+          verify(await jaLink.count()===1,label+' missing Japanese Support language switch');
+          await jaLink.click();
+          verify(new URL(page.url()).pathname==='/support/',
+            label+' Support Japanese language navigation failed');
+          const zhLink=page.locator('.section-language-switch a[href="zh-cn/"]');
+          verify(await zhLink.count()===1,label+' missing return Chinese Support link');
+          await zhLink.click();
+          verify(new URL(page.url()).pathname==='/support/zh-cn/',
+            label+' Support Chinese language return failed');
+        }
+      }
       if(key==='monofilter'){
         verify((await page.locator('main > p').first().textContent()).includes('低频'),
           label+' Chinese intro was not translated');

@@ -148,6 +148,21 @@ for (const path of ['studio/official/index.html','studio/official/ja/index.html'
 assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/studio/official/zh-cn/'), 'Studio sitemap missing');
 
 
+// All currently published Audio card artwork needs a meaningful Chinese alt
+// description, even when product/parameter names remain in English.
+const chineseCardAlts=[...zh.matchAll(/<img\\b[^>]*class="shot"[^>]*alt="([^"]+)"[^>]*>/g)].map(match=>match[1]);
+assert.equal(chineseCardAlts.length,34,'Missing Chinese Audio product artwork alt attributes');
+for(const [i,alt] of chineseCardAlts.entries()){
+  assert.ok(/[\\u3400-\\u9fff]/u.test(alt),
+    'English-only artwork description on Chinese Audio card '+(i+1)+': '+alt);
+}
+assert.ok(chineseCardAlts.some(alt=>alt.includes('Nyan BuildUp 单旋钮渐强、上升音效与转场')),
+ 'Nyan BuildUp visual should explain the one-knob effects in Chinese');
+assert.ok(chineseCardAlts.some(alt=>alt.includes('FUN Dynamics Pack v1.3.0 四款插件') &&
+ alt.includes('上排为 Transient Shaper 与 De-Esser') && alt.includes('下排为 Compressor 与 Gate / Expander')),
+ 'Dynamics Pack artwork should describe all four GUI panels and their positions');
+console.log('zh-CN Audio artwork accessibility: PASS (34 localized card alt descriptions)');
+
 // Product-card sharing fallback must return to the same Simplified Chinese card,
 // not silently send a reader to the legacy English Audio catalog.
 // Other sharing buttons intentionally point to official GitHub Release pages.

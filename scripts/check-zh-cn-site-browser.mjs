@@ -192,6 +192,31 @@ try {
         verify((await nav.locator('a[href*="utilities/?lang=zh-CN"]').count())>0,label+' Chinese Utilities nav');
         verify((await nav.locator('a[href*="goods/?lang=zh-CN"]').count())>0,label+' Chinese Goods nav');
       }
+      if(key==='about'||key==='support'||key==='records'){
+        const localizedNav=page.locator('header .site-nav');
+        for(const [href,caption] of [
+          ['../../catalog/zh-cn/','音频插件'],
+          ['../../studio/official/zh-cn/','Studio'],
+          ['../../utilities/?lang=zh-CN','实用工具'],
+          ['../../goods/?lang=zh-CN','周边'],
+          ['../../support/zh-cn/','支持']
+        ]){
+          const target=localizedNav.locator('a[href="'+href+'"]');
+          if(key==='about'&&caption==='周边')continue; // About header omits Goods by design.
+          if(key==='support'&&caption==='支持')continue; // Support is the current page.
+          verify(await target.count()===1&&((await target.innerText()).trim()===caption),
+            label+' mismatched Chinese nav caption/route '+caption);
+        }
+        verify(await page.locator('footer .footer-links').getAttribute('aria-label')==='页脚导航',
+          label+' footer navigation accessible name remains English');
+        if(key==='records'){
+          const studioLink=localizedNav.locator('a[href="../../studio/official/zh-cn/"]');
+          await studioLink.click();
+          verify(new URL(page.url()).pathname==='/studio/official/zh-cn/',
+            label+' Records Studio navigation lost explicit Chinese destination');
+          await page.goBack({waitUntil:'load'});
+        }
+      }
       if(key==='about'||key==='support'){
         const nav=page.locator('header .site-nav');
         for(const fragment of [

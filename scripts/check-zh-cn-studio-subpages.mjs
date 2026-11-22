@@ -38,6 +38,9 @@ assert.ok(cnStudy.includes('<html lang="zh-CN">'));
 assert.ok(cnExpansion.includes('https://funtasiaaudio.github.io/studio/official/expansions/zh-cn/'));
 assert.ok(cnStudy.includes('https://funtasiaaudio.github.io/studio/official/zh-cn/study/'));
 assert.ok(cnStudy.includes('学习说明：以下推荐书籍均为日语出版物'));
+assert.ok(cnStudy.includes('书名、作者及出版方等署名信息保留日文原文'),
+  'Chinese study notice should explain preserved original-language bibliography');
+assert.ok(!cnStudy.includes('著者名'), 'Japanese terminology remains in the Chinese editorial notice');
 
 // Preserve original Japanese bibliographic attribution, including exact author,
 // publisher, and circle names, as explicitly promised by the Chinese reading guide.
@@ -59,6 +62,10 @@ assert.ok(cnExpansion.includes('ZIP 约 3.51 MB'), 'Fantasy Folk ZIP size missin
 assert.ok(cnStudy.includes('在和声学与对位法的学习中'));
 assert.ok(cnExpansion.includes('独立素材重新分发'));
 assert.ok(cnExpansion.includes('CC0 1.0'));
+assert.ok(cnExpansion.includes('FUN_Orchestral_Percussion_Vol1_LICENSE.txt">官方许可文件</a>'),
+  'Chinese Orchestral license label should not suggest a different release filename');
+assert.ok(!cnExpansion.includes('FUN_Orchestral_Percussion_Vol1_LICENSE.txt">LICENSE.txt</a>'),
+  'Chinese Orchestral license display must not misname the official release asset');
 assert.ok(cnExpansion.includes('MIDI 速度说明'));
 assert.ok(cnExpansion.includes('不包含 VST3 插件本体或安装程序'));
 assert.ok(cnExpansion.includes('不得将波表文件作为独立素材库再分发或转售'),

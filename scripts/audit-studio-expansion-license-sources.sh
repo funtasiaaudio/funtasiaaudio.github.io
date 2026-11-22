@@ -56,6 +56,10 @@ for key in ['epicmetal','folk']:
         if not choices:
             print(key,'archive file sample:',allfiles[:45])
             raise SystemExit(key+': cannot find a text license file inside verified ZIP')
+        expected={'epicmetal':'FUN_Epic_Metal_Drums_Vol01_v1.0.0/LICENSE.md',
+                  'folk':'FUN_Fantasy_Folk_Drums_MIDI_Pack_v1.0.0/LICENSE.txt'}[key]
+        if expected not in choices:
+            raise SystemExit(key+': expected published '+expected+' missing from ZIP')
         docs[key]=[]
         for n in choices[:10]:
             data=z.read(n)

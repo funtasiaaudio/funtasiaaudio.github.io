@@ -61,6 +61,19 @@ assert.ok(cnExpansion.includes('独立素材重新分发'));
 assert.ok(cnExpansion.includes('CC0 1.0'));
 assert.ok(cnExpansion.includes('MIDI 速度说明'));
 assert.ok(cnExpansion.includes('不包含 VST3 插件本体或安装程序'));
+assert.ok(cnExpansion.includes('不得将波表文件作为独立素材库再分发或转售'),
+ 'Kawaii Wavetable individual file redistribution terms must not be softened');
+assert.ok(cnExpansion.includes('不得将 MIDI 文件本身作为独立素材包再分发或转售'),
+ 'Epic Metal must disclose restriction from its bundled license');
+assert.ok(cnExpansion.includes('Epic Metal ZIP 内的 <strong>LICENSE.md</strong>'),
+ 'Epic Metal license must be identified as bundled in ZIP');
+assert.ok(cnExpansion.includes('Fantasy Folk ZIP 内的 <strong>LICENSE.txt</strong>'),
+ 'Fantasy Folk license must be identified as bundled in ZIP');
+assert.ok(cnExpansion.includes('Orchestral Percussion 的原始录音采用 CC0，可再利用或再分发'),
+ 'CC0 permissions must remain distinct from proprietary packs');
+assert.ok(cnExpansion.includes('Fantasy Folk 允许在具有实质性原创内容的 DAW 工程中分享可编辑 MIDI'),
+ 'Creative work DAW sharing permission must remain visible');
+
 assert.ok(cnStudio.includes('href="../expansions/zh-cn/"'));
 assert.ok(cnStudio.includes('href="study/"'));
 assert.ok(js.includes('zh ? `显示'));

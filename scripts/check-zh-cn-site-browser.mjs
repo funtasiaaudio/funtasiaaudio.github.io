@@ -261,6 +261,80 @@ try {
     await context.close();
   }
 
+
+  // Front-end GTM dataLayer event contract: a ZIP click is an intent, not proof of download.
+  // Run with GTM remote JS blocked; only assert the site's own event payload and single firing.
+  const analyticsContext=await browser.newContext({viewport:{width:1280,height:800},locale:'zh-CN'});
+  await analyticsContext.route('**/*',route=>route.request().url().startsWith(origin+'/')
+    ?route.continue():route.fulfill({status:204,body:''}));
+  const analyticsPage=await analyticsContext.newPage();
+  await analyticsPage.goto(origin+'/catalog/zh-cn/',{waitUntil:'load'});
+  await analyticsPage.evaluate(()=>{
+    document.addEventListener('click', event=>{
+      if(event.target.closest?.('a[href]'))event.preventDefault();
+    },true);
+  });
+  const customEvents=()=>analyticsPage.evaluate(()=>
+    (window.dataLayer||[]).filter(x=>x && x.event==='funtasia_product_download_click')
+  );
+  verify(await analyticsPage.evaluate(()=>
+    (window.dataLayer||[]).filter(x=>x && x.event==='gtm.js').length)===1,
+    'Chinese Audio catalog should initialize GTM dataLayer once');
+  const downloadLinks=analyticsPage.locator('article[data-product-name] a.mini-btn[href*="/releases/download/"]');
+  verify(await downloadLinks.count()>=2,'Expected at least 2 direct public ZIP links for analytics QA');
+  const firstProduct=await downloadLinks.first().evaluate(el=>({
+    product_name:el.closest('[data-product-name]')?.dataset.productName||'',
+    product_key:el.closest('[data-product-name]')?.dataset.productKey||'',
+    download_url:el.href
+  }));
+  await downloadLinks.first().click();
+  let observed=await customEvents();
+  verify(observed.length===1,'One Chinese catalog ZIP click should create one event');
+  verify(observed[0]?.site_language==='zh-CN','GTM event language incorrect');
+  verify(observed[0]?.product_name===firstProduct.product_name && !!firstProduct.product_name,
+    'GTM event product_name missing/mismatched');
+  verify(observed[0]?.product_key===firstProduct.product_key && !!firstProduct.product_key,
+    'GTM event product_key missing/mismatched');
+  verify(observed[0]?.download_url===firstProduct.download_url &&
+    firstProduct.download_url.startsWith('https://github.com/funtasiaaudio/'),
+    'GTM event download_url incorrect');
+  verify(Object.keys(observed[0]||{}).sort().join(',')===
+    ['download_url','event','product_key','product_name','site_language'].sort().join(','),
+    'GTM event unexpectedly adds personal data or changes contract');
+
+  const manual=analyticsPage.locator('article[data-product-name] a.mini-btn[href$=".pdf"]').first();
+  verify(await manual.count()>0,'Expected a public PDF manual link');
+  if(await manual.count())await manual.click();
+  verify((await customEvents()).length===1,
+    'Manual PDF click must not be counted as a product ZIP download');
+  const detailsButton=analyticsPage.locator('button.detail-btn').first();
+  if(await detailsButton.count()){
+    await detailsButton.click();
+    verify((await customEvents()).length===1,'Opening product details must not count as download');
+    await analyticsPage.keyboard.press('Escape');
+  }
+  await downloadLinks.nth(1).click();
+  observed=await customEvents();
+  verify(observed.length===2,'Two ZIP clicks must make exactly two events');
+  verify(observed[1]?.product_name!==observed[0]?.product_name,
+    'Second download should track its own distinct product metadata');
+  await downloadLinks.first().focus();
+  await analyticsPage.keyboard.press('Enter');
+  observed=await customEvents();
+  verify(observed.length===3,'Keyboard activation of ZIP link should fire one event');
+
+  await analyticsPage.goto(origin+'/catalog/en/',{waitUntil:'load'});
+  await analyticsPage.evaluate(()=>{
+    document.addEventListener('click',event=>{
+      if(event.target.closest?.('a[href]'))event.preventDefault();
+    },true);
+  });
+  await analyticsPage.locator('article[data-product-name] a.mini-btn[href*="/releases/download/"]').first().click();
+  verify((await customEvents()).length===0,
+    'English catalog must not emit zh-CN-only custom analytics events');
+  await analyticsContext.close();
+  report.push({key:'analytics-front-end',assertions:'Chinese product ZIP click, keyboard, manual exclusion, metadata, English regression',transport:'GTM remote script intentionally blocked'});
+
   // Browser-language and query alias matrix: Simplified and Traditional must not be conflated.
   const localeCases = [
     ['zh', 'zh-CN'], ['zh-CN', 'zh-CN'],

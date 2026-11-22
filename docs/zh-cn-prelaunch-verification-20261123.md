@@ -34,3 +34,12 @@ The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt 
 4. GTM Custom Event and GA4 tag/parameter configuration and consent-aware event QA.
 5. Final explicit approval to merge the rollout into production `main`.
 
+
+## Full-site Chromium regression — 2026-11-23 JST
+
+- [Real-browser Push QA: **PASS**](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45051795461), commit `9ee702f8d4`: Studio checks **127 assertions**; multi-division site checks **471 assertions**.
+- Site-wide Chromium coverage: **9 pages × 3 viewport widths** (1440/390/320 px) = **27 screenshots**, plus 9 Studio screenshots in the same workflow.
+- Includes explicit Simplified Chinese home language switching and links to Audio, Records, Studio, Utilities and Goods; 34-card catalog search, filters, a native product detail dialog; Records, MonoFilter, About, Quality and Support; Utilities/Goods bilingual selectors; browser errors, local resources and horizontal document overflow.
+- The mobile navigation deliberately uses horizontally scrollable menus. The QA now confirms offscreen items are **reachable by scrolling** instead of incorrectly demanding that all links be simultaneously visible.
+- Corrected three real localization issues: Chinese home Studio link (formerly pointed to EN), Chinese Audio catalog links to Studio/Records/Utilities/Goods (formerly English or locale-dependent), and MonoFilter introductory paragraph that remained in English.
+- [Screenshots + inspection JSON](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45051795461/artifacts/14766290916), GitHub Actions retention 14 days. Tests serve the candidate branch on a local HTTP server and block external tracking/downloads; no mainland-China or real ZIP-transfer evidence is implied.

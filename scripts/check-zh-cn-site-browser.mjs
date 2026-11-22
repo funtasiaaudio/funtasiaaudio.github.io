@@ -79,7 +79,27 @@ try {
       const state=await page.evaluate(()=>{
         const nav=[...document.querySelectorAll('header nav a,header .nav a')]
           .filter(a=>{const r=a.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(a).display!=='none';})
-          .map(a=>{const r=a.getBoundingClientRect();return {label:a.textContent.trim().slice(0,32),left:r.left,right:r.right};});
+          .map(a=>{
+            const r=a.getBoundingClientRect();
+            let parent=a.parentElement;
+            while(parent && parent!==document.body){
+              const style=getComputedStyle(parent);
+              if(['auto','scroll'].includes(style.overflowX) && parent.scrollWidth>parent.clientWidth+2) break;
+              parent=parent.parentElement;
+            }
+            let reachable=false;
+            const scrollable=!!parent && parent!==document.body;
+            if(scrollable){
+              const old=parent.scrollLeft, pr=parent.getBoundingClientRect();
+              parent.scrollLeft=Math.max(0,Math.min(parent.scrollWidth-parent.clientWidth,
+                old+(r.right-pr.right)));
+              const shifted=a.getBoundingClientRect();
+              reachable=shifted.left>=pr.left-2 && shifted.right<=pr.right+2;
+              parent.scrollLeft=old;
+            }
+            return {label:a.textContent.trim().slice(0,32),left:r.left,right:r.right,
+              scrollable,reachable};
+          });
         const broken=[...document.images].filter(im=>im.complete&&im.naturalWidth===0 &&
           im.currentSrc.startsWith(location.origin+'/') && !new URL(im.currentSrc).pathname.startsWith('/funtasia-audio/'))
           .map(im=>im.getAttribute('src'));
@@ -97,7 +117,9 @@ try {
       verify(state.headings===1,label+' should have one h1: '+state.headings);
       verify(state.width<=viewport.width+2,label+' document overflow: '+state.width+' > '+viewport.width);
       for(const anchor of state.nav)
-        verify(anchor.left>=-2&&anchor.right<=viewport.width+2,label+' nav overflow: '+JSON.stringify(anchor));
+        verify((anchor.left>=-2&&anchor.right<=viewport.width+2) ||
+            (anchor.scrollable && anchor.reachable),
+            label+' nav not reachable in visible or scrollable menu: '+JSON.stringify(anchor));
       verify(state.broken.length===0,label+' broken local images: '+JSON.stringify(state.broken));
       verify(pageErrors.length===0,label+' JS errors: '+pageErrors.join('; '));
       verify(missing.length===0,label+' missing local resources: '+missing.join('; '));

@@ -267,6 +267,27 @@
     "Наушники"
   ],
   [
+    "Microphone",
+    "Microphone",
+    "Mikrofon",
+    "Microphone",
+    "Микрофон"
+  ],
+  [
+    "Computer Keyboard",
+    "Computer Keyboard",
+    "PC-Tastatur",
+    "Clavier d’ordinateur",
+    "Клавиатура компьютера"
+  ],
+  [
+    "Mouse",
+    "Mouse",
+    "Maus",
+    "Souris",
+    "Мышь"
+  ],
+  [
     "FAVORITE PLUGINS",
     "FAVORITE PLUGINS",
     "LIEBLINGS-PLUG-INS",

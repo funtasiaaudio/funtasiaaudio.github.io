@@ -6,6 +6,7 @@ Status: **Draft implementation — not published**. Branch: `feature/zh-cn-audio
 
 - Homepage text and developer statement: 70 translated UI/content keys + 21 support-appeal entries, selected via `?lang=zh-CN` or language menu.
 - Standalone Simplified Chinese Audio catalog: `/catalog/zh-cn/`; 34 product cards and 34 product descriptions.
+- FUNtasia Records: `/records/zh-cn/` (artists, collaboration, creator rights, support and patronage), with a six-language switch and homepage routing.
 - Chinese product detail page: `/catalog/zh-cn/fun-monofilter.html`, with current catalog-linked v1.1.0 ZIP.
 - Quality Assurance: `/quality/zh-cn/`; About: `/about/zh-cn/`; Support: `/support/zh-cn/`.
 - Language navigation, reciprocal catalog/QA hreflang, Chinese sitemap entries and existing GTM installation.

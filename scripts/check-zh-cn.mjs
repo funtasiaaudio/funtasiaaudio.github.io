@@ -48,4 +48,18 @@ for(const path of ['home-i18n.js','catalog/catalog.js','catalog/product-zh-cn.js
   const check = spawnSync(process.execPath, ['--check', path], {encoding: 'utf8'});
   assert.equal(check.status, 0, `JavaScript syntax error in ${path}: ${check.stderr}`);
 }
-console.log('zh-CN catalog static checks: PASS');
+
+const records = read('records/zh-cn/index.html');
+assert.ok(records.includes('<html lang="zh-CN">'), 'Records page locale missing');
+assert.ok(records.includes('AI 与创作者权利'), 'Records rights policy untranslated');
+assert.ok(records.includes('mailto:info.funtasiarecords@gmail.com'), 'Records collaboration contact missing');
+assert.ok(records.includes('https://ko-fi.com/funtasiarecords'), 'Records support URL missing');
+assert.ok(records.includes('href="../../catalog/zh-cn/"'), 'Records catalog navigation incorrect');
+assert.ok(records.includes('href="../../about/zh-cn/"'), 'Records About navigation incorrect');
+assert.ok(read('home-i18n.js').includes("locale === 'zh-CN' ? 'zh-cn' : locale"), 'Homepage Records route incorrect');
+for (const path of ['records/index.html','records/en/index.html','records/de/index.html','records/fr/index.html','records/ru/index.html']) {
+  assert.ok(read(path).includes('hreflang="zh-CN"'), `Missing Records zh-CN switch: ${path}`);
+}
+assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/records/zh-cn/'), 'Records sitemap missing');
+
+console.log('zh-CN Audio + Records static checks: PASS');

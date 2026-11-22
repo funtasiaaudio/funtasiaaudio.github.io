@@ -140,6 +140,23 @@ try {
         verify(relativeTarget(await page.locator('#studio').getAttribute('href'))==='/studio/official/zh-cn/',label+' Chinese language switch restores Studio');
       }
       if(key==='audio'){
+
+        const utilityLabel=await page.locator('[data-filter="utility"]').textContent();
+        verify(utilityLabel.trim()==='实用工具',label+' utility category wrongly says English-only');
+        // Actual DOM verification at all 3 viewport widths, before filters hide cards.
+        for(const id of [
+          'nyan-buildup','the-hollow-winds','fun-pair',
+          'fun-dynamics-pack','the-resonant-forge','basic-filter-pack'
+        ]){
+          const card=page.locator('article#'+id);
+          const expected='https://funtasiaaudio.github.io/catalog/zh-cn/#'+id;
+          const nativeCopy=await card.locator('.instagram-share-btn').getAttribute('data-share-url');
+          verify(nativeCopy===expected,label+' '+id+' Instagram share should return to zh-CN');
+          const rawIntent=await card.locator('.social-share-btn').getAttribute('href');
+          const intent=new URL(rawIntent);
+          verify(intent.searchParams.get('url')===expected,
+            label+' '+id+' X share should return to zh-CN');
+        }
         const cards=page.locator('[data-product-name]');
         verify(await cards.count()===34,label+' expected 34 catalog products');
         const count=await page.locator('#product-count').textContent();

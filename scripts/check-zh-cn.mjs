@@ -147,4 +147,38 @@ for (const path of ['studio/official/index.html','studio/official/ja/index.html'
 }
 assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/studio/official/zh-cn/'), 'Studio sitemap missing');
 
+
+// Product-card sharing fallback must return to the same Simplified Chinese card,
+// not silently send a reader to the legacy English Audio catalog.
+// Other sharing buttons intentionally point to official GitHub Release pages.
+const zhShareHtml = read('catalog/zh-cn/index.html');
+assert.ok(zhShareHtml.includes('data-filter="utility" aria-pressed="false">实用工具</button>'),
+  'Chinese utility category label must not retain an English-only suffix');
+assert.ok(!zhShareHtml.includes('data-filter="utility" aria-pressed="false">实用工具 (EN)</button>'));
+const zhFallbackShareIds=[
+  'nyan-buildup','the-hollow-winds','fun-pair',
+  'fun-dynamics-pack','the-resonant-forge','basic-filter-pack'
+];
+for (const id of zhFallbackShareIds) {
+  const begin=zhShareHtml.indexOf('<article id="'+id+'"');
+  assert.ok(begin>=0,'Missing product article '+id);
+  const end=zhShareHtml.indexOf('</article>',begin);
+  const card=zhShareHtml.slice(begin,end);
+  const target='https://funtasiaaudio.github.io/catalog/zh-cn/#'+id;
+  const instagram=card.match(/class="mini-btn instagram-share-btn"[^>]*data-share-url="([^"]+)"/)?.[1];
+  assert.equal(instagram,target,'Instagram native/copy share link points off-locale: '+id);
+  const intent=card.match(/class="mini-btn social-share-btn" href="([^"]+)"/)?.[1];
+  assert.ok(intent,'Missing X intent share URL on '+id);
+  const url=new URL(intent.replaceAll('&amp;','&'));
+  assert.equal(url.host,'twitter.com','Unexpected X share host on '+id);
+  assert.equal(url.searchParams.get('url'),target,'X share redirects to wrong locale: '+id);
+}
+assert.equal(
+  (zhShareHtml.match(/data-share-url="https:\/\/funtasiaaudio\.github\.io\/catalog\/en\/#/g)||[]).length,
+  0,'Some Instagram fallback share links still point to English');
+assert.equal(
+  (zhShareHtml.match(/catalog%2Fen%2F%23/g)||[]).length,0,
+  'Some encoded X share links still point to the English catalog');
+console.log('zh-CN Audio product social sharing: PASS (6 Chinese-localized X/Instagram URL pairs + localized utility label)');
+
 console.log('zh-CN Audio + Records + Utilities + Goods + Studio static and locale runtime checks: PASS');

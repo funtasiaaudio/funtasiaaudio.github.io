@@ -20,7 +20,7 @@ const releaseLinks = html => links(html).filter(u =>
 
 assert.equal((zh.match(/class="card" data-version=/g) || []).length + 
   (zh.match(/id="funtasia-free-collection" class="card"/g) || []).length +
-  (zh.match(/id="nyan-buildup" class="card"/g) || []).length, 33,
+  (zh.match(/id="nyan-buildup" class="card"/g) || []).length, 34,
   'Expected 34 products');
 assert.deepEqual(releaseLinks(zh), releaseLinks(en),
   'Download and product image links differ from English catalog');

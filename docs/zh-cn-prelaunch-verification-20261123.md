@@ -139,3 +139,19 @@ The Kawaii, Orchestral and Nyan artwork and their separately linked LICENSE.txt 
 - **[Push official metadata and real ZIP integrity QA: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45080454778)** and **[PR official metadata/integrity QA: PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45080458496)**. The standard Simplified Chinese site static QA also passed for this code change.
 - **Scope:** The actual ZIP transfers were made from a GitHub-hosted Ubuntu runner, not from a device or network in mainland China. The 650 MB Orchestral ZIP was not independently transferred. License file *contents* were not legally reviewed or certified by metadata validation. Native Chinese editorial, physical user-device accessibility, live GA4 event receipt and mainland China access remain pending publication gates.
 
+
+## Five Studio expansion license originals checked against Chinese guidance — 2026-11-23 JST
+
+- Downloaded original **license documents for all five published v1.0.0 Studio expansion packs** using official release assets. Each download was verified by the matching GitHub Releases byte length and authoritative SHA-256 digest before inspection.
+- Three separately published source documents: Kawaii Wavetable `LICENSE.txt`, Orchestral Percussion `FUN_Orchestral_Percussion_Vol1_LICENSE.txt`, and Nyan 8bit `LICENSE.txt`.
+- Extracted two additional original documents **from SHA-256-verified MIDI ZIPs**, without executing any included files: `FUN_Epic_Metal_Drums_Vol01_v1.0.0/LICENSE.md` and `FUN_Fantasy_Folk_Drums_MIDI_Pack_v1.0.0/LICENSE.txt`. Their exact archive paths are now checked by `scripts/audit-studio-expansion-license-sources.sh`.
+- The original terms distinguish:
+  - Orchestral Percussion **CC0 recordings**, which may be reused and redistributed; cover art/branding remain separate.
+  - Kawaii Wavetable and Nyan 8bit, which permit use in commercial creative works but prohibit repackaging/reselling audio/wavetable assets as standalone libraries.
+  - Epic Metal, which permits royalty-free commercial/noncommercial musical works from MIDI phrases but does **not** permit selling or redistributing included MIDI files as a standalone asset pack.
+  - Fantasy Folk, which permits sharing editable MIDI inside substantive original DAW projects while prohibiting standalone MIDI-stock redistribution.
+- Clarified the Chinese Wavetable summary to explicitly prohibit standalone-library redistribution/resale and the Chinese Epic Metal summary to state the separate standalone-MIDI redistribution restriction. Also labeled the exact `LICENSE.md`/`LICENSE.txt` files as **inside the ZIPs**; unchanged official license links and compatible CC0/Fantasy Folk permissions are retained.
+- Added `scripts/check-zh-cn-studio-subpages.mjs` assertions protecting these source-specific distinctions; no new license rights or legal opinions were created.
+- [Source-license download and extraction CI PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45081175464), with [original licensed texts + structured excerpts](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45081175464/artifacts/14777441231) saved as a temporary GitHub Actions artifact. [Updated Chinese source and license-filename regression CI PASS](https://github.com/funtasiaaudio/funtasiaaudio.github.io/actions/runs/45081340963).
+- **Scope:** This is a faithful documentation/source-parity audit, **not a formal legal determination**. Original license documents remain authoritative; legally significant edge cases require document-level review. The repository changes are confined to the Draft rollout branch and have not been merged into production `main`.
+

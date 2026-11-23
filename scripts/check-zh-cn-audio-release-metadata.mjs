@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// Review-only audit: release ZIP links and displayed versions for all 34 Audio
+// Review-only audit: release ZIP links and displayed versions for all 35 Audio
 // products across six catalog locales; --remote verifies official GitHub asset
 // metadata. It does not download binaries, establish latest versions or test China.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 const {products,schema}=JSON.parse(fs.readFileSync('docs/zh-cn-audio-release-pins.json','utf8'));
 assert.equal(schema,'funtasia-audio-catalog-release-pins-v1');
-assert.equal(products.length,34);
+assert.equal(products.length,35);
 const locales=['ja','en','de','fr','ru','zh-cn'];
 const expectedUrl=p=>'https://github.com/funtasiaaudio/'+p.repository+
   '/releases/download/'+encodeURIComponent(p.tag)+'/'+encodeURIComponent(p.asset);
@@ -17,8 +17,8 @@ for(const lang of locales){
   const html=fs.readFileSync(path,'utf8');
   const cards=[...html.matchAll(/<article\b[^>]*data-product-name="([^"]+)"[^>]*>[\s\S]*?<\/article>/g)]
     .map(m=>({name:m[1],html:m[0]}));
-  if(cards.length!==34){failures.push(path+': expected 34 cards, got '+cards.length);continue;}
-  for(let i=0;i<34;i++){
+  if(cards.length!==35){failures.push(path+': expected 35 cards, got '+cards.length);continue;}
+  for(let i=0;i<35;i++){
     const p=products[i],card=cards[i],label=lang+' / '+p.name;
     if(card.name!==p.name)failures.push(label+': product order/name is now '+card.name);
     const version=card.html.match(/\bdata-version="([^"]+)"/)?.[1];
@@ -42,7 +42,7 @@ for(const p of products){
 }
 assert.deepEqual(failures,[],'Audio release catalog link/version parity');
 console.log('FUNtasia Audio ZIP URL parity: PASS ('+cardsChecked+
-  ' cards, '+linksChecked+' ZIP links, six locales, 34 verified metadata pins)');
+  ' cards, '+linksChecked+' ZIP links, six locales, 35 verified metadata pins)');
 
 if(process.argv.includes('--remote')){
   const token=process.env.GH_TOKEN||'';
@@ -77,6 +77,6 @@ if(process.argv.includes('--remote')){
   }
   await Promise.all(Array.from({length:4},()=>worker()));
   assert.deepEqual(errors,[],'Official GitHub release metadata verification failed');
-  assert.equal(verified.length,34,'Not all 34 official assets were checked');
-  console.log('FUNtasia Audio GitHub release metadata: PASS (34 assets, URLs, bytes and SHA-256)');
+  assert.equal(verified.length,35,'Not all 35 official assets were checked');
+  console.log('FUNtasia Audio GitHub release metadata: PASS (35 assets, URLs, bytes and SHA-256)');
 }

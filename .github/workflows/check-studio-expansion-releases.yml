@@ -2,7 +2,7 @@ name: Studio expansion official release integrity
 
 on:
   push:
-    branches: [feature/zh-cn-studio-subpages-20261123]
+    branches: [main, feature/zh-cn-studio-subpages-20261123]
     paths:
       - 'studio/official/expansions/**'
       - 'scripts/check-studio-expansion-release-metadata.mjs'
@@ -11,7 +11,7 @@ on:
       - 'docs/studio-expansion-release-pins.json'
       - '.github/workflows/check-studio-expansion-releases.yml'
   pull_request:
-    branches: [feature/zh-cn-studio-20261123]
+    branches: [main, feature/zh-cn-studio-20261123]
     paths:
       - 'studio/official/expansions/**'
       - 'scripts/check-studio-expansion-release-metadata.mjs'

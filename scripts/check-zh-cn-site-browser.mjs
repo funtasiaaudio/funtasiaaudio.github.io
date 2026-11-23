@@ -163,6 +163,22 @@ try {
         const enManualLabels=await enManualLinks.allTextContents();
         verify(enManualLabels.every(text=>text.trim()==='PDF 使用手册（英文）'),
           label+' English PDF language not disclosed: '+enManualLabels.join(' | '));
+        // Browser DOM: a direct asset ZIP link must say "download", not "release notes".
+        const zipAnchors=page.locator('article.card a.mini-btn[href*="/releases/download/"][href$=".zip"]');
+        verify(await zipAnchors.count()===35,
+          label+' expected 34 official ZIP downloads plus Dither bundled PDF link');
+        const zipLabels=await zipAnchors.allTextContents();
+        verify(zipLabels.filter(text=>text.trim()==='下载').length===34,
+          label+' a ZIP download is incorrectly labelled as release notes: '+zipLabels.join(' | '));
+        verify(zipLabels.filter(text=>text.trim()==='PDF 手册（包含在 ZIP 中）').length===1,
+          label+' the Dither manual-in-ZIP label is inaccurate');
+        const monoCard=page.locator('article.card[data-product-key="fun-monofilter"]');
+        const monoZip=monoCard.locator('a.mini-btn[href$="FUN.MonoFilter.1.1.0.zip"]');
+        verify(await monoZip.count()===1&&(await monoZip.textContent()).trim()==='下载',
+          label+' MonoFilter direct ZIP link is misleadingly labelled as release info');
+        verify((await monoCard.locator('a[href*="/releases/tag/"]').first().getAttribute('href'))
+          .includes('/FUN-MonoFilter/releases/tag/v1.1.0'),
+          label+' MonoFilter official release page became inaccessible');
         const cards=page.locator('[data-product-name]');
         verify(await cards.count()===34,label+' expected 34 catalog products');
         const count=await page.locator('#product-count').textContent();

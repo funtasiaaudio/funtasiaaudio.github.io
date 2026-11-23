@@ -23,10 +23,8 @@ const releaseLinks = html => links(html).filter(u =>
   (u.startsWith('https://github.com/funtasiaaudio/') && u.includes('/releases/download/')) ||
   u.startsWith('../assets/')).sort();
 
-assert.equal((zh.match(/class="card" data-version=/g) || []).length + 
-  (zh.match(/id="funtasia-free-collection" class="card"/g) || []).length +
-  (zh.match(/id="nyan-buildup" class="card"/g) || []).length, 34,
-  'Expected 34 products');
+const zhCardProducts=[...zh.matchAll(/<article\b[^>]*\bclass="card"[^>]*\bdata-product-name="[^"]+"/g)];
+assert.equal(zhCardProducts.length,35,'Expected 35 products');
 assert.deepEqual(releaseLinks(zh), releaseLinks(en),
   'Published ZIP and product asset links differ from English catalog');
 assert.ok(zh.includes('data-product-key="fun-plate"'), 'FUN Plate card missing');
@@ -48,7 +46,7 @@ for (const lang of ['ja','en','de','fr','ru','zh-cn']) {
 }
 
 const productKeys=[...source.matchAll(/^\s+"([a-z0-9-]+)": \{/gm)].map(m=>m[1]);
-assert.equal(productKeys.length, 34, 'Every catalog product needs a zh-CN translation');
+assert.equal(productKeys.length, 35, 'Every catalog product needs a zh-CN translation');
 for(const path of ['home-i18n.js','catalog/catalog.js','catalog/product-zh-cn.js','site-sections-i18n.js']) {
   const check = spawnSync(process.execPath, ['--check', path], {encoding: 'utf8'});
   assert.equal(check.status, 0, `JavaScript syntax error in ${path}: ${check.stderr}`);
@@ -155,7 +153,7 @@ assert.ok(read('sitemap.xml').includes('https://funtasiaaudio.github.io/studio/o
 // All currently published Audio card artwork needs a meaningful Chinese alt
 // description, even when product/parameter names remain in English.
 const chineseCardAlts=[...zh.matchAll(/<img\b[^>]*class="shot"[^>]*alt="([^"]+)"[^>]*>/g)].map(match=>match[1]);
-assert.equal(chineseCardAlts.length,34,'Missing Chinese Audio product artwork alt attributes');
+assert.equal(chineseCardAlts.length,35,'Missing Chinese Audio product artwork alt attributes');
 for(const [i,alt] of chineseCardAlts.entries()){
   assert.ok(/[\u3400-\u9fff]/u.test(alt),
     'English-only artwork description on Chinese Audio card '+(i+1)+': '+alt);
@@ -165,7 +163,7 @@ assert.ok(chineseCardAlts.some(alt=>alt.includes('Nyan BuildUp 单旋钮渐强�
 assert.ok(chineseCardAlts.some(alt=>alt.includes('FUN Dynamics Pack v1.3.0 四款插件') &&
  alt.includes('上排为 Transient Shaper 与 De-Esser') && alt.includes('下排为 Compressor 与 Gate / Expander')),
  'Dynamics Pack artwork should describe all four GUI panels and their positions');
-console.log('zh-CN Audio artwork accessibility: PASS (34 localized card alt descriptions)');
+console.log('zh-CN Audio artwork accessibility: PASS (35 localized card alt descriptions)');
 
 // Product-card sharing fallback must return to the same Simplified Chinese card,
 // not silently send a reader to the legacy English Audio catalog.
@@ -175,7 +173,7 @@ assert.ok(zhShareHtml.includes('data-filter="utility" aria-pressed="false">实�
   'Chinese utility category label must not retain an English-only suffix');
 assert.ok(!zhShareHtml.includes('data-filter="utility" aria-pressed="false">实用工具 (EN)</button>'));
 const zhFallbackShareIds=[
-  'nyan-buildup','the-hollow-winds','fun-pair',
+  'nyan-8bit','nyan-buildup','the-hollow-winds','fun-pair',
   'fun-dynamics-pack','the-resonant-forge','basic-filter-pack',
   'fun-rack','fun-drum-pad','fun-room','fun-clipper-limiter-pack',
   'fun-ott','the-deep-roots','fun-clip-distortion','fun-waveshaper','fun-meq'
@@ -200,16 +198,16 @@ assert.equal(
 assert.equal(
   (zhShareHtml.match(/catalog%2Fen%2F%23/g)||[]).length,0,
   'Some encoded X share links still point to the English catalog');
-console.log('zh-CN Audio product social sharing: PASS (15 Chinese-localized X/Instagram URL pairs + localized utility label)');
+console.log('zh-CN Audio product social sharing: PASS (16 Chinese-localized X/Instagram URL pairs + localized utility label)');
 
 // A direct Release asset must be described as a ZIP download, not as
 // "release notes". Keep the documented FUN Dither manual-in-ZIP link
-// distinct from the 34 primary product downloads.
+// distinct from the 35 primary product downloads.
 const zipButtons=[...zhShareHtml.matchAll(/<a\b[^>]*href="([^"]+\/releases\/download\/[^"]+\.zip)"[^>]*>([^<]+)<\/a>/g)]
   .map(match=>({href:match[1],label:match[2].trim()}));
-assert.equal(zipButtons.length,35,'Expected 34 official Audio ZIP CTAs plus one Dither manual-in-ZIP link');
+assert.equal(zipButtons.length,36,'Expected 35 official Audio ZIP CTAs plus one Dither manual-in-ZIP link');
 const primaryDownloads=zipButtons.filter(button=>button.label!=='PDF 手册（包含在 ZIP 中）');
-assert.equal(primaryDownloads.length,34,'All 34 product ZIP CTAs must be present');
+assert.equal(primaryDownloads.length,35,'All 35 product ZIP CTAs must be present');
 for(const button of primaryDownloads)
   assert.equal(button.label,'下载','Direct ZIP link falsely labelled as a release/document page: '+button.href);
 assert.equal(zipButtons.filter(button=>button.label==='PDF 手册（包含在 ZIP 中）').length,1,
@@ -223,12 +221,12 @@ assert.ok(monoFilterCard.includes('releases/tag/v1.1.0'),
 const releaseNotesLinks=[...zhShareHtml.matchAll(/<a\b[^>]*href="([^"]+\/releases\/tag\/[^"]+)"[^>]*>([^<]+)<\/a>/g)]
   .filter(match=>match[2].trim()==='更新说明');
 assert.ok(releaseNotesLinks.length>=25,'Expected Chinese update-note buttons on official release pages');
-console.log('zh-CN Audio CTA semantics: PASS (34 ZIP downloads, one manual-in-ZIP, release notes on tag pages)');
+console.log('zh-CN Audio CTA semantics: PASS (35 ZIP downloads, one manual-in-ZIP, release notes on tag pages)');
 
 // Every product title points to its pinned GitHub release; every share goes
 // either to that same release, or to an anchor that exists on this Chinese page.
 const shareCards=[...zhShareHtml.matchAll(/<article\b([^>]*\bclass="card"[^>]*)>([\s\S]*?)<\/article>/g)];
-assert.equal(shareCards.length,34,'Expected 34 Audio cards for end-to-end share target audit');
+assert.equal(shareCards.length,35,'Expected 35 Audio cards for end-to-end share target audit');
 let localizedShares=0, officialShares=0;
 for(const [,attrs,card] of shareCards){
   const name=attrs.match(/data-product-name="([^"]+)"/)?.[1]||'unnamed';
@@ -249,11 +247,11 @@ for(const [,attrs,card] of shareCards){
     'Share link points away from the Chinese card or official release: '+name);
   localizedShares++;
 }
-assert.equal(localizedShares,15,'Expected fifteen Chinese card-localized share targets');
+assert.equal(localizedShares,16,'Expected sixteen Chinese card-localized share targets');
 assert.equal(officialShares,19,'Expected nineteen pinned release share targets');
 assert.ok(!/funtasia-audio(?:%2F|\/)(?:%23|#)/i.test(zhShareHtml),
   'Chinese Audio still links/shares to the legacy English project card anchors');
-console.log('zh-CN Audio share destinations: PASS (15 Chinese anchors + 19 current release URLs)');
+console.log('zh-CN Audio share destinations: PASS (16 Chinese anchors + 19 current release URLs)');
 
 // The Chinese MEQ card alone depends on a secondary Pages host for artwork.
 // Keep the published primary image URL for visual parity, but ensure there is

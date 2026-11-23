@@ -23,6 +23,15 @@
       "sha256": "6460e8ee848a88b23440151c761206cdfb6c8d46bb2636f5bbee7cca8535a7d0"
     },
     {
+      "name": "Nyan 8bit",
+      "repository": "Nyan-8bit",
+      "tag": "v1.0.0",
+      "asset": "Nyan.8bit.v1.0.0.zip",
+      "version": "v1.0.0",
+      "bytes": 7015726,
+      "sha256": "1ef16d6015fe70858d2aa1043422865a57b58de982e11cab5708c567f10ba7d3"
+    },
+    {
       "name": "Nyan BuildUp",
       "repository": "Nyan-BuildUp",
       "tag": "v1.0.1",

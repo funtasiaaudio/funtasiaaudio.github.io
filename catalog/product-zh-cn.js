@@ -20,6 +20,13 @@
       "提供 24 个出厂预设、搜索与收藏、A/B 对比、Undo/Redo、输出电平表、Mono Check、Wet Solo、可调整大小的界面及九种配色主题。"
     ]
   },
+  "nyan-8bit": {
+    "summary": "Nyan 8bit 是一款免费的 Windows 64 位 VST3 像素风格合成器，可使用振荡器、噪声、滤波器与芯片音效塑造复古数字音色。",
+    "paras": [
+      "使用 OSC 1／2、Noise、Filter 与 Amp 设计音色，并通过 Bit Crusher、Rate Reducer 和 Detune 制作经典的低保真与 8 位风格声音。",
+      "支持多声部演奏、预设管理与多种界面主题。v1.0.0 正式发布包包含多语言 PDF 使用手册。"
+    ]
+  },
   "nyan-buildup": {
     "summary": "Nyan BuildUp 是适用于 Windows 的免费单旋钮 VST3 效果器，可用于制作渐强、上升音效和转场。DREAM 营造梦幻氛围，BLOOM 带来闪耀纹理，ENERGY 增强能量感，INFINITY 创造旋转的空间效果。",
     "paras": [

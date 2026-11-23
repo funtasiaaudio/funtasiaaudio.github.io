@@ -112,6 +112,22 @@ try{
    if(key==='catalog'){
     verify(await page.locator('article[data-product-name]').count()===34,
      'Catalog products lost when GTM/release hosts are blocked');
+    // Only the MEQ hero image uses the legacy remote Pages project. If that
+    // external hostname is blocked, its own local illustration must load.
+    const meq=page.locator('article[data-product-name="FUN MEQ"] img.shot');
+    await meq.scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>{
+      const img=document.querySelector('article[data-product-name="FUN MEQ"] img.shot');
+      return img?.complete && img.naturalWidth>0 &&
+        img.currentSrc.endsWith('/catalog/assets/card-fun-meq-fallback.svg');
+    },null,{timeout:10000});
+    verify(await meq.evaluate(img=>img.complete&&img.naturalWidth>0&&
+      img.currentSrc.endsWith('/catalog/assets/card-fun-meq-fallback.svg')),
+      'FUN MEQ offline artwork did not load the local SVG fallback');
+    verify((await meq.getAttribute('alt')).includes('本地备用插画'),
+      'FUN MEQ offline fallback image lost its accurate Chinese description');
+    results.push({page:'catalog',lang:'zh-CN',width,mode:'offsite blocked',
+      cardCount:34,meqArtwork:'local SVG fallback'});
    }
    if(key==='about')verify(await page.getByRole('heading',{name:'Hʉeliang'}).count()>=1,
     'About profile text disappeared with external avatar blocked');
@@ -129,6 +145,24 @@ try{
  verify(await page.locator('.expansion-card').count()===5,'No-JS hides static expansion cards');
  verify(await page.locator('.expansion-card a.button.primary[href*=".zip"]').count()===5,
   'No-JS hides all official ZIP download anchors');
+ // The Audio catalog must still expose the complete product list and native
+ // direct-download links when scripts and external hosts are unavailable.
+ await page.goto(origin+'/catalog/zh-cn/',{waitUntil:'load'});
+ verify(await page.locator('article.card[data-product-name]').count()===34,
+  'No-JS Chinese Audio catalog lost its 34 static product cards');
+ const zipLinks=page.locator('article.card a.mini-btn[href*="/releases/download/"][href$=".zip"]');
+ verify(await zipLinks.count()===35,
+  'No-JS Chinese Audio must retain 34 product ZIP links and the Dither manual bundle link');
+ verify(await zipLinks.filter({hasText:'下载'}).count()===34,
+  'No-JS Audio product download CTAs are missing or incorrectly labelled');
+ verify(await page.locator('article.card[data-product-name="FUN MEQ"] a[href*="/releases/tag/"]').count()>=1,
+  'No-JS FUN MEQ official release information link missing');
+ verify(await page.locator('article.card[data-product-name="FUN MEQ"] img[alt]').count()===1,
+  'No-JS FUN MEQ must retain readable image alt text when remote artwork cannot load');
+ verify(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),
+  'No-JS Chinese Audio catalog overflows horizontally');
+ results.push({page:'catalog',lang:'zh-CN',width:'default',mode:'no JavaScript + offsite blocked',
+  cardCount:34,zipAnchors:35,imageAltPresent:true});
  await nojs.close();
 }finally{
  await browser.close();

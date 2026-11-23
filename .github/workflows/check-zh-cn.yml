@@ -1,0 +1,34 @@
+name: Simplified Chinese site checks
+
+on:
+  push:
+    branches: ['feature/zh-cn-audio-localization-20261122']
+  pull_request:
+    branches: [main]
+    paths:
+      - 'catalog/**'
+      - 'quality/**'
+      - 'about/**'
+      - 'support/**'
+      - 'home-i18n.js'
+      - 'index.html'
+      - 'sitemap.xml'
+      - 'scripts/check-zh-cn.mjs'
+      - '.github/workflows/check-zh-cn.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-zh-cn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check Simplified Chinese pages and links
+        run: node scripts/check-zh-cn.mjs

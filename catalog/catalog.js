@@ -9,7 +9,8 @@ ja:{genre:'ジャンル',all:'すべて',free:'無料のみ表示',paid:'有償�
 en:{genre:'Genre',all:'All',free:'Free only',paid:'Paid only',effects:['EQ & Filters','Dynamics','Distortion','Reverb & Delay','Modulation','Other'],instruments:['Synthesizers','Physical Modeling','Samplers','Drum Instruments']},
 de:{genre:'Genre',all:'Alle',free:'Nur kostenlos',paid:'Nur kostenpflichtig',effects:['EQ & Filter','Dynamik','Verzerrung','Hall & Delay','Modulation','Sonstige'],instruments:['Synthesizer','Physikalische Modellierung','Sampler','Drum-Instrumente']},
 fr:{genre:'Genre',all:'Tout',free:'Gratuits uniquement',paid:'Payants uniquement',effects:['EQ et filtres','Dynamique','Distorsion','Réverbération et délai','Modulation','Autres'],instruments:['Synthétiseurs','Modélisation physique','Sampleurs','Instruments de batterie']},
-ru:{genre:'Жанр',all:'Все',free:'Только бесплатные',paid:'Только платные',effects:['Эквалайзеры и фильтры','Динамика','Дисторшн','Реверберация и задержка','Модуляция','Другое'],instruments:['Синтезаторы','Физическое моделирование','Сэмплеры','Ударные инструменты']}
+ru:{genre:'Жанр',all:'Все',free:'Только бесплатные',paid:'Только платные',effects:['Эквалайзеры и фильтры','Динамика','Дисторшн','Реверберация и задержка','Модуляция','Другое'],instruments:['Синтезаторы','Физическое моделирование','Сэмплеры','Ударные инструменты']},
+'zh-CN':{genre:'类型',all:'全部',free:'仅显示免费',paid:'仅显示付费',effects:['均衡器与滤波器','动态处理','失真与饱和','混响与延迟','调制','其他'],instruments:['合成器','物理建模','采样器','鼓乐器']}
 };
 const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
@@ -32,7 +33,8 @@ const artworkLabels={
  en:{open:'Open product artwork in a new tab',save:'Save product artwork',note:'Download product artwork using “Save product artwork” on each card.'},
  de:{open:'Produktbild in neuem Tab öffnen',save:'Produktbild speichern',note:'Produktbilder können über „Produktbild speichern“ auf jeder Karte heruntergeladen werden.'},
  fr:{open:'Ouvrir le visuel dans un nouvel onglet',save:'Enregistrer l’image',note:'Téléchargez les visuels des produits via « Enregistrer l’image » sur chaque fiche.'},
- ru:{open:'Открыть изображение в новой вкладке',save:'Сохранить изображение',note:'Изображения продуктов можно скачать кнопкой « Сохранить изображение » на каждой карточке.'}
+ ru:{open:'Открыть изображение в новой вкладке',save:'Сохранить изображение',note:'Изображения продуктов можно скачать кнопкой « Сохранить изображение » на каждой карточке.'},
+ 'zh-CN':{open:'在新标签页查看产品图片',save:'保存产品图片',note:'每张产品卡片都可通过“保存产品图片”下载概念图。'}
 };
 const artworkText=artworkLabels[localeFilter]||artworkLabels.en;
 const themeChoiceLabels={
@@ -40,7 +42,8 @@ const themeChoiceLabels={
  en:'Choose your favorite from 9 color themes.',
  de:'Wähle deine Lieblingsfarbe aus 9 Farbthemen.',
  fr:'Choisissez votre couleur préférée parmi 9 thèmes de couleurs.',
- ru:'Выберите любимую цветовую тему из 9 вариантов.'
+ ru:'Выберите любимую цветовую тему из 9 вариантов.',
+ 'zh-CN':'提供九种界面配色主题，可根据喜好自由选择。'
 };
 const themeChoiceText=themeChoiceLabels[localeFilter]||themeChoiceLabels.en;
 const mediaNote=document.createElement('p');
@@ -122,7 +125,8 @@ const noteButtonLabels={
  en:'Read on note',
  de:'Artikel auf note',
  fr:'Lire sur note',
- ru:'Читать на note'
+ ru:'Читать на note',
+ 'zh-CN':'在 note 阅读介绍（日文）'
 };
 const noteButtonLabel=noteButtonLabels[localeFilter]||noteButtonLabels.en;
 for(const card of cards){
@@ -141,7 +145,7 @@ for(const card of cards){
 
 const categoryBar=document.querySelector('.filters');
 const genreBar=document.createElement('div');genreBar.className='filters genre-filters';genreBar.setAttribute('role','group');genreBar.setAttribute('aria-label',tr.genre);genreBar.hidden=true;
-const priceBar=document.createElement('div');priceBar.className='price-filters';priceBar.setAttribute('role','group');priceBar.setAttribute('aria-label','Pricing');
+const priceBar=document.createElement('div');priceBar.className='price-filters';priceBar.setAttribute('role','group');priceBar.setAttribute('aria-label',localeFilter==='zh-CN'?'价格':'Pricing');
 for(const [value,label] of [['free',tr.free],['paid',tr.paid]]){
  const item=document.createElement('label');item.className='price-option';
  const input=document.createElement('input');input.type='checkbox';input.value=value;input.dataset.priceFilter=value;
@@ -192,10 +196,30 @@ for(const b of document.querySelectorAll('.instagram-share-btn'))b.addEventListe
  }
  try{
   await navigator.clipboard.writeText(message);
-  window.alert(({ja:'製品名とURLをコピーしました。Instagramで貼り付けてください。',en:'Product name and URL copied. Paste them into Instagram.',de:'Produktname und URL kopiert. In Instagram einfügen.',fr:'Nom et URL du produit copiés. Collez-les dans Instagram.',ru:'Название и ссылка скопированы. Вставьте их в Instagram.'})[localeFilter]||'Product URL copied.');
- }catch{window.prompt('Copy product link for Instagram',message);}
+  window.alert(({ja:'製品名とURLをコピーしました。Instagramで貼り付けてください。',en:'Product name and URL copied. Paste them into Instagram.',de:'Produktname und URL kopiert. In Instagram einfügen.',fr:'Nom et URL du produit copiés. Collez-les dans Instagram.',ru:'Название и ссылка скопированы. Вставьте их в Instagram.','zh-CN':'产品名称和链接已复制，请粘贴到 Instagram。'})[localeFilter]||'Product URL copied.');
+ }catch{window.prompt(localeFilter==='zh-CN'?'复制产品链接':'Copy product link for Instagram',message);}
 });
 renderGenres();filter();
+
+/* GA4 measurement bridge: configure a GTM Custom Event tag for
+ * funtasia_product_download_click before counting these as GA4 events.
+ * Does not alter the destination or delay navigation. */
+if (localeFilter === 'zh-CN') {
+  document.addEventListener('click', (event) => {
+    const anchor = event.target.closest?.('a.mini-btn[href]');
+    if (!anchor || !/\/releases\/download\/|\.zip(?:[?#]|$)/i.test(anchor.href)) return;
+    const product = anchor.closest('[data-product-name]');
+    if (!product) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'funtasia_product_download_click',
+      site_language: 'zh-CN',
+      product_name: product.dataset.productName || '',
+      product_key: product.dataset.productKey || product.id || '',
+      download_url: anchor.href
+    });
+  });
+}
 
 /* Accessible native dialog with original Audio product descriptions. */
 const details=window.FUN_PRODUCT_DETAILS||{};
@@ -586,7 +610,7 @@ for(const [language,paras] of Object.entries({"ja":["Nyan BuildUpは、ビルド
 }
 
 const locale=document.documentElement.lang||'en';
-const words={ja:['詳しく見る','製品紹介','元サイトで見る','閉じる','元サイト掲載の英語説明'],en:['Details','Product details','Original page','Close','Original English description'],de:['Details','Produktdetails','Originalseite','Schließen','Englische Originalbeschreibung'],fr:['Détails','Présentation','Page originale','Fermer','Description originale en anglais'],ru:['Подробнее','О продукте','Оригинальная страница','Закрыть','Оригинальное описание на английском']}[locale]||['Details','Product details','Original page','Close','Original English description'];
+const words={ja:['詳しく見る','製品紹介','元サイトで見る','閉じる','元サイト掲載の英語説明'],en:['Details','Product details','Original page','Close','Original English description'],de:['Details','Produktdetails','Originalseite','Schließen','Englische Originalbeschreibung'],fr:['Détails','Présentation','Page originale','Fermer','Description originale en anglais'],ru:['Подробнее','О продукте','Оригинальная страница','Закрыть','Оригинальное описание на английском'],'zh-CN':['详细介绍','产品详情','原始页面','关闭','查看英文原文']}[locale]||['Details','Product details','Original page','Close','Original English description'];
 const dialog=document.createElement('dialog');dialog.className='product-dialog';dialog.setAttribute('aria-labelledby','product-dialog-title');
 dialog.innerHTML='<div class="dialog-top"><span class="dialog-kicker"></span><button class="dialog-close" type="button"></button></div><h2 id="product-dialog-title"></h2><div class="dialog-body"></div><div class="dialog-footer"><a class="dialog-original" target="_blank" rel="noopener noreferrer"></a></div>';
 document.body.append(dialog);
@@ -620,7 +644,7 @@ for(const card of cards){
   const featureList=hasNineThemes?item.features.map(feature=>feature.replace(/\b9\s+(?:(?:GUI|COLOUR|COLOR)\s+)*THEMES?\b/gi,'').replace(/^[\s·|/]+|[\s·|/]+$/g,'')).filter(Boolean):item.features;
   if(featureList.length||hasNineThemes){
    const list=document.createElement('ul');list.className='dialog-features';
-   const tunerAddedLabel={ja:'v1.2.0 新規追加：FUN Tuner v1.1.2',en:'NEW IN v1.2.0: FUN Tuner v1.1.2',de:'NEU IN v1.2.0: FUN Tuner v1.1.2',fr:'NOUVEAUTÉ v1.2.0 : FUN Tuner v1.1.2',ru:'НОВИНКА В v1.2.0: FUN Tuner v1.1.2'};
+   const tunerAddedLabel={ja:'v1.2.0 新規追加：FUN Tuner v1.1.2',en:'NEW IN v1.2.0: FUN Tuner v1.1.2',de:'NEU IN v1.2.0: FUN Tuner v1.1.2',fr:'NOUVEAUTÉ v1.2.0 : FUN Tuner v1.1.2',ru:'НОВИНКА В v1.2.0: FUN Tuner v1.1.2','zh-CN':'v1.2.0 新增：FUN Tuner v1.1.2'};
   for(const feature of featureList){
     const li=document.createElement('li');
     li.textContent=key==='fun-analysis-pack'&&feature==='NEW: FUN TUNER v1.1.2' ? (tunerAddedLabel[locale]||tunerAddedLabel.en) : feature;
@@ -629,7 +653,7 @@ for(const card of cards){
    if(hasNineThemes){const li=document.createElement('li');li.textContent=nineThemeFeatureLabels[locale]||nineThemeFeatureLabels.en;list.append(li);}
    body.append(list);
   }
-  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(href.includes('github.com/funtasiaaudio/')&&href.includes('/releases/')?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска'}[locale]||'Release page'):words[2])+' →';
+  const link=dialog.querySelector('.dialog-original');link.href=href;link.textContent=(href.includes('github.com/funtasiaaudio/')&&href.includes('/releases/')?({ja:'リリースページ',en:'Release page',de:'Release-Seite',fr:'Page de version',ru:'Страница выпуска','zh-CN':'版本发布页面'}[locale]||'Release page'):words[2])+' →';
   dialog.showModal();
  });
 }

@@ -1,10 +1,10 @@
-/* Shared, accessible five-language content for the Utilities and Goods pages.
+/* Shared, accessible six-language content for the Utilities and Goods pages.
  * Visible Japanese source is preserved in HTML when scripting is disabled.
  * Language is inferred from the browser on first visit; user changes persist.
  */
 (() => {
   'use strict';
-  const locales = ['ja', 'en', 'de', 'fr', 'ru'];
+  const locales = ['ja', 'en', 'de', 'fr', 'ru', 'zh-CN'];
   const storageKey = 'funtasia.home.language';
   const page = document.body.dataset.i18nPage;
   if (!['utilities', 'goods'].includes(page)) return;
@@ -117,7 +117,115 @@
     ["SUZURIストアを見る ↗","Visit SUZURI store ↗","SUZURI-Shop besuchen ↗","Visiter la boutique SUZURI ↗","Перейти в магазин SUZURI ↗"]
   ];
 
-  const localeIndex = {ja: 0, en: 1, de: 2, fr: 3, ru: 4};
+  // Chinese is stored separately so the original five-language rows remain unchanged.
+  const zhUtilityRows = [
+  "FUNtasia Audio Compare · Original Sage（点击放大）",
+  "公开测试版 · v0.2.1 · Windows 10/11 x64 · 免费",
+  "适用于 Windows 的独立音频对比工具，可在一致的试听条件下比较最多四个音源。通过 A/B/C/D 切换和响度匹配，辅助混音与母带制作决策。",
+  "最多四个音源（A/B/C/D）",
+  "LUFS 分析 · 响度匹配",
+  "True Peak 测量",
+  "考虑相关性的交叉淡化",
+  "盲听 X/Y 对比",
+  "保存与恢复会话",
+  "九种深色主题",
+  "提供九种深色主题，默认使用 Original Sage。支持盲听对比、查看测量结果，以及保存和恢复对比会话。",
+  "下载 FUNtasia Audio Compare（ZIP） →",
+  "发行说明与安装指南 →",
+  "当前为公开测试版。请前往官方发行页面查看安装方法和下载包内容。",
+  "← 返回 FUNtasia 首页",
+  "让创作更顺畅的实用小工具。",
+  "了解我们已发布的 Windows 应用：Audio Compare、Quick Launcher、Player、Mixer 和 Session Note。",
+  "关于 Utilities",
+  "支持日常创作的工具",
+  "这里汇集了帮助音乐制作和 Windows 日常操作的工具，提供功能介绍、发布状态及官方下载入口。",
+  "发布信息",
+  "查看支持的 Windows 版本、产品版本和官方下载地址。公开测试版可能仍有尚未覆盖的使用场景。",
+  "查看支持页面 →",
+  "已发布的工具",
+  "公开测试版 · v0.1.16 · Windows 11 x64",
+  "一个快捷键，直达创作工作区。",
+  " 即可打开这款轻量、以键盘操作为主的 Windows 启动器。在同一位置搜索并启动应用、文件、文件夹和 URL。",
+  "拖放添加",
+  "排序与固定快捷方式",
+  "日语／英语",
+  "七种 FUNtasia Studio 主题",
+  "可选的 Windows 开机启动",
+  "默认图标为 Original Sage。另提供 Charcoal、Deep Brown、Lapis Lazuli、Lavender、Coral Red 和 Mikan Orange 六种颜色，供自定义快捷方式图标。",
+  "下载 Windows 版本（ZIP） →",
+  "发行说明与下载包内容 →",
+  "该测试版已通过 Windows 实机基本测试，但不代表所有环境均已覆盖。",
+  "Original Sage · Windows 实机截图（点击放大）",
+  "已发布 · v1.0.0 · Windows 11",
+  "适用于 Windows 11 系统托盘的轻量应用音量混音器。可分别调节或静音应用音量、选择要控制的输出设备，并固定常用应用。",
+  "采用与 FUNtasia Studio 一致的七种主题和 Kaisei Opti 字体。可控制所选输出设备的音量，但不会更改 Windows 默认输出设备。",
+  "下载 FUNtasia Mixer v1.0.0（ZIP） →",
+  "查看发行与更新信息 →",
+  "FUNtasia Mixer · Original Sage（点击放大）",
+  "已发布 · v1.2.1 · Windows x64 · 免费",
+  "简单的独立音频播放器。可在 Windows 中打开或拖放音频文件，并控制播放、暂停、停止、循环、跳转和音量。",
+  "播放 · 暂停 · 停止",
+  "循环 · 跳转 · 音量",
+  "拖放",
+  "文件关联",
+  "标题与艺术家元数据",
+  "封面显示",
+  "七种配色主题",
+  "五种语言的使用手册",
+  "v1.2.1 增加 ASIO 音频输出设置及七种主题，并保存设备和主题选择。不包含 EQ、响度标准化、限制器或饱和处理。",
+  "下载 FUNtasia Player（ZIP） →",
+  "查看发行说明与介绍 →",
+  "Windows 11 · x64 · 公开测试版 v0.1.0k",
+  "记录灵感，将想法带入音乐。轻量桌面应用，可按制作会话整理笔记、任务、BPM、调性和进度。",
+  "支持本地自动保存、日语／英语界面、内置 Kaisei Opti、七种深色主题、窗口置顶和 Ctrl + Alt + N 显示切换。需要时随时打开，不打断创作。",
+  "下载 Windows ZIP →",
+  "发行说明与安装指南 →",
+  "当前为测试版，请备份重要的制作笔记。",
+  "下载方式与更新信息请以各产品的官方发行页面为准。"
+];
+  const zhGoodsRows = [
+  "← 返回 FUNtasia 首页",
+  "让 FUNtasia 陪伴你的桌面。",
+  "以 FUNtasia Studio 植物主题字母标志为设计元素的免费壁纸，共有七种柔和配色。可一次下载 4K 横版、超宽屏和竖版共 21 张图片，另有适用于 Windows 11 的七种免费鼠标光标主题。",
+  "七种配色主题",
+  "免费下载",
+  "下载 21 张壁纸（ZIP） ↗",
+  "查看发行信息 ↗",
+  "包含尺寸：",
+  "3840 × 2160（4K）、5120 × 2160（超宽屏）、2160 × 3840（竖版）",
+  "内容：",
+  "七种配色 × 三种尺寸 = 21 张 PNG 图片／ZIP 约 37.1 MB",
+  "壁纸预览和 ZIP 文件仍由原 FUNtasia Audio 网站及 GitHub Releases 托管。迁移期间下载链接保持不变。",
+  "让 FUNtasia 也出现在鼠标光标上。",
+  "适用于 Windows 11 的免费鼠标光标套装，采用 FUNtasia Studio 的七种配色。每种主题包含 17 种指针用途，以及等待和后台运行时的动态光标。",
+  "下载七种光标主题（ZIP） ↗",
+  "查看光标发行信息 ↗",
+  "Windows 11 · 免费／v0.1／ZIP 约 3.6 MB",
+  "。解压文件并打开附带的 ",
+  "，即可选择配色。详细步骤与注意事项请参阅发行说明。",
+  "让 FUNtasia 出现在你喜爱的物品上。",
+  "即使 SUZURI 没有销售你想要的物品，也可以使用喜欢的印刷服务自行制作。我们免费提供独立 Forte 标志、带 FUNtasia 字样的标志及 Hʉeliang DJ 标志的透明 PNG。",
+  "独立 Forte 标志",
+  "FUNtasia Studio 的另外八种配色，提供透明背景 PNG。",
+  "下载八色 ZIP",
+  "Forte 标志＋FUNtasia 字样",
+  "Forte 标志搭配 FUNtasia 文字，另外八种配色，透明背景 PNG。",
+  "Hʉeliang DJ 标志",
+  "Hʉeliang DJ 字标，另外八种配色，透明背景 PNG。",
+  "基础配色与制作素材包",
+  "包含基础配色素材和制作参考文件。",
+  "下载基础素材包",
+  "可将这些文件用于制作个人使用的定制商品，包括提交给印刷服务商制作。",
+  "请勿重新分发源文件、未经许可销售商品，或使他人误认为私人制作的商品是官方产品。如需商业用途，请联系我们。",
+  "FUNtasia 商店",
+  "可在 SUZURI 查看 FUNtasia 周边商品。具体商品、价格与配送条件请以 SUZURI 商店页面为准。",
+  "访问 SUZURI 商店 ↗"
+];
+  if (zhUtilityRows.length !== utilityRows.length || zhGoodsRows.length !== goodsRows.length)
+    throw new Error('zh-CN translation row count mismatch');
+  utilityRows.forEach((row, i) => row.push(zhUtilityRows[i]));
+  goodsRows.forEach((row, i) => row.push(zhGoodsRows[i]));
+  const localeIndex = {ja: 0, en: 1, de: 2, fr: 3, ru: 4, 'zh-CN': 5};
   const rows = page === 'utilities' ? utilityRows : goodsRows;
   const byJapanese = new Map(rows.map(row => [row[0], row]));
   const head = {
@@ -126,14 +234,16 @@
       en: ['FUNtasia Utilities | Creative Windows Tools', 'Download FUNtasia Audio Compare, Quick Launcher, Player, Mixer and Session Note for Windows.'],
       de: ['FUNtasia Utilities | Kreative Windows-Werkzeuge', 'FUNtasia Audio Compare, Quick Launcher, Player, Mixer und Session Note für Windows entdecken und herunterladen.'],
       fr: ['FUNtasia Utilities | Outils créatifs Windows', 'Découvrez et téléchargez FUNtasia Audio Compare, Quick Launcher, Player, Mixer et Session Note pour Windows.'],
-      ru: ['FUNtasia Utilities | Инструменты для Windows', 'Скачать FUNtasia Audio Compare, Quick Launcher, Player, Mixer и Session Note для Windows.']
+      ru: ['FUNtasia Utilities | Инструменты для Windows', 'Скачать FUNtasia Audio Compare, Quick Launcher, Player, Mixer и Session Note для Windows.'],
+      'zh-CN': ['FUNtasia Utilities | Windows 创作工具', '了解并下载适用于 Windows 的 FUNtasia Audio Compare、Quick Launcher、Player、Mixer 与 Session Note。']
     },
     goods: {
       ja: ['FUNtasia Goods | 無料壁紙・カーソル・公式ロゴ素材', 'FUNtasiaの無料壁紙、Windows用マウスカーソル、カスタムグッズ制作に使える公式ロゴ素材をダウンロードできます。'],
       en: ['FUNtasia Goods | Free Wallpapers, Cursors & Logos', 'Download FUNtasia wallpapers, Windows cursor themes and official logo assets for personal custom merchandise.'],
       de: ['FUNtasia Goods | Kostenlose Wallpaper, Cursor & Logos', 'Lade FUNtasia-Wallpaper, Windows-Cursor und offizielle Logo-Dateien für persönliche Sonderanfertigungen herunter.'],
       fr: ['FUNtasia Goods | Fonds d’écran, curseurs et logos gratuits', 'Téléchargez les fonds d’écran FUNtasia, les curseurs Windows et les logos officiels pour des objets personnalisés à usage personnel.'],
-      ru: ['FUNtasia Goods | Обои, курсоры и логотипы', 'Скачайте обои FUNtasia, курсоры Windows и официальные логотипы для персональных вещей.']
+      ru: ['FUNtasia Goods | Обои, курсоры и логотипы', 'Скачайте обои FUNtasia, курсоры Windows и официальные логотипы для персональных вещей.'],
+      'zh-CN': ['FUNtasia Goods | 免费壁纸、光标与标志素材', '下载 FUNtasia 免费壁纸、Windows 光标主题，以及用于个人定制商品的官方标志素材。']
     }
   };
   const common = {
@@ -141,7 +251,8 @@
     en: {language: 'Language', nav: 'Site navigation', home: 'Home', quickFeatures: 'Quick Launcher features', playerFeatures: 'FUNtasia Player features', playerThemes: 'Seven FUNtasia Player themes', colorThemes: 'Seven color themes'},
     de: {language: 'Sprache', nav: 'Seitennavigation', home: 'Startseite', quickFeatures: 'Quick-Launcher-Funktionen', playerFeatures: 'FUNtasia-Player-Funktionen', playerThemes: 'Sieben FUNtasia-Player-Themes', colorThemes: 'Sieben Farbthemen'},
     fr: {language: 'Langue', nav: 'Navigation du site', home: 'Accueil', quickFeatures: 'Fonctions de Quick Launcher', playerFeatures: 'Fonctions de FUNtasia Player', playerThemes: 'Sept thèmes de FUNtasia Player', colorThemes: 'Sept thèmes de couleur'},
-    ru: {language: 'Язык', nav: 'Навигация по сайту', home: 'Главная', quickFeatures: 'Функции Quick Launcher', playerFeatures: 'Функции FUNtasia Player', playerThemes: 'Семь тем FUNtasia Player', colorThemes: 'Семь цветовых тем'}
+    ru: {language: 'Язык', nav: 'Навигация по сайту', home: 'Главная', quickFeatures: 'Функции Quick Launcher', playerFeatures: 'Функции FUNtasia Player', playerThemes: 'Семь тем FUNtasia Player', colorThemes: 'Семь цветовых тем'},
+    'zh-CN': {language: '语言', nav: '网站导航', home: '首页', quickFeatures: 'Quick Launcher 功能', playerFeatures: 'FUNtasia Player 功能', playerThemes: 'FUNtasia Player 的七种主题', colorThemes: '七种配色主题'}
   };
 
   const textBindings = [];
@@ -168,6 +279,34 @@
 
   function attributeText(value, code) {
     if (code === 'ja') return value;
+    if (code === 'zh-CN') {
+      const fixed = {
+        '黒いFUNtasiaパーカー。胸元にセージグリーンの植物モチーフのフォルテロゴ。': '黑色 FUNtasia 连帽衫，胸前印有鼠尾草绿色的植物主题 Forte 标志。',
+        'FUNtasia Audio Compare v0.2.1の実画面を拡大表示': '放大 FUNtasia Audio Compare v0.2.1 实机截图',
+        'FUNtasia Audio Compare v0.2.1のOriginal Sage画面。4音源の読み込み、再生操作、True Peakメーターを表示。': 'FUNtasia Audio Compare v0.2.1 Original Sage 界面，显示四个音源、播放控制和 True Peak 电平表。',
+        'FUNtasia Audio Compareの機能': 'FUNtasia Audio Compare 功能',
+        'FUNtasia Quick Launcher v0.1.16の実画面を拡大表示': '放大 FUNtasia Quick Launcher v0.1.16 实机截图',
+        'FUNtasia Quick Launcher v0.1.16。Original SageテーマでFUNtasia Studio、Mixer、Playerの3つのショートカットを表示したWindows実機画面。': 'FUNtasia Quick Launcher v0.1.16 Original Sage Windows 实机界面，显示 Studio、Mixer 和 Player 三个快捷方式。',
+        'FUNtasia Mixer v1.0.0の画面を拡大表示': '放大 FUNtasia Mixer v1.0.0 截图',
+        'Windows 11上のFUNtasia Mixer。Apogee Duet 3の出力音量、DiscordとSystem soundsのアプリ別音量スライダーを表示': 'Windows 11 上的 FUNtasia Mixer，显示 Apogee Duet 3 输出音量，以及 Discord 和系统声音的独立音量滑块。',
+        'FUNtasia Session Noteの実画面を拡大表示': '放大 FUNtasia Session Note 实机截图',
+        'FUNtasia Session Note v0.1.0kのOriginal Sageテーマの実際の画面。セッション情報、ToDo、アイデア・メモを表示。': 'FUNtasia Session Note v0.1.0k Original Sage 实机界面，显示会话信息、待办事项和创作笔记。',
+        'FUNtasia Alchemist Cursorsのポインターデザインと7色のテーマ': 'FUNtasia Alchemist Cursors 指针设计与七种配色主题',
+        'FUNtasia SUZURIストアを開く': '打开 FUNtasia SUZURI 商店'
+      };
+      if (Object.hasOwn(fixed, value)) return fixed[value];
+      if (value === 'サイト内ナビゲーション') return common[code].nav;
+      if (value === 'Quick Launcherの機能') return common[code].quickFeatures;
+      if (value === 'FUNtasia Playerの機能') return common[code].playerFeatures;
+      if (value === 'FUNtasia Playerの7つのテーマ') return common[code].playerThemes;
+      if (value === '7種類のカラーテーマ') return common[code].colorThemes;
+      const wall = value.match(/^FUNtasia Studio (.+)の壁紙プレビュー$/);
+      if (wall) return `FUNtasia Studio ${wall[1]} 壁纸预览`;
+      const icon = value.match(/^FUNtasia Player (.+)テーマのアイコン$/);
+      if (icon) return `FUNtasia Player ${icon[1]} 主题图标`;
+      return value;
+    }
+
     const locale = common[code];
     if (value === "黒いFUNtasiaパーカー。胸元にセージグリーンの植物モチーフのフォルテロゴ。") return {
       en: "Black FUNtasia hoodie with a sage-green botanical forte emblem on the chest.",
@@ -248,7 +387,9 @@
   function preferredLocale() {
     const preferences = navigator.languages?.length ? navigator.languages : [navigator.language || ''];
     for (const preference of preferences) {
-      const code = String(preference).toLowerCase().split(/[-_]/)[0];
+      const full = String(preference).toLowerCase().replace('_', '-');
+      if (/^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(full)) return 'zh-CN';
+      const code = full.split('-')[0];
       if (locales.includes(code)) return code;
     }
     return 'en';
@@ -261,7 +402,7 @@
   }
   function queryLocale() {
     const requested = new URLSearchParams(location.search).get('lang');
-    return locales.includes(requested) ? requested : null;
+    return requested === 'zh' || requested?.toLowerCase() === 'zh-cn' ? 'zh-CN' : (locales.includes(requested) ? requested : null);
   }
 
   function applyLocale(code, remember = false) {
@@ -283,14 +424,14 @@
       select.setAttribute('aria-label', {
         ja: 'サイトの言語を選択', en: 'Select website language',
         de: 'Websitesprache wählen', fr: 'Choisir la langue du site',
-        ru: 'Выбрать язык сайта'
+        ru: 'Выбрать язык сайта', 'zh-CN': '选择网站语言'
       }[code]);
     }
     if (label) label.textContent = common[code].language;
     if (nav) nav.setAttribute('aria-label', common[code].nav);
     for (const link of brandLinks) link.href = `../?lang=${code}`;
-    for (const link of catalogLinks) link.href = `../catalog/${code}/`;
-    for (const link of recordsLinks) link.href = code === 'ja' ? '../records/' : `../records/${code}/`;
+    for (const link of catalogLinks) link.href = `../catalog/${code === 'zh-CN' ? 'zh-cn' : code}/`;
+    for (const link of recordsLinks) link.href = code === 'ja' ? '../records/' : `../records/${code === 'zh-CN' ? 'zh-cn' : code}/`;
     for (const link of utilityLinks) link.href = `../utilities/?lang=${code}`;
     for (const link of goodsLinks) link.href = `../goods/?lang=${code}`;
     if (remember) {

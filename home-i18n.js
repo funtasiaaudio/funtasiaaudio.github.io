@@ -5,7 +5,7 @@
 (() => {
   'use strict';
 
-  const supported = ['ja', 'en', 'de', 'fr', 'ru'];
+  const supported = ['ja', 'en', 'de', 'fr', 'ru', 'zh-CN'];
   const storageKey = 'funtasia.home.language';
 
   const selectors = {
@@ -230,7 +230,79 @@
       supportTitle: 'Нужная информация — без лишних поисков.', supportBody: 'Здесь собраны сведения о продуктах, контакты FUNtasia Records и полезные ресурсы.', supportButton: 'Раздел поддержки', supportNote: 'Предыдущие сайты FUNtasia Audio и FUNtasia Records по-прежнему доступны.',
       audioAlt: 'FUN Modulation Pack: изображение Chorus, Flanger и Phaser', recordsAlt: 'Иллюстрированная обложка FUNtasia Records с цветами', studioAlt: 'DAW FUNtasia Studio с дорожками и Device Rack', utilitiesAlt: 'FUNtasia Quick Launcher для Windows в теме Original Sage', storeAlt: "Чёрное худи FUNtasia с ботанической эмблемой forte шалфейно-зелёного цвета на груди.", goodsAlt: 'Обои FUNtasia Studio Original Sage',
       logoAria: 'Главная FUNtasia', navAria: 'Главная навигация', languageAria: 'Выбор языка сайта', quickAria: 'Поиск по интересам'
-    }
+    },
+    'zh-CN': {
+      "title": "FUNtasia｜音乐与创作的世界",
+      "description": "探索 FUNtasia 的音频插件、音乐作品、数字音频工作站及创作工具，了解我们的理念与开发者。",
+      "languageLabel": "语言",
+      "heroEyebrow": "同一个创意世界",
+      "heroTitle": "声音。创作。<br>想象力。",
+      "heroLead": "从创造声音的工具，到分享音乐的舞台。在这里探索 FUNtasia 的创作世界。",
+      "heroAudio": "浏览音频插件",
+      "heroExplore": "探索 FUNtasia",
+      "heroRecords": "聆听 Records 的音乐",
+      "philosophyEyebrow": "FUNtasia Audio · 我们的理念",
+      "philosophyTitle": "声音品质，不应由价格决定。",
+      "philosophyLead": "即使免费，也追求专业水准。价格不同，不代表声音品质有高低之分；差异来自控制深度、创作自由度，以及开发者的经验与审美。",
+      "freeTitle": "免费，也要认真对待品质。",
+      "freeBody": "免费不等于声音妥协。我们希望每个人都能使用足以胜任专业制作的创作工具。",
+      "proTitle": "更深入的控制，更自由的创作。",
+      "proBody": "付费工具提供更专业的参数和声音塑造空间，而不是更高一级的音质。",
+      "premiumTitle": "把创作者的经验融入声音。",
+      "premiumBody": "音乐制作的长期积累、艺术判断与审美理念都进入产品设计。这种体验的价值，不只取决于功能数量。",
+      "philosophyButton": "探索 FUNtasia Audio",
+      "quickTitle": "想找什么？",
+      "quickAudio": "查找插件",
+      "quickRecords": "音乐与艺术家",
+      "quickUtilities": "创作工具",
+      "quickGoods": "免费壁纸",
+      "quickSupport": "获取帮助",
+      "exploreEyebrow": "探索 FUNtasia",
+      "exploreTitle": "让创作拥有更多可能。",
+      "exploreLead": "制作音乐、开发工具、分享作品。从这里发现 FUNtasia 的各个领域。",
+      "audioTag": "音频软件 · 插件",
+      "audioBody": "浏览已公开的效果器和虚拟乐器，了解功能、规格与下载方式。",
+      "audioMore": "查看产品目录 →",
+      "recordsTag": "音乐 · 艺术家",
+      "recordsBody": "探索 FUNtasia Records 的音乐、艺术家、发行作品与个人资料。",
+      "recordsMore": "探索 Records →",
+      "studioTag": "数字音频工作站",
+      "studioBody": "了解 FUNtasia Studio 的公开测试版与免费扩展包。",
+      "studioMore": "访问 Studio 网站 →",
+      "utilitiesTag": "Windows 工具",
+      "utilitiesBody": "了解 FUNtasia Quick Launcher、Player、Mixer 和 Session Note 等 Windows 创作工具。",
+      "utilitiesMore": "浏览实用工具 →",
+      "goodsTag": "周边 · 免费壁纸",
+      "goodsBody": "下载 21 张免费壁纸，以及七套 Windows 11 鼠标指针主题。",
+      "goodsMore": "下载免费壁纸 →",
+      "storeEyebrow": "FUNtasia 商店 · SUZURI",
+      "storeTitle": "让 FUNtasia 融入日常生活。",
+      "storeBody": "在 SUZURI 商店查看 FUNtasia 周边商品、价格和配送详情。",
+      "storeButton": "前往 SUZURI 商店 ↗",
+      "guildEyebrow": "社区 · Discord",
+      "guildSub": "让创意与灵感相遇的 FUNtasia 官方社区。",
+      "guildBody1": "欢迎音乐制作人与声音设计爱好者交流经验、分享作品和想法。",
+      "guildBody2": "我们同样欢迎<strong>问题反馈、故障排查、功能建议与改进意见</strong>。",
+      "guildBody3": "一起塑造 FUNtasia 的未来。",
+      "guildButton": "加入 Alchemist Guild ↗",
+      "aboutEyebrow": "关于创作者",
+      "aboutBody": "Hʉeliang 从三岁开始学习钢琴，十六岁开始作曲，同时创作音乐与软件，希望让更多人自由表达自己的创意。",
+      "aboutButton": "阅读创作者介绍",
+      "supportTitle": "轻松找到需要的信息。",
+      "supportBody": "查找产品信息、FUNtasia Records 联系方式，以及更多帮助资源。",
+      "supportButton": "查看支持信息",
+      "supportNote": "FUNtasia Audio 与 FUNtasia Records 原有网站仍可访问。",
+      "audioAlt": "FUN Modulation Pack 产品概念图，包括 Chorus、Flanger 和 Phaser",
+      "recordsAlt": "花卉围绕的 FUNtasia Records 插画横幅",
+      "studioAlt": "显示音轨和设备架的 FUNtasia Studio 工作界面",
+      "utilitiesAlt": "采用 Original Sage 主题的 Windows 版 FUNtasia Quick Launcher",
+      "storeAlt": "黑色 FUNtasia 连帽衫，胸前有鼠尾草绿色植物风格的 forte 徽标",
+      "goodsAlt": "FUNtasia Studio Original Sage 壁纸",
+      "logoAria": "FUNtasia 首页",
+      "navAria": "主导航",
+      "languageAria": "选择网站语言",
+      "quickAria": "按主题浏览"
+}
   };
 
   // The original Audio support appeal is preserved in full and localized with the home language.
@@ -327,7 +399,30 @@
     "Бесплатные плагины доступны всем, кому они нужны, без стеснения и каких-либо обязательств.",
     "<strong>Если вы получаете удовольствие от музыки и творчества по-своему, значит, одна из моих целей уже достигнута.</strong>",
     "И всем, кто поддерживает эту работу, искреннее спасибо от всего сердца."
-  ]
+  ],
+  "zh-CN": [
+    "开发者的话",
+    "让每个人<br>都有创作的机会。",
+    "我有发育障碍，也因此对某些感官刺激比较敏感。",
+    "学生时代，我曾遭受严重的欺凌，同时努力打工购买音源库和音乐设备。那些经历至今仍深深影响着我，目前我也在接受抑郁症治疗。",
+    "经历过这些困难后，我始终有一个真切的愿望。",
+    "希望创造一个世界：无论是否有残障、经济条件如何、成长背景怎样，或面对什么困难，<strong>每个人都能做自己，并探索自己的潜能</strong>。",
+    "创作音乐，表达独属于自己的想法。",
+    "我不希望任何人因为买不起创作工具而不得不放弃这一可能性。",
+    "这也是我格外用心开发 FUNtasia Audio 免费插件的原因。",
+    "对我而言，免费产品的价值并不低于付费产品。我同样认真对待免费产品的质量与丰富程度。",
+    "坦率地说，目前投入开发的时间和成本，与获得的收入极不相称。",
+    "即便如此，我也不愿通过减少免费产品或降低其质量来放弃自己的信念。",
+    "因此，我<strong>真诚地寻求支持</strong>，希望认同 FUNtasia Audio 理念、同时有能力帮助的朋友能够支持我们。",
+    "我们的 Amazon 心愿单不仅包括开发设备，也包括帮助维持创作工作的食品和日常必需品。",
+    "你的支持能切实帮助我们继续开发，并让更多人用上创作工具。",
+    "查看 Amazon 支持心愿单",
+    "当然，如果经济状况或其他原因让你难以提供支持，请完全不必在意。",
+    "你不需要因为无法支持我们而感到愧疚。",
+    "免费插件向每一位需要的人开放，没有附加条件，也无需犹豫。",
+    "<strong>只要你能够享受音乐与创作，用自己的方式表达想法，我的一个目标就已经实现了。</strong>",
+    "也衷心感谢每一位支持这项工作的朋友。"
+]
 };
   const appealNodes = appealKeys.map(key => document.querySelector('[data-appeal="' + key + '"]'));
   const appealOriginal = appealNodes.map(node => node?.innerHTML ?? '');
@@ -356,15 +451,21 @@
 
   const catalogLinks = [...document.querySelectorAll('a[href="catalog/ja/"]')];
   const recordsLinks = [...document.querySelectorAll('a[href="records/"]')];
+  const utilityLinks = [...document.querySelectorAll('a[href="utilities/"]')];
+  const goodsLinks = [...document.querySelectorAll('a[href="goods/"]')];
   const studioLinks = [...document.querySelectorAll('a[href="studio/official/ja/"]')];
+  const aboutLinks = [...document.querySelectorAll('a[href="about/"]')];
+  const supportLinks = [...document.querySelectorAll('a[href="support/"]')];
   const select = document.querySelector('#home-language');
 
   function browserLocale() {
     const prefs = Array.isArray(navigator.languages) && navigator.languages.length
       ? navigator.languages : [navigator.language || ''];
     for (const pref of prefs) {
-      const language = String(pref).toLowerCase().split(/[-_]/)[0];
-      if (supported.includes(language)) return language;
+      const language = String(pref).toLowerCase().replace('_', '-');
+      if (/^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(language)) return 'zh-CN';
+      const base = language.split('-')[0];
+      if (supported.includes(base)) return base;
     }
     return 'en';
   }
@@ -378,7 +479,7 @@
   }
   function queryLocale() {
     const requested = new URLSearchParams(location.search).get('lang');
-    return supported.includes(requested) ? requested : null;
+    return requested === 'zh' || requested?.toLowerCase() === 'zh-cn' ? 'zh-CN' : (supported.includes(requested) ? requested : null);
   }
   function applyLocale(locale, remember = false) {
     if (!supported.includes(locale)) return;
@@ -401,9 +502,13 @@
     document.querySelector('.nav')?.setAttribute('aria-label', strings.navAria);
     select?.setAttribute('aria-label', strings.languageAria);
     document.querySelector('.quick-paths')?.setAttribute('aria-label', strings.quickAria);
-    for (const link of catalogLinks) link.href = 'catalog/' + locale + '/';
-    for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + locale + '/';
+    for (const link of catalogLinks) link.href = 'catalog/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
+    for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
+    for (const link of utilityLinks) link.href = 'utilities/?lang=' + locale;
+    for (const link of goodsLinks) link.href = 'goods/?lang=' + locale;
     for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : 'studio/official/');
+    for (const link of aboutLinks) link.href = locale === 'zh-CN' ? 'about/zh-cn/' : 'about/?lang=' + locale;
+    for (const link of supportLinks) link.href = locale === 'zh-CN' ? 'support/zh-cn/' : 'support/';
     if (select) select.value = locale;
     if (remember) {
       try { localStorage.setItem(storageKey, locale); } catch { /* Browsing without local storage is supported. */ }

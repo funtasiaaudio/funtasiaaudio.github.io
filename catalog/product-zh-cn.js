@@ -9,7 +9,7 @@
     "summary": "FUNtasia Free Collection 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
     "paras": [
       "FUNtasia Free Collection 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
-      "v1.1.0 新增 FUN Plate FREE v1.0.0；各插件仍保留各自的版本号。下载 ZIP 后，请按插件类型将 VST3 安装到 Windows 的插件目录。"
+      "v1.1.1 新增 Nyan 8bit v1.0.0 复古芯片风格合成器；各插件仍保留各自的版本号。下载 ZIP 后，请按插件类型将 VST3 安装到 Windows 的插件目录。"
     ]
   },
   "fun-plate": {

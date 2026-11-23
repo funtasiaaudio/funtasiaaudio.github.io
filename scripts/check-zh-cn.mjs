@@ -28,7 +28,7 @@ assert.equal(zhCardProducts.length,35,'Expected 35 products');
 assert.deepEqual(releaseLinks(zh), releaseLinks(en),
   'Published ZIP and product asset links differ from English catalog');
 assert.ok(zh.includes('data-product-key="fun-plate"'), 'FUN Plate card missing');
-assert.ok(zh.includes('FUNtasia.Free.Collection.1.1.0.zip'), 'Free Collection version stale');
+assert.ok(zh.includes('FUNtasia.Free.Collection.1.1.1.zip'), 'Free Collection version stale');
 assert.ok(zh.includes('../product-plate.js?v=20261122-plate-free-100'), 'FUN Plate details missing');
 assert.ok(zh.includes('<html lang="zh-CN">'));
 assert.ok(zh.includes('https://funtasiaaudio.github.io/catalog/zh-cn/'));

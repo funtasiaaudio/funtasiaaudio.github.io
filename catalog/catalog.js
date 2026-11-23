@@ -618,6 +618,22 @@ dialog.querySelector('.dialog-kicker').textContent=words[1];
 dialog.querySelector('.dialog-close').textContent=words[3];
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+// Keep keyboard focus inside the native modal, including browsers that send
+// focus to document.body when Tab advances beyond the last dialog control.
+// The list is recomputed so localized disclosure <summary> controls remain usable.
+dialog.addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||!dialog.open)return;
+ const focusable=[...dialog.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary,[tabindex]:not([tabindex="-1"])')]
+  .filter(el=>el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden');
+ if(!focusable.length){e.preventDefault();dialog.focus();return;}
+ const first=focusable[0],last=focusable[focusable.length-1];
+ if(e.shiftKey&&(document.activeElement===first||document.activeElement===dialog)){
+  e.preventDefault();last.focus();
+ }else if(!e.shiftKey&&document.activeElement===last){
+  e.preventDefault();first.focus();
+ }
+});
+
 for(const card of cards){
  // The original product title link is marked earlier by the artwork setup.
  // Do not use the first anchor: the artwork link is inserted before it.

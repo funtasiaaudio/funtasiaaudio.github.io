@@ -18,11 +18,11 @@ Status: **Draft implementation — not published**. Branch: `feature/zh-cn-audio
 
 1. **Editorial review:** Check Chinese copy for fluency, product accuracy, brand voice, and version-specific claims. Ensure all pages preserve factual meaning. The catalog is based on the current English release listings. Updated for FUNtasia Free Collection v1.1.0 and FUN Plate FREE v1.0.0 on 2026-11-23.
 2. **Desktop and mobile:** Inspect homepage language switcher, catalog navigation, 34 cards, search, category/genre filters, dialogs, imagery, FAQ, Chinese font fallback, keyboard focus and scrolling.
-3. **Links:** Test Chinese About, Support, Quality, catalog and MonoFilter. Verify external GitHub Release ZIP downloads and PDF links. Pages for other FUNtasia divisions remain in their existing languages and are labeled `(EN)` where appropriate.
+3. **Links:** Test Chinese About, Support, Quality, catalog and MonoFilter. Verify external GitHub Release ZIP downloads and PDF links. The Studio, Records, About, Support, Utilities and Goods routes have Chinese entry points. Follow locale-specific links and label English/Japanese manuals or books where translation is not available.
 4. **From mainland China:** Verify real access to GitHub Pages, GitHub release downloads, fonts and images from a Chinese network, not from a VPN or merely an overseas IP. If unreliable, review delivery options before promotion.
 5. **GA4:** GTM `GTM-M88BK887` is present, but a dataLayer push **does not itself create a GA4 event**. Configure a GTM Custom Event trigger named `funtasia_product_download_click` and a GA4 Event tag (under the correct GA4 measurement setup) with the same event name. Map `site_language`, `product_name`, `product_key`, `download_url` data layer variables to GA4 event parameters. Publish the GTM container only after review and consent / tracking requirements have been checked.
 6. **Measurement QA:** Use GTM Preview/Tag Assistant and GA4 DebugView or Realtime to verify one event per actual ZIP click. Check `/catalog/zh-cn/` page views and clicks by Country=China, and segment engaged sessions/referrals. Baseline is limited and includes suspected non-human visits; do not attribute every Direct session to genuine Chinese interest.
-7. **Static regression:** Run `node scripts/check-zh-cn.mjs`. This validates file coverage, 34 Chinese product entries, unchanged artifact links, hreflang, metadata, and JS syntax.
+7. **Static regression:** Run the CI suite in `.github/workflows/check-zh-cn.yml`. It validates catalog parity, Studio expansion/study links and bibliography, local links, SEO, release data, GTM code contract and JavaScript behavior.
 8. **Review and merge:** Merge the PR only after the checks are accepted. The live website is unchanged until merge and GitHub Pages deployment.
 
 ## Measurement definitions
@@ -34,3 +34,19 @@ Status: **Draft implementation — not published**. Branch: `feature/zh-cn-audio
 ## Update workflow
 
 Maintain product names, versions, release URLs, and card ordering consistently across language catalog files. When a product is added or updated, update `catalog/product-zh-cn.js`, run the static check and manually verify translated UI content.
+
+
+## Studio subpages — staged 2026-11-23 (Japan time)
+
+- Chinese expansion browser: `/studio/official/expansions/zh-cn/` with five packs (original MIDI performances, drum/WAV sample sets and The Wavelace wavetables), translated specifications, use instructions and license distinctions.
+- Chinese composition reading guide: `/studio/official/zh-cn/study/`, translating the Japanese composition-theory guide, preserving Japanese bibliographic titles and author/publisher links. It clearly states that the listed books are Japanese publications.
+- Studio zh-CN landing navigation links directly to both Chinese subpages. Existing English/Japanese expansion pages and Japanese study page link to the new Chinese pages; sitemap entries added.
+- Expansion category/sort JavaScript now displays Chinese result counts. Existing English/Japanese behavior and pack downloads remain unchanged.
+- Run both `node scripts/check-zh-cn.mjs` and `node scripts/check-zh-cn-studio-subpages.mjs` before publishing. The latter checks the five-pack count, official release/book URL parity, local asset paths, reciprocal navigation and JS syntax.
+- Chromium QA has passed at desktop and mobile viewport widths, and a GitHub Actions runner successfully downloaded and checksum-verified the official MonoFilter ZIP. **Still pending:** native Chinese editorial signoff, physical device/accessibility testing, target-region network and download verification, and GTM/GA4 live receipt. The Chinese translation does not imply that Japanese-language books or manuals have been translated into Chinese.
+
+## Automated site-local link audit
+
+- `node scripts/check-zh-cn-links.mjs` checks 13 entry points (Chinese pages and shared-language home/Utilities/Goods routers), HTML language and metadata, image alternative text, same-page fragment targets and link/file existence in this repository.
+- Legacy references under `https://funtasiaaudio.github.io/funtasia-audio/` intentionally point at **a different GitHub Pages project**, repository `funtasiaaudio/funtasia-audio`. They are counted separately, not misreported as missing files. Its repository structure has been checked independently, but actual mainland-China network reachability and individual HTTP download success are not yet verified.
+- Run the current comprehensive static and Chromium GitHub Actions workflows before publication; check the exact head SHA and individual job conclusions. These complement, not replace, physical-device/accessibility reviews and in-region network checks.

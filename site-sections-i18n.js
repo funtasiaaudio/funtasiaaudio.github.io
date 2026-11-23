@@ -378,6 +378,9 @@
   const label = document.querySelector('.section-language-switch label');
   const meta = document.querySelector('meta[name="description"]');
   const brandLinks = [...document.querySelectorAll('a[href="../"]')];
+  const studioLinks = [...document.querySelectorAll('a[href="../studio/"]')];
+  const aboutLinks = [...document.querySelectorAll('a[href="../about/"]')];
+  const supportLinks = [...document.querySelectorAll('a[href="../support/"]')];
   const catalogLinks = [...document.querySelectorAll('a[href="../catalog/ja/"]')];
   const recordsLinks = [...document.querySelectorAll('a[href="../records/"]')];
   const utilityLinks = [...document.querySelectorAll('a[href="../utilities/"]')];
@@ -402,7 +405,9 @@
   }
   function queryLocale() {
     const requested = new URLSearchParams(location.search).get('lang');
-    return requested === 'zh' || requested?.toLowerCase() === 'zh-cn' ? 'zh-CN' : (locales.includes(requested) ? requested : null);
+    const normalized = String(requested || '').toLowerCase().replace(/_/g, '-');
+    return /^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(normalized)
+      ? 'zh-CN' : (locales.includes(requested) ? requested : null);
   }
 
   function applyLocale(code, remember = false) {
@@ -434,6 +439,15 @@
     for (const link of recordsLinks) link.href = code === 'ja' ? '../records/' : `../records/${code === 'zh-CN' ? 'zh-cn' : code}/`;
     for (const link of utilityLinks) link.href = `../utilities/?lang=${code}`;
     for (const link of goodsLinks) link.href = `../goods/?lang=${code}`;
+    // Chinese subpages are real translated routes. Do not let the Studio
+    // browser-locale router or Japanese About/Support pages override an explicit
+    // ?lang=zh-CN link when the visitor has an older saved language preference.
+    for (const link of studioLinks) link.href = code === 'zh-CN'
+      ? '../studio/official/zh-cn/' : '../studio/';
+    for (const link of aboutLinks) link.href = code === 'zh-CN'
+      ? '../about/zh-cn/' : '../about/';
+    for (const link of supportLinks) link.href = code === 'zh-CN'
+      ? '../support/zh-cn/' : '../support/';
     if (remember) {
       try { localStorage.setItem(storageKey, code); } catch { /* Private browsing remains usable. */ }
       const url = new URL(location.href);

@@ -479,7 +479,9 @@
   }
   function queryLocale() {
     const requested = new URLSearchParams(location.search).get('lang');
-    return requested === 'zh' || requested?.toLowerCase() === 'zh-cn' ? 'zh-CN' : (supported.includes(requested) ? requested : null);
+    const normalized = String(requested || '').toLowerCase().replace(/_/g, '-');
+    return /^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(normalized)
+      ? 'zh-CN' : (supported.includes(requested) ? requested : null);
   }
   function applyLocale(locale, remember = false) {
     if (!supported.includes(locale)) return;
@@ -506,7 +508,7 @@
     for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
     for (const link of utilityLinks) link.href = 'utilities/?lang=' + locale;
     for (const link of goodsLinks) link.href = 'goods/?lang=' + locale;
-    for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : 'studio/official/');
+    for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : (locale === 'zh-CN' ? 'studio/official/zh-cn/' : 'studio/official/'));
     for (const link of aboutLinks) link.href = locale === 'zh-CN' ? 'about/zh-cn/' : 'about/?lang=' + locale;
     for (const link of supportLinks) link.href = locale === 'zh-CN' ? 'support/zh-cn/' : 'support/';
     if (select) select.value = locale;

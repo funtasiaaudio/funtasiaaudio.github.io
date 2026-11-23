@@ -10,13 +10,16 @@
 (function () {
   var supported = ['ja', 'en', 'de', 'fr', 'ru', 'zh-CN'];
   var explicit = new URLSearchParams(location.search).get('lang');
+  // Normalize explicit Simplified Chinese aliases without overriding Traditional locales.
+  var explicitTag = String(explicit || '').toLowerCase().replace(/_/g, '-');
+  if (/^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(explicitTag)) explicit = 'zh-CN';
   var saved = null;
   try { saved = localStorage.getItem('funtasia.home.language'); } catch (e) {}
   var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   var browser = 'en';
   for (var i = 0; i < prefs.length; i++) {
     var raw = String(prefs[i]).toLowerCase().replace(/_/g, '-');
-    var lang = raw.startsWith('zh') && !/^zh-(tw|hk|mo|hant)/.test(raw) ? 'zh-CN' : raw.split('-')[0];
+    var lang = /^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(raw) ? 'zh-CN' : raw.split('-')[0];
     if (supported.indexOf(lang) !== -1) { browser = lang; break; }
   }
   var locale = supported.indexOf(explicit) !== -1 ? explicit : (supported.indexOf(saved) !== -1 ? saved : browser);

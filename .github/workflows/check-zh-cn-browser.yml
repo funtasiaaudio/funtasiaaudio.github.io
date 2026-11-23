@@ -1,0 +1,69 @@
+name: Simplified Chinese Studio browser QA
+
+on:
+  push:
+    branches: [feature/zh-cn-studio-subpages-20261123]
+    paths:
+      - 'studio/**'
+      - 'catalog/**'
+      - 'records/**'
+      - 'utilities/**'
+      - 'goods/**'
+      - 'about/**'
+      - 'quality/**'
+      - 'support/**'
+      - 'home-i18n.js'
+      - 'site-sections-i18n.js'
+      - 'index.html'
+      - 'scripts/check-zh-cn-browser.mjs'
+      - 'scripts/check-zh-cn-site-browser.mjs'
+      - 'scripts/check-zh-cn-keyboard-reflow.mjs'
+      - 'scripts/check-zh-cn-external-fallback.mjs'
+      - '.github/workflows/check-zh-cn-browser.yml'
+  pull_request:
+    branches: [feature/zh-cn-studio-20261123]
+    paths:
+      - 'studio/**'
+      - 'scripts/check-zh-cn-browser.mjs'
+      - 'scripts/check-zh-cn-site-browser.mjs'
+      - 'scripts/check-zh-cn-keyboard-reflow.mjs'
+      - 'scripts/check-zh-cn-external-fallback.mjs'
+      - '.github/workflows/check-zh-cn-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chromium-studio-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout review branch
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Playwright Chromium for test runner only
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Check actual desktop and mobile browser rendering
+        run: |
+          node scripts/check-zh-cn-browser.mjs
+          node scripts/check-zh-cn-site-browser.mjs
+          node scripts/check-zh-cn-keyboard-reflow.mjs
+          node scripts/check-zh-cn-external-fallback.mjs
+      - name: Preserve desktop/mobile screenshots and browser diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zh-cn-studio-chromium-${{ github.run_id }}
+          path: |
+            artifacts/zh-cn-browser/
+            artifacts/zh-cn-site-browser/
+            artifacts/zh-cn-keyboard-reflow/
+            artifacts/zh-cn-network-fallback/
+          retention-days: 14
+          if-no-files-found: warn

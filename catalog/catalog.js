@@ -16,7 +16,7 @@ const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
-'Nyan BuildUp':'other',
+'Nyan 8bit':'synth','Nyan BuildUp':'other',
 'FUN Motion Pack':'modulation','FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN Plate':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
 'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
 };
@@ -272,7 +272,7 @@ const nineThemeProductKeys=new Set([
  'fun-modulation-pack','fun-pair','fun-dc-filter','fun-dither','fun-monofilter',
  'fun-stereo-pack','fun-lo-fi-pack','fun-dimension-expander','fun-volume-shaper',
  'fun-analysis-pack',
- 'fun-drum-pad','fun-plate','fun-room','fun-ott','fun-clip-distortion',
+ 'nyan-8bit','fun-drum-pad','fun-plate','fun-room','fun-ott','fun-clip-distortion',
  'fun-waveshaper','fun-kick','fun-sampler','basic-filter-pack'
 ]);
 const nineThemeFeatureLabels={
@@ -280,7 +280,8 @@ const nineThemeFeatureLabels={
  en:'9 SELECTABLE COLOUR THEMES',
  de:'9 WÄHLBARE FARBTHEMEN',
  fr:'9 THÈMES DE COULEUR AU CHOIX',
- ru:'9 ЦВЕТОВЫХ ТЕМ НА ВЫБОР'
+ ru:'9 ЦВЕТОВЫХ ТЕМ НА ВЫБОР',
+ 'zh-CN':'9 种可选 GUI 配色主题'
 };
 
 

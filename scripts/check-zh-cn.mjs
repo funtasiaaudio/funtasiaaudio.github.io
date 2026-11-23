@@ -286,4 +286,35 @@ console.log('zh-CN Audio PDF manual language labels: PASS (5 English manuals exp
 
 
 
+// Nyan 8bit "View details" is injected only when a matching detail key exists.
+const nyanDetailData=read('catalog/product-details.js');
+const nyanDetailUi=read('catalog/catalog.js');
+const nyanLocalized=read('catalog/product-localized.js');
+const nyanChinese=read('catalog/product-zh-cn.js');
+assert.ok(nyanDetailData.includes("window.FUN_PRODUCT_DETAILS['nyan-8bit']={"),
+  'Nyan 8bit detail record missing: the details button will not be created');
+assert.ok(nyanDetailUi.includes("const item=details[key];") &&
+  nyanDetailUi.includes("btn.className='mini-btn detail-btn'"),
+  'Product details button auto-generation changed');
+assert.ok(nyanDetailUi.includes("'Nyan 8bit':'synth'"),
+  'Nyan 8bit is not categorized as a synthesizer');
+for(const lang of ['ja','de','fr','ru']){
+  assert.ok(nyanLocalized.includes('window.FUN_PRODUCT_LOCALIZED.'+lang+'["nyan-8bit"]='),
+    'Missing Nyan 8bit detailed localization for '+lang);
+}
+assert.ok(nyanChinese.includes('"nyan-8bit": {'), 'Missing Chinese Nyan 8bit details');
+for(const lang of ['ja','en','de','fr','ru','zh-cn']){
+  const page=read('catalog/'+lang+'/index.html');
+  const nyanStart=page.indexOf('<article id="nyan-8bit"');
+  const nyanEnd=page.indexOf('</article>',nyanStart);
+  const card=nyanStart>=0 && nyanEnd>nyanStart ? page.slice(nyanStart,nyanEnd) : '';
+  assert.ok(card && card.includes('data-product-key="nyan-8bit"'),
+    'Missing Nyan 8bit card key in '+lang);
+  for(const script of ['product-details.js','product-localized.js','catalog.js']){
+    assert.ok(page.includes('../'+script+'?v=20261123-nyan-8bit-details'),
+      'Unrefreshed Nyan details script in '+lang+': '+script);
+  }
+}
+console.log('Nyan 8bit detail menu QA: PASS (key, translations, category and six page scripts)');
+
 console.log('zh-CN Audio + Records + Utilities + Goods + Studio static and locale runtime checks: PASS');

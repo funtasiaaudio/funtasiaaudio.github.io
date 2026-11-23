@@ -21,10 +21,13 @@
     ]
   },
   "nyan-8bit": {
-    "summary": "Nyan 8bit 是一款免费的 Windows 64 位 VST3 像素风格合成器，可使用振荡器、噪声、滤波器与芯片音效塑造复古数字音色。",
+    "summary": "Nyan 8bit 是一款免费的 Windows x64 VST3 合成器，结合经典芯片音色与现代音色设计。",
     "paras": [
-      "使用 OSC 1／2、Noise、Filter 与 Amp 设计音色，并通过 Bit Crusher、Rate Reducer 和 Detune 制作经典的低保真与 8 位风格声音。",
-      "支持多声部演奏、预设管理与多种界面主题。v1.0.0 正式发布包包含多语言 PDF 使用手册。"
+      "Nyan 8bit v1.0.0 最初作为音乐制作学习型 DAW「FUNtasia Studio」的内置乐器开发。它保留经典芯片音色的魅力，同时不刻意重现旧硬件的全部限制。",
+      "两个独立振荡器提供 PULSE／TRIANGLE／SAW／SINE 波形，可分别设置音高、音量、PWM 和三角波 CHIP 音色。还包含芯片噪声／白噪声、12／24 dB 多模式滤波器及 ADSR 包络。",
+      "Bit Crusher（1–16 bit）和 Rate Reducer（1–64×）可塑造复古数字质感；独立的 7 声部 Detune 效果可让音色更宽广、厚实，从游戏音乐到现代合成器 Lead 都能胜任。",
+      "支持 POLY／MONO、8／16／32 个活动音符、Glide、MIDI 演奏控制、65 个出厂预设、MUTATE、9 种 GUI 主题，以及 NOS／2×／4×／6×／8× 过采样。提供五种语言的 PDF 手册。",
+      "正式发布的 v1.0.0 版本已通过 pluginval Strictness Level 10 与 Steinberg VST3 Validator Extensive（537 项通过、0 项失败）。"
     ]
   },
   "nyan-buildup": {

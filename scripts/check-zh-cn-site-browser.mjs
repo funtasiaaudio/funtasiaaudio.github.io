@@ -146,7 +146,9 @@ try {
         // Actual DOM verification at all 3 viewport widths, before filters hide cards.
         for(const id of [
           'nyan-buildup','the-hollow-winds','fun-pair',
-          'fun-dynamics-pack','the-resonant-forge','basic-filter-pack'
+          'fun-dynamics-pack','the-resonant-forge','basic-filter-pack',
+          'fun-rack','fun-drum-pad','fun-room','fun-clipper-limiter-pack',
+          'fun-ott','the-deep-roots','fun-clip-distortion','fun-waveshaper','fun-meq'
         ]){
           const card=page.locator('article#'+id);
           const expected='https://funtasiaaudio.github.io/catalog/zh-cn/#'+id;
@@ -156,6 +158,20 @@ try {
           const intent=new URL(rawIntent);
           verify(intent.searchParams.get('url')===expected,
             label+' '+id+' X share should return to zh-CN');
+          verify((await card.locator('a[href*="/releases/tag/"]').first().getAttribute('href'))?.includes('/releases/tag/'),
+            label+' '+id+' product title/notes link should lead to its official published release');
+        }
+        for(const [name,expectedTag] of [
+          ['FUN Dimension Expander','v1.2.3'],
+          ['FUN Volume Shaper','v1.1.0']
+        ]){
+          const product=page.locator('article.card[data-product-name="'+name+'"]');
+          const share=await product.locator('.social-share-btn').getAttribute('href');
+          const release=(await product.locator('a[href*="/releases/tag/"]').first().getAttribute('href'));
+          verify(new URL(share).searchParams.get('url')===release&&release.endsWith('/'+expectedTag),
+            label+' '+name+' X shares an outdated release instead of '+expectedTag);
+          verify((await product.locator('.instagram-share-btn').getAttribute('data-share-url'))===release,
+            label+' '+name+' Instagram and X share destinations disagree');
         }
 
         const enManualLinks=page.locator('article.card a[href$="_EN.pdf"]');

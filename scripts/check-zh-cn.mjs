@@ -172,7 +172,9 @@ assert.ok(zhShareHtml.includes('data-filter="utility" aria-pressed="false">实�
 assert.ok(!zhShareHtml.includes('data-filter="utility" aria-pressed="false">实用工具 (EN)</button>'));
 const zhFallbackShareIds=[
   'nyan-buildup','the-hollow-winds','fun-pair',
-  'fun-dynamics-pack','the-resonant-forge','basic-filter-pack'
+  'fun-dynamics-pack','the-resonant-forge','basic-filter-pack',
+  'fun-rack','fun-drum-pad','fun-room','fun-clipper-limiter-pack',
+  'fun-ott','the-deep-roots','fun-clip-distortion','fun-waveshaper','fun-meq'
 ];
 for (const id of zhFallbackShareIds) {
   const begin=zhShareHtml.indexOf('<article id="'+id+'"');
@@ -194,7 +196,7 @@ assert.equal(
 assert.equal(
   (zhShareHtml.match(/catalog%2Fen%2F%23/g)||[]).length,0,
   'Some encoded X share links still point to the English catalog');
-console.log('zh-CN Audio product social sharing: PASS (6 Chinese-localized X/Instagram URL pairs + localized utility label)');
+console.log('zh-CN Audio product social sharing: PASS (15 Chinese-localized X/Instagram URL pairs + localized utility label)');
 
 // A direct Release asset must be described as a ZIP download, not as
 // "release notes". Keep the documented FUN Dither manual-in-ZIP link
@@ -218,6 +220,36 @@ const releaseNotesLinks=[...zhShareHtml.matchAll(/<a\b[^>]*href="([^"]+\/release
   .filter(match=>match[2].trim()==='更新说明');
 assert.ok(releaseNotesLinks.length>=25,'Expected Chinese update-note buttons on official release pages');
 console.log('zh-CN Audio CTA semantics: PASS (34 ZIP downloads, one manual-in-ZIP, release notes on tag pages)');
+
+// Every product title points to its pinned GitHub release; every share goes
+// either to that same release, or to an anchor that exists on this Chinese page.
+const shareCards=[...zhShareHtml.matchAll(/<article\b([^>]*\bclass="card"[^>]*)>([\s\S]*?)<\/article>/g)];
+assert.equal(shareCards.length,34,'Expected 34 Audio cards for end-to-end share target audit');
+let localizedShares=0, officialShares=0;
+for(const [,attrs,card] of shareCards){
+  const name=attrs.match(/data-product-name="([^"]+)"/)?.[1]||'unnamed';
+  const titleLink=card.match(/^<a href="([^"]+)"/)?.[1];
+  const directZip=card.match(/<a\b[^>]*href="([^"]+\/releases\/download\/[^"]+\.zip)"[^>]*>下载<\/a>/)?.[1];
+  assert.ok(titleLink&&directZip,'Missing official title or ZIP link on '+name);
+  const expectedTag=directZip.replace(/\/releases\/download\/([^/]+)\/[^/]+\.zip$/,'/releases/tag/$1');
+  assert.equal(titleLink,expectedTag,'Product title points to an outdated/English legacy page: '+name);
+  const intent=card.match(/class="mini-btn social-share-btn" href="([^"]+)"/)?.[1];
+  const instagram=card.match(/class="mini-btn instagram-share-btn"[^>]*data-share-url="([^"]+)"/)?.[1];
+  assert.ok(intent&&instagram,'Missing social share action on '+name);
+  const xTarget=new URL(intent.replaceAll('&amp;','&')).searchParams.get('url');
+  assert.equal(xTarget,instagram,'X and Instagram point to different product versions/locales: '+name);
+  if(xTarget===expectedTag) {officialShares++;continue;}
+  const cardId=attrs.match(/\bid="([^"]+)"/)?.[1];
+  assert.ok(cardId,'Localized shared card has no fragment ID: '+name);
+  assert.equal(xTarget,'https://funtasiaaudio.github.io/catalog/zh-cn/#'+cardId,
+    'Share link points away from the Chinese card or official release: '+name);
+  localizedShares++;
+}
+assert.equal(localizedShares,15,'Expected fifteen Chinese card-localized share targets');
+assert.equal(officialShares,19,'Expected nineteen pinned release share targets');
+assert.ok(!/funtasia-audio(?:%2F|\/)(?:%23|#)/i.test(zhShareHtml),
+  'Chinese Audio still links/shares to the legacy English project card anchors');
+console.log('zh-CN Audio share destinations: PASS (15 Chinese anchors + 19 current release URLs)');
 
 const englishManualLinks=[...zhShareHtml.matchAll(
   /<a\b[^>]*href="([^"]+_EN\.pdf)"[^>]*>([\s\S]*?)<\/a>/g

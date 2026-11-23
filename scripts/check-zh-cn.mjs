@@ -196,6 +196,29 @@ assert.equal(
   'Some encoded X share links still point to the English catalog');
 console.log('zh-CN Audio product social sharing: PASS (6 Chinese-localized X/Instagram URL pairs + localized utility label)');
 
+// A direct Release asset must be described as a ZIP download, not as
+// "release notes". Keep the documented FUN Dither manual-in-ZIP link
+// distinct from the 34 primary product downloads.
+const zipButtons=[...zhShareHtml.matchAll(/<a\b[^>]*href="([^"]+\/releases\/download\/[^"]+\.zip)"[^>]*>([^<]+)<\/a>/g)]
+  .map(match=>({href:match[1],label:match[2].trim()}));
+assert.equal(zipButtons.length,35,'Expected 34 official Audio ZIP CTAs plus one Dither manual-in-ZIP link');
+const primaryDownloads=zipButtons.filter(button=>button.label!=='PDF 手册（包含在 ZIP 中）');
+assert.equal(primaryDownloads.length,34,'All 34 product ZIP CTAs must be present');
+for(const button of primaryDownloads)
+  assert.equal(button.label,'下载','Direct ZIP link falsely labelled as a release/document page: '+button.href);
+assert.equal(zipButtons.filter(button=>button.label==='PDF 手册（包含在 ZIP 中）').length,1,
+  'The Dither PDF manual link must disclose that it leads to a ZIP bundle');
+const monoFilterCard=zhShareHtml.match(/<article\b[^>]*data-product-key="fun-monofilter"[^>]*>[\s\S]*?<\/article>/)?.[0];
+assert.ok(monoFilterCard,'MonoFilter Chinese product card missing');
+assert.ok(monoFilterCard.includes('releases/download/v1.1.0/FUN.MonoFilter.1.1.0.zip" target="_blank" rel="noopener noreferrer">下载</a>'),
+  'MonoFilter direct ZIP button needs accurate download-only label');
+assert.ok(monoFilterCard.includes('releases/tag/v1.1.0'),
+  'MonoFilter release notes must remain reachable from the product title');
+const releaseNotesLinks=[...zhShareHtml.matchAll(/<a\b[^>]*href="([^"]+\/releases\/tag\/[^"]+)"[^>]*>([^<]+)<\/a>/g)]
+  .filter(match=>match[2].trim()==='更新说明');
+assert.ok(releaseNotesLinks.length>=25,'Expected Chinese update-note buttons on official release pages');
+console.log('zh-CN Audio CTA semantics: PASS (34 ZIP downloads, one manual-in-ZIP, release notes on tag pages)');
+
 const englishManualLinks=[...zhShareHtml.matchAll(
   /<a\b[^>]*href="([^"]+_EN\.pdf)"[^>]*>([\s\S]*?)<\/a>/g
 )];

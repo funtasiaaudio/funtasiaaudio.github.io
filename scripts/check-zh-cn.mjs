@@ -255,6 +255,25 @@ assert.ok(!/funtasia-audio(?:%2F|\/)(?:%23|#)/i.test(zhShareHtml),
   'Chinese Audio still links/shares to the legacy English project card anchors');
 console.log('zh-CN Audio share destinations: PASS (15 Chinese anchors + 19 current release URLs)');
 
+// The Chinese MEQ card alone depends on a secondary Pages host for artwork.
+// Keep the published primary image URL for visual parity, but ensure there is
+// a local accessible alternative if that host cannot be reached.
+const meqArtwork=zhShareHtml.match(/<article\b[^>]*data-product-name="FUN MEQ"[^>]*>[\s\S]*?<\/article>/)?.[0];
+assert.ok(meqArtwork,'FUN MEQ product card missing');
+assert.ok(meqArtwork.includes('src="https://funtasiaaudio.github.io/funtasia-audio/card-fun-meq-v1.1.0.webp"'),
+  'Official MEQ primary artwork should retain its original URL');
+assert.ok(meqArtwork.includes('this.src=&#39;') === false,
+  'MEQ fallback script unexpectedly encoded as an HTML entity');
+assert.ok(meqArtwork.includes("this.src='../assets/card-fun-meq-fallback.svg'"),
+  'MEQ image needs a local fallback for restricted-network readers');
+assert.ok(meqArtwork.includes("this.onerror=null") && meqArtwork.includes("本地备用插画"),
+  'MEQ fallback must avoid recursive image errors and identify illustrative artwork in Chinese');
+const meqOfflineAsset=read('catalog/assets/card-fun-meq-fallback.svg');
+assert.ok(meqOfflineAsset.includes('<svg ') && meqOfflineAsset.includes('FUN MEQ') &&
+  meqOfflineAsset.includes('ILLUSTRATIVE ONLY'),
+  'Missing/incorrect local MEQ fallback SVG');
+console.log('zh-CN FUN MEQ secondary-host image fallback: PASS (local SVG and accurate alt)');
+
 const englishManualLinks=[...zhShareHtml.matchAll(
   /<a\b[^>]*href="([^"]+_EN\.pdf)"[^>]*>([\s\S]*?)<\/a>/g
 )];

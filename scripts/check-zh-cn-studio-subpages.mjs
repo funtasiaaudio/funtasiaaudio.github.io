@@ -97,6 +97,33 @@ for (const originalName of [
   '対位法', '新しい和声', '作曲基礎理論', '汎用アレンジ'
 ]) assert.ok(cnStudy.includes(originalName), `Original Japanese book title missing: ${originalName}`);
 
+// The Chinese guide promises exact original Japanese book titles.
+// An aria-label elsewhere on the page must not mask a translated/incorrect
+// visible heading; annotate the titles for correct screen-reader language.
+const studyBookHeadings = html => [...html.matchAll(/<h3\b([^>]*)>([\s\S]*?)<\/h3>/g)]
+  .map(m => ({attributes:m[1],text:m[2].replace(/<[^>]+>/g,'').trim()}));
+const originalStudyHeadings=studyBookHeadings(enStudy);
+const chineseStudyHeadings=studyBookHeadings(cnStudy);
+const exactJapaneseTitles=[
+  '音符と鍵盤でおぼえるわかりやすい楽典',
+  '楽典 理論と実習（新装版）',
+  'コード理論大全',
+  '対位法',
+  '新しい和声',
+  '作曲基礎理論～専門学校のカリキュラムに基づいて～',
+  '汎用アレンジ～専門学校のカリキュラムに基づいて～'
+];
+assert.equal(chineseStudyHeadings.filter(h=>/\blang="ja"/.test(h.attributes)).length,7,
+  'Seven Japanese book headings must be explicitly marked lang=ja');
+for(const title of exactJapaneseTitles){
+  assert.ok(originalStudyHeadings.some(h=>h.text===title),
+    'Expected Japanese title absent from official source: '+title);
+  assert.ok(chineseStudyHeadings.some(h=>h.text===title&&/\blang="ja"/.test(h.attributes)),
+    'Chinese guide does not display and language-tag the original Japanese title: '+title);
+}
+assert.ok(!chineseStudyHeadings.some(h=>['对位法','新的和声'].includes(h.text)),
+  'Chinese translation must not replace a published Japanese book title');
+
 for (const [file, html] of [
   ['studio/official/expansions/zh-cn/index.html', cnExpansion],
   ['studio/official/zh-cn/study/index.html', cnStudy],

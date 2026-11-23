@@ -305,7 +305,9 @@ for(const lang of ['ja','de','fr','ru']){
 assert.ok(nyanChinese.includes('"nyan-8bit": {'), 'Missing Chinese Nyan 8bit details');
 for(const lang of ['ja','en','de','fr','ru','zh-cn']){
   const page=read('catalog/'+lang+'/index.html');
-  const card=page.match(/<article id="nyan-8bit"[^>]*>[\\s\\S]*?<\\/article>/)?.[0];
+  const nyanStart=page.indexOf('<article id="nyan-8bit"');
+  const nyanEnd=page.indexOf('</article>',nyanStart);
+  const card=nyanStart>=0 && nyanEnd>nyanStart ? page.slice(nyanStart,nyanEnd) : '';
   assert.ok(card && card.includes('data-product-key="nyan-8bit"'),
     'Missing Nyan 8bit card key in '+lang);
   for(const script of ['product-details.js','product-localized.js','catalog.js']){

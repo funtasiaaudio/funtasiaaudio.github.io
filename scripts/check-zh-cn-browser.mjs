@@ -128,6 +128,16 @@ try {
     for (const [route, name] of locations)
       await inspect(page, route, viewport, name + '-' + width);
 
+    // Original-language bibliography titles must remain exact and expose
+    // their Japanese language to assistive technology in every viewport.
+    const japaneseBookHeadings=page.locator('h3[lang="ja"]');
+    verify(await japaneseBookHeadings.count()===7,
+      'Chinese study page should language-tag all seven original Japanese book titles at '+width);
+    const displayedTitles=await japaneseBookHeadings.allTextContents();
+    for(const title of ['対位法','新しい和声','コード理論大全']){
+      verify(displayedTitles.some(text=>text.trim()===title),
+        'Chinese study book heading lost its original Japanese title '+title+' at '+width);
+    }
     // The interactive 5-pack browser must function in Chromium, not only a mocked DOM.
     await page.goto(origin + '/studio/official/expansions/zh-cn/', { waitUntil: 'load' });
     const result = page.locator('[data-pack-results]');

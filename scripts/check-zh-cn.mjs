@@ -16,15 +16,19 @@ const en = read('catalog/en/index.html');
 const zh = read('catalog/zh-cn/index.html');
 const source = read('catalog/product-zh-cn.js');
 const links = html => [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1]);
+// Source parity applies to actual release assets and local artwork/manuals.
+// Text links to releases may intentionally differ when the localized page
+// replaces an old English-only legacy-project title link with the pinned tag.
 const releaseLinks = html => links(html).filter(u =>
-  u.startsWith('https://github.com/funtasiaaudio/') || u.startsWith('../assets/')).sort();
+  (u.startsWith('https://github.com/funtasiaaudio/') && u.includes('/releases/download/')) ||
+  u.startsWith('../assets/')).sort();
 
 assert.equal((zh.match(/class="card" data-version=/g) || []).length + 
   (zh.match(/id="funtasia-free-collection" class="card"/g) || []).length +
   (zh.match(/id="nyan-buildup" class="card"/g) || []).length, 34,
   'Expected 34 products');
 assert.deepEqual(releaseLinks(zh), releaseLinks(en),
-  'Download and product image links differ from English catalog');
+  'Published ZIP and product asset links differ from English catalog');
 assert.ok(zh.includes('data-product-key="fun-plate"'), 'FUN Plate card missing');
 assert.ok(zh.includes('FUNtasia.Free.Collection.1.1.0.zip'), 'Free Collection version stale');
 assert.ok(zh.includes('../product-plate.js?v=20261122-plate-free-100'), 'FUN Plate details missing');

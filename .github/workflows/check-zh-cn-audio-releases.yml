@@ -2,14 +2,14 @@ name: FUNtasia Audio catalog release integrity
 
 on:
   push:
-    branches: [feature/zh-cn-studio-subpages-20261123]
+    branches: [main, feature/zh-cn-studio-subpages-20261123]
     paths:
       - 'catalog/**'
       - 'docs/zh-cn-audio-release-pins.json'
       - 'scripts/check-zh-cn-audio-release-metadata.mjs'
       - '.github/workflows/check-zh-cn-audio-releases.yml'
   pull_request:
-    branches: [feature/zh-cn-studio-20261123]
+    branches: [main, feature/zh-cn-studio-20261123]
     paths:
       - 'catalog/**'
       - 'docs/zh-cn-audio-release-pins.json'

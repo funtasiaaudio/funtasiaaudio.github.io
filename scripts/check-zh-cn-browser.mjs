@@ -103,6 +103,25 @@ async function inspect(page, pathName, viewport, label) {
   }
   verify(state.brokenImages.length === 0,
     label + ' failed to load local images: ' + state.brokenImages.join(', '));
+  if(pathName==='/studio/official/zh-cn/'){
+    const alternatives=await page.locator('main img[alt]').evaluateAll(images=>
+      images.map(img=>({alt:img.alt,src:img.getAttribute('src')})));
+    verify(alternatives.length===17,
+      label+' should expose nine themes and eight screenshot descriptions');
+    for(const image of alternatives){
+      verify(/[\u3400-\u9fff]/u.test(image.alt),
+        label+' missing Chinese image description: '+image.src);
+      verify(!/\b(?:dark charcoal|warm mocha|deep navy|muted rose|amber brown|forest green|piano roll with|showing an|mixer with|device rack with|sample browser|scale browser|voicing browser|pedal harp feature)\b/i.test(image.alt),
+        label+' image description retains English sentence: '+image.src);
+    }
+    const themes=await page.locator('.theme figure').evaluateAll(figures=>figures.map(figure=>({
+      name:figure.querySelector('figcaption')?.textContent.trim()||'',
+      alt:figure.querySelector('img')?.getAttribute('alt')||''
+    })));
+    verify(themes.length===9,label+' lost a named colour theme');
+    for(const theme of themes)
+      verify(theme.alt.includes(theme.name),label+' theme alt missing '+theme.name);
+  }
   report.push({ page: pathName, viewport, ...state });
   await page.screenshot({
     path: path.join(screenshots, label + '.png'),

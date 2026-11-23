@@ -81,6 +81,29 @@ assert.ok(cnExpansion.includes('Orchestral Percussion 的原始录音采用 CC0�
 assert.ok(cnExpansion.includes('Fantasy Folk 允许在具有实质性原创内容的 DAW 工程中分享可编辑 MIDI'),
  'Creative work DAW sharing permission must remain visible');
 
+// The Studio landing page contains nine colour-theme screenshots and eight
+// feature screenshots. Chinese image alternatives must describe the content
+// in Chinese rather than appending 界面截图 to an English sentence.
+const landingImages=html=>[...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"[^>]*\balt="([^"]*)"[^>]*>/g)]
+  .map(match=>({src:match[1].replace(/^(\.\.\/)?assets\//,'assets/'),alt:match[2]}));
+const cnLandingImages=landingImages(cnStudio);
+const enLandingImages=landingImages(load('studio/official/index.html'));
+assert.equal(cnLandingImages.length,17,'Expected nine Studio themes plus eight feature images');
+assert.deepEqual(cnLandingImages.map(x=>x.src),enLandingImages.map(x=>x.src),
+  'Chinese Studio image list differs from official English source');
+for(const image of cnLandingImages){
+  assert.ok(/[\u3400-\u9fff]/u.test(image.alt),
+    'Missing Simplified Chinese descriptive text: '+image.src);
+  assert.ok(!/\b(?:dark charcoal|warm mocha|deep navy|muted rose|amber brown|forest green|piano roll with|showing an|mixer with|device rack with|sample browser|scale browser|voicing browser|pedal harp feature)\b/i.test(image.alt),
+    'English descriptive sentence remained in Chinese image text: '+image.src);
+}
+for(const name of ['Charcoal','Deep Brown','Lapis Lazuli','Lavender','Coral Red',
+                   'Mikan Orange','Original Sage','Sakura Pink','Aquamarine']){
+  assert.ok(cnLandingImages.some(x=>x.alt.includes(name)),
+    'A Studio theme lost its published name in a Chinese alt: '+name);
+}
+console.log('Chinese Studio image alternatives: PASS (17 meaningful descriptions, original image sources and theme names)');
+
 assert.ok(cnStudio.includes('href="../expansions/zh-cn/"'));
 assert.ok(cnStudio.includes('href="study/"'));
 assert.ok(js.includes('zh ? `显示'));

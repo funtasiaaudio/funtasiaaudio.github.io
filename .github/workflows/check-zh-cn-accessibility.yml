@@ -2,7 +2,7 @@ name: Simplified Chinese automated accessibility audit
 
 on:
   push:
-    branches: [feature/zh-cn-studio-subpages-20261123]
+    branches: [main, feature/zh-cn-studio-subpages-20261123]
     paths:
       - 'studio/**'
       - 'catalog/**'
@@ -18,7 +18,7 @@ on:
       - 'scripts/check-zh-cn-accessibility.mjs'
       - '.github/workflows/check-zh-cn-accessibility.yml'
   pull_request:
-    branches: [feature/zh-cn-studio-20261123]
+    branches: [main, feature/zh-cn-studio-20261123]
     paths:
       - 'studio/**'
       - 'catalog/**'

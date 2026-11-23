@@ -2,7 +2,7 @@ name: Simplified Chinese site checks
 
 on:
   push:
-    branches: ['feature/zh-cn-audio-localization-20261122', 'feature/zh-cn-studio-20261123', 'feature/zh-cn-studio-subpages-20261123']
+    branches: [main, 'feature/zh-cn-audio-localization-20261122', 'feature/zh-cn-studio-20261123', 'feature/zh-cn-studio-subpages-20261123']
   pull_request:
     branches: [main, feature/zh-cn-audio-localization-20261122, feature/zh-cn-studio-20261123]
     paths:

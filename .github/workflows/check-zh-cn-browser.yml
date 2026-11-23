@@ -2,7 +2,7 @@ name: Simplified Chinese Studio browser QA
 
 on:
   push:
-    branches: [feature/zh-cn-studio-subpages-20261123]
+    branches: [main, feature/zh-cn-studio-subpages-20261123]
     paths:
       - 'studio/**'
       - 'catalog/**'
@@ -21,7 +21,7 @@ on:
       - 'scripts/check-zh-cn-external-fallback.mjs'
       - '.github/workflows/check-zh-cn-browser.yml'
   pull_request:
-    branches: [feature/zh-cn-studio-20261123]
+    branches: [main, feature/zh-cn-studio-20261123]
     paths:
       - 'studio/**'
       - 'scripts/check-zh-cn-browser.mjs'

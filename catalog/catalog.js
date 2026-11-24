@@ -16,6 +16,7 @@ const tr=labels[localeFilter]||labels.en;
 const effectGenres=['eq','dynamics','distortion','reverb','modulation','other'];
 const instrumentGenres=['synth','physical','sampler','drum'];
 const genreByName={
+'FUN Saturator & Distortion Pack':'distortion',
 'Nyan 8bit':'synth','Nyan BuildUp':'other',
 'FUN Motion Pack':'modulation','FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Room':'reverb','FUN Plate':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
 'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'

@@ -6,10 +6,12 @@
   const library = (window.FUN_PRODUCT_LOCALIZED ||= {});
   library[locale] = {...(library[locale] || {}), ...{
   "funtasia-free-collection": {
-    "summary": "FUNtasia Free Collection 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
+    "summary": "FUNtasia Free Collection v1.1.3 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
     "paras": [
-      "FUNtasia Free Collection 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
-      "v1.1.1 新增 Nyan 8bit v1.0.0 复古芯片风格合成器；各插件仍保留各自的版本号。下载 ZIP 后，请按插件类型将 VST3 安装到 Windows 的插件目录。"
+      "FUNtasia Free Collection v1.1.3 将已公开的免费效果器、乐器与音频工具集中在一个 Windows x64 VST3 下载包中。",
+      "v1.1.3 新增 FUN Saturator & Distortion Pack，包含两款独立效果器：FUN Saturator v1.0.9 用于谐波饱和与音色塑造，FUN Distortion v1.0.1 用于创意失真。两款插件均附六种语言的 PDF 手册。",
+      "v1.1.1 新增 Nyan 8bit v1.0.0，具备双振荡器和 7 声部 Detune 的复古芯片风格合成器。",
+      "v1.1.0 新增 FUN Plate FREE v1.0.0。各插件仍保留各自的版本号。下载 ZIP 后，请按插件类型将 VST3 安装到 Windows 的插件目录。"
     ]
   },
   "fun-plate": {

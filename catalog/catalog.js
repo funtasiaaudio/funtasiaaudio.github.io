@@ -287,12 +287,13 @@ const nineThemeFeatureLabels={
 
 
 
-/* FUNtasia Free Collection v1.1.3 — Saturator & Distortion added; prior release history retained. */
+/* FUNtasia Free Collection v1.1.4 — FUN Delay added; prior release history retained. */
 details['funtasia-free-collection']={
  lead:'All free FUNtasia Audio plugins in one collection.',
  paras:[
-  'FUNtasia Free Collection v1.1.3 brings free FUNtasia Audio effects, instruments, mixing tools and analyzers together in one Windows x64 VST3 download.',
-  "NEW IN v1.1.3: FUN Saturator & Distortion Pack adds two independent effects: FUN Saturator v1.0.9 for harmonic saturation and tonal shaping, and FUN Distortion v1.0.1 for creative distortion. PDF manuals for both plugins are included in six languages.",
+  'FUNtasia Free Collection v1.1.4 brings free FUNtasia Audio effects, instruments, mixing tools and analyzers together in one Windows x64 VST3 download.',
+  "New in v1.1.4: FUN Delay v1.0.0 offers up to 20 seconds of delay, six routing styles, chorus with up to seven voices, feedback EQ, wet ducking, tail-preserve bypass and nine GUI colour themes. It uses 64-bit floating-point internal DSP and has PDF manuals in six languages.",
+  "Added in v1.1.3: FUN Saturator & Distortion Pack adds two independent effects: FUN Saturator v1.0.9 for harmonic saturation and tonal shaping, and FUN Distortion v1.0.1 for creative distortion. PDF manuals for both plugins are included in six languages.",
   "v1.1.1 introduced Nyan 8bit v1.0.0, an 8-bit-inspired synth with dual oscillators and 7-voice detune.",
   'NEW IN v1.1.0: FUN Plate FREE v1.0.0 adds the CLASSIC plate reverb engine from FUN Plate Pro, independent 1–7-voice chorus modulation, 24 factory presets and nine GUI color themes. FUN Plate is also available as a separate free plugin.',
   'Previously added in v1.0.9: Nyan BuildUp remains included.',
@@ -301,11 +302,12 @@ details['funtasia-free-collection']={
   'The previously added FUN Modulation Pack (FUN Chorus, FUN Flanger and FUN Phaser) remains included. Each of those three plugins offers nine GUI color themes. Other earlier additions, including The Hollow Winds, remain available.',
   'The collection and its plugins have separate version numbers. Extract the ZIP and install the VST3 files in your Windows VST3 folder.'
  ],
- features:['ALL FREE PLUGINS','NEW: FUN SATURATOR v1.0.9','NEW: FUN DISTORTION v1.0.1','NYAN 8BIT v1.0.0','FUN PLATE FREE v1.0.0','FUN TAPE STOP / FUN AUTO PAN','FUN TUNER / FUN DE-ESSER','CHORUS / FLANGER / PHASER','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
+ features:['ALL FREE PLUGINS','NEW: FUN DELAY v1.0.0','FUN SATURATOR v1.0.9','FUN DISTORTION v1.0.1','NYAN 8BIT v1.0.0','FUN PLATE FREE v1.0.0','FUN TAPE STOP / FUN AUTO PAN','FUN TUNER / FUN DE-ESSER','CHORUS / FLANGER / PHASER','WINDOWS x64 VST3','ONE COLLECTION DOWNLOAD']
 };
 const freeCollectionTranslations={
  ja:[
-  'FUNtasia Free Collection v1.1.3は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
+  'FUNtasia Free Collection v1.1.4は、FUNtasia Audioの無料エフェクト、音源、ミキシングツール、解析ツールをひとつにまとめたWindows x64 VST3コレクションです。',
+  "v1.1.4ではFUN Delay v1.0.0を追加しました。最大20秒のディレイ、6種類のルーティング、最大7ボイスのコーラス、Feedback EQ、Wet Ducking、Tail-Preserve Bypass、9色のGUIテーマに対応。内部DSPは64-bit浮動小数点演算で、6言語のPDFマニュアルを用意しています。",
   "v1.1.3ではFUN Saturator & Distortion Packを追加しました。FUN Saturator v1.0.9は倍音による音色調整、FUN Distortion v1.0.1は創造的な歪みに適した独立したVST3エフェクトです。各製品の6言語PDFマニュアルも同梱しています。",
   "v1.1.1では、デュアルオシレーターと7ヴォイスデチューンを備えたNyan 8bit v1.0.0を追加しました。",
   'v1.1.0ではFUN Plate FREE v1.0.0を追加しました。FUN Plate Pro譲りのCLASSICプレートリバーブ、1〜7 Voicesの独立したCHORUS、24種類のFactory Preset、9種類のカラーテーマを備えています。FUN Plateは単体でも無料で入手できます。',
@@ -316,8 +318,9 @@ const freeCollectionTranslations={
   'コレクションと各プラグインのバージョン番号は独立しています。ZIPを展開し、VST3ファイルをWindowsのVST3フォルダーへ配置してください。'
  ],
  de:[
-  'FUNtasia Free Collection v1.1.3 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
-  "NEU IN v1.1.3: FUN Saturator & Distortion Pack ergänzt zwei eigenständige Effekte: FUN Saturator v1.0.9 für harmonische Sättigung und Klanggestaltung sowie FUN Distortion v1.0.1 für kreative Verzerrung. PDF-Handbücher für beide Plug-ins liegen in sechs Sprachen bei.",
+  'FUNtasia Free Collection v1.1.4 bündelt kostenlose Effekte, Instrumente, Mixing-Tools und Analyse-Plug-ins von FUNtasia Audio in einem Download für Windows x64 VST3.',
+  "Neu in v1.1.4: FUN Delay v1.0.0 bietet bis zu 20 Sekunden Verzögerung, sechs Routing-Modi, Chorus mit bis zu sieben Stimmen, Feedback-EQ, Wet-Ducking, Bypass mit Erhalt der Ausklangphase und neun Farbthemen. Die interne DSP-Verarbeitung erfolgt mit 64-Bit-Gleitkommazahlen; PDF-Handbücher sind in sechs Sprachen verfügbar.",
+  "In v1.1.3: FUN Saturator & Distortion Pack ergänzt zwei eigenständige Effekte: FUN Saturator v1.0.9 für harmonische Sättigung und Klanggestaltung sowie FUN Distortion v1.0.1 für kreative Verzerrung. PDF-Handbücher für beide Plug-ins liegen in sechs Sprachen bei.",
   "In v1.1.1 kam Nyan 8bit v1.0.0 hinzu, ein von 8-Bit-Klängen inspirierter Synthesizer mit zwei Oszillatoren und 7-Voice-Detune.",
   'NEU IN v1.1.0: FUN Plate FREE v1.0.0 ergänzt die CLASSIC-Plate-Hall-Engine aus FUN Plate Pro, unabhängigen Chorus mit 1–7 Stimmen, 24 Factory-Presets und neun Farbthemen. FUN Plate ist auch einzeln kostenlos erhältlich.',
   'Das in v1.0.9 hinzugefügte Nyan BuildUp bleibt enthalten.',
@@ -327,8 +330,9 @@ const freeCollectionTranslations={
   'Die Sammlung und die einzelnen Plug-ins haben separate Versionsnummern. Entpacken Sie die ZIP-Datei und kopieren Sie die VST3-Dateien in den Windows-VST3-Ordner.'
  ],
  fr:[
-  'FUNtasia Free Collection v1.1.3 réunit les effets, instruments, outils de mixage et analyseurs gratuits de FUNtasia Audio dans une archive VST3 pour Windows x64.',
-  "NOUVEAU EN v1.1.3 : FUN Saturator & Distortion Pack ajoute deux effets indépendants : FUN Saturator v1.0.9 pour la saturation harmonique et FUN Distortion v1.0.1 pour la distorsion créative. Les manuels PDF des deux plug-ins sont inclus en six langues.",
+  'FUNtasia Free Collection v1.1.4 réunit les effets, instruments, outils de mixage et analyseurs gratuits de FUNtasia Audio dans une archive VST3 pour Windows x64.',
+  "La v1.1.4 ajoute FUN Delay v1.0.0 : retard jusqu’à 20 secondes, six modes de routage, chorus jusqu’à sept voix, EQ du feedback, ducking du signal wet, bypass préservant les queues et neuf thèmes de couleur. Le DSP interne utilise des nombres flottants 64 bits. Manuels PDF disponibles en six langues.",
+  "Ajouté en v1.1.3 : FUN Saturator & Distortion Pack ajoute deux effets indépendants : FUN Saturator v1.0.9 pour la saturation harmonique et FUN Distortion v1.0.1 pour la distorsion créative. Les manuels PDF des deux plug-ins sont inclus en six langues.",
   "La v1.1.1 a introduit Nyan 8bit v1.0.0, un synthétiseur inspiré des sons 8 bits, avec deux oscillateurs et un detune à 7 voix.",
   'NOUVEAU EN v1.1.0 : FUN Plate FREE v1.0.0 ajoute le moteur de réverbération à plaque CLASSIC de FUN Plate Pro, un chorus indépendant de 1 à 7 voix, 24 presets d’usine et neuf thèmes de couleur. FUN Plate est également disponible gratuitement séparément.',
   'Nyan BuildUp, ajouté en v1.0.9, reste inclus.',
@@ -338,8 +342,9 @@ const freeCollectionTranslations={
   'La collection et chaque plug-in ont leurs propres numéros de version. Extrayez le ZIP et copiez les fichiers VST3 dans le dossier VST3 de Windows.'
  ],
  ru:[
-  'FUNtasia Free Collection v1.1.3 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
-  "НОВОЕ В v1.1.3: FUN Saturator & Distortion Pack добавляет два независимых эффекта: FUN Saturator v1.0.9 для гармонического насыщения и FUN Distortion v1.0.1 для творческой дисторсии. PDF-руководства для обоих плагинов доступны на шести языках.",
+  'FUNtasia Free Collection v1.1.4 объединяет бесплатные эффекты, инструменты, средства сведения и анализа FUNtasia Audio в один пакет VST3 для Windows x64.',
+  "В v1.1.4 добавлен FUN Delay v1.0.0: задержка до 20 секунд, шесть схем маршрутизации, хорус до семи голосов, эквалайзер обратной связи, даккинг обработанного сигнала, байпас с сохранением хвоста и девять цветовых тем. Внутренний DSP использует 64-битные числа с плавающей точкой. PDF-руководства доступны на шести языках.",
+  "Добавлено в v1.1.3: FUN Saturator & Distortion Pack добавляет два независимых эффекта: FUN Saturator v1.0.9 для гармонического насыщения и FUN Distortion v1.0.1 для творческой дисторсии. PDF-руководства для обоих плагинов доступны на шести языках.",
   "В v1.1.1 был добавлен Nyan 8bit v1.0.0 — синтезатор в стиле 8-битных звуков с двумя осцилляторами и 7-голосным детюном.",
   'НОВОЕ В v1.1.0: FUN Plate FREE v1.0.0 — движок пластинчатой реверберации CLASSIC из FUN Plate Pro, независимый хорус на 1–7 голосов, 24 заводских пресета и девять цветовых тем. FUN Plate также доступен бесплатно отдельно.',
   'Nyan BuildUp, добавленный в v1.0.9, по-прежнему входит в сборник.',

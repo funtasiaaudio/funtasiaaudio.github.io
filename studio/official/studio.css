@@ -65,3 +65,8 @@ html[lang="ja"] .hero h1{font-size:clamp(2.8rem,4.8vw,5.3rem)}
 .beta14-actions .beta14-main{background:#9bbca3;color:#14291e;border-color:#9bbca3}
 .beta14-actions a:hover,.beta14-actions a:focus-visible{outline:2px solid #d6f0cf;outline-offset:2px}
 @media(max-width:540px){.beta14-spotlight{padding:20px 17px}.beta14-actions{flex-direction:column;align-items:stretch}.beta14-actions a{justify-content:center;text-align:center}}
+
+/* Product name is the primary heading; retain the original localized tagline. */
+.hero .hero-grid h1.studio-title{font-size:clamp(2.1rem,5vw,5.3rem);margin:18px 0 14px;overflow-wrap:normal}
+.hero .studio-tagline{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.3rem,2.5vw,2.1rem);font-weight:400;line-height:1.25;letter-spacing:-.025em;color:var(--sage);margin:0 0 22px}
+.hero .studio-tagline span{display:block}

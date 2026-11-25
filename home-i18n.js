@@ -44,6 +44,8 @@
     studioTag: '#explore #studio .tag',
     studioBody: '#explore #studio p',
     studioMore: '#explore #studio .more',
+    worldBody: '#explore #world p',
+    worldMore: '#explore #world .more',
     utilitiesTag: '#explore #utilities .tag',
     utilitiesBody: '#explore #utilities p',
     utilitiesMore: '#explore #utilities .more',
@@ -76,6 +78,7 @@
     audioAlt: '#explore #audio img',
     recordsAlt: '#explore #records img',
     studioAlt: '#explore #studio img',
+    worldAlt: '#explore #world img',
     utilitiesAlt: '#explore #utilities img',
     goodsAlt: '#explore #goods img',
     storeAlt: '#store .store-product img'
@@ -432,6 +435,10 @@
     "也衷心感谢每一位支持这项工作的朋友。"
 ]
 };
+  const worldCopy = {"en":["Explore ARCANA’s world, characters, music and creative resources. One World. Infinite Stories.","Explore the world →","ARCANA: The Eternal Ensemble"],"de":["Entdecke die Welt, Figuren, Musik und Kreativmaterialien von ARCANA.","Welt entdecken →","ARCANA: The Eternal Ensemble"],"fr":["Découvrez l’univers, les personnages, la musique et les ressources créatives d’ARCANA.","Explorer le monde →","ARCANA : The Eternal Ensemble"],"ru":["Мир, персонажи, музыка и материалы для творчества ARCANA.","Открыть мир →","ARCANA: The Eternal Ensemble"],"zh-CN":["探索 ARCANA 的世界观、角色、音乐和创作资料。","探索世界 →","ARCANA：永恒五重奏"]};
+  for (const [locale, values] of Object.entries(worldCopy)) {
+    Object.assign(copy[locale], { worldBody: values[0], worldMore: values[1], worldAlt: values[2] });
+  }
   const appealNodes = appealKeys.map(key => document.querySelector('[data-appeal="' + key + '"]'));
   const appealOriginal = appealNodes.map(node => node?.innerHTML ?? '');
 
@@ -461,6 +468,7 @@
   const recordsLinks = [...document.querySelectorAll('a[href="records/"]')];
   const utilityLinks = [...document.querySelectorAll('a[href="utilities/"]')];
   const goodsLinks = [...document.querySelectorAll('a[href="goods/"]')];
+  const worldLinks = [...document.querySelectorAll('a[href="world/"]')];
   const studioLinks = [...document.querySelectorAll('a[href="studio/official/ja/"]')];
   const aboutLinks = [...document.querySelectorAll('a[href="about/"]')];
   const supportLinks = [...document.querySelectorAll('a[href="support/"]')];
@@ -516,6 +524,7 @@
     for (const link of recordsLinks) link.href = locale === 'ja' ? 'records/' : 'records/' + (locale === 'zh-CN' ? 'zh-cn' : locale) + '/';
     for (const link of utilityLinks) link.href = 'utilities/?lang=' + locale;
     for (const link of goodsLinks) link.href = 'goods/?lang=' + locale;
+    for (const link of worldLinks) link.href = locale === 'ja' ? 'world/' : 'world/?lang=en';
     for (const link of studioLinks) link.href = locale === 'ja' ? 'studio/official/ja/' : (locale === 'ru' ? 'studio/official/ru/' : (locale === 'zh-CN' ? 'studio/official/zh-cn/' : 'studio/official/'));
     for (const link of aboutLinks) link.href = locale === 'zh-CN' ? 'about/zh-cn/' : 'about/?lang=' + locale;
     for (const link of supportLinks) link.href = locale === 'zh-CN' ? 'support/zh-cn/' : 'support/';

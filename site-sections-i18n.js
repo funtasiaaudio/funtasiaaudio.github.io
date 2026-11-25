@@ -112,6 +112,9 @@
     ["基本キットをダウンロード","Download core kit","Basis-Kit herunterladen","Télécharger le kit de base","Скачать основной комплект"],
     ["個人用のオーダーメイドグッズ制作や、制作を依頼する印刷サービスへの入稿に利用できます。","You may use these files to make custom items for personal use, including submitting them to a print service.","Die Dateien dürfen für persönliche Sonderanfertigungen verwendet und dafür an einen Druckdienst übermittelt werden.","Vous pouvez utiliser ces fichiers pour créer des objets personnalisés à usage personnel, y compris auprès d’un imprimeur.","Эти файлы можно использовать для личных заказных вещей, в том числе отправлять в типографию."],
     ["素材データの再配布・無断販売・公式商品と誤認される利用はご遠慮ください。商用利用を希望する場合はお問い合わせください。","Please do not redistribute the source files, sell merchandise without permission, or imply that your items are official products. Contact us about commercial use.","Bitte die Quelldateien nicht weiterverbreiten, ohne Erlaubnis keine Waren verkaufen und private Artikel nicht als offizielle Produkte darstellen. Für kommerzielle Nutzung bitte Kontakt aufnehmen.","Merci de ne pas redistribuer les fichiers, de vendre des objets sans autorisation ni de les présenter comme des produits officiels. Contactez-nous pour un usage commercial.","Не распространяйте исходные файлы, не продавайте товары без разрешения и не выдавайте их за официальную продукцию. Для коммерческого использования свяжитесь с нами."],
+    ["LINEスタンプストア","LINE Sticker Store","LINE-Sticker-Shop","Boutique de stickers LINE","Магазин стикеров LINE"],
+    ["遥と優春のちびキャラスタンプなど、FUNtasiaのLINEスタンプをお楽しみください。","Enjoy FUNtasia’s LINE stickers, including chibi Haruka and Yasaharu.","Entdecke die LINE-Sticker von FUNtasia, darunter Haruka und Yasaharu im Chibi-Stil.","Découvrez les stickers LINE de FUNtasia, dont Haruka et Yasaharu en version chibi.","Откройте для себя стикеры LINE от FUNtasia, в том числе Харуки и Ясахару в стиле чиби."],
+    ["LINEスタンプストアを見る ↗","Visit the LINE Sticker Store ↗","Zum LINE-Sticker-Shop ↗","Visiter la boutique de stickers LINE ↗","Перейти в магазин стикеров LINE ↗"],
     ["FUNtasiaストア","FUNtasia Store","FUNtasia-Shop","Boutique FUNtasia","Магазин FUNtasia"],
     ["SUZURIでFUNtasiaのグッズをご覧いただけます。商品の種類・価格・配送条件はSUZURIのページでご確認ください。","Explore FUNtasia merchandise on SUZURI. See the SUZURI store for available items, prices, and delivery conditions.","Entdecke FUNtasia-Artikel auf SUZURI. Verfügbare Produkte, Preise und Versandbedingungen findest du direkt bei SUZURI.","Découvrez les articles FUNtasia sur SUZURI. Consultez la boutique pour les produits disponibles, les prix et les conditions de livraison.","Ознакомьтесь с товарами FUNtasia на SUZURI. Ассортимент, цены и условия доставки указаны на сайте SUZURI."],
     ["SUZURIストアを見る ↗","Visit SUZURI store ↗","SUZURI-Shop besuchen ↗","Visiter la boutique SUZURI ↗","Перейти в магазин SUZURI ↗"]
@@ -217,6 +220,9 @@
   "下载基础素材包",
   "可将这些文件用于制作个人使用的定制商品，包括提交给印刷服务商制作。",
   "请勿重新分发源文件、未经许可销售商品，或使他人误认为私人制作的商品是官方产品。如需商业用途，请联系我们。",
+  "LINE 贴图商店",
+  "欢迎使用 FUNtasia 的 LINE 贴图，包括遥与优春的 Q 版角色贴图。",
+  "访问 LINE 贴图商店 ↗",
   "FUNtasia 商店",
   "可在 SUZURI 查看 FUNtasia 周边商品。具体商品、价格与配送条件请以 SUZURI 商店页面为准。",
   "访问 SUZURI 商店 ↗"

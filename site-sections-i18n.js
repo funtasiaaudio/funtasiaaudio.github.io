@@ -231,6 +231,13 @@
     throw new Error('zh-CN translation row count mismatch');
   utilityRows.forEach((row, i) => row.push(zhUtilityRows[i]));
   goodsRows.forEach((row, i) => row.push(zhGoodsRows[i]));
+  goodsRows.push(
+    ["おすすめの制作ショップ","Recommended print shop","Empfohlener Druckservice","Atelier d’impression recommandé","Рекомендуемая мастерская печати","推荐定制店铺"],
+    ["自分だけのFUNtasiaグッズを作ろう。","Make your own FUNtasia goods.","Gestalte deine eigenen FUNtasia-Artikel.","Créez vos propres articles FUNtasia.","Создайте свои собственные вещи FUNtasia.","制作专属于你的 FUNtasia 周边。"],
+    ["CORNER PRINTINGは、Tシャツやパーカーの生地・色・加工方法にこだわりたい方におすすめです。無料の公式ロゴ素材を使って、お好みのアイテムを個人用にオーダーできます。注文・価格・配送条件は制作ショップでご確認ください。","We recommend CORNER PRINTING if you want to choose your own T-shirt or hoodie fabric, color and finish. Use our free official logo assets to order custom items for personal use. Check the print shop for ordering, prices and shipping.","CORNER PRINTING ist unsere Empfehlung, wenn du Stoff, Farbe und Veredelung deiner T-Shirts oder Hoodies selbst wählen möchtest. Nutze unsere kostenlosen offiziellen Logo-Dateien für persönliche Einzelanfertigungen. Bestellablauf, Preise und Versandbedingungen findest du beim Druckservice.","Nous recommandons CORNER PRINTING pour choisir le tissu, la couleur et la finition de vos T-shirts ou sweats à capuche. Utilisez nos logos officiels gratuits pour commander vos propres articles à usage personnel. Consultez l’atelier pour les commandes, les prix et la livraison.","Рекомендуем CORNER PRINTING тем, кто хочет самостоятельно выбирать ткань, цвет и способ нанесения на футболки и худи. Используйте бесплатные официальные логотипы для индивидуального заказа в личных целях. Условия заказа, цены и доставки уточняйте у мастерской.","如果你希望自由选择 T 恤或连帽卫衣的面料、颜色和加工方式，我们推荐 CORNER PRINTING。你可以使用免费的官方标志素材，定制个人使用的商品。下单、价格及配送条件请以定制店铺为准。"],
+    ["CORNER PRINTINGを見る ↗","Visit CORNER PRINTING ↗","Zu CORNER PRINTING ↗","Visiter CORNER PRINTING ↗","Перейти в CORNER PRINTING ↗","访问 CORNER PRINTING ↗"],
+    ["無料ロゴ素材をダウンロード ↓","Download free logo assets ↓","Kostenlose Logo-Dateien herunterladen ↓","Télécharger les logos gratuits ↓","Скачать бесплатные логотипы ↓","下载免费标志素材 ↓"]
+  );
   const localeIndex = {ja: 0, en: 1, de: 2, fr: 3, ru: 4, 'zh-CN': 5};
   const rows = page === 'utilities' ? utilityRows : goodsRows;
   const byJapanese = new Map(rows.map(row => [row[0], row]));

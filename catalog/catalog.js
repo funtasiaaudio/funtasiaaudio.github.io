@@ -68,7 +68,7 @@ function attachCatalogArtwork(card){
  productLink.before(imageLink);
  imageLink.append(image);
  // Leave the Free Collection unmarked; every other current catalog entry supports 9 themes.
- if(!['funtasia-free-collection','fantasia'].includes(card.dataset.productKey)){
+ if(card.dataset.category!=='library'&&!['funtasia-free-collection','fantasia'].includes(card.dataset.productKey)){
   const mark=document.createElement('img');
   mark.className='nine-color-theme-mark';
   mark.src='../assets/nine-color-theme-mark.svg';
@@ -89,6 +89,11 @@ function attachCatalogArtwork(card){
  saveLink.textContent=artworkText.save;
  saveLink.setAttribute('aria-label',card.dataset.productName+' — '+artworkText.save);
  actions.prepend(saveLink);
+ if(card.dataset.category==='library'){
+  const hideUnavailableArtwork=()=>{imageLink.hidden=true;saveLink.hidden=true;};
+  image.addEventListener('error',hideUnavailableArtwork,{once:true});
+  if(image.complete&&image.naturalWidth===0)hideUnavailableArtwork();
+ }
 }
 for(const card of cards)attachCatalogArtwork(card);
 
@@ -171,16 +176,19 @@ function filter(){
  const q=(search?.value||'').toLocaleLowerCase().trim();let n=0;
  for(const c of cards){
   const visible=c.dataset.productName.toLocaleLowerCase().includes(q)
-   &&(active==='all'||c.dataset.category===active)
+   &&(active==='all'?c.dataset.category!=='library':c.dataset.category===active)
    &&(activeGenre==='all'||c.dataset.genre===activeGenre)
    &&(activePrice==='all'||c.dataset.pricing===activePrice);
   c.hidden=!visible;if(visible)n++;
  }
- if(count)count.textContent=n+' '+unit;
+ if(count)count.textContent=n+' '+(active==='library'?(count.dataset.libraryUnit||'libraries'):unit);
  const empty=document.querySelector('#empty-state');if(empty)empty.hidden=n!==0;
 }
 search?.addEventListener('input',filter);
-for(const b of filters)b.addEventListener('click',()=>{active=b.dataset.filter;activeGenre='all';for(const x of filters)x.setAttribute('aria-pressed',String(x===b));renderGenres();filter();});
+function selectCategory(b){active=b.dataset.filter;activeGenre='all';for(const x of filters)x.setAttribute('aria-pressed',String(x===b));renderGenres();filter();}
+for(const b of filters)b.addEventListener('click',()=>{selectCategory(b);if(active!=='library'&&cards.some(c=>c.dataset.category==='library'&&location.hash==='#'+c.id))history.replaceState(null,'',location.pathname+location.search);});
+function openLinkedLibrary(){const card=cards.find(c=>c.dataset.category==='library'&&location.hash==='#'+c.id);const button=filters.find(b=>b.dataset.filter==='library');if(card&&button){if(search)search.value='';selectCategory(button);card.scrollIntoView({block:'start'});}}
+window.addEventListener('hashchange',openLinkedLibrary);
 for(const input of priceBar.querySelectorAll('input'))input.addEventListener('change',()=>{
  activePrice=input.checked?input.value:'all';
  for(const other of priceBar.querySelectorAll('input'))other.checked=other.value===activePrice;
@@ -200,7 +208,7 @@ for(const b of document.querySelectorAll('.instagram-share-btn'))b.addEventListe
   window.alert(({ja:'製品名とURLをコピーしました。Instagramで貼り付けてください。',en:'Product name and URL copied. Paste them into Instagram.',de:'Produktname und URL kopiert. In Instagram einfügen.',fr:'Nom et URL du produit copiés. Collez-les dans Instagram.',ru:'Название и ссылка скопированы. Вставьте их в Instagram.','zh-CN':'产品名称和链接已复制，请粘贴到 Instagram。'})[localeFilter]||'Product URL copied.');
  }catch{window.prompt(localeFilter==='zh-CN'?'复制产品链接':'Copy product link for Instagram',message);}
 });
-renderGenres();filter();
+renderGenres();filter();openLinkedLibrary();
 
 /* GA4 measurement bridge: configure a GTM Custom Event tag for
  * funtasia_product_download_click before counting these as GA4 events.

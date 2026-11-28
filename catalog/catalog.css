@@ -130,3 +130,8 @@ html{scroll-behavior:smooth}
  color:var(--light);
  font:12px/1.55 Arial,sans-serif;
 }
+
+/* Fantasia Libraries use uncropped square artwork, independent of plugin cards. */
+.card[data-category="library"] .shot,.card[data-category="library"] .shot[style]{aspect-ratio:1/1!important;object-fit:contain!important;height:auto!important}
+.card[data-category="library"] .card-image-link[hidden],.card[data-category="library"] .image-download-btn[hidden]{display:none}
+.card[data-category="library"]{scroll-margin-top:24px}

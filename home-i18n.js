@@ -91,8 +91,8 @@
 
   const copy = {
     en: {
-      title: 'FUNtasia | A World of Music and Creation',
-      description: 'Discover FUNtasia music, audio plug-ins, a DAW, creative utilities, and the people behind them.',
+      title: 'FUNtasia Official Site | FUNtasia Audio, Studio & Records',
+      description: 'Discover FUNtasia Audio VST3 plugins and instruments, FUNtasia Studio free educational music software, FUNtasia Records and creative utilities.',
       languageLabel: 'Language',
       heroEyebrow: 'One creative universe',
       heroTitle: 'Sound. Creation.<br>Imagination.',
@@ -135,8 +135,8 @@
       logoAria: 'FUNtasia home', navAria: 'Main navigation', languageAria: 'Select website language', quickAria: 'Browse by interest'
     },
     de: {
-      title: 'FUNtasia | Die Welt der Musik und Kreativität',
-      description: 'Entdecke Musik, Audio-Plug-ins, eine DAW, Kreativwerkzeuge und die Menschen hinter FUNtasia.',
+      title: 'FUNtasia Offizielle Website | FUNtasia Audio, Studio & Records',
+      description: 'Entdecke VST3-Plug-ins und Instrumente von FUNtasia Audio, die kostenlose Lernsoftware FUNtasia Studio, FUNtasia Records und Kreativwerkzeuge.',
       languageLabel: 'Sprache',
       heroEyebrow: 'Ein kreatives Universum',
       heroTitle: 'Klang. Kreativität.<br>Fantasie.',
@@ -179,8 +179,8 @@
       logoAria: 'FUNtasia Startseite', navAria: 'Hauptnavigation', languageAria: 'Sprache der Website wählen', quickAria: 'Nach Interesse stöbern'
     },
     fr: {
-      title: 'FUNtasia | Un univers de musique et de création',
-      description: 'Découvrez la musique, les plug-ins audio, la station audionumérique, les outils créatifs et les artistes de FUNtasia.',
+      title: 'Site officiel FUNtasia | FUNtasia Audio, Studio et Records',
+      description: 'Découvrez les plug-ins VST3 et instruments de FUNtasia Audio, le logiciel éducatif gratuit FUNtasia Studio, FUNtasia Records et les outils créatifs.',
       languageLabel: 'Langue',
       heroEyebrow: 'Un univers créatif',
       heroTitle: 'Son. Création.<br>Imagination.',
@@ -223,8 +223,8 @@
       logoAria: 'Accueil FUNtasia', navAria: 'Navigation principale', languageAria: 'Choisir la langue du site', quickAria: 'Explorer par centre d’intérêt'
     },
     ru: {
-      title: 'FUNtasia | Мир музыки и творчества',
-      description: 'Откройте для себя музыку, аудиоплагины, DAW, творческие инструменты и авторов FUNtasia.',
+      title: 'FUNtasia — официальный сайт | FUNtasia Audio, Studio и Records',
+      description: 'Откройте VST3-плагины и инструменты FUNtasia Audio, бесплатную обучающую программу FUNtasia Studio, музыку FUNtasia Records и творческие инструменты.',
       languageLabel: 'Язык',
       heroEyebrow: 'Единая творческая вселенная',
       heroTitle: 'Звук. Творчество.<br>Воображение.',
@@ -267,8 +267,8 @@
       logoAria: 'Главная FUNtasia', navAria: 'Главная навигация', languageAria: 'Выбор языка сайта', quickAria: 'Поиск по интересам'
     },
     'zh-CN': {
-      "title": "FUNtasia｜音乐与创作的世界",
-      "description": "探索 FUNtasia 的音频插件、音乐作品、数字音频工作站及创作工具，了解我们的理念与开发者。",
+      "title": "FUNtasia 官方网站｜FUNtasia Audio、Studio 与 Records",
+      "description": "探索 FUNtasia Audio 的 VST3 插件与虚拟乐器、FUNtasia Studio 免费音乐学习软件、FUNtasia Records 音乐作品及创作工具。",
       "languageLabel": "语言",
       "heroEyebrow": "同一个创意世界",
       "heroTitle": "声音。创作。<br>想象力。",

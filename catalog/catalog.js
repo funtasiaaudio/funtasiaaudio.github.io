@@ -19,7 +19,7 @@ const genreByName={
 'FUN Saturator & Distortion Pack':'distortion',
 'Nyan 8bit':'synth','Nyan BuildUp':'other',
 'FUN Motion Pack':'modulation','FUN Modulation Pack':'modulation','FUN Lo-Fi Pack':'distortion','FUN Pair':'other','FUN Delay':'reverb','FUN Room':'reverb','FUN Plate':'reverb','FUN PreAmp':'distortion','FUN Clipper & Limiter Pack':'dynamics','FUN Dynamics Pack':'dynamics','FUN OTT':'dynamics','FUN Clip Distortion':'distortion','FUN WaveShaper':'distortion','FUN EQ':'eq','FUN MEQ':'eq','FUN Basic Filter Pack':'eq',
-'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
+'FUN Developer Pack':'other','FUN Dimension Expander':'modulation','FUN Dither':'other','FUN Stereo Pack':'other','FUN Volume Shaper':'dynamics','FUN Fader':'other','FUN DC Filter':'eq','FUN Drum Pad':'drum','The Deep Roots':'synth','FUN Kick':'drum','FUN Sampler':'sampler','Fantasia':'sampler','The Resonant Forge':'physical','The Hollow Winds':'physical'
 };
 for(const card of cards){
  const name=card.dataset.productName;
@@ -68,7 +68,7 @@ function attachCatalogArtwork(card){
  productLink.before(imageLink);
  imageLink.append(image);
  // Leave the Free Collection unmarked; every other current catalog entry supports 9 themes.
- if(card.dataset.productKey!=='funtasia-free-collection'){
+ if(!['funtasia-free-collection','fantasia'].includes(card.dataset.productKey)){
   const mark=document.createElement('img');
   mark.className='nine-color-theme-mark';
   mark.src='../assets/nine-color-theme-mark.svg';
